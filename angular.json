@@ -127,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "DemandResponse"
+    }
+  },
+  "defaultProject": "DemandResponse",
+  "cli": {
+    "analytics": "9d7b2d82-aa48-40e0-945f-dfd79f8854b6"
+  }
 }
