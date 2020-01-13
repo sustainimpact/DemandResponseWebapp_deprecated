@@ -5,11 +5,11 @@
     justify-content: flex-end;
 }
 .select-customer-drevent{
-font-family: SourceSansPro-Regular;
-font-size: 16px;
-color: #2E2E2E;
-height: 55px;
-align-items: center;
+    font-family: SourceSansPro-Regular;
+    font-size: 16px;
+    color: #2E2E2E;
+    height: 55px;
+    align-items: center;
 display: flex;
 }
 .select-customer{
@@ -18,9 +18,8 @@ display: flex;
     display: flex;
     font-family: SourceSansPro-Regular;
 }
-
 row-customer{
- font-family: SourceSansPro-Regular !important;
+    font-family: SourceSansPro-Regular !important;
     font-size: 16px !important;
     color: #2E2E2E !important;
 }
@@ -57,14 +56,10 @@ row-customer{
 }
 .col-all{
     color: #2E2E2E !important;
-        
     font-size: 12px !important;
-    
-    
     height: 32px;
     width: 132px;
 }
-
 .form-control:focus{
     background-color: #fff !important;
     border-color: #ced4da !important;
@@ -78,7 +73,6 @@ row-customer{
     text-align: center!important;
     padding: 7px 30px !important;
     }
- 
 .year{
     font-family: SourceSansPro-Bold!important;
     font-size: 24px;
@@ -99,7 +93,7 @@ row-customer{
     justify-content: center;
 }
 .button-cancel-event{
-    margin-right: 19px;
+    margin-right: 12px;
     border-radius: 4px;
     background: #FFFFFF;
     border: 1px solid #DFE2E5;
@@ -109,16 +103,14 @@ row-customer{
 }
 .btn:focus {
     box-shadow: 0 0 0 0 rgba(0,123,255,.25)!important;
-    
 }
 .all-btn:focus {
     box-shadow: 0 0 0 0 rgba(0,123,255,.25)!important;
     outline: 0px auto -webkit-focus-ring-color !important;
-    
 }
 .table-border{
     border: 1px solid #E4E8EC;
-    height:398px;
+    height:350px;
 }
 .row-top{
     border-top: 1px solid #E4E8EC;
@@ -128,7 +120,7 @@ row-customer{
     border-bottom: 1px solid #E4E8EC;
 }
 .sticky-content{
-    border: 1px solid #B8C1CB;
+    border: 1px solid #d0d4d8;
     position: sticky;
     margin:0px !important;
 }
@@ -136,7 +128,6 @@ row-customer{
     font-family: SourceSansPro-SemiBold;
     font-size: 12px;
     color: #2E2E2E;
-    font-weight: 600;
 }
 .column-one{
     background: #FFFFFF;
@@ -145,7 +136,6 @@ row-customer{
 }
 .box-border{
     border-bottom: 1px solid #E4E8EC !important;
-
 }
 .row-footer{
     font-family: SourceSansPro-SemiBold;
@@ -177,10 +167,8 @@ row-customer{
 }
 .commitement-header{
     opacity: 0.5;
-    font-family: SourceSansPro-SemiBold;
     font-size: 12px;
     color: #2E2E2E;
-    letter-spacing: 0;
 }
 ::-webkit-scrollbar {
     width: 7px;
@@ -188,10 +176,13 @@ row-customer{
   ::-webkit-scrollbar-thumb {
   background-color:#d3d3d3;
   border-radius: 50px;
+  overflow-x: hidden;
 }
 .table-row-scroll{
     overflow: scroll;
-    height:308px;
+    height:70%;
+    overflow-x: hidden;
+    scrollbar-width: thin;
 }
 .footer-back{
     display: flex;
@@ -214,13 +205,11 @@ row-customer{
 .back-btn:focus {
     box-shadow: 0 0 0 0 rgba(0,123,255,.25)!important;
     outline: 0px auto -webkit-focus-ring-color !important;
-    
 }
 
 .drop-button:focus {
     box-shadow: 0 0 0 0 rgba(0,123,255,.25)!important;
     outline: 0px auto -webkit-focus-ring-color !important;
-    
 }
 .drop-button{
     width: 114px;

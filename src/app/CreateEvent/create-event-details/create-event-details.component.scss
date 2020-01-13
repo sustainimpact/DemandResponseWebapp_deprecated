@@ -1,17 +1,12 @@
-.btn:hover
-{
-    background-image:none !important;
-    background-color:#00349A !important;
-    color:white !important;
-}
 .publish-event-button{
     font-family: SourceSansPro-SemiBold!important;
     font-size: 14px!important;
     color: #00349A!important;
     line-height: 19px!important;
+    opacity: 0.5;
     padding: 7px 30px !important;
 }
-.btn:focus {
+.active {
     box-shadow: 0 0 0 0 rgba(0,123,255,.25)!important;
     background-color:#00349A !important;
     color:white !important;
@@ -37,7 +32,7 @@
 }
 .table-border{
     border: 1px solid #E4E8EC;
-    height: 425px;
+    height: 413px;
 }
 .row-top{
     border-top: 1px solid #E4E8EC;
@@ -47,7 +42,7 @@
     border-bottom: 1px solid #E4E8EC;
 }
 .sticky-content{
-    border: 1px solid #B8C1CB;
+    border: 1px solid #d0d4d8;
     position: sticky;
     margin:0px !important;
 }
@@ -74,6 +69,7 @@
     justify-content: center;
     align-items: center;
     height: 40px;
+    width: 40px;
 }
 .plan-quantity-end{
     border-right: 1px solid #E4E8EC;
@@ -88,7 +84,6 @@
     color: #2E2E2E;
     letter-spacing: 0;
     padding-top: 2px;
-
 }
 .final-column{
     padding-right: 7px;
@@ -104,14 +99,22 @@
 font-family: SourceSansPro-SemiBold;
 font-size: 12px;
 }
-::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     width: 7px;
   }
   ::-webkit-scrollbar-thumb {
-  background-color:#d3d3d3;
+  background-color:hsl(0, 0%, 83%);
   border-radius: 75px;
+  overflow-x: hidden;
 }
 .table-row-scroll{
     overflow: scroll;
-    height:400px;
+    height:90%;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+}
+.hidden{
+    opacity: 0.5;
+    font-family: SourceSansPro-Regular;
+    font-size: 14px;
 }
