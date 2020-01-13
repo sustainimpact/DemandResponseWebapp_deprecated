@@ -1,0 +1,116 @@
+.btn:hover
+{
+    background-image:none !important;
+    background-color:#00349A !important;
+    color:white !important;
+}
+.publish-event-button{
+    font-family: SourceSansPro-SemiBold!important;
+    font-size: 14px!important;
+    color: #00349A!important;
+    line-height: 19px!important;
+    padding: 7px 30px !important;
+}
+.btn:focus {
+    box-shadow: 0 0 0 0 rgba(0,123,255,.25)!important;
+    background-color:#00349A !important;
+    color:white !important;
+}
+.year{
+    font-family: SourceSansPro-Bold;
+    font-size: 24px;
+    color: #00349A;
+    font-weight: 700;
+}
+.vertical-dot-icon{
+    font-size: 14px;
+    color: #00349A;
+}
+.button-margin{
+   margin-right: 19px;
+}
+.inline-content{
+    display: flex;
+}
+.btn:focus {
+    box-shadow: 0 0 0 0 rgba(0,123,255,.25)!important;
+}
+.table-border{
+    border: 1px solid #E4E8EC;
+    height: 425px;
+}
+.row-top{
+    border-top: 1px solid #E4E8EC;
+    margin: 0px!important;
+}
+.table-end-line{
+    border-bottom: 1px solid #E4E8EC;
+}
+.sticky-content{
+    border: 1px solid #B8C1CB;
+    position: sticky;
+    margin:0px !important;
+}
+.dr-event{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 12px;
+    color: #2E2E2E;
+    font-weight: 600;
+}
+.column-one{
+    background: #FFFFFF;
+    font-size: 14px;
+}
+.row-footer{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 14px;
+    color:  #00349A;
+    font-weight: 700;
+}
+.row-border{
+    border-right: 1px solid #E4E8EC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+.plan-quantity-end{
+    border-right: 1px solid #E4E8EC;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 40px;
+}
+.exclude-time{
+    font-family: SourceSansPro-Regular;
+    font-size: 14px;
+    color: #2E2E2E;
+    letter-spacing: 0;
+    padding-top: 2px;
+
+}
+.final-column{
+    padding-right: 7px;
+}
+.column-footer-height{
+    height:30px;
+}
+.footer-color{
+    background-color: #E5EFFF;
+}
+.commitement-header{
+ opacity: 0.5;
+font-family: SourceSansPro-SemiBold;
+font-size: 12px;
+}
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  ::-webkit-scrollbar-thumb {
+  background-color:#d3d3d3;
+  border-radius: 75px;
+}
+.table-row-scroll{
+    overflow: scroll;
+    height:400px;
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="31px" viewBox="0 0 32 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Oval</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <ellipse id="path-1" cx="16" cy="15.5" rx="16" ry="15.5"></ellipse>
+        <pattern id="pattern-2" patternUnits="objectBoundingBox" x="0%" width="100%" height="100%">
+            <use xlink:href="#image-3"></use>
+        </pattern>
+        <image id="image-3" width="32" height="31" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAfCAIAAAAJNFjbAAAABGdBTUEAALGOfPtRkwAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAHwAAAACP902kAAAI60lEQVRIDSVWB28cxxWeurP1Ou94J5KiKMqyBZcUJ3LiBMhfyl9MkAQO3GTEcmyxiKKO7er2nZ2Wd8jhsCDAm33z3vsa/utfjv/0+csnvcHh9HB0+gxx3zGiZYtdi+qKOoeNc0ojQjQnrdGIiapsa6k3afN+VWQK5Zitqna+SZfbdJVus3wrBA8CsSk3UkoSwyeJuoN+2IkRcQgbTCnxuEMIMY4oQRRbhLRxxlooJzgTHqMOaSWd1cgZo1qlJUGOEMQI4gRziilG1FpiDCvLQratCDweetop47DHA0Sps9w6bQ0miCAhCByBdoyrs9Qoa1uFdMuQhUrIwFMHgkWhJxtWl07LmhhJrQoYZlZbjFAQJTyOkeCOUcwZNsbr91DFbVNj+IFg0I9TqtUqDsJU11rXjLFOJ1CVcm2hlDIGe57nh5FXFk1d1FIiTHzusYDFPot8P9wNBEMtorU2yggNU4ArI6cdxQZZDH9wSxUlRZWVreVhJ+F+RRtUSo3aUkonAiKsiAcKUSNr61TrMFMaBoFgnEK3lnkYho4t49TBnmH+nMLVkYYGDIFPQGvZBnEES6NBuEgrty08ggPOooA64bfKEngJ4w7qISyNZhIhHPg0DNFuDT6irLXWoww5+MIO3e4Lu4MOlMPYBJ1Y1uV2u1icbV6fXcxX23Xj7rP68KPPoIoNfa2CtslLqxCyBDuYCwm5CHyPEoyskRVssfQIdXWF2la2JWUsGQw87tsdktz55U+vvvvh/Pw8zQrmB6cfffbp8emqtv949Xoi/E4SU07gVJauAHW7ApMw/mB2wIMQNfm7H99stunyYXN98S4gCBoXPnv6/AOfUjHyXStl3b69OL+8+KXIs9/99jcv//hlZzRdFHK+La8X49vlzSQ59X0PSADb1XkBq2OT8V6/15G38zRbhx4fHz85mT1+cXRSrhZREBDuuntDP0mQH9xfzv/zw48396v92dHLL2ZHR0dFkf3y9norrSQBUCHPc75e9/anw+He5eWVtagTd1kuS8NRUzZBEiazA6SMvFnkUi7Wm/0J6/V7XqeD+n3U31vrs69/vgAETGcT0d273eTffvf1L5fvNPGNF+t4mEvEajX0oiBmwBOMxXhywOYPd41qo17P82h+e/f9t6/Ozt+9Pb+gWj09fvzRx89oEvd2VKG1Jpl0RZaF3aFjfhJ6+9NppfQqa263JRNJEg8oIM8gAH0URTT0x+Mxa6QyFnlRUm83X331zU+vf+YiDgCGcI9ONwzjyI8BDihrWun2RjPMC550eqPxi+fHj4+mZ2dnV/P7m2Wx/+yTVYvnm4paHXAvEqKusqYqmcW42fUDBPbGs+ns6Hh6cLJaPkQYMdv2ujHvd6HbLE1hw9PJAenLqq3Ort7tj/uDweD505P98SOFvHkm1aK+t6WRDQ79KPAZ1o+m+4yFPiinstqPwk9//znq9EHkwm5EZYmaCkQDqQbwWRVtXaYgZNOnz5Z380VevL+770VHcdQlKq81c0Vqq0ogwLYGuGmrqqZqTUu6vV4QhjBk7SwKA9Q06f0tYTjf/Vs54BoyQGwQUQzURLYxMP8AyHh3v1iv1/9nYlPkIOm6aSmosWqB96BLAKqr63fs8+OJXd14vWOYkqsaDHLApanTBCt4i0kGLOqhWtfbnEWJdg3osdS8RYO5jPpLEwgaYrbMlqTOBFZlq1LHdMGM1v2oIzRheZbtrmZso5UfRAhOWG5w2xroimCMbSOJcnHo95I4K2rDGReeVG26Xl3oLNDVLBLQkyIF6F2WFbmh2Auhg729vX1AUbkttsvVdDr1A4HAWaQi8POYaVAtxFAYQ1tWqtgLur5v6vpucQdy67Su6uq2rHzd2PHA9/1VJWExWV7WSPSs6XW6SeCP+n0GQFwsVo/Wq+7xEVJOlRWLOEg3VNmJqGy3i1W13hpH35zfvPr2mzPW6ced0XDY8SgydFuU1xRRIW622SIDVjgPQOp5GCxCqeVmwwaTSac30LCZ9RaJgMM7S/AB54sAWZDbVjZlladF2TzML1Z374vOQSKgWzEZDSIKjlnnsN2ieahUvpMeEfogYzjLssVq1TQtSzV+cXDY7wV1nvpKYSHAEQkDN9xZMOV8PBqNwqCq2gYREQTfVaBMybjb7SbQgy1Ll9ZpWsnSUc0EsIl6HIyjKIq7h0VVVfRgGEWdZBiHDBnXKqcVJuDsHGAARkAwA48mSQyvFowOR8ObVAlwd9DutoXzqzR7AJmsVUu9FlGNCRd+GIf3Dw+rzYZQzr4+f59VNW1+/aePP4SUADwUvgdTCTpdBGt2BOQPWYequi0q2mpeV622DcFK+NhjFRg1wI1yRwUYpXNAMZAeSA/aGMN9xmTQP1tk//r+9Rcfv6AY13kJNzBwjDNjSTB+hNL86vtXORjFury6um6khxgFw6Vx1J9MPM4x+DP3pAFBhHRjgsivZSlVjQm4oKGzk1NdVx2kP3l2MpmMnDZlkXEOy4bp0Ozm/t9/+/v7s4tJb3AwnAzD5OWXf07Xy6v311ESHxwfsyCQrYVe4WGgArWex+umWCweIHWBS9LJ9MAndizw4aQ/m+xhZ8FuOcYKyLtcvX3zZnNzN+sPn+zPhHJcW6C3s8DY5m69KmTdHe52mFc1KKZ1hkBKcxq0crtdIgcdIDqbTvaS8PEogTJhFI9GA6tUUwLna8DEbDz98PT00eGh55Dc5pALLm/n729vH3ZWD7GNIy6kNimATBlQI7CDui7vHuayboDykH8YVzBUGkS9y9v7Umvm/2Hkd7Y395hImkCmhFkRWRYtpAEkQSD3Z5PCGd2NH4VJ6nCqVFWmkAfBtaAFzn0lZVNBVkGQzFql6PMn08mg9/zkKC3y/15eA1DHvQEgeZfutGIAacaJYMGgF3ZjL47CTm//6HDv8QnErCVQsNW10kXd1i0kNSx8UVVNlm4Yh+gDeuNYvt22vaQ2Ltf49c1ivvincN6vjvZN08YeZF3B+h0nduKBIbYCvZcg6MV6mwO4W+vg+QACBNJIPIAfox7FjGAPI6wcOCH9H7LUq7nsuiQYAAAAAElFTkSuQmCC"></image>
+    </defs>
+    <g id="Demand-Response_DSO" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="38" transform="translate(-1302.000000, -10.000000)">
+            <g id="Navigation">
+                <g id="avatar/small" transform="translate(1302.000000, 10.000000)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Oval" fill="url(#pattern-2)" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,40 @@
+.event-outline{
+    border: 1px dashed #00349A;
+    border-radius: 4px;
+}
+.file-upload{
+    font-family: SourceSansPro-Regular;
+    font-size: 16px;
+    color: #2E2E2E;
+    letter-spacing: 0;
+    height: 300px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+.content-align{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.browse-text{
+    text-decoration: none!important;
+}
+.header-name{
+    font-family: SourceSansPro-Bold;
+    font-size: 24px;
+    color: #00349A;
+    letter-spacing: 0;
+    padding-top: 30px;
+}
+.drag-sector{
+    font-family: SourceSansPro-Regular;
+    font-size: 16px;
+    letter-spacing: 0;
+}
+.row-space{
+    padding-left: 4px;
+}
+.upload-middle{
+    text-align: center;
+}
+

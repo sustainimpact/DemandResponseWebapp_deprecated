@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>icon/16px/search</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Demand-Response_DSO" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="8" transform="translate(-1036.000000, -204.000000)" fill="#727479">
+            <g id="Table" transform="translate(32.000000, 179.000000)">
+                <g id="Title" transform="translate(16.000000, 16.000000)">
+                    <g id="Search+Dropdown" transform="translate(700.000000, 0.000000)">
+                        <g id="Search" transform="translate(113.000000, 0.000000)">
+                            <g id="icon/16px/search" transform="translate(175.000000, 9.000000)">
+                                <path d="M13.8285714,13.0057143 L10.4628571,9.64 C11.2971429,8.62285714 11.8,7.32 11.8,5.9 C11.8,2.64285714 9.15714286,0 5.9,0 C2.64,0 0,2.64285714 0,5.9 C0,9.15714286 2.64,11.8 5.9,11.8 C7.32,11.8 8.62,11.3 9.63714286,10.4657143 L13.0028571,13.8285714 C13.2314286,14.0571429 13.6,14.0571429 13.8285714,13.8285714 C14.0571429,13.6028571 14.0571429,13.2314286 13.8285714,13.0057143 Z M5.9,10.6257143 C3.29142857,10.6257143 1.17142857,8.50571429 1.17142857,5.9 C1.17142857,3.29428571 3.29142857,1.17142857 5.9,1.17142857 C8.50571429,1.17142857 10.6285714,3.29428571 10.6285714,5.9 C10.6285714,8.50571429 8.50571429,10.6257143 5.9,10.6257143 Z" id="Shape"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

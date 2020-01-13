@@ -1,0 +1,83 @@
+.sustain-main{
+    position: relative;
+    background-image: url(../../assets/img/blue-1.jpg);
+    height: 570px;
+  }
+  .sustain{
+      position: absolute;
+      color: white;
+      font-size: 36px;
+      top: 145px;
+      font-family: fantasy;
+      left: 143px;
+  }
+  .impact{
+      color: rgb(115, 206, 115);
+      font-size: 34px;
+      font-family: fantasy;
+  }
+  .background-image{
+      height: 771px;
+      width: 100%;
+  }
+  .commitment{
+      position: absolute;
+      color: white;
+      font-size: 38px;
+      top: 284px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      left: 143px;
+  }
+  .footer-copyrights{
+      color: #e8e0e0;
+      position: absolute;
+      bottom: 21px;
+      left: 166px;
+      font-size: 14px;
+  }
+  .welcome{
+      font-size: 27px;
+      color: #2121bd;
+  }
+  .form-imp{
+      border: 1px solid #ece4e4;
+      width: 79%;
+      border-radius: 9px;
+  }
+  .log-in{
+      font-size: 13px;
+      font-weight: 600;
+      color: #383434eb;
+  }
+  .email-address{
+      color: #7b7878;
+      font-weight: 600;
+      font-size: 12px;
+  }  
+  .forgot-password{
+      text-align: right;
+      font-size: 13px;
+      color: #2121bd;
+      font-weight: 700;
+  }
+  input{
+      border:none;
+      background-color: transparent;
+  }
+  .field-icon {
+      position: absolute;
+      display: inline-block;
+      cursor: pointer;
+      right: 0.5rem;
+      top: 9px;
+      z-index: 2;
+  }
+  .login{
+        background-color: #2121bd;
+  }
+  .form-control::-webkit-input-placeholder {
+      color: blue!important;
+      font-weight: 700!important;
+  }
+  
+  

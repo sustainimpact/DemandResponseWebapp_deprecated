@@ -1,0 +1,90 @@
+.header-bg
+{
+    height: 52px;
+    background-color: #00349A;
+    margin: 0px !important;
+}
+.header-img-align
+{
+    padding: 11px 24px !important;
+}
+
+
+.underbar{
+    width: 15px;
+    height: 2px;
+    top: 38px;
+    position: absolute;
+  }
+
+  ul
+    {
+      list-style-type: none;
+    }
+
+  li{
+    width: 50px;
+    float: left;
+    cursor: pointer;
+  }
+
+    .menu-header
+    {
+      float: left;
+      color: white;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+
+
+    .menu-header:hover
+    {  
+        opacity: 1;
+    }
+    li:nth-of-type(1):hover ~ .underbar{
+      left: 40px;
+      background: rgb(255, 255, 255);
+    }
+    li:nth-of-type(2):hover ~ .underbar{
+      left: 31%;
+      background: rgb(255, 255, 255);
+    }
+    li:nth-of-type(3):hover ~ .underbar{
+      left: 57%;
+      background: rgb(255, 255, 255);
+    }
+    li:nth-of-type(4):hover ~ .underbar{
+      left: 73%;
+      background: rgb(255, 255, 255);
+    }
+
+  
+  
+.menu-font-align
+{
+    padding: 14px 0px !important;
+}
+.bell-icon
+{
+    font-size: 20px;
+    margin-top: 2px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.header-icon
+{
+    float: left;
+    padding-right: 7px;
+}
+
+.ul-listing
+{
+    padding: 0px !important; 
+    margin: 0px !important;
+}
+.topbar-font-fix
+{
+  margin-top: 2px !important;
+  font-family: SourceSansPro-Regular;
+}
