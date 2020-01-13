@@ -106,6 +106,7 @@ font-size: 12px;
 }
 ::-webkit-scrollbar {
     width: 7px;
+    scrollbar-width: 7px;
   }
   ::-webkit-scrollbar-thumb {
   background-color:#d3d3d3;
@@ -115,3 +116,14 @@ font-size: 12px;
     overflow: scroll;
     height:400px;
 }
+// .scroller {
+//     overflow-x: scroll;
+//     scrollbar-color: #d3d3d3;
+//     scrollbar-width: 7px;
+//   }
+
+.scroller{
+    width: 7px;
+    overflow-y: scroll;
+    scrollbar-color: #d3d3d3;
+  }
