@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit ,ElementRef  } from '@angular/core';
 
 @Component({
   selector: 'app-create-event-details',
@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-event-details.component.scss']
 })
 export class CreateEventDetailsComponent implements OnInit {
-  innerHeight : any = 0;
+  innerHeight : any = 0;  
+  // offsetHeight : any = 0;
   constructor() { }
 
-  ngOnInit() {this.innerHeight = Number(window.innerHeight) - 240;
+  ngOnInit() {
+    // console.log(this.innerHeight = Number(window.innerHeight));
+    this.innerHeight = Number(window.innerHeight) - 240;
   }
+  // @ViewChild('pRef', {static: false}) pRef: ElementRef;
 
+  // ngAfterViewInit() 
+  // {
+  //   console.log("***************"+ this.pRef.nativeElement.offsetHeight); 
+  //   //this.pRef.nativeElement.offsetHeight = Number(window.innerHeight) - 240; 
+    
+  // }
 }
