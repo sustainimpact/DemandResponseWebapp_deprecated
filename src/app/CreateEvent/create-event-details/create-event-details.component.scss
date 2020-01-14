@@ -109,7 +109,7 @@ font-size: 12px;
 }
 .table-row-scroll{
     overflow: scroll;
-    height:92%;
+    height:90%;
     overflow-x: hidden;
     scrollbar-width: thin;
 }
@@ -118,12 +118,6 @@ font-size: 12px;
     font-family: SourceSansPro-Regular;
     font-size: 14px;
 }
-// .scroller {
-//     overflow-x: scroll;
-//     scrollbar-color: #d3d3d3;
-//     scrollbar-width: 7px;
-//   }
-
 .scroller{
     width: 7px;
     overflow-y: scroll;
