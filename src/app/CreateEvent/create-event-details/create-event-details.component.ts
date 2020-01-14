@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-event-details.component.scss']
 })
 export class CreateEventDetailsComponent implements OnInit {
-
+  innerHeight : any = 0;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {this.innerHeight = Number(window.innerHeight) - 240;
   }
 
 }

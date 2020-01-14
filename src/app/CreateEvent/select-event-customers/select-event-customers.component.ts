@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectEventCustomersComponent implements OnInit {
 
+  innerHeight : any = 0;
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {this.innerHeight = Number(window.innerHeight) - 310;
   }
 
 }
