@@ -4,12 +4,14 @@ import { AppMainModule } from '../app/app-main/app-main.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { PopUpComponent } from './CreateEvent/pop-up/pop-up.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    PopUpComponent,
     
   
   ],
