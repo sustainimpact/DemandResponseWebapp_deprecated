@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PopUpComponent } from './CreateEvent/pop-up/pop-up.component';
+import { SampleComponent } from './CreateEvent/sample/sample.component';
 
 
 
@@ -13,6 +14,7 @@ import { PopUpComponent } from './CreateEvent/pop-up/pop-up.component';
     AppComponent,
     LoginComponent,
     PopUpComponent,
+    SampleComponent,
  
   ],
   imports: [

@@ -6,6 +6,8 @@ import { SelectEventCustomersComponent } from '../createevent/select-event-custo
 import {CreateEventDetailsComponent} from '../CreateEvent/create-event-details/create-event-details.component';
 import {CreateEventHomeComponent} from '../CreateEvent/create-event-home/create-event-home.component';
 import { PopUpComponent } from '../CreateEvent/pop-up/pop-up.component';
+import { SampleComponent } from '../CreateEvent/sample/sample.component';
+
 const routes: Routes = [
   {path: '', component: AppMainComponent, 
     children : [
@@ -14,6 +16,7 @@ const routes: Routes = [
       { path: 'createevent', component: CreateEventHomeComponent , data: { breadcrumb: 'Create Event Home'}},
       { path: 'popup', component: PopUpComponent , data: { breadcrumb: 'PopUp'}},
       { path: '', component: CreateEventDetailsComponent, data: { breadcrumb: 'Create Event Details'} },
+      { path: 'sample', component: SampleComponent, data: { breadcrumb: 'sample'} },
     ]},
 ];
 

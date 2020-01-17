@@ -1,0 +1,99 @@
+.main-download{
+    height: 500px;
+    width:636px ;
+    background-color: #FFFFFFFF;
+}
+.even-row{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 26px;
+    padding-top: 26px;
+}
+.launch-main{
+    padding-left: 60px;
+    
+}
+.launch{
+    height: 85px;
+    width: 85px;
+}
+.ready-to{
+    font-family: SourceSansPro-Bold;
+font-size: 24px;
+color: #2E2E2E;
+letter-spacing: 0;
+}
+.please-read{
+    font-family: SourceSansPro-Regular;
+font-size: 14px;
+color: #2E2E2E;
+letter-spacing: 0;
+margin-top: 8px;
+}
+
+.common{
+    font-family: SourceSansPro-Regular;
+    font-size: 14px;
+    color: #2E2E2E;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.btn:focus {
+    box-shadow: 0 0 0 0 rgba(0,123,255,.25)!important;
+}
+.cancel-btn{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 14px;
+    color: #00349A;
+    text-align: center;
+    width: 87px;
+    height: 37px;
+}
+    .button-main{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 26px;
+    }
+.button-inner{
+    background: #FFFFFF;
+    border: 1px solid #DFE2E5;
+    border-radius: 4px;
+}
+.button-color{
+    background: #00349A;
+    border-radius: 4px;
+    border-radius: 4px;
+    margin-left: 12px;
+}
+.color-btn-inner{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    width: 197px;
+}
+.img-main{
+    display: flex;
+    margin-top: 24px;
+    height: 198px;
+}
+.png{
+    width: 200px;
+    height: 120px;
+    border: 2px solid #2D8EFF;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+}
+
+.pdf{
+    width: 200px;
+    height: 120px;
+    background: #FFFFFF;
+    border: 1px solid #e3e9ef;
+    border-radius: 2px;
+    margin-left: 27px;
+    display: flex;
+    justify-content: center;
+}
