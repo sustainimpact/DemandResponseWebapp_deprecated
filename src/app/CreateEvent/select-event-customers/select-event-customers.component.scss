@@ -160,11 +160,12 @@ row-customer{
     display: flex;
     align-items: center;
     height: 40px;
+    justify-content: center;
 }
 .quantity-end{
     border-right: 1px solid #E4E8EC;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     height: 40px;
     font-family: SourceSansPro-Regular;
@@ -357,5 +358,20 @@ align-self: center;
 padding-top: 2px;
 
 }
-
+.customer-main-table{
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    border-bottom: 1px solid #E4E8EC;
+    background: white;
+    // padding-right: 7px;
+    // font-family: SourceSansPro-SemiBold;
+    // font-size: 12px;
+    // color: #2E2E2E;
+    // letter-spacing: 0;
+    // display: flex;
+}
+.col{
+    padding: 0px !important;
+}
    

@@ -51,7 +51,7 @@
             <img class = "pr-1 pb-1" src="assets/img/customers-icon.svg" alt="customer-icon">
             Customers
         </div>
-        <div class = " mt-2 pb-3     inline-content actively" style = "width: 80%;">
+        <div class = " mt-2 pb-3  inline-content actively" style = "width: 80%;">
             <div>
                 <div class = "invites">Invitees</div>
                 <div class = "invite-down">25</div>
@@ -87,7 +87,7 @@
             <div class = "table-border" [ngStyle]="{'height.px': innerHeight}">
                 <div class="row pl-2 pr-4">
                     <div class="col select-customer">
-                        <div class="row-customer">
+                        <div class="row-customer" style="padding-left: 25px;">
                             Selected Customers - 06/25
                         </div>
                     </div>
@@ -115,34 +115,34 @@
                     </form>
                 </div>
                
-                <div class="row row-top" style = "position: sticky;top: 0px;z-index: 1;border-bottom: 1px solid #E4E8EC;background: white;    padding-right: 7px;">
-                      
-                        <div class="col row-border">
-                            <div class="dr-event">
-                            CUSTOMERS
-                            </div>
-                        </div>
-                        <div class="col row-border commitement-header end-content">
-                            <div>
-                                STATUS
-                            </div>
-                        </div>
-                        <div class="col row-border commitement-header end-content" style = "width: 213px;">
-                            <div class="len-row">
-                                PRICE (PAISE/KW)
-                            </div>
-                        </div>
-                        <div class="col row-border commitement-header end-content">
-                            <div>
-                                COMMITMENTS (KW)
-                            </div>
-                        </div>
-                        <div class="col row-border commitement-header end-content">
-                            <div>
-                                TRANSFERRED (KW)
-                            </div>
+                
+                <div class="row row-top" style="padding-right: 7px;border-bottom: 1px solid#E4E8EC;font-size: 10px;" >
+                    <div class="col  quantity-end commitement-header">
+                        <div class="end-content">
+                            Customers
                         </div>
                     </div>
+                    <div class="col  quantity-end commitement-header">
+                        <div class="end-content">
+                            Status
+                        </div>
+                    </div>
+                    <div class="col  quantity-end commitement-header">
+                        <div class="end-content">
+                            PRICE (PAISE/KW)
+                        </div>
+                    </div>
+                    <div class="col  quantity-end commitement-header">
+                        <div class="end-content">
+                            COMMITMENTS (KW)
+                        </div>
+                    </div>
+                    <div class="col  quantity-end commitement-header">
+                        <div class="end-content">
+                            TRANSFERRED (KW)                            
+                        </div>
+                    </div>
+                </div>
                         
                     <div class="table-row-scroll">
                        <div class="row row-top" style = "margin:0px;">
@@ -268,23 +268,15 @@
                                   <a class="dropdown-item" href="#">Link 3</a>
                                 </div>
                               </div> 
-                           
                         </div>
                         <div class="col  quantity-end commitement-header">
-                            <!-- <div class="end-content len-row ten-five">
-                            1025
-                            <span class = "box-curve" style="margin-left: 61px;padding: 2px 8px;">
+                            <span style = "padding-right: 5px;">
+                                1120
+                               
+                            </span>
+                            <span style="font-size: 10px;border-radius:10px;color:white;padding:2px 6px;background: #417505;">
                                 COUNTER BID - ACCEPTED
                             </span>
-                            </div> -->
-                            <div>
-                                1025
-
-                            </div>
-                            <div style="font-size: 10px;">
-                                COUNTER BID - ACCEPTED
-
-                            </div>
                         </div>
                         <div class="col  quantity-end commitement-header">
                             <div class="end-content">
@@ -467,9 +459,9 @@
                 </div>
             </div>  
                     <div class="row row-top sticky-content">
-                        <div style = "width:32px;background-color: white;">
+                        <!-- <div style = "width:32px;background-color: white;">
                         </div>
-                        <div class="col row-border footer-color seven-line" style = "width: 300px;">
+                        <div class="col row-border footer-color seven-line">
                             <div class="row-footer "> 
                             TOTALS
                             </div>
@@ -492,6 +484,33 @@
                         <div class="col row-border footer-color end-last" style="margin-right: 6px;">
                             <div class="row-footer commitement-header">
                             --
+                            </div>
+                        </div> -->
+                        <div class="row row-top" style = "margin:0px;">
+                            <div class="col row-border">
+                                <div class="column-one">
+                                    Metro Corporation
+                                </div>
+                            </div>
+                            <div class="col row-border response-show">
+                                <div class = "no-response">
+                                    NO RESPONSE 
+                                </div>
+                            </div>
+                            <div class="col  quantity-end commitement-header">
+                                <div class="end-content len-row ten-five">
+                                1025
+                                </div>
+                            </div>
+                            <div class="col  quantity-end ">
+                                <div class="end-content commitement-header">
+                                --
+                                </div>
+                            </div>
+                            <div class="col  quantity-end">
+                                <div class="end-content commitement-header">
+                                --
+                                </div>
                             </div>
                         </div>
                     </div>
