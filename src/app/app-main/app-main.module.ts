@@ -13,9 +13,7 @@ import { AcceptBidModalComponent } from '../modals/accept-bid-modal/accept-bid-m
 import { EventsOverviewComponent } from '../createevent/events-overview/events-overview.component';
 import { EventSetCustomersComponent } from '../createevent/event-set-customers/event-set-customers.component';
 import { VersionHistoryComponent } from '../createevent/version-history/version-history.component';
-import {PopUpComponent} from '../CreateEvent/pop-up/pop-up.component';
 import { RejectBidModalComponent } from '../Modals/reject-bid-modal/reject-bid-modal.component';
-import{SampleComponent} from '../CreateEvent/sample/sample.component'
 @NgModule({
   declarations: [
     AppMainComponent,
@@ -29,9 +27,7 @@ import{SampleComponent} from '../CreateEvent/sample/sample.component'
     EventsOverviewComponent,
     EventSetCustomersComponent,
     VersionHistoryComponent,
-    PopUpComponent,
     RejectBidModalComponent,
-    SampleComponent
   ],
   imports: [
     CommonModule,
