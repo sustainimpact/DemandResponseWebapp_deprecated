@@ -29,7 +29,7 @@ const routes: Routes = [
       { path: 'eventsetcustomers', component: EventSetCustomersComponent , data: { breadcrumb: 'Event Set Customers'}},
       { path: 'versionhistory', component: VersionHistoryComponent , data: { breadcrumb: 'Version History'}},
       { path: 'rejectbidmodal', component: RejectBidModalComponent , data: { breadcrumb: 'Reject Bid Modal'}},
-      { path: 'Sample', component: SampleComponent , data: { breadcrumb: 'Sample'}},
+      { path: 'sample', component: SampleComponent , data: { breadcrumb: 'Sample'}},
 
     ]},
 ];
