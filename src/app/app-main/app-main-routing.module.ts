@@ -15,8 +15,6 @@ const routes: Routes = [
       { path: 'popup', component: PopUpComponent , data: { breadcrumb: 'PopUp'}},
       { path: '', component: CreateEventDetailsComponent, data: { breadcrumb: 'Create Event Details'} },
     ]},
-
-  
 ];
 
 @NgModule({
@@ -26,4 +24,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule] 
 })
-export class AppMainRoutingModule { }
+export class AppMainRoutingModule { } 
