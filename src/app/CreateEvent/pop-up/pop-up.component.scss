@@ -1,12 +1,15 @@
 .main{
     background: #FFFFFF;
     border-radius: 4px;
+    height: 500px;
+    width: 636px;
     
 }
 .even-row{
     display: flex;
     justify-content: flex-end;
     padding-right: 26px;
+    padding-top: 26px;
 }
 .launch-main{
     padding-left: 60px;
