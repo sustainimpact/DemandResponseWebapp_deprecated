@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./events-overview.component.scss']
 })
 export class EventsOverviewComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {

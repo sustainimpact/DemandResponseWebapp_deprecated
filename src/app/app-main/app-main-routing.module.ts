@@ -25,9 +25,9 @@ const routes: Routes = [
       { path: 'publisheventmodal', component: PublishEventModalComponent , data: { breadcrumb: 'Publish Event Modal'}},
       { path: 'downloadreportsmodal', component: DownloadReportsModalComponent, data: { breadcrumb: 'Download Reports Modal'}},
       { path: 'acceptbidmodal', component: AcceptBidModalComponent , data: { breadcrumb: 'Accept Bid Modal'}},
-      { path: 'eventsoverview', component: EventsOverviewComponent , data: { breadcrumb: 'Events Overview'}},
-      { path: 'eventsetcustomers', component: EventSetCustomersComponent , data: { breadcrumb: 'Event Set Customers'}},
-      { path: 'versionhistory', component: VersionHistoryComponent , data: { breadcrumb: 'Version History'}},
+      { path: 'eventsoverview', component: EventsOverviewComponent },
+      { path: 'eventsetcustomers', component: EventSetCustomersComponent },
+      { path: 'versionhistory', component: VersionHistoryComponent},
       { path: 'rejectbidmodal', component: RejectBidModalComponent , data: { breadcrumb: 'Reject Bid Modal'}},
       { path: 'sample', component: SampleComponent , data: { breadcrumb: 'Sample'}},
 
