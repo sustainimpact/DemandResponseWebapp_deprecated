@@ -18,7 +18,7 @@ a {
 a {
   position: relative;
   display: block;
-  padding: 16px 0;
+  padding: 16px 0 0 0;
   margin: 0 12px;
   letter-spacing: 1px;
   font-size: 12px;
@@ -60,6 +60,14 @@ a:hover::before, a:focus::before {
     margin: -10px 80px !important;
 }
 
+.report:hover::before, .report:focus::before {
+  transform-origin: left top;
+  transform: scale(1, 0.9);
+    width: 20px;
+    background-color: white;
+    margin: -10px 39px !important;
+}
+
 
 
 .header-bg
@@ -88,12 +96,11 @@ a:hover::before, a:focus::before {
 {
     font-size: 20px;
     margin-top: 14px;
-    padding-left: 0px !important;
+    padding-left: 15px !important;
     padding-right: 0px !important;
 }
 .header-icon
 {
-    float: left;
     padding-right: 7px;
 }
 
@@ -107,4 +114,8 @@ a:hover::before, a:focus::before {
   margin-top: 2px !important;
   font-family: SourceSansPro-Regular;
   float: left;
+}
+.display-property
+{
+  display: flex;  
 }
