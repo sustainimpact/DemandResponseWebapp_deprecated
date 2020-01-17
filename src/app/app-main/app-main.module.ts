@@ -14,6 +14,8 @@ import { EventsOverviewComponent } from '../createevent/events-overview/events-o
 import { EventSetCustomersComponent } from '../createevent/event-set-customers/event-set-customers.component';
 import { VersionHistoryComponent } from '../createevent/version-history/version-history.component';
 import { RejectBidModalComponent } from '../Modals/reject-bid-modal/reject-bid-modal.component';
+import { PopUpPagesComponent } from '../pop-up-pages/pop-up-pages.component';
+
 @NgModule({
   declarations: [
     AppMainComponent,
@@ -28,6 +30,7 @@ import { RejectBidModalComponent } from '../Modals/reject-bid-modal/reject-bid-m
     EventSetCustomersComponent,
     VersionHistoryComponent,
     RejectBidModalComponent,
+    PopUpPagesComponent
   ],
   imports: [
     CommonModule,

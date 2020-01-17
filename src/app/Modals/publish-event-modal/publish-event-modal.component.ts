@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./publish-event-modal.component.scss']
 })
 export class PublishEventModalComponent implements OnInit {
+  cancelAddUser:Boolean= true;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  hidePublish()
+  {
+    this.cancelAddUser=false;
+  }
 }

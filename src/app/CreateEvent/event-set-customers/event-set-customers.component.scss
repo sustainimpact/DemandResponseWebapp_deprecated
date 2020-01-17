@@ -1,7 +1,15 @@
 .full-body
 {
     width: 750px;
-    height: 663px;
+    height: 680px;
+    top: 10%;
+    left: 30%;
+    bottom: 50%;
+    background: white;
+    padding-top: 15px;
+    position: absolute;
+    z-index: 0;
+    border: 1px solid;
 }
 .close-icon
 {

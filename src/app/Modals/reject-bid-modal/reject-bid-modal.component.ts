@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reject-bid-modal.component.scss']
 })
 export class RejectBidModalComponent implements OnInit {
+  cancelAddUser:Boolean= true;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  hidePublish()
+  {
+    this.cancelAddUser=false;
+  }
 }

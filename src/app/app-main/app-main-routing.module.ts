@@ -12,6 +12,7 @@ import { EventsOverviewComponent } from '../createevent/events-overview/events-o
 import { EventSetCustomersComponent } from '../createevent/event-set-customers/event-set-customers.component';
 import { VersionHistoryComponent } from '../createevent/version-history/version-history.component';
 import { RejectBidModalComponent } from '../Modals/reject-bid-modal/reject-bid-modal.component';
+import { PopUpPagesComponent } from '../pop-up-pages/pop-up-pages.component';
 const routes: Routes = [
   {path: '', component: AppMainComponent, 
     children : [
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'eventsoverview', component: EventsOverviewComponent },
       { path: 'eventsetcustomers', component: EventSetCustomersComponent },
       { path: 'versionhistory', component: VersionHistoryComponent},
+      { path: 'popup', component: PopUpPagesComponent},
       { path: 'rejectbidmodal', component: RejectBidModalComponent , data: { breadcrumb: 'Reject Bid Modal'}},
 
     ]},
