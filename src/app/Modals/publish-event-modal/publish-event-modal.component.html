@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Document</title>
-</head>
-<body>
-    <div class="main">
+
+    <div class="main" *ngIf="cancelAddUser">
         <div class = "even-row">
             <img  src="assets/img/close.svg" alt="close">
         </div>
@@ -30,12 +25,11 @@
         <div class="footer-divider mt-auto"></div>
         <div class="button-main  mt-auto ml-auto" style="padding-right: 26px;">
             <div class = "button-inner">
-                <button type="button" class="btn cancel-btn">cancel</button>
+                <button type="button" class="btn cancel-btn" (click)="hidePublish()">cancel</button>
             </div>
             <div class = "button-color">
                 <button type="button" class="btn color-btn-inner">Yes, Publish all Events</button>
             </div>
         </div>
     </div>
-</body>
-</html>
+

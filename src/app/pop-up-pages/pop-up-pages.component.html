@@ -1,0 +1,46 @@
+<div class = "button-color">
+    <button type="button" class="btn color-btn-inner"><a routerLink="../createevent">createevent</a></button>
+</div>
+
+<div class = "button-color">
+    <button type="button" class="btn color-btn-inner"><a routerLink="../createeventdetails">createEventDetails</a></button>
+</div>
+
+<div class = "button-color">
+    <button type="button" class="btn color-btn-inner"><a routerLink="../selecteventcustomers">selecteventcustomers</a></button>
+</div>
+
+<div class = "button-color">
+    <button type="button" class="btn color-btn-inner" (click)="showPublish()">publishEventModal</button>
+    <app-publish-event-modal *ngIf="showpublishEventModal"></app-publish-event-modal>
+</div>
+ 
+<div class = "button-color">
+    <button type="button" class="btn color-btn-inner" (click)="showOverview()">eventsOverview</button>
+    <app-events-overview *ngIf="showeventsOverview"></app-events-overview>
+</div>
+
+<div class = "button-color">
+    <button type="button" class="btn color-btn-inner" (click)="showeventset()">eventsetCustomers</button>
+    <app-event-set-customers *ngIf="showeventsetCustomers"></app-event-set-customers>
+</div>
+
+<div class = "button-color">
+    <button type="button" class="btn color-btn-inner" (click)="showversion()">versionHistory</button>
+    <app-version-history *ngIf="showversionHistory"></app-version-history>
+</div>
+
+<div class = "button-color">
+    <button type="button" class="btn color-btn-inner" (click)="showdownload()">downloadReportsModal</button>
+    <app-download-reports-modal *ngIf="showdownloadReportsModal"></app-download-reports-modal>
+</div>
+
+<div class = "button-color">
+    <button type="button" class="btn color-btn-inner" (click)="showaccept()">acceptBidModal</button>
+    <app-accept-bid-modal *ngIf="showacceptBidModal"></app-accept-bid-modal>
+</div>
+
+<div class = "button-color">
+    <button type="button" class="btn color-btn-inner" (click)="showreject()">rejectBidModal</button>
+    <app-reject-bid-modal *ngIf="showrejectBidModal"></app-reject-bid-modal>
+</div>

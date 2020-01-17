@@ -1,7 +1,13 @@
 .main-download{
+    top: 10%;
+    left: 30%;
+    bottom: 50%;
+    z-index: 0;
+    border: 1px solid;
+    position: absolute;
     height: 500px;
     width:636px ;
-    background-color: #FFFFFFFF;
+    background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
 }
