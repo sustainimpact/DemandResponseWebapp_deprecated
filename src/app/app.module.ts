@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RejectBidModalComponent } from './Modals/reject-bid-modal/reject-bid-modal.component';
+import { SampleComponent } from './CreateEvent/sample/sample.component';
 
 
 
@@ -13,6 +14,7 @@ import { RejectBidModalComponent } from './Modals/reject-bid-modal/reject-bid-mo
     AppComponent,
     LoginComponent,
     RejectBidModalComponent,
+    SampleComponent,
  
   ],
   imports: [

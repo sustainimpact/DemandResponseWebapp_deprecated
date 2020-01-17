@@ -15,14 +15,6 @@ import { EventSetCustomersComponent } from '../createevent/event-set-customers/e
 import { VersionHistoryComponent } from '../createevent/version-history/version-history.component';
 
 =======
-
-
-
-
-
-
-
->>>>>>> .theirs
 const routes: Routes = [
   {path: '', component: AppMainComponent, 
     children : [
