@@ -12,13 +12,12 @@ import { AcceptBidModalComponent } from '../modals/accept-bid-modal/accept-bid-m
 import { EventsOverviewComponent } from '../createevent/events-overview/events-overview.component';
 import { EventSetCustomersComponent } from '../createevent/event-set-customers/event-set-customers.component';
 import { VersionHistoryComponent } from '../createevent/version-history/version-history.component';
-import { RejectBidModalComponent } from '../Modals/reject-bid-modal/reject-bid-modal.component';
 
 const routes: Routes = [
   {path: '', component: AppMainComponent, 
     children : [
       { path: '', component: CreateEventDetailsComponent, data: { breadcrumb: 'Create Event Details'}},
-      { path: 'selecteventcustomers', component: SelectEventCustomersComponent , data: { breadcrumb: 'Select Event Customers '}},
+      { path: 'selecteventcustomers', component: SelectEventCustomersComponent , data: { breadcrumb: 'Select Event Customers'}},
       { path: 'createeventdetails', component: CreateEventDetailsComponent , data: { breadcrumb: 'Create Event Details'}},
       { path: 'createevent', component: CreateEventHomeComponent , data: { breadcrumb: 'Create Event Home'}},
       { path: 'popup', component: PopUpComponent , data: { breadcrumb: 'PopUp'}},
@@ -27,9 +26,8 @@ const routes: Routes = [
       { path: 'acceptbidmodal', component: AcceptBidModalComponent , data: { breadcrumb: 'Accept Bid Modal'}},
       { path: 'eventsoverview', component: EventsOverviewComponent , data: { breadcrumb: 'Events Overview'}},
       { path: 'eventsetcustomers', component: EventSetCustomersComponent , data: { breadcrumb: 'Event Set Customers'}},
-      { path: 'versionhistory', component: VersionHistoryComponent , data: { breadcrumb: 'Version History'}},
-      { path: 'rejectbidmodal', component: RejectBidModalComponent , data: { breadcrumb: 'Reject Bid Modal'}}
-      
+      { path: 'versionhistory', component: VersionHistoryComponent , data: { breadcrumb: 'Version History'}}
+
     ]},
 
   

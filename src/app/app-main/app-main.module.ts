@@ -13,7 +13,7 @@ import { AcceptBidModalComponent } from '../modals/accept-bid-modal/accept-bid-m
 import { EventsOverviewComponent } from '../createevent/events-overview/events-overview.component';
 import { EventSetCustomersComponent } from '../createevent/event-set-customers/event-set-customers.component';
 import { VersionHistoryComponent } from '../createevent/version-history/version-history.component';
-import { RejectBidModalComponent } from '../modals/reject-bid-modal/reject-bid-modal.component';
+import {PopUpComponent} from '../CreateEvent/pop-up/pop-up.component';
 
 
 @NgModule({
@@ -29,7 +29,7 @@ import { RejectBidModalComponent } from '../modals/reject-bid-modal/reject-bid-m
     EventsOverviewComponent,
     EventSetCustomersComponent,
     VersionHistoryComponent,
-    RejectBidModalComponent,
+    PopUpComponent
   ],
   imports: [
     CommonModule,
