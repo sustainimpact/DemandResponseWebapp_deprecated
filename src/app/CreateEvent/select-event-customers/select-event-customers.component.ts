@@ -11,7 +11,7 @@ export class SelectEventCustomersComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {this.innerHeight = Number(window.innerHeight) - 310;
+  ngOnInit() {this.innerHeight = Number(window.innerHeight) - 210;
   }
 
 }

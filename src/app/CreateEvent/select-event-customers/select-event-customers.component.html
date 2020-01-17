@@ -7,7 +7,7 @@
     <div class=" pl-4 pr-4 ">
         <div class ="inline-content">
             <div class = "year mr-auto">
-                20191026HYS - All Events
+                2019102608HYS
             </div>
             <div class = "button-margin">
                 <button type="button" class="back-btn publish-event-button">Cancel Event </button>
@@ -16,15 +16,79 @@
                 <i class="fas fa-ellipsis-h vertical-dot-icon"></i>
             </div>
         </div>
-        <div class = "select-customer" style="height: 40px !important;">
-            Please select customers for the 10 DR events
+        <div class="inline-content" >
+            <div class = "south pr-2" style="height: 30px !important;">
+                South Hyderabad
+            </div>
+            <div class = "south pr-2">
+                .
+            </div>
+            <div class="south">
+                26 Oct, 2019
+            </div>
         </div>
-        <div style ="width:80%;">
+        <div class="inline-content" >
+            <div class = "pr-5" style="height: 10px !important;">
+                <div class = "clock-row">
+                    <img  style = "padding-bottom: 4px;" class = "pr-1" src="assets/img/time-icon.svg" alt="time-icon">
+                    09:00 AM   -   09:15 AM
+                </div>
+            </div>
+            <div  class = " pr-5" style="height: 40px !important;">
+                <div class = "clock-row">
+                    <img class = "pr-1" src="assets/img/flash-icon.svg" alt="time-icon">
+                    250 kWh
+                </div>
+            </div>
+            <div style="height: 40px !important;">
+                <div class = "clock-row">
+                    <img class = "pr-1" src="assets/img/rupee-icon.svg" alt="time-icon">
+                    1025 paise
+                </div>
+            </div>
+        </div>
+        <div class = "clock-row ">
+            <img class = "pr-1 pb-1" src="assets/img/customers-icon.svg" alt="customer-icon">
+            Customers
+        </div>
+        <div class = " mt-2 pb-3     inline-content actively" style = "width: 80%;">
+            <div>
+                <div class = "invites">Invitees</div>
+                <div class = "invite-down">25</div>
+
+            </div>
+            <div class = "participant-next">
+                <div class="invites"> Participated</div>
+                <div class = "invite-down">18</div>
+
+            </div>
+            <div class = "participant-next">
+                <div class="invites">Counter bid</div>
+                <div class = "invite-down">00</div>
+            </div>
+            <div class = "participant-next" style="width: 126px;">
+                <div class="invites">No Response</div>
+                <div class = "invite-down seven-line">07</div>
+            </div>
+            <div class = "participant-next" style = "padding-left: 18px;">
+                <div class="invites">Actively Participating</div>
+                <div class = "invite-down">03</div>
+            </div>
+            <div class = "participant-next">
+                <div class="invites">Non-Complaint User(has penalty)</div>
+                <div class = "invite-down">01</div>
+            </div>
+                <div class = "ml-auto">
+                    <div class="live-ending">Live  Ending in</div>
+                    <div class = "invite-down" style="text-align: right;">00:10:23</div> 
+                </div>
+        </div>
+        <div style ="width:80%;padding-left:20px">
             <div class = "table-border" [ngStyle]="{'height.px': innerHeight}">
                 <div class="row pl-2 pr-4">
                     <div class="col select-customer">
                         <div class="row-customer">
-                            Selected Customers - 25/25
+                            Selected Customers - 06/25
                         </div>
                     </div>
                    
@@ -52,12 +116,7 @@
                 </div>
                
                 <div class="row row-top" style = "position: sticky;top: 0px;z-index: 1;border-bottom: 1px solid #E4E8EC;background: white;    padding-right: 7px;">
-                        <div class=" pl-2 row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="drevent-1">
-                                <label class="custom-control-label" for="drevent-1"></label>
-                            </div>
-                        </div>
+                      
                         <div class="col row-border">
                             <div class="dr-event">
                             CUSTOMERS
@@ -69,7 +128,7 @@
                             </div>
                         </div>
                         <div class="col row-border commitement-header end-content">
-                            <div>
+                            <div class="len-row">
                                 PRICE (PAISE/KW)
                             </div>
                         </div>
@@ -84,27 +143,36 @@
                             </div>
                         </div>
                     </div>
+                        
                     <div class="table-row-scroll">    
+<<<<<<< .mine
+
+=======
+                        <div class="table-row-scroll" style = " height:340px;">    
+>>>>>>> .theirs
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="drevent-2">
-                                <label class="custom-control-label" for="drevent-2"></label>
-                            </div>
-                        </div>
+                       
                         <div class="col row-border">
                             <div class="column-one">
                             SUPTD
                             </div>
                         </div>
-                        <div class="col row-border commitement-header end-content">
-                            <div>
-                            --
-                            </div>
+                        <div class="col row-border">
+                            <div class="dropdown">
+                                <button type="button" class="drop-participate" data-toggle="dropdown">
+                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
+                                </button>
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="#">Link 1</a>
+                                  <a class="dropdown-item" href="#">Link 2</a>
+                                  <a class="dropdown-item" href="#">Link 3</a>
+                                </div>
+                              </div> 
+                           
                         </div>
-                        <div class="col  commitement-header quantity-end">
-                            <div class="end-content">
-                            --
+                        <div class="col  number-content">
+                            <div class=" end-content len-row ten-five ">
+                            1025
                             </div>
                         </div>
                         <div class="col  commitement-header quantity-end">
@@ -119,25 +187,28 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="drevent-3">
-                                <label class="custom-control-label" for="drevent-3"></label>
-                            </div>
-                        </div>
+                        
                         <div class="col row-border">
                             <div class="column-one">
                                 Aman Hospitality Private Ltd
                             </div>
                         </div>
-                        <div class="col row-border commitement-header end-content">
-                            <div>
-                            --
-                            </div>
+                        <div class="col row-border">
+                            <div class="dropdown">
+                                <button type="button" class="drop-participate" data-toggle="dropdown">
+                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
+                                </button>
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="#">Link 1</a>
+                                  <a class="dropdown-item" href="#">Link 2</a>
+                                  <a class="dropdown-item" href="#">Link 3</a>
+                                </div>
+                              </div> 
+                           
                         </div>
-                        <div class="col  quantity-end commitement-header">
-                            <div class="end-content">
-                            --
+                        <div class="col  number-content">
+                            <div class=" end-content len-row ten-five ">
+                            1025
                             </div>
                         </div>
                         <div class="col  quantity-end  commitement-header">
@@ -152,25 +223,28 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="drevent-4">
-                                <label class="custom-control-label" for="drevent-4"></label>
-                            </div>
-                        </div>
+                        
                         <div class="col row-border">
                             <div class="column-one">
                                 DY. Inspector
                             </div>
                         </div>
-                        <div class="col row-border commitement-header end-content">
-                            <div>
-                            --
-                            </div>
+                        <div class="col row-border">
+                            <div class="dropdown">
+                                <button type="button" class="drop-participate" data-toggle="dropdown">
+                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
+                                </button>
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="#">Link 1</a>
+                                  <a class="dropdown-item" href="#">Link 2</a>
+                                  <a class="dropdown-item" href="#">Link 3</a>
+                                </div>
+                              </div> 
+                           
                         </div>
                         <div class="col  quantity-end commitement-header">
-                            <div class="end-content">
-                            --
+                            <div class="end-content len-row ten-five">
+                            1025
                             </div>
                         </div>
                         <div class="col  quantity-end commitement-header">
@@ -185,25 +259,31 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="drevent-5">
-                                <label class="custom-control-label" for="drevent-5"></label>
-                            </div>
-                        </div>
+                        
                         <div class="col row-border">
                             <div class="column-one">
                                 Ganga Ram Trust Society
                             </div>
                         </div>
-                        <div class="col row-border commitement-header end-content">
-                            <div>
-                            --
-                            </div>
+                        <div class="col row-border">
+                            <div class="dropdown">
+                                <button type="button" class="drop-participate" data-toggle="dropdown">
+                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
+                                </button>
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="#">Link 1</a>
+                                  <a class="dropdown-item" href="#">Link 2</a>
+                                  <a class="dropdown-item" href="#">Link 3</a>
+                                </div>
+                              </div> 
+                           
                         </div>
-                        <div class="col  quantity-end commitement-header">
-                            <div class="end-content">
-                            --
+                        <div class="col  quantity-end">
+                            <div class="end-content  ten-five" style="width: 92px;">
+                            1125
+                            </div>
+                            <div class = "box-curve">
+                                COUNTER BID - ACCEPTED
                             </div>
                         </div>
                         <div class="col  quantity-end commitement-header">
@@ -218,25 +298,27 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="drevent-6">
-                                <label class="custom-control-label" for="drevent-6"></label>
-                            </div>
-                        </div>
                         <div class="col row-border">
                             <div class="column-one">
                                 Videocon
                             </div>
                         </div>
-                        <div class="col row-border commitement-header end-content">
-                            <div>
-                            --
-                            </div>
+                        <div class="col row-border">
+                            <div class="dropdown">
+                                <button type="button" class="drop-participate" data-toggle="dropdown">
+                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
+                                </button>
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="#">Link 1</a>
+                                  <a class="dropdown-item" href="#">Link 2</a>
+                                  <a class="dropdown-item" href="#">Link 3</a>
+                                </div>
+                              </div> 
+                           
                         </div>
                         <div class="col  quantity-end commitement-header">
-                            <div class="end-content">
-                            --
+                            <div class="end-content len-row ten-five">
+                            1025
                             </div>
                         </div>
                         <div class="col  quantity-end commitement-header">
@@ -251,25 +333,27 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="drevent-7">
-                                <label class="custom-control-label" for="drevent-7"></label>
-                            </div>
-                        </div>
                         <div class="col row-border">
                             <div class="column-one">
                                 STC Developers
                             </div>
                         </div>
-                        <div class="col row-border commitement-header end-content commitement-header">
-                            <div>
-                            --
-                            </div>
+                        <div class="col row-border">
+                            <div class="dropdown">
+                                <button type="button" class="drop-participate" data-toggle="dropdown">
+                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
+                                </button>
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="#">Link 1</a>
+                                  <a class="dropdown-item" href="#">Link 2</a>
+                                  <a class="dropdown-item" href="#">Link 3</a>
+                                </div>
+                              </div> 
+                           
                         </div>
                         <div class="col  quantity-end commitement-header">
-                            <div class="end-content">
-                            --
+                            <div class="end-content len-row ten-five">
+                            1025
                             </div>
                         </div>
                         <div class="col  quantity-end commitement-header">
@@ -284,26 +368,27 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="drevent-8">
-                                <label class="custom-control-label" for="drevent-8"></label>
-                            </div>
-                        </div>
                         <div class="col row-border">
                             <div class="column-one">
                                 Delhi Metro Corporation Ltd
                             </div>
                         </div>
-                        <div class="col row-border commitement-header end-content">
-                            <div>
-                            --
-                            </div>
+                        <div class="col row-border">
+                            <div class="dropdown">
+                                <button type="button" class="drop-participate" data-toggle="dropdown">
+                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
+                                </button>
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="#">Link 1</a>
+                                  <a class="dropdown-item" href="#">Link 2</a>
+                                  <a class="dropdown-item" href="#">Link 3</a>
+                                </div>
+                              </div> 
+                           
                         </div>
-                        
                         <div class="col  quantity-end commitement-header">
-                            <div class="end-content">
-                            --
+                            <div class="end-content len-row ten-five">
+                            1025
                             </div>
                         </div>
                         <div class="col  quantity-end commitement-header">
@@ -318,26 +403,27 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="drevent-9">
-                                <label class="custom-control-label" for="drevent-9"></label>
-                            </div>
-                        </div>
                         <div class="col row-border">
                             <div class="column-one">
                                 Metro Corporation
                             </div>
                         </div>
-                        <div class="col row-border commitement-header end-content">
-                            <div>
-                            --
-                            </div>
+                        <div class="col row-border">
+                            <div class="dropdown">
+                                <button type="button" class="drop-participate" data-toggle="dropdown">
+                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
+                                </button>
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="#">Link 1</a>
+                                  <a class="dropdown-item" href="#">Link 2</a>
+                                  <a class="dropdown-item" href="#">Link 3</a>
+                                </div>
+                              </div> 
+                           
                         </div>
-                        
                         <div class="col  quantity-end commitement-header">
-                            <div class="end-content">
-                            --
+                            <div class="end-content len-row">
+                            1025
                             </div>
                         </div>
                         <div class="col  quantity-end commitement-header">
@@ -352,25 +438,27 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="drevent-10">
-                                <label class="custom-control-label" for="drevent-10"></label>
-                            </div>
-                        </div>
                         <div class="col row-border">
                             <div class="column-one">
                                 Metro Corporation
                             </div>
                         </div>
-                        <div class="col row-border commitement-header end-content">
-                            <div>
-                            --
-                            </div>
+                        <div class="col row-border">
+                            <div class="dropdown">
+                                <button type="button" class="drop-participate" data-toggle="dropdown">
+                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
+                                </button>
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="#">Link 1</a>
+                                  <a class="dropdown-item" href="#">Link 2</a>
+                                  <a class="dropdown-item" href="#">Link 3</a>
+                                </div>
+                              </div> 
+                           
                         </div>
                         <div class="col  quantity-end commitement-header">
-                            <div class="end-content">
-                            --
+                            <div class="end-content len-row ten-five">
+                            1025
                             </div>
                         </div>
                         <div class="col  quantity-end commitement-header">
@@ -385,25 +473,19 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="drevent-11">
-                                <label class="custom-control-label" for="drevent-11"></label>
-                            </div>
-                        </div>
                         <div class="col row-border">
                             <div class="column-one">
                                 Metro Corporation
                             </div>
                         </div>
-                        <div class="col row-border commitement-header end-content">
-                            <div>
-                            --
+                        <div class="col row-border response-show">
+                            <div class = "no-response">
+                                NO RESPONSE 
                             </div>
                         </div>
                         <div class="col  quantity-end commitement-header">
-                            <div class="end-content">
-                            --
+                            <div class="end-content len-row ten-five">
+                            1025
                             </div>
                         </div>
                         <div class="col  quantity-end ">
@@ -422,8 +504,8 @@
                     <div class="row row-top sticky-content">
                         <div style = "width:32px;background-color: white;">
                         </div>
-                        <div class="col row-border footer-color">
-                            <div class="row-footer"> 
+                        <div class="col row-border footer-color seven-line" style = "width: 300px;">
+                            <div class="row-footer "> 
                             TOTALS
                             </div>
                         </div>
@@ -433,7 +515,7 @@
                             </div>
                         </div>
                         <div class="col row-border footer-color end-last">
-                            <div class="row-footer commitement-header">
+                            <div class="row-footer commitement-header len-row">
                             --
                             </div>
                         </div>
