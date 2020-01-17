@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>icon/16px/time</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Demand-Response_DSO" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="16" transform="translate(-32.000000, -167.000000)" fill="#727479">
+            <g id="Secondary-information" transform="translate(32.000000, 135.000000)">
+                <g id="Time" transform="translate(0.000000, 31.000000)">
+                    <g id="icon/16px/time" transform="translate(0.000000, 1.000000)">
+                        <path d="M8,0.75 C11.9978712,0.75 15.25,4.00212881 15.25,8 C15.25,11.9978712 11.9978712,15.25 8,15.25 C4.00212881,15.25 0.75,11.9978712 0.75,8 C0.75,4.00212881 4.00212881,0.75 8,0.75 Z M8.64444478,3.3 L8.5499027,3.30862879 C8.30494292,3.35395696 8.12222256,3.57229352 8.12222256,3.83076923 L8.12200033,8.838 L5.08888922,8.83846154 C4.79792246,8.83846154 4.566667,9.07844559 4.566667,9.36923077 C4.566667,9.66001595 4.79792246,9.9 5.08888922,9.9 L8.64444478,9.9 C8.93541154,9.9 9.166667,9.66001595 9.166667,9.36923077 L9.166667,3.83076923 C9.166667,3.53998405 8.93541154,3.3 8.64444478,3.3 Z" id="Combined-Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
