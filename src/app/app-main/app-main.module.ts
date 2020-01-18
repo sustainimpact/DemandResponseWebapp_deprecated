@@ -15,6 +15,7 @@ import { EventSetCustomersComponent } from '../createevent/event-set-customers/e
 import { VersionHistoryComponent } from '../createevent/version-history/version-history.component';
 import { RejectBidModalComponent } from '../Modals/reject-bid-modal/reject-bid-modal.component';
 import { PopUpPagesComponent } from '../pop-up-pages/pop-up-pages.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,12 +31,54 @@ import { PopUpPagesComponent } from '../pop-up-pages/pop-up-pages.component';
     EventSetCustomersComponent,
     VersionHistoryComponent,
     RejectBidModalComponent,
-    PopUpPagesComponent
+    PopUpPagesComponent,
+  ],
+  entryComponents: [
+    AppMainComponent,
+    TopbarComponent,
+    CreateEventHomeComponent,
+    CreateEventDetailsComponent,
+    SelectEventCustomersComponent,
+    PublishEventModalComponent,
+    DownloadReportsModalComponent,
+    AcceptBidModalComponent,
+    EventsOverviewComponent,
+    EventSetCustomersComponent,
+    VersionHistoryComponent,
+    RejectBidModalComponent,
+    PopUpPagesComponent,
   ],
   imports: [
     CommonModule,
     AppMainRoutingModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    NgbModule
   ]
+  // exports: [AppMainComponent,
+  //   TopbarComponent,
+  //   CreateEventHomeComponent,
+  //   CreateEventDetailsComponent,
+  //   SelectEventCustomersComponent,
+  //   PublishEventModalComponent,
+  //   DownloadReportsModalComponent,
+  //   AcceptBidModalComponent,
+  //   EventsOverviewComponent,
+  //   EventSetCustomersComponent,
+  //   VersionHistoryComponent,
+  //   RejectBidModalComponent,
+  //   PopUpPagesComponent,],
+  // bootstrap: [AppMainComponent,
+  //   TopbarComponent,
+  //   CreateEventHomeComponent,
+  //   CreateEventDetailsComponent,
+  //   SelectEventCustomersComponent,
+  //   PublishEventModalComponent,
+  //   DownloadReportsModalComponent,
+  //   AcceptBidModalComponent,
+  //   EventsOverviewComponent,
+  //   EventSetCustomersComponent,
+  //   VersionHistoryComponent,
+  //   RejectBidModalComponent,
+  //   PopUpPagesComponent,]
 })
 export class AppMainModule { }

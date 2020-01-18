@@ -8,7 +8,7 @@ import {CreateEventHomeComponent} from '../CreateEvent/create-event-home/create-
 import { PublishEventModalComponent } from '../modals/publish-event-modal/publish-event-modal.component';
 import { DownloadReportsModalComponent } from '../modals/download-reports-modal/download-reports-modal.component';
 import { AcceptBidModalComponent } from '../modals/accept-bid-modal/accept-bid-modal.component';
-import { EventsOverviewComponent } from '../createevent/events-overview/events-overview.component';
+//import { EventsOverviewComponent } from '../createevent/events-overview/events-overview.component';
 import { EventSetCustomersComponent } from '../createevent/event-set-customers/event-set-customers.component';
 import { VersionHistoryComponent } from '../createevent/version-history/version-history.component';
 import { RejectBidModalComponent } from '../Modals/reject-bid-modal/reject-bid-modal.component';
@@ -23,7 +23,7 @@ const routes: Routes = [
       { path: 'publisheventmodal', component: PublishEventModalComponent , data: { breadcrumb: 'Publish Event Modal'}},
       { path: 'downloadreportsmodal', component: DownloadReportsModalComponent, data: { breadcrumb: 'Download Reports Modal'}},
       { path: 'acceptbidmodal', component: AcceptBidModalComponent , data: { breadcrumb: 'Accept Bid Modal'}},
-      { path: 'eventsoverview', component: EventsOverviewComponent },
+   //   { path: 'eventsoverview', component: EventsOverviewComponent },
       { path: 'eventsetcustomers', component: EventSetCustomersComponent },
       { path: 'versionhistory', component: VersionHistoryComponent},
       { path: 'popup', component: PopUpPagesComponent},

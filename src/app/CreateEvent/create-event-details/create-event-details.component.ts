@@ -1,25 +1,28 @@
-import { Component, ViewChild, OnInit ,ElementRef  } from '@angular/core';
+import { Component,ViewEncapsulation, OnInit, EventEmitter   } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SharedServicesService } from '../../services/shared-services.service';
 
 @Component({
   selector: 'app-create-event-details',
   templateUrl: './create-event-details.component.html',
-  styleUrls: ['./create-event-details.component.scss']
+  styleUrls: ['./create-event-details.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class CreateEventDetailsComponent implements OnInit {
+
   innerHeight : any = 0;  
-  // offsetHeight : any = 0;
-  constructor() { }
+  closeResult: string;
+  constructor(private modalService: NgbModal,
+    private sharedService : SharedServicesService) { }
+    public triggerOverviewPopup = new EventEmitter<any>();
 
   ngOnInit() {
-    // console.log(this.innerHeight = Number(window.innerHeight));
+   
     this.innerHeight = Number(window.innerHeight) - 240;
   }
-  // @ViewChild('pRef', {static: false}) pRef: ElementRef;
-
-  // ngAfterViewInit() 
-  // {
-  //   console.log("***************"+ this.pRef.nativeElement.offsetHeight); 
-  //   //this.pRef.nativeElement.offsetHeight = Number(window.innerHeight) - 240; 
-    
-  // }
+  openOverviewPopup() {
+    console.log("openOverviewPopup");
+    this.sharedService.triggerOverviewPopup.emit(true);
+  }
+ 
 }
