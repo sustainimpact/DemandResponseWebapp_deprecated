@@ -6,7 +6,7 @@
     border: 1px solid;
     position: absolute;
     height: 500px;
-    width:636px ;
+    width:636px;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
@@ -15,28 +15,27 @@
     display: flex;
     justify-content: flex-end;
     padding-right: 26px;
-    padding-top: 26px;
+    padding-top: 16px;
 }
 .launch-main{
     padding-left: 60px;
-    
 }
 .launch{
-    height: 85px;
-    width: 85px;
+    padding-top: 16px;
 }
 .ready-to{
     font-family: SourceSansPro-Bold;
-font-size: 24px;
-color: #2E2E2E;
-letter-spacing: 0;
+    font-size: 24px;
+    color: #2E2E2E;
+    letter-spacing: 0;
+    padding-top: 16px;
 }
 .please-read{
     font-family: SourceSansPro-Regular;
-font-size: 14px;
-color: #2E2E2E;
-letter-spacing: 0;
-margin-top: 8px;
+    font-size: 14px;
+    color: #2E2E2E;
+    letter-spacing: 0;
+    padding-top: 8px;
 }
 
 .common{
