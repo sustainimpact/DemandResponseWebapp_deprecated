@@ -18,30 +18,31 @@
     display: flex;
     justify-content: flex-end;
     padding-right: 26px;
-    padding-top: 26px;
+    padding-top: 20px;
 }
 .launch-main{
     padding-left: 60px;
 }
 .launch{
-    height: 85px;
-    width: 85px;
+   
+    padding-top: 18px;
 }
 .ready-to{
     font-family: SourceSansPro-Bold;
     font-size: 24px;
     color: #2E2E2E;
     letter-spacing: 0;
+    padding-top: 16px;
 }
 .please-read{
     font-family: SourceSansPro-Regular;
     font-size: 14px;
     color: #2E2E2E;
     letter-spacing: 0;
-    margin-top: 8px;
+    padding-top: 8px;
 }
 .check-row-box{
-    margin-top: 12px;
+    padding-top: 12px;
 }
 .check-row-two{
     margin-top: 17px;
@@ -65,9 +66,9 @@
     height: 37px;
 }
 .button-main{
-display: flex;
-justify-content: flex-end;
-padding-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 10px;
 }
 .button-inner{
     background: #FFFFFF;

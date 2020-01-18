@@ -22,21 +22,21 @@
     padding-left: 60px;
 }
 .launch{
-    height: 85px;
-    width: 85px;
+    padding-top: 16px;
 }
 .ready-to{
     font-family: SourceSansPro-Bold;
     font-size: 24px;
     color: #2E2E2E;
     letter-spacing: 0;
+    padding-top: 16px;
 }
 .please-read{
     font-family: SourceSansPro-Regular;
     font-size: 14px;
     color: #2E2E2E;
     letter-spacing: 0;
-    margin-top: 8px;
+    padding-top: 4px;
 }
 
 .btn:focus {
@@ -86,13 +86,5 @@ padding-bottom: 10px;
     color: #000000;
     letter-spacing: 0;
     line-height: 24px;
+    padding-top: 22px;
 }
-// .content-red{
-//     margin-top: 13px;
-//     font-family: SourceSansPro-Regular;
-//     font-size: 14px;
-//     color:  #D0021B;
-//     letter-spacing: 0;
-//     line-height: 24px;
-   
-// }

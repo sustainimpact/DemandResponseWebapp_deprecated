@@ -1,4 +1,3 @@
-
     <div class="main" *ngIf="cancelAddUser">
         <div class = "even-row">
             <img  src="assets/img/close.svg" alt="close">
@@ -19,13 +18,15 @@
             </div>
             <div class="custom-control custom-checkbox check-row-two common">
                 <input type="checkbox" class="custom-control-input checkbox" id="defaultUncheck-1">
-                <label class="custom-control-label exclude-time" for="defaultUncheck-1" style="height: 184px;">Notification is sent to all the selected customers with the time range of the DR Event</label>
+                <label class="custom-control-label exclude-time" for="defaultUncheck-1">Notification is sent to all the selected customers with the time range of the DR Event</label>
             </div>
         </div>
-        <div class="footer-divider mt-auto"></div>
-        <div class="button-main  mt-auto ml-auto" style="padding-right: 26px;">
+        <div style="padding-top: 140px;">
+            <div class="footer-divider mt-auto"></div>
+        </div>
+        <div class="button-main  ml-auto" style="padding-right: 26px;padding-top: 10px;">
             <div class = "button-inner">
-                <button type="button" class="btn cancel-btn" (click)="hidePublish()">cancel</button>
+                <button type="button" class="btn cancel-btn" (click)="hidePublish()">Cancel</button>
             </div>
             <div class = "button-color">
                 <button type="button" class="btn color-btn-inner">Yes, Publish all Events</button>
