@@ -2,13 +2,10 @@
 {
     width: 1200px;
     height: 500px;
-    top: 10%;
-    left: 7%;
-    position: absolute;
-    bottom: 50%;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
     background: white;
-    z-index: 208;
-    border: 1px solid;
+    border-radius: 5px;
     padding-top: 15px;
 }
 .publish-event-button{
@@ -22,6 +19,7 @@
 {
     display: flex;
     justify-content: flex-end;
+    cursor: pointer;
 }
 .header-top-content
 {
@@ -29,7 +27,6 @@
     font-size: 24px;
     color: #2E2E2E;
     letter-spacing: 0;
-    padding-left: 18px;
 }
 .active {
     box-shadow: 0 0 0 0 rgba(0,123,255,.25)!important;
@@ -172,7 +169,7 @@ font-size: 12px;
   overflow-x: hidden;
 }
 .table-row-scroll{
-    height:90%;
+    max-height: 246px;
     overflow-x: hidden;
     scrollbar-width: thin;
 }
@@ -210,12 +207,13 @@ font-size: 12px;
     justify-content: flex-end;
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-right: -10px;
 }
 .footer-divider{
     height: 1px;
     background-color: #d3d3d3;
     padding: 0px;
     margin-top: 24px;
-    margin-right: 0px !important;
-    margin-left: -24px !important;
+    margin-right: -19px !important;
+    margin-left: -41px !important;
 }

@@ -2,18 +2,15 @@
 {
     width: 750px;
     height: 680px;
-    top: 10%;
-    left: 30%;
-    bottom: 50%;
     background: white;
-    padding-top: 15px;
-    position: absolute;
-    z-index: 0;
-    border: 1px solid;
+    padding-top: 25px;
+    border-radius: 5px;
+    padding-right: 40px !important;
 }
 .close-icon
 {
     display: flex;
+    cursor: pointer;
     justify-content: flex-end;
 }
 .header-top-content
@@ -186,7 +183,10 @@ row-customer{
     border-right: 1px solid #E4E8EC;
     display: flex;
     align-items: center;
+    width: 40px;
+    padding: 11px;
     height: 40px;
+    justify-content: flex-start;
 }
 .quantity-end{
     border-right: 1px solid #E4E8EC;
@@ -220,7 +220,7 @@ row-customer{
 }
 .table-row-scroll{
     overflow: scroll;
-    height:75%;
+    max-height: 315px;
     overflow-x: hidden;
     scrollbar-width: thin;
 }
@@ -229,6 +229,7 @@ row-customer{
     justify-content: flex-end;
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-right: -32px;
 }
 
 .btn {
@@ -278,7 +279,7 @@ row-customer{
     background-color: #d3d3d3;
     padding: 0px;
     margin-top: 24px;
-    margin-right: -23px !important;
+    margin-right: -40px !important;
     margin-left: -24px !important;
 }
 .south{

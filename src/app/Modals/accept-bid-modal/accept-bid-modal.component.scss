@@ -1,10 +1,5 @@
 .main{
-    top: 10%;
-    left: 30%;
-    bottom: 50%;
-    z-index: 0;
     border: 1px solid;
-    position: absolute;
     background: #FFFFFF;
     border-radius: 4px;
     height: 404px;
@@ -12,26 +7,34 @@
     display: flex;
     flex-direction: column;
 }
+.color-btn-inner:hover {
+    color: #FFFFFF;
+}
+.cancel-btn:hover {
+    color: #417505;;
+}
 .even-row{
     display: flex;
+    cursor: pointer;
     justify-content: flex-end;
     padding-right: 26px;
     padding-top: 26px;
 }
 .launch-main{
     padding-left: 60px;
+    padding-right: 57px;
 }
 .launch{
     padding-top: 16px;
 }
-.ready-to{
+.title{
     font-family: SourceSansPro-Bold;
     font-size: 24px;
     color: #2E2E2E;
     letter-spacing: 0;
     padding-top: 16px;
 }
-.please-read{
+.body-content{
     font-family: SourceSansPro-Regular;
     font-size: 14px;
     color: #2E2E2E;
@@ -80,7 +83,7 @@ padding-bottom: 10px;
     padding: 0px;
     opacity:0.5;
 }
-.content-black{
+.content-bottom{
     font-family: SourceSansPro-Regular;
     font-size: 14px;
     color: #000000;

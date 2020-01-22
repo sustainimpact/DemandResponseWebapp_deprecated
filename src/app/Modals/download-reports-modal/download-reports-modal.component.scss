@@ -1,21 +1,23 @@
 .main-download{
-    top: 10%;
-    left: 30%;
-    bottom: 50%;
-    z-index: 0;
-    border: 1px solid;
-    position: absolute;
+    border-radius: 5px;
     height: 500px;
     width:636px;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
 }
+.color-btn-inner:hover {
+    color: #FFFFFF;
+}
+.cancel-btn:hover {
+    color: #00349A;;
+}
 .even-row{
     display: flex;
+    cursor: pointer;
     justify-content: flex-end;
     padding-right: 26px;
-    padding-top: 16px;
+    padding-top: 21px;
 }
 .launch-main{
     padding-left: 60px;
@@ -23,14 +25,14 @@
 .launch{
     padding-top: 16px;
 }
-.ready-to{
+.title{
     font-family: SourceSansPro-Bold;
     font-size: 24px;
     color: #2E2E2E;
     letter-spacing: 0;
     padding-top: 16px;
 }
-.please-read{
+.body-content{
     font-family: SourceSansPro-Regular;
     font-size: 14px;
     color: #2E2E2E;
@@ -85,7 +87,7 @@ padding-bottom: 10px;
     display: flex;
     margin-top: 24px;
 }
-.png{
+.png-img{
     width: 200px;
     height: 120px;
     border: 2px solid #2D8EFF;
@@ -94,7 +96,7 @@ padding-bottom: 10px;
     justify-content: center;
 }
 
-.pdf{
+.pdf-img{
     width: 200px;
     height: 120px;
     background: #FFFFFF;

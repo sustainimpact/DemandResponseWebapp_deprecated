@@ -1,21 +1,23 @@
 .main{
-    top: 10%;
-    left: 30%;
-    bottom: 50%;
-    z-index: 0;
     border: 1px solid;
     background: #FFFFFF;
     border-radius: 4px;
     height: 379px;
-    position: absolute;
     width: 636px;
     display: flex;
     flex-direction: column;
+}
+.color-btn-inner:hover {
+    color: #FFFFFF;
+}
+.cancel-btn:hover {
+    color: #D0021B;;
 }
 .even-row{
     display: flex;
     justify-content: flex-end;
     padding-right: 26px;
+    cursor: pointer;
     padding-top: 26px;
 }
 .launch-main{
@@ -24,14 +26,14 @@
 .launch{
    padding-top: 18px;
 }
-.ready-to{
+.title{
     font-family: SourceSansPro-Bold;
     font-size: 24px;
     color: #2E2E2E;
     letter-spacing: 0;
     padding-top: 12px;
 }
-.please-read{
+.body-content{
     font-family: SourceSansPro-Regular;
     font-size: 14px;
     color: #2E2E2E;

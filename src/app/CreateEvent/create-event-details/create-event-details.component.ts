@@ -1,6 +1,7 @@
 import { Component,ViewEncapsulation, OnInit, EventEmitter   } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SharedServicesService } from '../../services/shared-services.service';
+import { NgbModal,NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @Component({
   selector: 'app-create-event-details',
@@ -11,18 +12,29 @@ import { SharedServicesService } from '../../services/shared-services.service';
 export class CreateEventDetailsComponent implements OnInit {
 
   innerHeight : any = 0;  
-  closeResult: string;
-  constructor(private modalService: NgbModal,
-    private sharedService : SharedServicesService) { }
-    public triggerOverviewPopup = new EventEmitter<any>();
-
+  constructor(private modalService: NgbModal) { }
+  
   ngOnInit() {
    
     this.innerHeight = Number(window.innerHeight) - 240;
   }
-  openOverviewPopup() {
-    console.log("openOverviewPopup");
-    this.sharedService.triggerOverviewPopup.emit(true);
+
+  open() {
+    const modalRef = this.modalService.open(EventOverviewComponent ,{ size: 'xl',centered: true } );
+    modalRef.componentInstance.name = 'World';
   }
- 
+}
+
+
+@Component({
+  selector: 'app-event-overview',
+  templateUrl: '../event-overview/event-overview.component.html',
+  styleUrls: ['../event-overview/event-overview.component.scss']
+})
+export class EventOverviewComponent implements OnInit {
+  constructor(public activeModal: NgbActiveModal) {}
+
+  ngOnInit() {
+  }
+
 }

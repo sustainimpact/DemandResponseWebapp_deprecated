@@ -2,18 +2,15 @@
 {
     width: 663px;
     height: 500px;
-    top: 10%;
-    left: 30%;
-    bottom: 50%;
     padding-top: 15px;
-    z-index: 0;
-    border: 1px solid;
+    border-radius: 5px;
     background: white;
-    position: absolute;
+    padding-right: 40px !important;
 }
 .close-icon
 {
     display: flex;
+    cursor: pointer;
     justify-content: flex-end;
 }
 .header-top-content
@@ -23,6 +20,7 @@
     color: #2E2E2E;
     letter-spacing: 0;
     padding-left: 18px;
+    padding-bottom: 10px;
 }
 .header-second-content
 {
@@ -148,7 +146,6 @@ row-customer{
 }
 .table-border{
     border: 1px solid #E4E8EC;
-    padding-bottom: 10px;
 }
 .row-top{
     margin: 0px!important;

@@ -1,24 +1,26 @@
 .main{
-    top: 10%;
-    left: 30%;
-    bottom: 50%;
-    z-index: 0;
     border: 1px solid;
     background: #ffffff;
     border-radius: 4px;
     height: 500px;
-    position: absolute;
     width: 636px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     flex-direction: column;
 }
+.color-btn-inner:hover {
+    color: #FFFFFF;
+}
+.cancel-btn:hover {
+    color: #00349A;;
+}
 .even-row{
     display: flex;
     justify-content: flex-end;
     padding-right: 26px;
     padding-top: 20px;
+    cursor: pointer;
 }
 .launch-main{
     padding-left: 60px;
@@ -27,14 +29,14 @@
    
     padding-top: 18px;
 }
-.ready-to{
+.title{
     font-family: SourceSansPro-Bold;
     font-size: 24px;
     color: #2E2E2E;
     letter-spacing: 0;
     padding-top: 16px;
 }
-.please-read{
+.body-content{
     font-family: SourceSansPro-Regular;
     font-size: 14px;
     color: #2E2E2E;
@@ -42,7 +44,7 @@
     padding-top: 8px;
 }
 .check-row-box{
-    padding-top: 12px;
+    padding-top: 20px;
 }
 .check-row-two{
     margin-top: 17px;

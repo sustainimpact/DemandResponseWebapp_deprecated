@@ -1,31 +1,28 @@
 
-    <div class="main">
-        <div class = "even-row">
+    <div class="main" >
+        <div class = "even-row" (click)="activeModal.close('Close click')">
             <img  src="assets/img/close.svg" alt="close">
         </div>
         <div class = "launch-main">
             <div class="launch">
                 <img   src="assets/img/accept-bid.svg" alt="close">
             </div>
-            <div class="ready-to">
+            <div class="title">
                 Accept Counter Bid
             </div>
-            <div class="please-read">
+            <div class="body-content">
                 By accepting the request, the customer is welcome to participate in the scheduled DR Event.  Customer will  be notified about the acceptance of his/her counter bid request.
             </div>
-            <div class="content-black">
+            <div class="content-bottom">
                 Are you sure you want to accept the customer request? 
             </div>
         </div>
-        <div style = "padding-top: 56px;">
-            <div class="footer-divider"></div>
-        </div>
-        <div class="button-main  ml-auto" style="padding-right: 26px;padding-top: 10px;">
+        <div class="button-main" style="padding-right: 26px;padding-top: 10px;margin-top: auto;border-top: 1px solid #D3D3D3;">
             <div class = "button-inner">
-                <button type="button" class="btn cancel-btn">Cancel</button>
+                <button type="button" class="btn cancel-btn" (click)="activeModal.close('Close click')">Cancel</button>
             </div>
             <div class = "button-color">
-                <button type="button" class="btn color-btn-inner">Yes, I Accept</button>
+                <button type="button" class="btn color-btn-inner" style="padding-top: 8px;">Yes, I Accept</button>
             </div>
         </div>
     </div>

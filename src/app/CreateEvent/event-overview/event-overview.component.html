@@ -1,14 +1,13 @@
 
-   <ng-template #content let-modal>
     <div class=" pl-4 pr-4 full-body">
-        <div class="close-icon">
+        <div class="close-icon" style=" padding-top: 10px;margin-right: -10px !important;" (click)="activeModal.close('Close click')">
             <img src="../../../assets/img/close.svg" alt="logo">
         </div>
         <div class="header-top-content">
             Events Overview
         </div>
         <div class = "mt-2 table-border">
-            <div class="row row-top" style = "margin:0px;border-bottom: 1px solid #E4E8EC;;">
+            <div class="row row-top" style = "margin:0px;border-bottom: 1px solid #E4E8EC;padding-right: 7px;">
                 <div class="col-2 row-border-header">
                     <div class="dr-event">
                         DR EVENTS
@@ -301,14 +300,13 @@
                 </div>
             </div>   
         </div> 
-        <div style="position: absolute; bottom: 0px; width: 98%;">
+        <div style="position: absolute; bottom: 0px; width: 100%;">
             <div class="footer-divider"></div>
             <div class="footer-back">
                 <div class = "button-margin">
-                    <button type="button" class="btn publish-event-button publish-inner-button">Close</button>
+                    <button type="button" style="opacity: 1 !important;" class="btn publish-event-button publish-inner-button" (click)="activeModal.close('Close click')">Close</button>
                 </div> 
             </div>
         </div> 
     </div>  
 </div>
-</ng-template>

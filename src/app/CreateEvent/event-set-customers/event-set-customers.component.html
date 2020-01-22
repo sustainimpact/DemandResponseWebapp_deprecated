@@ -1,6 +1,6 @@
 
-    <div class=" pl-4 pr-4 full-body" >
-        <div class="close-icon">
+    <div class=" pl-4 pr-4 full-body">
+        <div class="close-icon" style="margin-right: -10px;" (click)="activeModal.close('Close click')">
             <img src="../../../assets/img/close.svg" alt="logo">
         </div>
         <div class="header-top-content">
@@ -10,10 +10,10 @@
             The list is only shown for 9 of 10 events.
         </div>
         <div style ="padding-left:20px">
-            <div class = "table-border" [ngStyle]="{'height.px': innerHeight}">
+            <div class = "table-border">
                 <div class="row pl-2 pr-4">
                     <div class="col select-customer">
-                        <div class="row-customer">
+                        <div class="row-customer" style="padding-left:5px;">
                             Selected Customers - 25/25
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                 </div>
                
                 <div class="row row-top" style = "position: sticky;top: 0px;z-index: 1;border-bottom: 1px solid #E4E8EC;background: white;    padding-right: 7px;">
-                    <div class=" pl-2 row-border">
+                    <div class=" row-border">
                         <div class=" custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="1">
                             <label class="custom-control-label" for="1"></label>
@@ -57,7 +57,7 @@
                         
                 <div class="table-row-scroll">    
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
+                        <div class=" row-border">
                             <div class=" custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="2">
                                 <label class="custom-control-label" for="2"></label>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
+                        <div class=" row-border">
                             <div class=" custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="3">
                                 <label class="custom-control-label" for="3"></label>
@@ -83,7 +83,7 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
+                        <div class=" row-border">
                             <div class=" custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="4">
                                 <label class="custom-control-label" for="4"></label>
@@ -97,7 +97,7 @@
                         
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
+                        <div class=" row-border">
                             <div class=" custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="5">
                                 <label class="custom-control-label" for="5"></label>
@@ -111,7 +111,7 @@
                         
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
+                        <div class="row-border">
                             <div class=" custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="6">
                                 <label class="custom-control-label" for="6"></label>
@@ -124,7 +124,7 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
+                        <div class=" row-border">
                             <div class=" custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="7">
                                 <label class="custom-control-label" for="7"></label>
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
+                        <div class=" row-border">
                             <div class=" custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="8">
                                 <label class="custom-control-label" for="8"></label>
@@ -150,7 +150,7 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
+                        <div class=" row-border">
                             <div class=" custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="9">
                                 <label class="custom-control-label" for="9"></label>
@@ -163,7 +163,7 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
+                        <div class=" row-border">
                             <div class=" custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="10">
                                 <label class="custom-control-label" for="10"></label>
@@ -176,7 +176,7 @@
                         </div>
                     </div>
                     <div class="row row-top" style = "margin:0px;">
-                        <div class=" pl-2 row-border">
+                        <div class=" row-border">
                             <div class=" custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="11">
                                 <label class="custom-control-label" for="11 "></label>
@@ -205,10 +205,10 @@
         <div class="footer-divider"></div>
         <div class="footer-back">
             <div class = "button-cancel-event">
-                <button type="button" class="back-btn publish-event-button">Cancel</button>
+                <button type="button" class="back-btn publish-event-button" (click)="activeModal.close('Close click')">Cancel</button>
             </div> 
             <div class = "button-margin">
-                <button type="button" class="btn publish-event-button publish-inner-button">Update all Events</button>
+                <button type="button" class="btn publish-event-button publish-inner-button" style="opacity: 0.5;">Update all Events</button>
             </div> 
         </div>
     </div>

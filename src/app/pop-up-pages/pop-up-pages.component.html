@@ -1,4 +1,4 @@
-<!-- <div class = "button-color">
+<div class = "button-color">
     <button type="button" class="btn color-btn-inner"><a routerLink="../createevent">createevent</a></button>
 </div>
 
@@ -11,36 +11,25 @@
 </div>
 
 <div class = "button-color">
-    <button type="button" class="btn color-btn-inner" (click)="showPublish()">publishEventModal</button>
-    <app-publish-event-modal *ngIf="showpublishEventModal"></app-publish-event-modal>
-</div>
- 
-<div class = "button-color">
-    <button type="button" class="btn color-btn-inner" (click)="showOverview()">eventsOverview</button>
-    <app-events-overview *ngIf="showeventsOverview"></app-events-overview>
+    <button type="button" class="btn color-btn-inner" (click)="openPublishEvent()">publishEventModal</button>
 </div>
 
 <div class = "button-color">
-    <button type="button" class="btn color-btn-inner" (click)="showeventset()">eventsetCustomers</button>
-    <app-event-set-customers *ngIf="showeventsetCustomers"></app-event-set-customers>
+    <button type="button" class="btn color-btn-inner" (click)="openEventSetCustomer()">eventsetCustomers</button>
 </div>
 
 <div class = "button-color">
-    <button type="button" class="btn color-btn-inner" (click)="showversion()">versionHistory</button>
-    <app-version-history *ngIf="showversionHistory"></app-version-history>
+    <button type="button" class="btn color-btn-inner" (click)="openVersionHistory()">versionHistory</button>
 </div>
 
 <div class = "button-color">
-    <button type="button" class="btn color-btn-inner" (click)="showdownload()">downloadReportsModal</button>
-    <app-download-reports-modal *ngIf="showdownloadReportsModal"></app-download-reports-modal>
+    <button type="button" class="btn color-btn-inner" (click)="openDownloadReports()">downloadReportsModal</button>
 </div>
 
 <div class = "button-color">
-    <button type="button" class="btn color-btn-inner" (click)="showaccept()">acceptBidModal</button>
-    <app-accept-bid-modal *ngIf="showacceptBidModal"></app-accept-bid-modal>
+    <button type="button" class="btn color-btn-inner" (click)="openAcceptBid()">acceptBidModal</button>
 </div>
 
 <div class = "button-color">
-    <button type="button" class="btn color-btn-inner" (click)="showreject()">rejectBidModal</button>
-    <app-reject-bid-modal *ngIf="showrejectBidModal"></app-reject-bid-modal>
-</div> -->
+    <button type="button" class="btn color-btn-inner" (click)="openRejectBidModal()">rejectBidModal</button>
+</div>

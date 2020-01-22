@@ -1,15 +1,15 @@
-    <div class="main" *ngIf="cancelAddUser">
-        <div class = "even-row">
+    <div class="main">
+        <div class = "even-row" (click)="activeModal.close('Close click')">
             <img  src="assets/img/close.svg" alt="close">
         </div>
         <div class = "launch-main">
             <div class="launch">
                 <img   src="assets/img/launch.svg" alt="close">
             </div>
-            <div class="ready-to">
+            <div class="title">
                 Ready to publish all events?
             </div>
-            <div class="please-read">
+            <div class="body-content">
                 Please read the follow and confirm your understanding - 
             </div>
             <div class="custom-control custom-checkbox check-row-box common">
@@ -21,15 +21,12 @@
                 <label class="custom-control-label exclude-time" for="defaultUncheck-1">Notification is sent to all the selected customers with the time range of the DR Event</label>
             </div>
         </div>
-        <div style="padding-top: 140px;">
-            <div class="footer-divider mt-auto"></div>
-        </div>
-        <div class="button-main  ml-auto" style="padding-right: 26px;padding-top: 10px;">
+        <div class="button-main" style="padding-right: 26px;padding-top: 10px;margin-top: auto;border-top: 1px solid #D3D3D3;">
             <div class = "button-inner">
-                <button type="button" class="btn cancel-btn" (click)="hidePublish()">Cancel</button>
+                <button type="button" class="btn cancel-btn" (click)="activeModal.close('Close click')">Cancel</button>
             </div>
             <div class = "button-color">
-                <button type="button" class="btn color-btn-inner">Yes, Publish all Events</button>
+                <button type="button" class="btn color-btn-inner" style="padding-top: 8px;">Yes, Publish all Events</button>
             </div>
         </div>
     </div>

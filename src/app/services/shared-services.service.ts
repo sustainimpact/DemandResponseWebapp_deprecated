@@ -6,16 +6,17 @@ import { Observable, Subject } from 'rxjs';
 })
 export class SharedServicesService {
 
-  private subject = new Subject<any>();
-  public triggerOverviewPopup = new EventEmitter<any>();
+  //private subject = new Subject<any>();
+  // public triggerOverviewPopup = new EventEmitter<any>();
 
-  triggerOverviewsPopup(status){
-    this.subject.next({trigger: status})
-  }
+//   triggerOverviewsPopup(status){
+//     this.subject.next({trigger: status})
+//   }
 
-  openOverviewPopup(): Observable<any> {
-    return this.subject.asObservable();
-}
+//   openOverviewPopup(): Observable<any> {
+//     console.log("*******************" + this.subject.asObservable());
+//     return this.subject.asObservable();
+// }
 
   constructor() { }
 }

@@ -1,36 +1,33 @@
 
     <div class = "main-download">
-        <div class = "even-row">
+        <div class = "even-row" (click)="activeModal.close('Close click')">
             <img   src="assets/img/close.svg" alt="close">
         </div>
         <div class = "launch-main">
             <div class="launch">
                 <img   src="assets/img/launch.svg" alt="close">
             </div>
-            <div class="ready-to">
+            <div class="title">
                 Download 2019102606HYS Event?
             </div>
-            <div class="please-read">
+            <div class="body-content">
                 Please choose one or all formats from the following
             </div>
             <div class = "img-main">
-                <div class = "png">
+                <div class = "png-img">
                     <img   src="assets/img/png.svg" alt="close">
                 </div>
-                <div class="pdf">
+                <div class="pdf-img">
                     <img   src="assets/img/pdf.svg" alt="close">
                 </div>
             </div>
         </div>
-        <div style ="padding-top: 82px;">
-            <div class="footer-divider"></div>
-        </div>
-        <div class="button-main" style="padding-right: 26px;padding-top: 10px;">
+        <div class="button-main" style="padding-right: 26px;padding-top: 10px;margin-top: auto;border-top: 1px solid #D3D3D3;">
             <div class = "button-inner">
-                <button type="button" class="btn cancel-btn">Cancel</button>
+                <button type="button" class="btn cancel-btn" (click)="activeModal.close('Close click')">Cancel</button>
             </div>
             <div class = "button-color">
-                <button type="button" class="btn color-btn-inner">Download</button>
+                <button type="button" class="btn color-btn-inner" style="padding-top: 8px;">Download</button>
             </div>
         </div>
     </div>

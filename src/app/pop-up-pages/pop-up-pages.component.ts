@@ -1,94 +1,125 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
+import { NgbModal,NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-pop-up-pages',
   templateUrl: './pop-up-pages.component.html',
-  styleUrls: ['./pop-up-pages.component.scss']
+  styleUrls: ['./pop-up-pages.component.scss'],
+
 })
 export class PopUpPagesComponent implements OnInit {
 
-  // showpublishEventModal :Boolean= false;
-  // showrejectBidModal :Boolean= false;
-  // showacceptBidModal :Boolean= false;
-  // showdownloadReportsModal :Boolean= false; 
-  // showversionHistory :Boolean= false;
-  // showeventsetCustomers :Boolean= false;
-  // showeventsOverview :Boolean= false;
-  
-
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
   }
 
-  // showPublish(){
-  //   this.showpublishEventModal=true;
-  //   this.showrejectBidModal = false;
-  //   this.showacceptBidModal = false;
-  //   this.showdownloadReportsModal = false;
-  //   this.showversionHistory = false;
-  //   this.showeventsetCustomers = false;
-  //   this.showeventsOverview = false;
-  // }
+  openPublishEvent() {
+    const modalRef = this.modalService.open(PublishEventModalComponent ,{centered: true });
+    modalRef.componentInstance.name = 'World';
+  }
 
-  // showreject(){
-  //   this.showpublishEventModal=false;
-  //   this.showrejectBidModal = true;
-  //   this.showacceptBidModal = false;
-  //   this.showdownloadReportsModal = false;
-  //   this.showversionHistory = false;
-  //   this.showeventsetCustomers = false;
-  //   this.showeventsOverview = false;
-  // }
+  openEventSetCustomer() {
+    const modalRef = this.modalService.open(EventSetCustomersComponent ,{centered: true });
+    modalRef.componentInstance.name = 'World';
+  }
 
-  // showaccept(){
-  //   this.showpublishEventModal=false;
-  //   this.showrejectBidModal = false;
-  //   this.showacceptBidModal = true;
-  //   this.showdownloadReportsModal = false;
-  //   this.showversionHistory = false;
-  //   this.showeventsetCustomers = false;
-  //   this.showeventsOverview = false;
-  // }
+  openVersionHistory() {
+    const modalRef = this.modalService.open(VersionHistoryComponent ,{centered: true });
+    modalRef.componentInstance.name = 'World';
+  }
 
-  // showdownload(){
-  //   this.showpublishEventModal=false;
-  //   this.showrejectBidModal = false;
-  //   this.showacceptBidModal = false;
-  //   this.showdownloadReportsModal = true;
-  //   this.showversionHistory = false;
-  //   this.showeventsetCustomers = false;
-  //   this.showeventsOverview = false;
-  // }
+  openDownloadReports() {
+    const modalRef = this.modalService.open(DownloadReportsModalComponent ,{centered: true });
+    modalRef.componentInstance.name = 'World';
+  }
 
-  // showversion(){
-  //   this.showpublishEventModal=false;
-  //   this.showrejectBidModal = false;
-  //   this.showacceptBidModal = false;
-  //   this.showdownloadReportsModal = false;
-  //   this.showversionHistory = true;
-  //   this.showeventsetCustomers = false;
-  //   this.showeventsOverview = false;
-  // }
+  openAcceptBid() {
+    const modalRef = this.modalService.open(AcceptBidModalComponent ,{centered: true });
+    modalRef.componentInstance.name = 'World';
+  }
 
-  // showeventset(){
-  //   this.showpublishEventModal=false;
-  //   this.showrejectBidModal = false;
-  //   this.showacceptBidModal = false;
-  //   this.showdownloadReportsModal = false;
-  //   this.showversionHistory = false;
-  //   this.showeventsetCustomers = true;
-  //   this.showeventsOverview = false;
-  // }
+  openRejectBidModal() {
+    const modalRef = this.modalService.open(RejectBidModalComponent ,{centered: true });
+    modalRef.componentInstance.name = 'World';
+  }
 
-  // showOverview(){
-  //   this.showpublishEventModal=false;
-  //   this.showrejectBidModal = false;
-  //   this.showacceptBidModal = false;
-  //   this.showdownloadReportsModal = false;
-  //   this.showversionHistory = false;
-  //   this.showeventsetCustomers = false;
-  //   this.showeventsOverview = true;
-  // }
+}
+@Component({
+  selector: 'app-publish-event-modal',
+  templateUrl: '../Modals/publish-event-modal/publish-event-modal.component.html',
+  styleUrls: ['../Modals/publish-event-modal/publish-event-modal.component.scss']
+})
+export class PublishEventModalComponent implements OnInit {
 
+  constructor(public activeModal: NgbActiveModal) { }
+
+  ngOnInit() {
+  }
+}
+
+@Component({
+  selector: 'app-event-set-customers',
+  templateUrl: '../CreateEvent/event-set-customers/event-set-customers.component.html',
+  styleUrls: ['../CreateEvent/event-set-customers/event-set-customers.component.scss']
+})
+export class EventSetCustomersComponent implements OnInit {
+
+  constructor(public activeModal: NgbActiveModal) { }
+
+  ngOnInit() {}
+
+}
+@Component({
+  selector: 'app-version-history',
+  templateUrl: '../CreateEvent/version-history/version-history.component.html',
+  styleUrls: ['../CreateEvent/version-history/version-history.component.scss']
+})
+export class VersionHistoryComponent implements OnInit {
+
+  constructor(public activeModal: NgbActiveModal) { }
+
+  ngOnInit() {
+  }
+}
+
+@Component({
+  selector: 'app-download-reports-modal',
+  templateUrl: '../Modals/download-reports-modal/download-reports-modal.component.html',
+  styleUrls: ['../Modals/download-reports-modal/download-reports-modal.component.scss']
+})
+export class DownloadReportsModalComponent implements OnInit {
+
+  constructor(public activeModal: NgbActiveModal) { }
+
+  ngOnInit() {
+  }
+
+}
+
+@Component({
+  selector: 'app-accept-bid-modal',
+  templateUrl: '../Modals/accept-bid-modal/accept-bid-modal.component.html',
+  styleUrls: ['../Modals/accept-bid-modal/accept-bid-modal.component.scss']
+})
+export class AcceptBidModalComponent implements OnInit {
+
+  constructor(public activeModal: NgbActiveModal) { }
+
+  ngOnInit() {
+  }
+
+}
+
+@Component({
+  selector: 'app-reject-bid-modal',
+  templateUrl: '../Modals/reject-bid-modal/reject-bid-modal.component.html',
+  styleUrls: ['../Modals/reject-bid-modal/reject-bid-modal.component.scss']
+})
+export class RejectBidModalComponent implements OnInit {
+
+  constructor(public activeModal: NgbActiveModal) { }
+
+  ngOnInit() {
+  }
 }
