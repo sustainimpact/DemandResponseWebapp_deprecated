@@ -5,6 +5,10 @@ import {AppMainComponent} from '../app-main/app-main.component';
 import { SelectEventCustomersComponent } from '../createevent/select-event-customers/select-event-customers.component';
 import {CreateEventDetailsComponent} from '../CreateEvent/create-event-details/create-event-details.component';
 import {CreateEventHomeComponent} from '../CreateEvent/create-event-home/create-event-home.component';
+import { AllEventSetsComponent } from '../CreateEvent/all-event-sets/all-event-sets.component';
+import { AddCustomerBulkComponent } from '../Modals/add-customer-bulk/add-customer-bulk.component';
+import { AllCustomersComponent } from '../CreateEvent/all-customers/all-customers.component';
+
 // import { PublishEventModalComponent } from '../modals/publish-event-modal/publish-event-modal.component';
 // import { DownloadReportsModalComponent } from '../modals/download-reports-modal/download-reports-modal.component';
 // import { AcceptBidModalComponent } from '../modals/accept-bid-modal/accept-bid-modal.component';
@@ -20,6 +24,9 @@ const routes: Routes = [
       { path: 'selecteventcustomers', component: SelectEventCustomersComponent , data: { breadcrumb: 'Select Event Customers'}},
       { path: 'createeventdetails', component: CreateEventDetailsComponent , data: { breadcrumb: 'Create Event Details'}},
       { path: 'createevent', component: CreateEventHomeComponent , data: { breadcrumb: 'Create Event Home'}},
+      { path: 'alleventsetscomponent', component: AllEventSetsComponent },
+      { path: 'allcustomerscomponent', component: AllCustomersComponent },
+      { path: 'addcustomerbulkcomponent', component: AddCustomerBulkComponent },
       // { path: 'publisheventmodal', component: PublishEventModalComponent },
       // { path: 'downloadreportsmodal', component: DownloadReportsModalComponent },
       // { path: 'acceptbidmodal', component: AcceptBidModalComponent },

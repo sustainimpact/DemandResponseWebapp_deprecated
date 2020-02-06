@@ -4,8 +4,9 @@ import { AppMainModule } from '../app/app-main/app-main.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-
-
+import { AllEventSetsComponent } from './CreateEvent/all-event-sets/all-event-sets.component';
+import { AddCustomerBulkComponent } from './Modals/add-customer-bulk/add-customer-bulk.component';
+import { AllCustomersComponent } from './CreateEvent/all-customers/all-customers.component';
 
 
 
@@ -14,6 +15,9 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     AppComponent,
     LoginComponent,
+    AllEventSetsComponent,
+    AddCustomerBulkComponent,
+    AllCustomersComponent
   ],
   imports: [
     BrowserModule,
