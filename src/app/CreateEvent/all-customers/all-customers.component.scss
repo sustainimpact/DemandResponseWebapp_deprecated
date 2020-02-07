@@ -16,6 +16,9 @@
 
 
 }
+.customer-down-indent{
+    padding-bottom: 26px;
+}
 
 .active {
     box-shadow: 0 0 0 0 rgba(0,123,255,.25)!important;
@@ -57,6 +60,10 @@
     border-top: 1px solid #E4E8EC;
     margin: 0px!important;
 }
+.row-header-top{
+   
+    margin: 0px!important;
+}
 .table-end-line{
     border-bottom: 1px solid #E4E8EC;
 }
@@ -89,33 +96,13 @@
     height: 40px;
     width: 40px;
 }
-.plan-quantity-end{
-    border-right: 1px solid #E4E8EC;
+.row-head{
+   
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     height: 40px;
-}
-.exclude-time{
-    font-family: SourceSansPro-Regular;
-    font-size: 14px;
-    color: #2E2E2E;
-    letter-spacing: 0;
-    padding-top: 2px;
-}
-.final-column{
-    padding-right: 7px;
-}
-.column-footer-height{
-    height:30px;
-}
-.footer-color{
-    background-color: #E5EFFF;
-}
-.commitement-header{
- opacity: 0.5;
-font-family: SourceSansPro-SemiBold;
-font-size: 12px;
+    width: 40px;
 }
   ::-webkit-scrollbar {
     width: 7px;
@@ -124,12 +111,12 @@ font-size: 12px;
   ::-webkit-scrollbar-thumb {
   background-color:hsl(0, 0%, 83%);
   border-radius: 75px;
-  overflow-x: hidden;
+  overflow-x: scroll;
 }
 .table-row-scroll{
     overflow: scroll;
     height:90%;
-    overflow-x: hidden;
+    overflow-x:scroll;
     scrollbar-width: thin;
 }
 .hidden{
@@ -156,37 +143,102 @@ font-size: 12px;
   .customer-init{
       padding-right: 8px;
   }
-  .flex-grow{
-    flex-grow: 1.2!important;
-  }
-  .time-indication{
-    font-size: 0px;
-  }
-  .live-col-end{
-    justify-content: space-between;
-  }
+//   .flex-grow{
+//     flex-grow: 1.2!important;
+//   }
   
-  input[type=radio]:checked  {
-    font-size: 12px;
-    color: #2C7800!important;
-  }
-.live-radio-inner{
-    font-family: SourceSansPro-SemiBold;
-    font-size: 12px;
-    color: #2C7800!important;
-    letter-spacing: 0;
-    margin-right: auto;
-    padding-left: 7px;
-}
-
 .shadow-background{
     background: rgba(208,2,27,0.10);
 }
-.shadow-blue{
-    background: rgba(45,142,255,0.10);
-    border-top: 2px solid #2D8EFF;
-    border-bottom: 2px solid #2D8EFF;
+// ##################################
+
+.division-head{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 12px;
+    color: #727479;
+    letter-spacing: 0;
 }
-.light-color{
-    color:#B8C1CB;
+.division-body{
+    font-family: SourceSansPro-Regular;
+    font-size: 14px;
+    color: #2E2E2E;
+}
+
+.label-box{
+    margin-top: -2px;
+    margin-left: 31px;
+}
+.table-space{
+    padding: 10px 0px 28px 0px;
+}
+.inner-division{
+    width: 80px;
+}
+.outer-division{
+    width: 80px;
+    // margin-left: 16px;
+}
+
+.outer-contract-division{
+    width: 145px;
+    margin-left: 16px;
+}
+.meter-division{
+    width: 120px;
+    margin-left: 16px;
+}
+.sl-division{
+    width: 49px;
+    margin-left: 16px;
+}
+.billed-division{
+    width: 100px;
+    margin-left: 16px;
+}
+.company-division{
+    width: 120px;
+    margin-left: 16px;
+}
+.address-division{
+    width: 230px;
+    margin-left: 16px;
+}
+.type-division{
+    width: 120px;
+    margin-left: 16px;
+}
+.customer-division{
+    width: 109px;
+    margin-left: 16px;
+}
+.contact-division{
+    width: 120px;
+    margin-left: 16px;
+}
+.header-main-customer{
+    display: flex;
+    margin-left: 16px;
+}
+.roll-col{
+    overflow-x: scroll;
+}
+.display-flex{
+    display: flex;
+    padding-left: 16px;
+}
+.inner-div-main{
+    padding-top: 13px;
+    padding-bottom: 28px;
+}
+.col-label{
+    padding-right: 0px;
+}
+.textalign-right{
+    text-align: right;  
+}
+.row-width-imp{
+    width:186%;
+}
+.esl{
+    width:128%
 }

@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-customers.component.scss']
 })
 export class AllCustomersComponent implements OnInit {
-
+  innerHeight : any = 0;  
   constructor() { }
 
   ngOnInit() {
+    this.innerHeight = Number(window.innerHeight) - 220;
   }
 
 }
+
