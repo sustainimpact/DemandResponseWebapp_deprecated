@@ -13,8 +13,6 @@
     line-height: 19px!important;
     padding: 7px 30px !important;
     border: 1px solid #DFE2E5;
-
-
 }
 .customer-down-indent{
     padding-bottom: 26px;
@@ -55,6 +53,7 @@
 }
 .table-border{
     border: 1px solid #E4E8EC;
+    border-right: 0px;
 }
 .row-top{
     border-top: 1px solid #E4E8EC;
@@ -163,6 +162,19 @@
     font-size: 14px;
     color: #2E2E2E;
 }
+.align-row-equal{
+    margin-top: -4px;
+}
+.static-content{
+    position: fixed;
+    right: 31px;
+    background-color: #FFFFFF;
+    top: 167px;
+}
+.dot-icon{
+    padding: 25px 15px 33px 13px;
+    border: none;
+}
 
 .label-box{
     margin-top: -2px;
@@ -203,6 +215,10 @@
     width: 230px;
     margin-left: 16px;
 }
+.mobile-division{
+    width: 82px;
+    margin-left: 16px;
+}
 .type-division{
     width: 120px;
     margin-left: 16px;
@@ -237,8 +253,11 @@
     text-align: right;  
 }
 .row-width-imp{
-    width:186%;
+    width:120%;
 }
 .esl{
-    width:128%
+    width:120%
+}
+.relative-position{
+    position: relative;
 }

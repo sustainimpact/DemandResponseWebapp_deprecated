@@ -1,0 +1,265 @@
+.modalgi-main{
+    height:690px;
+    width: 750px;
+    background: #FFFFFF;
+    border-radius: 4px;
+} 
+.close-icon{
+    text-align: right;
+    margin-right: 26px;
+}
+.indent-common{
+    margin-left: 40px;}
+
+.add-customer{
+    font-family: SourceSansPro-Bold;
+    font-size: 24px;
+    color: #2E2E2E;
+    letter-spacing: 0;
+} 
+.tech-info-main{
+    margin-top: 29px;
+    justify-content: center;
+}
+.divider{
+    width: 140px;
+    background-color: #DFE2E5;
+    height: 1px;
+    align-self: center;
+    margin: 0px 12px;
+}
+.common-content{
+    margin: 0px 40px;
+}
+.text-col{
+    padding-right: 14px;
+}
+.tec-info-style{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 12px;
+    color: #00349A;
+    letter-spacing: 0;
+    padding-left: 5px;
+    margin-top: 3px;
+} 
+.tech-info-inner{
+    padding-right: 14px;
+    margin-top: -3px;
+}
+.footer-indent{
+    padding-top: 16px;
+}
+.footer-divider{
+    background-color: #FFFFFF;
+    border-radius: 0 0 4px 4px;
+    background-color: #B8C1CB;
+    height: 1px;
+    opacity: 0.5;
+}
+.footer-outer-row{
+    height: 376px;
+}
+
+.num-one-col{
+    height: 24px;
+    width: 24px;
+    border: 1px solid #00309F;
+}    
+.general-info{
+    font-family: SourceSansPro-Regular;
+    font-size: 12px;
+    color: #000000;
+    letter-spacing: 0;
+    
+    padding-left: 8px;
+}   
+.one-col{
+    border: 1px solid #00309F;
+    height: 24px;
+    width: 24px;
+    text-align: center;
+    border-radius: 17px;
+    padding-top: 1.5px;
+}
+.contract-account{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 12px;
+    color: #727479;
+    letter-spacing: 0;
+    padding-top: 24px;  
+}
+.no-data-col{
+    font-family: SourceSansPro-Regular;
+    font-size: 12px;
+    color: #000000;
+    letter-spacing: 0;
+}
+.footer-line{
+    font-family: SourceSansPro-Regular;
+    font-size: 12px;
+    color: #000000;
+    letter-spacing: 0;
+}
+.displayflex{
+    display: flex;
+}
+.body-col{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 16px;
+    color: #00349A;
+    letter-spacing: 0;
+}
+.body-border-row{
+    border: 1px solid #DFE2E5;
+    width: 300px;
+    height: 40px;
+    border-radius: 4px;
+}
+.align-center{
+    align-self: center;
+}
+.textright{
+    text-align: right;
+}
+.text-general{
+    margin-left: 15px;
+    margin-top: 8px;
+}
+.button-inner{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 14px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 19px;
+    background-color: #00349A;
+    border: 0px;
+    border-radius: 4px;
+    width: 102px;
+    height: 36px;
+}
+.cancel-btn{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 14px;
+    color: #00349A;
+    text-align: center;
+    line-height: 19px;
+    background-color: #FFFFFF;
+    border: 1px solid #DFE2E5;
+    border-radius: 4px;
+    border: 0px;
+    width: 87px;
+    height: 36px;
+    
+}
+.cancel-outer-btn{
+    margin-right: 16px;
+    border: 1px solid #DFE2E5;
+    border-radius: 4px;
+}
+.next-btn{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    background-color: #00349A;
+    border-radius: 4px;
+    border: 0px;
+    width: 87px;
+    height: 36px;
+}
+.opacity{
+    opacity: 0.5;
+}
+.button-row{
+    justify-content: flex-end;
+    margin: 10px 24px 10px 0px;
+}
+.energy-source{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 12px;
+    color: #727479;
+    letter-spacing: 0;    
+}
+.add-energy-col{
+    font-family: SourceSansPro-Italic;
+    font-size: 12px;
+    color: #727479;
+    letter-spacing: 0;
+    padding-left: 8px;
+}
+.col-assets{
+    font-family: SourceSansPro-Italic;
+font-size: 12px;
+color: #727479;
+letter-spacing: 0;
+padding-top: 16px;
+}
+.dashed-col{
+    border-top: 1px dashed #979797;
+    align-self: center;
+}
+.dash-main-col{
+    height: 18px;
+    margin-right: 30px;
+}
+.row-energy-top{
+    margin-top: 32px;
+}
+.solar-main-row{
+    height: 60px;
+    width: 100px;
+    text-align: center;
+    border: 1px solid #00349A;
+    border-radius: 2px;
+}
+.ac-main-row{
+    height: 60px;
+    width: 100px;
+    text-align: center;
+    border: 1px solid #B8C1CB;
+    border-radius: 2px;
+}
+.icon-main{
+    margin-top: 23px;
+}
+.icon-inner{
+    margin-top: 12px;
+}
+.row-generator{
+    margin-left: 11px;
+}
+.solar-col{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 12px;
+    color: #00349A;
+    letter-spacing: 0;
+    text-align: center;
+}
+.solar-icon-common{
+    padding-top: 3px;
+}
+.ac-col{
+    font-family: SourceSansPro-SemiBold;
+    font-size: 12px;
+    color: #727479;
+    letter-spacing: 0;
+    text-align: center;
+}
+.col-boiler{
+    padding-top: 3px;
+}
+.input-col{
+    font-family: SourceSansPro-Regular;
+    font-size: 12px;
+    color: #727479;
+    letter-spacing: 0;
+    padding-left: 12px;
+    border: 1px solid #B8C1CB;
+    border-radius: 4px;
+    width: 260px;
+    height: 36px;
+}
+.input-main-row{
+    margin-top: 26px;
+}

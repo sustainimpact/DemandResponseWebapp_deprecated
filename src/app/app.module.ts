@@ -7,6 +7,9 @@ import { LoginComponent } from './login/login.component';
 import { AllEventSetsComponent } from './CreateEvent/all-event-sets/all-event-sets.component';
 import { AddCustomerBulkComponent } from './Modals/add-customer-bulk/add-customer-bulk.component';
 import { AllCustomersComponent } from './CreateEvent/all-customers/all-customers.component';
+import { AddCustomerModalTIComponent } from './Modals/add-customer-modal-ti/add-customer-modal-ti.component';
+import { AddCustomerModalGIComponent } from './Modals/add-customer-modal-gi/add-customer-modal-gi.component';
+import { AddCustomerModalERComponent } from './Modals/add-customer-modal-er/add-customer-modal-er.component';
 
 
 
@@ -17,7 +20,10 @@ import { AllCustomersComponent } from './CreateEvent/all-customers/all-customers
     LoginComponent,
     AllEventSetsComponent,
     AddCustomerBulkComponent,
-    AllCustomersComponent
+    AllCustomersComponent,
+    AddCustomerModalTIComponent,
+    AddCustomerModalGIComponent,
+    AddCustomerModalERComponent
   ],
   imports: [
     BrowserModule,

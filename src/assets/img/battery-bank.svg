@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>icon/16px/battery bank</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon/16px/battery-bank" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="car-battery" transform="translate(0.000000, 2.000000)" fill="#727479">
+            <path d="M17.5,2.25 L17.5,0.625 C17.5,0.27954125 17.2204587,0 16.875,0 L14.375,0 C14.0295412,0 13.75,0.27954125 13.75,0.625 L13.75,2.25 L6.25,2.25 L6.25,0.625 C6.25,0.27954125 5.97045875,0 5.625,0 L3.125,0 C2.77954125,0 2.5,0.27954125 2.5,0.625 L2.5,2.25 L0,2.25 L0,16 L20,16 L20,2.25 L17.5,2.25 Z M6.25,7.25 L5,7.25 L5,8.5 L3.75,8.5 L3.75,7.25 L2.5,7.25 L2.5,6 L3.75,6 L3.75,4.75 L5,4.75 L5,6 L6.25,6 L6.25,7.25 Z M17.5,7.25 L13.75,7.25 L13.75,6 L17.5,6 L17.5,7.25 Z M19,14 L1,14 L1,13 L19,13 L19,14 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
