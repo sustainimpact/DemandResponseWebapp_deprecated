@@ -1,6 +1,6 @@
 .modalti-main{
-    height:690px;
-    width: 750px;
+    height: 449px;
+    width: 799px;
     background: #FFFFFF;
     border-radius: 4px;
 } 
@@ -9,9 +9,9 @@
     margin-right: 26px;
 }
 .indent-common{
-    margin-left: 40px;}
-
-.add-customer{
+    margin-left: 40px;
+}
+.add-customer{  
     font-family: SourceSansPro-Bold;
     font-size: 24px;
     color: #2E2E2E;
@@ -53,9 +53,8 @@
     opacity: 0.5;
 }
 .footer-outer-row{
-    height: 376px;
+    height: 130px;
 }
-
 .num-one-col{
     height: 24px;
     width: 24px;
@@ -131,6 +130,7 @@
     border-radius: 4px;
     width: 102px;
     height: 36px;
+    outline: 0px;
 }
 .cancel-btn{
     font-family: SourceSansPro-SemiBold;
@@ -144,7 +144,6 @@
     border: 0px;
     width: 87px;
     height: 36px;
-    
 }
 .cancel-outer-btn{
     margin-right: 16px;

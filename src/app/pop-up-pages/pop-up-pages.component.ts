@@ -1,6 +1,7 @@
 import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
 import { NgbModal,NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
+
 @Component({
   selector: 'app-pop-up-pages',
   templateUrl: './pop-up-pages.component.html',
@@ -44,7 +45,28 @@ export class PopUpPagesComponent implements OnInit {
     modalRef.componentInstance.name = 'World';
   }
 
+  addCustomerModalTI()
+  {
+    const modalRef = this.modalService.open(AddCustomerModalTIComponent ,{ size: 'lg',centered: true }  );
+    modalRef.componentInstance.name = 'World';
+  } 
+  addCustomerModalGI() {
+    const modalRef = this.modalService.open(AddCustomerModalGIComponent ,{ size: 'lg',centered: true });
+    modalRef.componentInstance.name = 'World';
+  }
+  addCustomerModalER() {
+    const modalRef = this.modalService.open(AddCustomerModalERComponent ,{ size: 'lg',centered: true });
+    modalRef.componentInstance.name = 'World';
+  }
+  AddCustomerBulk() {
+    const modalRef = this.modalService.open(AddCustomerBulkComponent ,{ size: 'lg',centered: true });
+    modalRef.componentInstance.name = 'World';
+  }
 }
+
+
+
+
 @Component({
   selector: 'app-publish-event-modal',
   templateUrl: '../Modals/publish-event-modal/publish-event-modal.component.html',
@@ -122,4 +144,58 @@ export class RejectBidModalComponent implements OnInit {
 
   ngOnInit() {
   }
+}
+
+@Component({
+  selector: 'app-add-customer-modal-ti',
+  templateUrl: '../Modals/add-customer-modal-ti/add-customer-modal-ti.component.html',
+  styleUrls: ['../Modals/add-customer-modal-ti/add-customer-modal-ti.component.scss']
+})
+export class AddCustomerModalTIComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+@Component({
+  selector: 'app-add-customer-modal-gi',
+  templateUrl: '../Modals/add-customer-modal-gi/add-customer-modal-gi.component.html',
+  styleUrls: ['../Modals/add-customer-modal-gi/add-customer-modal-gi.component.scss']
+})
+export class AddCustomerModalGIComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+@Component({
+  selector: 'app-add-customer-modal-er',
+  templateUrl: '../Modals/add-customer-modal-er/add-customer-modal-er.component.html',
+  styleUrls: ['../Modals/add-customer-modal-er/add-customer-modal-er.component.scss']
+})
+export class AddCustomerModalERComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+@Component({
+  selector: 'app-add-customer-bulk',
+  templateUrl: '../Modals/add-customer-bulk/add-customer-bulk.component.html',
+  styleUrls: ['../Modals/add-customer-bulk/add-customer-bulk.component.scss']
+})
+export class AddCustomerBulkComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 }

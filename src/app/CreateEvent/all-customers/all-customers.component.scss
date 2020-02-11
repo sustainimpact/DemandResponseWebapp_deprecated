@@ -5,7 +5,9 @@
     line-height: 19px!important;
     padding: 7px 30px !important;
 }
-
+.col-background{
+    background: rgba(239,255,45,0.10);
+}
 .delete-event-button{
     font-family: SourceSansPro-SemiBold!important;
     font-size: 14px!important;
@@ -25,12 +27,15 @@
     
 }
 .active-delete{
-    box-shadow: 0 0 0 0 rgba(0,123,255,.25)!important;
-    background-color:#FFFFFF !important;
-    color: #00349A !important ;
-    border: 1px solid #DFE2E5;
-    font-size: 14px;
     opacity: 0.5;
+font-family: SourceSansPro-SemiBold;
+font-size: 14px;
+color: #00349A;
+text-align: center;
+line-height: 19px;
+background: #FFFFFF;
+border: 1px solid #DFE2E5;
+border-radius: 4px;
 }
 .year{
     font-family: SourceSansPro-Bold;
@@ -54,6 +59,7 @@
 .table-border{
     border: 1px solid #E4E8EC;
     border-right: 0px;
+    border-top: 0px;    
 }
 .row-top{
     border-top: 1px solid #E4E8EC;
@@ -104,18 +110,21 @@
     width: 40px;
 }
   ::-webkit-scrollbar {
-    width: 7px;
+    width: 4px;
+    height: 4px;
     scrollbar-width: 7px;
   }
   ::-webkit-scrollbar-thumb {
   background-color:hsl(0, 0%, 83%);
   border-radius: 75px;
   overflow-x: scroll;
+  overflow-y: scroll;
 }
 .table-row-scroll{
     overflow: scroll;
     height:90%;
     overflow-x:scroll;
+    overflow-y:scroll;
     scrollbar-width: thin;
 }
 .hidden{
@@ -142,15 +151,9 @@
   .customer-init{
       padding-right: 8px;
   }
-//   .flex-grow{
-//     flex-grow: 1.2!important;
-//   }
-  
 .shadow-background{
     background: rgba(208,2,27,0.10);
 }
-// ##################################
-
 .division-head{
     font-family: SourceSansPro-SemiBold;
     font-size: 12px;
@@ -167,9 +170,9 @@
 }
 .static-content{
     position: fixed;
-    right: 31px;
+    right: 27px;
     background-color: #FFFFFF;
-    top: 167px;
+    // top: 167px;
 }
 .dot-icon{
     padding: 25px 15px 33px 13px;
@@ -181,18 +184,17 @@
     margin-left: 31px;
 }
 .table-space{
-    padding: 10px 0px 28px 0px;
+    padding: 10px 0px 13px 0px;
 }
 .inner-division{
     width: 80px;
 }
 .outer-division{
-    width: 80px;
-    // margin-left: 16px;
+    width: 80px;   
 }
 
 .outer-contract-division{
-    width: 145px;
+    width: 110px;
     margin-left: 16px;
 }
 .meter-division{
@@ -235,9 +237,6 @@
     display: flex;
     margin-left: 16px;
 }
-.roll-col{
-    overflow-x: scroll;
-}
 .display-flex{
     display: flex;
     padding-left: 16px;
@@ -253,11 +252,26 @@
     text-align: right;  
 }
 .row-width-imp{
-    width:120%;
+    width:135%;
+    background-color: white;
 }
 .esl{
-    width:120%
+    width:135%
 }
 .relative-position{
     position: relative;
+}
+.static-left{
+    display: -webkit-box;
+    display: flex;
+    position: fixed;
+    background: white;
+    padding: 0px 0px 33px 0px;
+    margin-left: 15px;
+
+}
+.static-right{
+    display: flex;
+    width: 94.5%;
+    justify-content: flex-end;
 }

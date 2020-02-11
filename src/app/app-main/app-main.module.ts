@@ -17,6 +17,12 @@ import { PopUpPagesComponent } from '../pop-up-pages/pop-up-pages.component';
 import { NgbModule,NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 import { EventOverviewComponent } from '../CreateEvent/create-event-details/create-event-details.component';
 import { SharedServicesService } from '../services/shared-services.service';
+import { AddCustomerModalTIComponent } from '../pop-up-pages/pop-up-pages.component';
+import { AddCustomerModalGIComponent } from '../pop-up-pages/pop-up-pages.component';
+import { AddCustomerModalERComponent } from '../pop-up-pages/pop-up-pages.component';
+import { AddCustomerBulkComponent } from '../pop-up-pages/pop-up-pages.component';
+
+
 
 @NgModule({
 
@@ -41,6 +47,10 @@ import { SharedServicesService } from '../services/shared-services.service';
     VersionHistoryComponent,
     RejectBidModalComponent,
     PopUpPagesComponent,
+    AddCustomerModalTIComponent,
+    AddCustomerModalGIComponent,
+    AddCustomerModalERComponent,
+    AddCustomerBulkComponent,
     EventOverviewComponent  
   ],
   entryComponents: [ 
@@ -54,6 +64,10 @@ import { SharedServicesService } from '../services/shared-services.service';
     AcceptBidModalComponent,
     EventSetCustomersComponent,
     VersionHistoryComponent,
+    AddCustomerModalTIComponent,
+    AddCustomerModalGIComponent,
+    AddCustomerModalERComponent,
+    AddCustomerBulkComponent,
     RejectBidModalComponent,
     PopUpPagesComponent,
     EventOverviewComponent 
@@ -69,6 +83,10 @@ import { SharedServicesService } from '../services/shared-services.service';
     AcceptBidModalComponent,
     EventSetCustomersComponent,
     VersionHistoryComponent,
+    AddCustomerModalTIComponent,
+    AddCustomerModalGIComponent,
+    AddCustomerModalERComponent,
+    AddCustomerBulkComponent,
     RejectBidModalComponent,
     PopUpPagesComponent,
     EventOverviewComponent

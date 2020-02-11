@@ -31,7 +31,7 @@ letter-spacing: 0;
 .upcoming-row{
     font-family: SourceSansPro-SemiBold;
     font-size: 12px;
-    color: #727479;
+    color: #727479;          
     letter-spacing: 0;
 }
 .common-border{
@@ -55,7 +55,7 @@ letter-spacing: 0;
 .col-2 {
     -ms-flex: 0 0 16.666667%;
     flex: 0 0 16.666667%;
-    max-width: 15.4%;
+    max-width: 15%;
 }
 .align-right{
     text-align: right;
@@ -95,4 +95,12 @@ letter-spacing: 0;
 }
 .publish-col-int{
     padding-left: 26px;
+    margin-left: 18px;
+}
+.published-col{
+    padding: 0px;
+    margin-left: -20px;
+}
+.total-inner-col{
+    padding-left: 36px;
 }

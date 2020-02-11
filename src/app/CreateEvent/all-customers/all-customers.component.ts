@@ -10,7 +10,7 @@ export class AllCustomersComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.innerHeight = Number(window.innerHeight) - 220;
+    this.innerHeight = Number(window.innerHeight) - 150;
   }
 
 }
