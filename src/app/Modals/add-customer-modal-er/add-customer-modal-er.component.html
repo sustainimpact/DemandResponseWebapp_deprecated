@@ -1,39 +1,44 @@
 <div class="modalgi-main mt-3">
-    <div class="row close-icon ">
-        <div class="col">
-            <img src="assets/img/close.svg" alt="">
+    <div>   
+        <div class="row close-icon " (click)="activeModal.close('Close click')">
+            <div class="col">
+                <img src="assets/img/close.svg" alt="" style="cursor: pointer;">
+            </div>
+        </div>
+        <div class="common-content">  
+            <div class="row ">
+                <div class=" add-customer">       
+                    Add Customer
+                </div>
+            </div>   
+            <div class="displayflex tech-info-main mb-3">
+                <div class="one-col">
+                    <div class="general-info text-col info-col" style="color: #00349A;">
+                        1
+                    </div>
+                </div>
+                <div class="tec-info-style aligncenter ">
+                    Techincal & General Information 
+                </div>
+                <div class="divider"></div>
+                <div class="one-col">
+                    <div class="general-info text-col info-col" style="color: #00349A;">
+                        2
+                    </div>
+                </div>
+                <div class="tec-info-style aligncenter ">
+                    Energy Resources 
+                </div>
+            </div>
         </div>
     </div>
-    <div class="common-content">  
-        <div class="row ">
-            <div class=" add-customer">
-                Add Customer
-            </div>
-        </div>
-        <div class="displayflex tech-info-main">
-            <div class="one-col">
-                <div class="general-info text-col info-col" style="color: #00349A;">
-                    1
+    <div class="body-scroll">
+        <div class="common-content">
+            <div class="row row-energy-top ">
+                <div class=" energy-source">
+                    Energy Resources 
+                    <span class="add-energy-col">‘Select or add energy assets accordingly’</span>
                 </div>
-            </div>
-            <div class="tec-info-style aligncenter ">
-                Techincal & General Information 
-            </div>
-            <div class="divider"></div>
-            <div class="one-col">
-                <div class="general-info text-col info-col" style="color: #00349A;">
-                    2
-                </div>
-            </div>
-            <div class="tec-info-style aligncenter ">
-                Energy Resources 
-            </div>
-        </div>
-        <div class="row row-energy-top ">
-            <div class=" energy-source">
-                Energy Resources 
-                <span class="add-energy-col">‘Select or add energy assets accordingly’</span>
-            </div>
         </div>
         <div class="row col-assets dash-main-col">
             <div class="col dashed-col"> </div>
@@ -163,12 +168,13 @@
                 <button class="next-btn opacity">Add</button>
             </div>
         </div>
-        <div class="row icon-main" style="height:122px;">
-            <div class=" solar-main-row solar-col " style="padding-top: 20px;"> 
+        <div class="row icon-main" style="height:45px;">
+            <div class=" solar-main-row solar-col mb-3" style="padding-top: 20px;"> 
                 Appliance X
             </div>
         </div>
     </div>
+</div>
         <div class="footer-divider"></div>
         <div class="row button-row">
             <div class="cancel-outer-btn">

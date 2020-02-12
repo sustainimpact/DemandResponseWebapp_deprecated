@@ -1,15 +1,16 @@
 <div class="main-er mt-3">
+    <div>    
         <div class="row close-icon ">
-            <div class="col" style = " margin-left: 16px;">
-                <img src="assets/img/close.svg" alt="">
+            <div class="col" style = " margin-left: 16px;" (click)="activeModal.close('Close click')">
+                <img style="cursor: pointer;" src="assets/img/close.svg" alt="">
             </div>
         </div>
         <div class="row indent-common">      
             <div class="col add-customer">
                 Add Customer
-            </div>
+            </div>          
         </div>
-        <div class="displayflex tech-info-main">
+        <div class="displayflex tech-info-main mb-5">
             <div class="one-col">
                 <div class="general-info text-col info-col">
                     1
@@ -37,6 +38,8 @@
                 Energy Resources 
             </div>
         </div>
+    </div>
+    <div class="table-scroll">
         <div class="row indent-common row-company">
             <div class="col-5 company-col ">
                 Company Name
@@ -47,10 +50,10 @@
         </div>
         <div class="row indent-common chief-main ">
             <div class="col-5  chief-col select-chief-row ">
-                DY Chief Select
+                <input class="input-column" type="text" placeholder="DY Chief Select ">
             </div>
             <div class="col-5 chief-col select-chief-row common-activity ">
-                DMRC Traction
+                <input class="input-column" type="text" placeholder=" DMRC Traction ">
             </div>
         </div>
         <div class="row indent-common row-common">
@@ -61,7 +64,7 @@
         </div>
         <div class="row indent-common chief-main ">
             <div class="col-11  chief-col select-chief-row ">
-                DY Chief electc/o agm(maintanance) DMRC Ltd, DMRC Train Depot, Shastri Road 
+                <input class="input-column" type="text" placeholder="DY Chief electc/o agm(maintanance) DMRC Ltd, DMRC Train Depot, Shastri Road ">
             </div>
         </div>
         <div class="row indent-common row-common">
@@ -74,10 +77,10 @@
         </div>
         <div class="row indent-common chief-main ">
             <div class="col-5  chief-col select-chief-row ">
-                Telangana
+                <input class="input-column" type="text" placeholder="  Telangana ">
             </div>
-            <div class="col-2 chief-col select-chief-row common-activity ">
-                500081
+            <div class="col-2 chief-col select-chief-row common-activity ">               
+                <input class="input-column" type="text" placeholder="   500081 ">
             </div>
         </div>
         <div class="row indent-common row-common">
@@ -102,8 +105,8 @@
             </div>
         </div>
         <div class="row indent-common row-common">
-            <div class="col-5 company-col ">
-                Customer Name
+            <div class="col-5 company-col ">               
+                <input class="input-column" type="text" placeholder="Customer Name ">
             </div>
             <div class="col company-col common-activity ">
                 Contact Number
@@ -112,10 +115,10 @@
         </div>
         <div class="row indent-common chief-main ">
             <div class="col-5  chief-col select-chief-row ">
-                Mr. Prabhat Kumar
+                <input class="input-column" type="text" placeholder="Mr. Prabhat Kumar">
             </div>
             <div class="col-5 chief-col select-chief-row common-activity ">
-                7863901759, 8652018670
+                <input class="input-column" type="text" placeholder="7863901759, 8652018670">
             </div>
         </div>
         <div class="row indent-common row-common" >
@@ -125,17 +128,18 @@
             </div>
         </div>
         <div class="row indent-common chief-main" style="margin-bottom: 10px;">
-            <div class="col-11  chief-col select-chief-row ">
-                newdelhirss@gmail.com, pavanp233@gmail.com
+            <div class="col-11  chief-col select-chief-row ">               
+                <input class="input-column" type="text" placeholder=" newdelhirss@gmail.com, pavanp233@gmail.com">
             </div>
         </div>
-        <div class="footer-divider"></div>
-        <div class="row button-row">
-            <div class="cancel-outer-btn">
-              <button class=" cancel-btn"> Cancel</button>
-            </div>
-            <div>
-                 <button class=" next-btn"> Next</button>
-            </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="row button-row">
+        <div class="cancel-outer-btn">
+            <button class=" cancel-btn" (click)="activeModal.close('Close click')"> Cancel</button>
         </div>
+        <div>
+                <button class=" next-btn"> Next</button>
+        </div>
+    </div>
 </div>

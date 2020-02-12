@@ -1,5 +1,5 @@
 <div class = "modalti-main mt-3">
-    <div class="row close-icon ">
+    <div class="row close-icon "(click)="activeModal.close('Close click')">
         <div class="col">
             <img src="assets/img/close.svg" alt="">
         </div>    
@@ -7,7 +7,7 @@
     <div class="row indent-common">
         <div class="col add-customer">
             Add Customer
-        </div>
+        </div>   
     </div>
     <div class="displayflex tech-info-main">
         <div class="tech-info-inner">
@@ -40,7 +40,9 @@
     </div>
     <div class="text-general">
         <div class="row body-border-row indent-common">
-            <div class="col body-col align-center">100003268</div>
+            <div class="col-10 body-col align-center">
+                <input class="input-column" type="text" placeholder="100003268">
+            </div>
             <div class="col textright align-center">
                 <img src="assets/img/red-cancel.svg" alt="">
             </div>
@@ -60,7 +62,7 @@
     <div class="footer-divider"></div>
     <div class="row button-row">
         <div class="cancel-outer-btn">
-          <button class=" cancel-btn"> Cancel</button>
+          <button class=" cancel-btn" (click)="activeModal.close('Close click')"> Cancel</button>
         </div>
         <div>
              <button class=" next-btn"> Next</button>

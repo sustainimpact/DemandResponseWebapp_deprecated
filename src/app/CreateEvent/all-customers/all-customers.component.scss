@@ -125,7 +125,7 @@ border-radius: 4px;
     height:90%;
     overflow-x:scroll;
     overflow-y:scroll;
-    scrollbar-width: thin;
+    scrollbar-width: thin;     
 }
 .hidden{
     opacity: 0.5;
@@ -174,8 +174,16 @@ border-radius: 4px;
     background-color: #FFFFFF;
     // top: 167px;
 }
+.dot-icon-first{
+    padding: 21px 15px 33px 13px;
+    border: none;
+}
+.dot-icon-header{
+    padding: 16px 15px 33px 13px;
+    border: none;
+}
 .dot-icon{
-    padding: 25px 15px 33px 13px;
+    padding: 16px 15px 33px 13px;
     border: none;
 }
 
@@ -260,18 +268,4 @@ border-radius: 4px;
 }
 .relative-position{
     position: relative;
-}
-.static-left{
-    display: -webkit-box;
-    display: flex;
-    position: fixed;
-    background: white;
-    padding: 0px 0px 33px 0px;
-    margin-left: 15px;
-
-}
-.static-right{
-    display: flex;
-    width: 94.5%;
-    justify-content: flex-end;
 }

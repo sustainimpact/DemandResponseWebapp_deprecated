@@ -1,12 +1,11 @@
 .modalti-main{
     height: 449px;
-    width: 799px;
     background: #FFFFFF;
     border-radius: 4px;
 } 
 .close-icon{
     text-align: right;
-    margin-right: 26px;
+    margin-right: 16px;
 }
 .indent-common{
     margin-left: 40px;
@@ -144,6 +143,7 @@
     border: 0px;
     width: 87px;
     height: 36px;
+    outline: 0px;
 }
 .cancel-outer-btn{
     margin-right: 16px;
@@ -162,8 +162,27 @@
     width: 87px;
     height: 36px;
     opacity: 0.5;
+    outline: 0px;
 }
 .button-row{
     justify-content: flex-end;
     margin: 10px 24px 0px 0px;
 }
+.input-column{
+    outline: 0px;
+    border: 0px;
+    color: #00349A;
+    width: 113%;
+}
+::placeholder {
+    color: #00349A;
+    /* Firefox */
+  }
+  
+  :-ms-input-placeholder { 
+   color: #00349A;
+  }
+  
+  ::-ms-input-placeholder { 
+   color: #00349A;
+  }

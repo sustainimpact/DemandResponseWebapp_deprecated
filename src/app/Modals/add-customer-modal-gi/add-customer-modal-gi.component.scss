@@ -5,10 +5,10 @@
 }
 .close-icon{
     text-align: right;
-    margin-right: 26px;
+    margin-right: 16px;
 }
 .indent-common{
-    padding-left: 40px;
+    padding-left: 40px;            
 }
 .add-customer{
     font-family: SourceSansPro-Bold;
@@ -132,9 +132,9 @@ input[type="checkbox" i] {
     top: 0px;
     left: 0px;
     will-change: transform;
-    width: 104.5%;
+    width: 103.5%;
     padding: 0px;
-    margin-left: -13px;
+    margin-left: -11px;
     border-radius: 0px;    
 }
 .dropdown-item:hover{
@@ -174,7 +174,8 @@ input[type="checkbox" i] {
     border-radius: 4px;
     border: 0px;
     width: 87px;
-    height: 36px;    
+    height: 36px;
+    outline: 0px;    
 }
 .cancel-outer-btn{
     margin-right: 16px;
@@ -192,6 +193,7 @@ input[type="checkbox" i] {
     border: 0px;
     width: 87px;
     height: 36px;
+    outline:0px;
 }
 .multiple-col{
     font-family: SourceSansPro-Regular;
@@ -205,4 +207,44 @@ input[type="checkbox" i] {
     background-color: #B8C1CB;
     height: 1px;
     opacity: 0.5;
+}
+.input-column{
+    width: 100%;
+    padding-right: 12px;
+    border: 0px;
+    outline: 0px;
+    color: #00349A;
+}
+::placeholder {
+    color: #00349A!important;
+    /* Firefox */
+  }
+  
+  :-ms-input-placeholder { 
+   color: #00349A;
+  }
+  
+  ::-ms-input-placeholder { 
+   color: #00349A;
+  }
+  .table-scroll{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 250px;
+    scrollbar-width: thin;
+  }
+  input::placeholder {
+    color: #00349A;
+
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    scrollbar-width: 7px;
+  }
+  ::-webkit-scrollbar-thumb {
+  background-color:hsl(0, 0%, 83%);
+  border-radius: 75px;
+  overflow-x: scroll;
+  overflow-y: scroll;
 }

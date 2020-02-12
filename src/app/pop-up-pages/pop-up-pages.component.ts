@@ -153,7 +153,7 @@ export class RejectBidModalComponent implements OnInit {
 })
 export class AddCustomerModalTIComponent implements OnInit {
 
-  constructor() { }
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
   }
@@ -167,7 +167,7 @@ export class AddCustomerModalTIComponent implements OnInit {
 })
 export class AddCustomerModalGIComponent implements OnInit {
 
-  constructor() { }
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
   }
@@ -180,7 +180,7 @@ export class AddCustomerModalGIComponent implements OnInit {
 })
 export class AddCustomerModalERComponent implements OnInit {
 
-  constructor() { }
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
   }
@@ -193,7 +193,7 @@ export class AddCustomerModalERComponent implements OnInit {
 })
 export class AddCustomerBulkComponent implements OnInit {
 
-  constructor() { }
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
   }
