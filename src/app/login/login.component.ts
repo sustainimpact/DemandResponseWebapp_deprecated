@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IngressService } from '../services/ingress.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private ingressService: IngressService
+    private ingressService: IngressService,
+    private toastr: ToastrService
   ) { }
 
   public email: any;
@@ -24,10 +26,25 @@ export class LoginComponent implements OnInit {
     console.log("Login called");
     if (this.email == "admin" && this.password == "admin") {
       this.ingressService.currentUser = { userId: 1 };
+      this.router.navigateByUrl('/main');
     }
+    else {
+      this.showError();
+    }
+  }
 
-
-    this.router.navigateByUrl('/main');
+  showError() {
+    this.toastr.info(
+      '<span data-notify="icon" class="nc-icon nc-bell-55"></span><span data-notify="message">' + "Incorrect credentials" + '.</span>',
+      "",
+      {
+        timeOut: 4000,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: "alert alert-info alert-with-icon",
+        positionClass: "toast-bottom-right"
+      }
+    );
   }
 
 }

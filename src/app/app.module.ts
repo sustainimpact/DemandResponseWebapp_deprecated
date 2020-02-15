@@ -8,6 +8,9 @@ import { AllEventSetsComponent } from './CreateEvent/all-event-sets/all-event-se
 import { AllCustomersComponent } from './CreateEvent/all-customers/all-customers.component';
 import { AuthGuard } from './guards/auth.guard';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -24,7 +27,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     AppMainModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
