@@ -10,12 +10,13 @@ import { AllCustomersComponent } from './CreateEvent/all-customers/all-customers
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AllEventSetsComponent,
-    AllCustomersComponent,
+    AllCustomersComponent
   ],
   imports: [
     BrowserModule,

@@ -1,83 +1,83 @@
+<div class=" pl-4 pr-4 ">
+    <div class="inline-content">
+        <div class="year mr-auto">
+            20191026HYS
+        </div>
+        <div class="button-margin">
+            <button type="button" class="btn publish-event-button active">Publish Events</button>
+        </div>
+        <div class="button-margin">
+            <button type="button" class="btn publish-event-button active" (click)="openEventsOverview()">Events
+                Overview</button>
 
-    
-    <div class=" pl-4 pr-4 ">
-        <div class ="inline-content">
-            <div class = "year mr-auto">
-                20191026HYS
+        </div>
+        <div class="button-margin" (click)="editCustomers()">
+            <button type="button" class="btn publish-event-button active">Edit Customers</button>
+        </div>
+        <div class=" pt-1">
+            <i class="fas fa-ellipsis-h vertical-dot-icon"></i>
+        </div>
+    </div>
+    <div class="pt-2">
+        <div class="custom-control custom-checkbox box">
+            <input type="checkbox" class="custom-control-input checkbox" id="defaultUnchecked">
+            <label class="custom-control-label exclude-time" for="defaultUnchecked">Exclude times with '0' quantity &
+                price </label>
+        </div>
+    </div>
+    <div class="mt-2 table-border" [ngStyle]="{'height.px': innerHeight}">
+        <div class="row row-top" style="margin:0px;border-bottom: 1px solid #E4E8EC;;">
+            <div class=" pl-2 row-border">
+                <div class=" custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="drevent-1">
+                    <label class="custom-control-label" for="drevent-1"></label>
+                </div>
             </div>
-            <div class = "button-margin">
-                <button type="button" class="btn publish-event-button active">Publish Events</button>
+            <div class="col row-border">
+                <div class="dr-event">
+                    DR EVENTS
+                </div>
             </div>
-            <div class = "button-margin">
-                <button type="button" class="btn publish-event-button" (click)="open()">Events Overview</button>
-             
+            <div class="col row-border">
+                <div class="dr-event">
+                    TIME
+                </div>
             </div>
-            <div class = "button-margin" >
-                <button type="button" class="btn publish-event-button">Edit Customers</button>
+            <div class="col row-border flex-grow ">
+                <div class="dr-event  ">
+                    PLANNED QUANTITY (KW)
+                </div>
             </div>
-            <div class = " pt-1">
-                <i class="fas fa-ellipsis-h vertical-dot-icon"></i>
+            <div class="col row-border">
+                <div class="dr-event">
+                    PRICE (PAISE/KW)
+                </div>
+            </div>
+            <div class="col row-border plan-quantity-end ">
+                <div class="dr-event customer-init ">
+                    CUSTOMERS
+                </div>
+                <span class=" time-indication "><img src="assets/img/time-indicator.svg" alt=""></span>
+            </div>
+            <div class="col row-border ">
+                <div class=" dr-event ">
+                    COMMITMENTS (KW)
+                </div>
+            </div>
+            <div class="col row-border">
+                <div class=" dr-event ">
+                    SHORTFALL (KW)
+                </div>
+            </div>
+            <div class="col row-border ">
+                <div class="dr-event">
+                    ACTUAL QUANTITY (KW)
+                </div>
+            </div>
+            <div class="final-column">
             </div>
         </div>
-        <div class="pt-2">
-            <div class="custom-control custom-checkbox box">
-                <input type="checkbox" class="custom-control-input checkbox" id="defaultUnchecked">
-                <label class="custom-control-label exclude-time" for="defaultUnchecked">Exclude times with '0' quantity & price </label>
-            </div>
-        </div>
-        <div class = "mt-2 table-border" [ngStyle]="{'height.px': innerHeight}">
-            <div class="row row-top" style = "margin:0px;border-bottom: 1px solid #E4E8EC;;">
-                <div class=" pl-2 row-border">
-                    <div class=" custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="drevent-1">
-                        <label class="custom-control-label" for="drevent-1"></label>
-                    </div>
-                </div>
-                <div class="col row-border">
-                    <div class="dr-event">
-                        DR EVENTS
-                    </div>
-                </div>
-                <div class="col row-border">
-                    <div class="dr-event">
-                        TIME
-                    </div>
-                </div>
-                <div class="col row-border flex-grow ">
-                    <div class="dr-event  ">
-                        PLANNED QUANTITY (KW)
-                    </div>
-                </div>
-                <div class="col row-border">
-                    <div class="dr-event">
-                        PRICE (PAISE/KW)
-                    </div>
-                </div>
-                <div class="col row-border plan-quantity-end ">
-                    <div class="dr-event customer-init ">
-                        CUSTOMERS
-                    </div>
-                    <span class = " time-indication "><img src="assets/img/time-indicator.svg" alt=""></span>
-                </div>
-                <div class="col row-border ">
-                    <div class = " dr-event ">
-                        COMMITMENTS (KW)
-                    </div>
-                </div>
-                <div class="col row-border">
-                    <div class = " dr-event ">
-                        SHORTFALL (KW)
-                    </div>
-                </div>
-                <div class="col row-border ">
-                    <div class = "dr-event">
-                        ACTUAL QUANTITY (KW)
-                    </div>
-                </div>
-                <div class="final-column">
-                </div>
-            </div>
-        <div class="table-row-scroll" #pRef >
+        <div class="table-row-scroll" #pRef>
             <div class="row row-top shadow-background light-color ">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
@@ -92,12 +92,12 @@
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                    0800-0815
+                        0800-0815
                     </div>
                 </div>
                 <div class="col plan-quantity-end flex-grow ">
                     <div class="column-one">
-                    100
+                        100
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
@@ -109,24 +109,24 @@
                     <div class="column-one">
                         500
                     </div>
-                </div>  
+                </div>
                 <div class="col row-border plan-quantity-end ">
                     <div class="column-one">
-                    12
+                        12
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end ">
                     <div class="column-one">
-                    13
+                        13
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end ">
                     <div class="column-one">
-                    12
+                        12
                     </div>
                 </div>
             </div>
-            <div class="row row-top shadow-blue">
+            <div class="row row-top shadow-blue" (click)="openEventDetails()">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="drevent-3">
@@ -141,12 +141,12 @@
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                    0815-0830
+                        0815-0830
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end flex-grow ">
                     <div class="column-one">
-                    450
+                        450
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
@@ -156,22 +156,22 @@
                 </div>
                 <div class="col row-border plan-quantity-end">
                     <div class="column-one">
-                            925
+                        925
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end ">
                     <div class="column-one">
-                    12
+                        12
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end ">
                     <div class="column-one">
-                    100
+                        100
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end ">
                     <div class="column-one">
-                    14
+                        14
                     </div>
                 </div>
             </div>
@@ -191,12 +191,12 @@
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                    0830-0845
+                        0830-0845
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end flex-grow ">
                     <div class="column-one">
-                    200
+                        200
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
@@ -211,23 +211,23 @@
                 </div>
                 <div class="col row-border plan-quantity-end ">
                     <div class="column-one">
-                    100
+                        100
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end ">
                     <div class="column-one">
-                    200
+                        200
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end live-col-end ">
-                   
+
                     <input type="radio" id="radio-change" name="gender" value="male" checked>
-                    <span class = " live-col-content live-radio-inner " >
+                    <span class=" live-col-content live-radio-inner ">
                         LIVE
                     </span>
                     <div class="column-one">
                         200
-                   
+
                     </div>
 
                 </div>
@@ -247,12 +247,12 @@
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                    0845-0900
+                        0845-0900
                     </div>
                 </div>
-                <div class="col row-border plan-quantity-end flex-grow" >
-                    <div class="column-one" >
-                    700
+                <div class="col row-border plan-quantity-end flex-grow">
+                    <div class="column-one">
+                        700
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
@@ -267,17 +267,17 @@
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
             </div>
@@ -296,12 +296,12 @@
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                    0900-0915
+                        0900-0915
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end flex-grow ">
                     <div class="column-one">
-                    250
+                        250
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
@@ -316,17 +316,17 @@
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
             </div>
@@ -344,7 +344,7 @@
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                    0915-0930
+                        0915-0930
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end flex-grow">
@@ -359,22 +359,22 @@
                 </div>
                 <div class="col row-border plan-quantity-end">
                     <div class="column-one">
-                    925
+                        925
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
             </div>
@@ -393,12 +393,12 @@
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                    0930-0945
+                        0930-0945
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end flex-grow ">
                     <div class="column-one">
-                    500
+                        500
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
@@ -413,17 +413,17 @@
                 </div>
                 <div class="col row-border plan-quantity-end ">
                     <div class="column-one commitement-header">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
                     <div class="column-one commitement-header">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
                     <div class="column-one commitement-header">
-                    --
+                        --
                     </div>
                 </div>
             </div>
@@ -442,12 +442,12 @@
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                    0945-1000
+                        0945-1000
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end flex-grow ">
                     <div class="column-one">
-                    250
+                        250
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
@@ -462,17 +462,17 @@
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
             </div>
@@ -491,12 +491,12 @@
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                    1015-1030
+                        1015-1030
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end flex-grow ">
                     <div class="column-one">
-                    250
+                        250
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
@@ -511,17 +511,17 @@
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
             </div>
@@ -541,12 +541,12 @@
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                    1030-1045
+                        1030-1045
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end flex-grow ">
                     <div class="column-one">
-                    1000
+                        1000
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
@@ -561,21 +561,21 @@
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
             </div>
-            <div class="row row-top" style = "margin:0px;border-bottom: 1px solid #E4E8EC;;">
+            <div class="row row-top" style="margin:0px;border-bottom: 1px solid #E4E8EC;;">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="drevent-13">
@@ -589,12 +589,12 @@
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                    1030-1045
+                        1030-1045
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end flex-grow ">
                     <div class="column-one">
-                    1000
+                        1000
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
@@ -609,21 +609,21 @@
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
             </div>
-            <div class="row row-top" style = "margin:0px;border-bottom: 1px solid #E4E8EC;;">
+            <div class="row row-top" style="margin:0px;border-bottom: 1px solid #E4E8EC;;">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="drevent-14">
@@ -638,12 +638,12 @@
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                    1030-1045
+                        1030-1045
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end flex-grow ">
                     <div class="column-one">
-                    1000
+                        1000
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
@@ -658,21 +658,21 @@
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
             </div>
-            <div class="row row-top" style = "margin:0px;border-bottom: 1px solid #E4E8EC;;">
+            <div class="row row-top" style="margin:0px;border-bottom: 1px solid #E4E8EC;;">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="drevent-15">
@@ -687,12 +687,12 @@
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                    1030-1045
+                        1030-1045
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end flex-grow ">
                     <div class="column-one">
-                    1000
+                        1000
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
@@ -707,65 +707,65 @@
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one ">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                    --
+                        --
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one ">
-                    --
+                        --
                     </div>
                 </div>
             </div>
-        </div>  
-    </div>  
-            <div class="row row-top sticky-content">
-                <div style = "width:39px;background-color: white;">
-                </div>
-                <div class="col row-border footer-color">
-                    <div class="row-footer"> 
-                    TOTALS
-                    </div>
-                </div>
-                <div class="col row-border footer-color">
-                    <div class="row-footer plan-quantity-end">
-                    --
-                    </div>
-                </div>
-                <div class="col row-border footer-color plan-quantity-end flex-grow ">
-                    <div class="row-footer">
-                    4200
-                    </div>
-                </div>
-                <div class="col row-border footer-color plan-quantity-end">
-                    <div class="row-footer">
-                    --
-                    </div>
-                </div>
-                <div class="col row-border footer-color plan-quantity-end">
-                    <div class="row-footer">
-                    --
-                    </div>
-                </div>
-                <div class="col row-border footer-color plan-quantity-end">
-                    <div class="row-footer ">
-                2470
-                    </div>
-                </div>
-                <div class="col row-border footer-color plan-quantity-end">
-                    <div class="row-footer ">
-                    980
-                    </div>
-                </div>
-                <div class="col row-border footer-color plan-quantity-end" style="margin-right: 7px;">
-                    <div class="row-footer ">
-                    1603
-                    </div>
-                </div>
-                
-            </div>
+        </div>
     </div>
+    <div class="row row-top sticky-content">
+        <div style="width:39px;background-color: white;">
+        </div>
+        <div class="col row-border footer-color">
+            <div class="row-footer">
+                TOTALS
+            </div>
+        </div>
+        <div class="col row-border footer-color">
+            <div class="row-footer plan-quantity-end">
+                --
+            </div>
+        </div>
+        <div class="col row-border footer-color plan-quantity-end flex-grow ">
+            <div class="row-footer">
+                4200
+            </div>
+        </div>
+        <div class="col row-border footer-color plan-quantity-end">
+            <div class="row-footer">
+                --
+            </div>
+        </div>
+        <div class="col row-border footer-color plan-quantity-end">
+            <div class="row-footer">
+                --
+            </div>
+        </div>
+        <div class="col row-border footer-color plan-quantity-end">
+            <div class="row-footer ">
+                2470
+            </div>
+        </div>
+        <div class="col row-border footer-color plan-quantity-end">
+            <div class="row-footer ">
+                980
+            </div>
+        </div>
+        <div class="col row-border footer-color plan-quantity-end" style="margin-right: 7px;">
+            <div class="row-footer ">
+                1603
+            </div>
+        </div>
+
+    </div>
+</div>

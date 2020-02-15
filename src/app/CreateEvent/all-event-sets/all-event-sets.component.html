@@ -2,7 +2,7 @@
     <div class = "displayflex justify-evenly ">
         <div class="list-event">List of Event Sets</div>
         <div>
-            <button type="button" class =" btn schedule-event-button active"> Schedule a DR Event </button>
+            <button type="button" class =" btn schedule-event-button active" (click) = "scheduleDrEvent()"> Schedule a DR Event </button>
         </div>
     </div>
     <div class=" row margin-common  upcoming-row outer-division bottom-down">
@@ -25,7 +25,7 @@
     <div class=" row margin-common displayflex justify-evenly  inner-division  upcoming-row">
         <div>Upcoming Demand Response Events (1)</div>
     </div>
-    <div class=" row margin-common header-bottom outer-division common-border  ">
+    <div class=" row margin-common header-bottom outer-division common-border  " (click) = "openEventSetDetails()">
         <div class="col-2 main-content-inner">
             <div class=" date-col ">26 Oct, 2019</div>
         </div>

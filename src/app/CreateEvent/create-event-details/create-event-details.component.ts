@@ -1,5 +1,7 @@
-import { Component,ViewEncapsulation, OnInit, EventEmitter   } from '@angular/core';
-import { NgbModal,NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, ViewEncapsulation, OnInit, EventEmitter } from '@angular/core';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
+import { EventSetCustomersComponent } from 'src/app/pop-up-pages/pop-up-pages.component';
 
 
 
@@ -11,16 +13,25 @@ import { NgbModal,NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class CreateEventDetailsComponent implements OnInit {
 
-  innerHeight : any = 0;  
-  constructor(private modalService: NgbModal) { }
-  
+  innerHeight: any = 0;
+  constructor(private modalService: NgbModal, private router: Router) { }
+
   ngOnInit() {
-   
     this.innerHeight = Number(window.innerHeight) - 240;
   }
 
-  open() {
-    const modalRef = this.modalService.open(EventOverviewComponent ,{ size: 'xl',centered: true } );
+  openEventsOverview() {
+    const modalRef = this.modalService.open(EventOverviewComponent, { size: 'xl', centered: true });
+    modalRef.componentInstance.name = 'World';
+  }
+  
+  openEventDetails() {
+    console.log("Edit customers");
+    this.router.navigateByUrl('/main/selecteventcustomers');
+  }
+
+  editCustomers() {
+    const modalRef = this.modalService.open(EventSetCustomersComponent, { centered: true });
     modalRef.componentInstance.name = 'World';
   }
 }
@@ -32,7 +43,7 @@ export class CreateEventDetailsComponent implements OnInit {
   styleUrls: ['../event-overview/event-overview.component.scss']
 })
 export class EventOverviewComponent implements OnInit {
-  constructor(public activeModal: NgbActiveModal) {}
+  constructor(public activeModal: NgbActiveModal, private router: Router) { }
 
   ngOnInit() {
   }

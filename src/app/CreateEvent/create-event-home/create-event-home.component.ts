@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-event-home',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateEventHomeComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
+  selectFile() {
+    // this.fileInput.nativeElement.click();
+    this.router.navigateByUrl('/main/createeventdetails');
 
+  }
 }
