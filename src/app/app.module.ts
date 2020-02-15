@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AllEventSetsComponent } from './CreateEvent/all-event-sets/all-event-sets.component';
 import { AllCustomersComponent } from './CreateEvent/all-customers/all-customers.component';
+import { AuthGuard } from './guards/auth.guard';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -21,9 +23,10 @@ import { AllCustomersComponent } from './CreateEvent/all-customers/all-customers
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AppMainModule
+    AppMainModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

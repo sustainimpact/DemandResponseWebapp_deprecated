@@ -8,6 +8,6 @@ export class IngressService {
 
   public currentUser: User;
   constructor() {
-    this.currentUser = { "userId": 1 };
+   // this.currentUser = { "userId": 1 };
   }
 }

@@ -55,7 +55,8 @@
                                 Email address
                             </div>
                             <div class="mt-1">
-                                <input type="text" class="form-control" placeholder="arunkumar@gmail.com">
+                                <input type="text" class="form-control" placeholder="arunkumar@gmail.com"
+                                    [(ngModel)]="email" name="email">
                             </div>
                         </div>
                         <div class="pt-2">
@@ -63,7 +64,7 @@
                                 Password
                             </div>
                             <div class="mt-1" style="position: relative;">
-                                <input type="password" placeholder="" class="form-control">
+                                <input type="password" placeholder="" class="form-control" [(ngModel)]="password" name="password">
                                 <span class="fa fa-fw fa-eye field-icon"></span>
                             </div>
                         </div>
