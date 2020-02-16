@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, OnInit, EventEmitter } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
-import { EventSetCustomersComponent } from 'src/app/pop-up-pages/pop-up-pages.component';
+import { EventSetCustomersComponent, PublishEventModalComponent } from 'src/app/pop-up-pages/pop-up-pages.component';
 
 
 
@@ -32,6 +32,11 @@ export class CreateEventDetailsComponent implements OnInit {
 
   editCustomers() {
     const modalRef = this.modalService.open(EventSetCustomersComponent, { centered: true });
+    modalRef.componentInstance.name = 'World';
+  }
+
+  publishEvents() {
+    const modalRef = this.modalService.open(PublishEventModalComponent ,{centered: true });
     modalRef.componentInstance.name = 'World';
   }
 }

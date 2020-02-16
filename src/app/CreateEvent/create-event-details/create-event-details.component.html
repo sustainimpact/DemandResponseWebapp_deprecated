@@ -4,7 +4,8 @@
             20191026HYS
         </div>
         <div class="button-margin">
-            <button type="button" class="btn publish-event-button active">Publish Events</button>
+            <button type="button" class="btn publish-event-button active"
+            (click)="publishEvents()">Publish Events</button>
         </div>
         <div class="button-margin">
             <button type="button" class="btn publish-event-button active" (click)="openEventsOverview()">Events
@@ -126,7 +127,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row row-top shadow-blue" (click)="openEventDetails()">
+            <div class="row row-top shadow-blue">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="drevent-3">
@@ -134,7 +135,7 @@
                     </div>
                 </div>
                 <div class="col row-border">
-                    <div class="column-one">
+                    <div class="column-one" (click)="openEventDetails()">
                         2019102605HYS
 
                     </div>
