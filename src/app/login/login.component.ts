@@ -25,7 +25,21 @@ export class LoginComponent implements OnInit {
   login() {
     console.log("Login called");
     if (this.email == "admin" && this.password == "admin") {
-      this.ingressService.currentUser = { userId: 1 };
+      this.ingressService.currentUser = {
+        userId: 1
+        , fullName: ""
+        , phoneNumber: ""
+        , email: ""
+        , stateId: 0
+        , localityId: 0
+        , electricityBoardId: 0
+        , uniqueServiceNumber: 0
+        , registrationDate: "string"
+        , deactivationDate: "string"
+        , activeStatus: true
+        , userTypeId: 0
+        , userRoleId: 0
+      };
       this.router.navigateByUrl('/main');
     }
     else {
