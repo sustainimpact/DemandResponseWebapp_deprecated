@@ -23,159 +23,98 @@
         </div>
     </div>
     <div class=" row margin-common displayflex justify-evenly  inner-division  upcoming-row">
-        <div>Upcoming Demand Response Events (1)</div>
+        <div>Upcoming Demand Response Events ({{upcomingEventSets.length}})</div>
     </div>
-    <div class=" row margin-common header-bottom outer-division common-border  ">
+    <div class=" row margin-common header-bottom outer-division common-border"
+        *ngFor="let upcomingEventSet of upcomingEventSets">
         <div class="col-2 main-content-inner">
-            <div class=" date-col ">26 Oct, 2019</div>
+            <div class=" date-col ">{{formatTime(upcomingEventSet.date,'d')}}</div>
         </div>
         <div class="col-2  main-content-inner">
-            <div class="event-col" (click) = "openEventSetDetails()">20191026HYS
+            <div class="event-col" (click) = "openEventSetDetails(upcomingEventSet, 'upcoming')">{{upcomingEventSet.name}}
             </div>
         </div>
         <div class="col-2 power-inner ">
-            <div class="power-col  kiloweight ">4200kW/3020kW
+            <div class="power-col  kiloweight ">{{upcomingEventSet.plannedPower}}kW
+                /{{upcomingEventSet.actualPower}}kW
             </div>
         </div>
         <div class="col-2 total-price-inner total-inner-col ">
             <div class="  total-price align-right middle-section ">
-                —
+                ₹ {{upcomingEventSet.totalPrice}}
             </div>
         </div>
         <div class="col-3 eventoverview-inner published-col ">
-            <div class="publish-col align-right complete-col ">09 / 08 / —</div>
+            <div class="publish-col align-right complete-col ">{{upcomingEventSet.publishedEvents}} 
+                / {{upcomingEventSet.completedEvents}} / {{upcomingEventSet.cancelledEvents}}</div>
         </div>       
         <div class = "col-1 publish-col-int">
-            <div class=" publish-end-col ">Published</div>
+            <div class=" publish-end-col " *ngIf='upcomingEventSet.statusId == 1'>
+                {{getStatus(upcomingEventSet.statusId)}}</div>
+            <div class=" publish-end-change " *ngIf='upcomingEventSet.statusId == 2'>
+                {{getStatus(upcomingEventSet.statusId)}}</div>
+            <!-- <div class=" publish-end-change ">Published</div> -->
         </div>
     </div>
     <div class=" row margin-common displayflex justify-evenly  inner-division  upcoming-row">
-        <div> This Week </div>
+        <div> This Week ({{curWeekEventSets.length}})</div>
     </div>
     <div class="common-border">
-        <div class=" row margin-common header-bottom outer-division bottom-down ">
+        <div class=" row margin-common header-bottom outer-division bottom-down "
+            *ngFor="let curWeekEventSet of curWeekEventSets">
             <div class="col-2 main-content-inner">
-                <div class=" date-col ">16 Oct, 2019</div>
+                <div class=" date-col ">{{formatTime(curWeekEventSet.date,'d')}}</div>
             </div>
             <div class="col-2  main-content-inner">
-                <div class="event-col">20191016HYSV2</div>
+                <div class="event-col" (click) = "openEventSetDetails(curWeekEventSet, 'curWeek')">{{curWeekEventSet.name}}</div>
             </div>
             <div class="col-2 power-inner">
-                <div class="power-col  kiloweight ">30000kW/28900kW</div>
+                <div class="power-col  kiloweight ">{{curWeekEventSet.plannedPower}}kW
+                        /{{curWeekEventSet.actualPower}}kW</div>
             </div>
             <div class="col-2 total-price-inner total-inner-col">
-                <div class="  total-price align-right middle-section ">₹ 2500</div>
+                <div class="  total-price align-right middle-section ">₹ {{curWeekEventSet.totalPrice}}</div>
             </div>
             <div class="col-3 eventoverview-inner published-col ">
-                <div class="publish-col align-right complete-col "> 10 / 09 / 01</div>
+                <div class="publish-col align-right complete-col "> {{curWeekEventSet.publishedEvents}} 
+                        / {{curWeekEventSet.completedEvents}} / {{curWeekEventSet.cancelledEvents}}</div>
             </div>
             <div class = "col-1 publish-col-int">
-                <div class=" publish-end-col ">Published</div>
-            </div>
-        </div>
-        <div class=" row margin-common header-bottom outer-division bottom-down ">
-            <div class="col-2 main-content-inner">
-                <div class=" date-col "> 14 Oct, 2019</div>
-            </div>
-            <div class="col-2  main-content-inner">
-                <div class="event-col">20191014HYE</div>
-            </div>
-            <div class="col-2 power-inner ">
-                <div class="power-col  kiloweight ">10000kW/8900kW</div>
-            </div>
-            <div class="col-2 total-price-inner total-inner-col  ">
-                <div class=" total-price align-right middle-section "> ₹ 1000</div>
-            </div>   
-            <div class="col-3 eventoverview-inner published-col">
-                <div class="publish-col align-right complete-col ">06 / 06 / —</div>
-            </div>
-            <div class = "col-1 publish-col-int">
-                <div class=" publish-end-change "> Partially Published</div>
-            </div>
-        </div>
-        <div class=" row margin-common header-bottom outer-division ">
-            <div class="col-2 main-content-inner">
-                <div class=" date-col ">12 Oct, 2019</div>
-            </div>
-            <div class="col-2  main-content-inner">
-                <div class="event-col">20191012HYWV1 </div>
-            </div>
-            <div class="col-2 power-inner ">
-                <div class="power-col  kiloweight ">80kW/79kW </div>
-            </div>
-            <div class="col-2 total-price-inner total-inner-col">
-                <div class=" total-price align-right middle-section ">₹ 780 </div>
-            </div>
-            <div class="col-3 eventoverview-inner published-col ">
-                <div class="publish-col align-right complete-col ">10 / 09 / 01</div>
-            </div>
-            <div class = "col-1 publish-col-int">
-                <div class=" publish-end-change ">Partially Published</div>
+                    <div class=" publish-end-col " *ngIf='curWeekEventSet.statusId == 1'>
+                            {{getStatus(curWeekEventSet.statusId)}}</div>
+                        <div class=" publish-end-change " *ngIf='curWeekEventSet.statusId == 2'>
+                            {{getStatus(curWeekEventSet.statusId)}}</div>
             </div>
         </div>
     </div>
     <div class=" row margin-common displayflex justify-evenly  inner-division  upcoming-row">
-        <div>This Month</div>
+        <div>This Month ({{curMonthEventSets.length}})</div>
     </div>
     <div class="common-border mb-5">
-        <div class=" row margin-common header-bottom outer-division bottom-down ">
+        <div class=" row margin-common header-bottom outer-division bottom-down "
+            *ngFor="let curMonthEventSet of curMonthEventSets">
             <div class="col-2 main-content-inner">
-                <div class=" date-col ">16 Oct, 2019</div>
+                <div class=" date-col ">{{formatTime(curMonthEventSet.date,'d')}}</div>
             </div>
             <div class="col-2  main-content-inner">
-                <div class="event-col">20191016HYSV2</div>
+                <div class="event-col" (click) = "openEventSetDetails(curMonthEventSet, 'curMonth')">{{curMonthEventSet.name}}</div>
             </div>
             <div class="col-2 power-inner ">
-                <div class="power-col  kiloweight ">30000kW/28900kW </div>
+                <div class="power-col  kiloweight ">{{curMonthEventSet.plannedPower}}kW
+                    /{{curMonthEventSet.actualPower}}kW </div>
             </div>
             <div class="col-2 total-price-inner total-inner-col ">
-                <div class=" total-price align-right middle-section "> ₹ 2500 </div>
+                <div class=" total-price align-right middle-section "> ₹ {{curMonthEventSet.totalPrice}}</div>
             </div>
             <div class="col-3 eventoverview-inner published-col ">
-                <div class="publish-col align-right complete-col ">10 / 09 / 01</div>
+                <div class="publish-col align-right complete-col ">{{curMonthEventSet.publishedEvents}} 
+                        / {{curMonthEventSet.completedEvents}} / {{curMonthEventSet.cancelledEvents}}</div>
             </div>
             <div class = "col-1 publish-col-int">
-                <div class=" publish-end-col ">Published</div>
-            </div>
-        </div>
-        <div class=" row margin-common header-bottom outer-division bottom-down ">
-            <div class="col-2 main-content-inner">
-                <div class=" date-col ">14 Oct, 2019</div>
-            </div>
-            <div class="col-2  main-content-inner">
-                <div class="event-col">20191014HYE</div>
-            </div>
-            <div class="col-2 power-inner ">
-                <div class="power-col  kiloweight ">10000kW/8900kW</div>
-            </div>
-            <div class="col-2 total-price-inner total-inner-col">
-                <div class=" total-price align-right middle-section "> ₹ 1000 </div>
-            </div>
-            <div class="col-3 eventoverview-inner published-col">
-                <div class="publish-col align-right complete-col ">06 / 06 / — </div>
-            </div>
-            <div class = "col-1 publish-col-int">
-                <div class=" publish-end-change "> Partially Published</div>
-            </div>
-        </div>
-        <div class=" row margin-common header-bottom outer-division ">
-            <div class="col-2 main-content-inner">
-                <div class=" date-col ">12 Oct, 2019</div>
-            </div>
-            <div class="col-2  main-content-inner">
-                <div class="event-col">20191012HYWV1</div>
-            </div>
-            <div class="col-2 power-inner ">
-                <div class="power-col  kiloweight "> 80kW/79kW</div>
-            </div>
-            <div class="col-2 total-price-inner total-inner-col">
-                <div class=" total-price align-right middle-section ">₹ 780</div>
-            </div>
-            <div class="col-3 eventoverview-inner published-col">
-                <div class="publish-col align-right complete-col ">10 / 09 / 01</div>
-            </div>
-            <div class = "col-1 publish-col-int">
-                <div class=" publish-end-change ">Partially Published</div>
+                    <div class=" publish-end-col " *ngIf='curMonthEventSet.statusId == 1'>
+                            {{getStatus(curMonthEventSet.statusId)}}</div>
+                        <div class=" publish-end-change " *ngIf='curMonthEventSet.statusId == 2'>
+                            {{getStatus(curMonthEventSet.statusId)}}</div>
             </div>
         </div>
     </div>

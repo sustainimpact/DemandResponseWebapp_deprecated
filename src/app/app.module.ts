@@ -6,14 +6,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AllEventSetsComponent } from './CreateEvent/all-event-sets/all-event-sets.component';
 import { AllCustomersComponent } from './CreateEvent/all-customers/all-customers.component';
+import { CreateEventDetailsComponent } from './CreateEvent/create-event-details/create-event-details.component';
 import { AuthGuard } from './guards/auth.guard';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- 
 import { ToastrModule } from 'ngx-toastr';
-
-
-
 
 
 @NgModule({
@@ -21,7 +18,8 @@ import { ToastrModule } from 'ngx-toastr';
     AppComponent,
     LoginComponent,
     AllEventSetsComponent,
-    AllCustomersComponent
+    AllCustomersComponent,
+    CreateEventDetailsComponent
   ],
   imports: [
     BrowserModule,

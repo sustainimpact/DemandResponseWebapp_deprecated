@@ -6,7 +6,7 @@ import { User } from '../DataModels/User';
 })
 export class IngressService {
 
-  public currentUser: User;
+  public currentUser: User = { userId: -1};
   constructor() {
    // this.currentUser = { "userId": 1 };
   }
