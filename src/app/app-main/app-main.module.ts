@@ -4,7 +4,7 @@ import {BreadcrumbModule} from 'angular-crumbs';
 import { AppMainComponent } from './app-main.component';
 import { TopbarComponent } from '../common/topbar/topbar.component';
 import { CreateEventHomeComponent } from '../CreateEvent/create-event-home/create-event-home.component';
-import { CreateEventDetailsComponent } from '../CreateEvent/create-event-details/create-event-details.component';
+//import { CreateEventDetailsComponent } from '../CreateEvent/create-event-details/create-event-details.component';
 import { SelectEventCustomersComponent } from '../createevent/select-event-customers/select-event-customers.component';
 import { AppMainRoutingModule } from './app-main-routing.module';
 import { PublishEventModalComponent } from '../pop-up-pages/pop-up-pages.component';
@@ -38,7 +38,7 @@ import { AddCustomerBulkComponent } from '../pop-up-pages/pop-up-pages.component
     AppMainComponent,
     TopbarComponent,
     CreateEventHomeComponent,
-    CreateEventDetailsComponent,
+    //CreateEventDetailsComponent,
     SelectEventCustomersComponent,
     PublishEventModalComponent,
     DownloadReportsModalComponent,
@@ -57,7 +57,7 @@ import { AddCustomerBulkComponent } from '../pop-up-pages/pop-up-pages.component
     AppMainComponent,
     TopbarComponent,
     CreateEventHomeComponent,
-    CreateEventDetailsComponent,
+    //CreateEventDetailsComponent,
     SelectEventCustomersComponent,
     PublishEventModalComponent,
     DownloadReportsModalComponent,
@@ -76,7 +76,7 @@ import { AddCustomerBulkComponent } from '../pop-up-pages/pop-up-pages.component
      AppMainComponent,
     TopbarComponent,
     CreateEventHomeComponent,
-    CreateEventDetailsComponent,
+    //CreateEventDetailsComponent,
     SelectEventCustomersComponent,
     PublishEventModalComponent,
     DownloadReportsModalComponent,

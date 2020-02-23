@@ -1,5 +1,8 @@
-import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation, Input  } from '@angular/core';
 import { NgbModal,NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalController, NavParams } from '@ionic/angular';
+import { AllEvents } from 'src/app/DataModels/AllEvents';
+import { EventsService } from 'src/app/services/events.service';
 
 
 @Component({
@@ -74,9 +77,20 @@ export class PopUpPagesComponent implements OnInit {
 })
 export class PublishEventModalComponent implements OnInit {
 
-  constructor(public activeModal: NgbActiveModal) { }
+  @Input() public eventSetId;
+  @Input() public eventType;
+  events: AllEvents[]=[];
+  eventDetails: any;
+
+  constructor(public activeModal: NgbActiveModal
+    , private eventsService: EventsService) {}
 
   ngOnInit() {
+    this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
+    if(this.eventDetails != null) {
+      this.events = this.eventDetails.events;
+      this.events = this.events.filter(event => event.isSelected);
+    }
   }
 }
 

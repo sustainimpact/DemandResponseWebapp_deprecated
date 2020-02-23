@@ -1,7 +1,7 @@
 <div class=" pl-4 pr-4 ">
     <div class="inline-content">
         <div class="year mr-auto">
-            20191026HYS
+            {{eventSetName}}
         </div>
         <div class="button-margin">
             <button type="button" class="btn publish-event-button active"
@@ -79,7 +79,7 @@
             </div>
         </div>
         <div class="table-row-scroll" #pRef>
-            <div class="row row-top shadow-background light-color ">
+            <!-- <div class="row row-top shadow-background light-color ">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="drevent-2">
@@ -126,8 +126,8 @@
                         12
                     </div>
                 </div>
-            </div>
-            <div class="row row-top shadow-blue">
+            </div> -->
+            <!-- <div class="row row-top shadow-blue">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="drevent-3">
@@ -175,9 +175,9 @@
                         14
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="row row-top">
+            <!-- <div class="row row-top">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="drevent-4">
@@ -232,58 +232,59 @@
                     </div>
 
                 </div>
-            </div>
+            </div> -->
 
-            <div class="row row-top">
+            <div class="row row-top" *ngFor="let event of events">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="drevent-5">
-                        <label class="custom-control-label" for="drevent-5"></label>
+                        <input type="checkbox" (click)="selectEvent(event.eventId)"
+                        class="custom-control-input" [id]="event.eventId">
+                        <label class="custom-control-label" [for]="event.eventId"></label>
                     </div>
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                        2019102607HYS
+                        {{event.eventName}}
                     </div>
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                        0845-0900
+                        {{formatTime(event.eventStartTime, 't')}}-{{formatTime(event.eventEndTime, 't')}}
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end flex-grow">
                     <div class="column-one">
-                        700
+                        {{event.plannedPower}}
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
                     <div class="column-one">
-                        06/25
+                        {{event.expectedPrice}}
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
                     <div class="column-one">
-                        1025
+                        {{event.noOfCustomers}}
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                        --
+                        {{event.commitedPower}}
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                        --
+                        {{getShortfall(event.plannedPower, event.commitedPower)}}
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                        --
+                        {{event.actualPower}}
                     </div>
                 </div>
             </div>
 
-            <div class="row row-top">
+            <!-- <div class="row row-top">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="drevent-6">
@@ -723,7 +724,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="row row-top sticky-content">
         <div style="width:39px;background-color: white;">
         </div>
@@ -739,7 +740,7 @@
         </div>
         <div class="col row-border footer-color plan-quantity-end flex-grow ">
             <div class="row-footer">
-                4200
+                {{totalPlannedQuantity}}
             </div>
         </div>
         <div class="col row-border footer-color plan-quantity-end">
@@ -754,17 +755,17 @@
         </div>
         <div class="col row-border footer-color plan-quantity-end">
             <div class="row-footer ">
-                2470
+                {{totalCommitments}}
             </div>
         </div>
         <div class="col row-border footer-color plan-quantity-end">
             <div class="row-footer ">
-                980
+                {{totalShortfall}}
             </div>
         </div>
         <div class="col row-border footer-color plan-quantity-end" style="margin-right: 7px;">
             <div class="row-footer ">
-                1603
+                {{totalActualQuantity}}
             </div>
         </div>
 
