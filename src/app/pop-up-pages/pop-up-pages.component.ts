@@ -1,6 +1,5 @@
 import { Component, OnInit,ViewEncapsulation, Input  } from '@angular/core';
 import { NgbModal,NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalController, NavParams } from '@ionic/angular';
 import { AllEvents } from 'src/app/DataModels/AllEvents';
 import { EventsService } from 'src/app/services/events.service';
 
