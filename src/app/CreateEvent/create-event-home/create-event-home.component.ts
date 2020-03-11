@@ -14,8 +14,23 @@ export class CreateEventHomeComponent implements OnInit {
   ngOnInit() {
   }
   selectFile() {
-    // this.fileInput.nativeElement.click();
-    this.router.navigateByUrl('/main/createeventdetails');
+     this.fileInput.nativeElement.click();
+    // this.router.navigateByUrl('/main/createeventdetails');
 
   }
+
+ getBase64(event) {
+  let me = this;
+  let file = event.target.files[0];
+  let reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = function () {
+    //me.modelvalue = reader.result;
+    console.log(reader.result);
+  };
+  reader.onerror = function (error) {
+    console.log('Error: ', error);
+  };
+}
+
 }

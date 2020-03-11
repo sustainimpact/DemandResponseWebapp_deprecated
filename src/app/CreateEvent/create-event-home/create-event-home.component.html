@@ -4,7 +4,7 @@
 <div class="mt-2 event-outline file-upload content-align">
     <div class="upload-middle ">
         <div><img src="../../../assets/img/cloud-upload.svg" alt="upload">
-            <input #fileInput id="file-input" type="file" /></div>
+            <input #fileInput id="file-input" type="file" (onFileChanged)="getBase64($event)"/></div>
         Drag & drop the sheet or
         <a class=" drag-sector browse-text  row-space" (click)="selectFile()">
             brogit wse
