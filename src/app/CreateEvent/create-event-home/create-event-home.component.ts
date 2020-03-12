@@ -20,13 +20,13 @@ export class CreateEventHomeComponent implements OnInit {
   }
 
  getBase64(event) {
-  let me = this;
+  
   let file = event.target.files[0];
   let reader = new FileReader();
   reader.readAsDataURL(file);
   reader.onload = function () {
-    //me.modelvalue = reader.result;
-    console.log(reader.result);
+    let result = reader.result.toString().split("base64,")
+    console.log("base64" + result[1]);
   };
   reader.onerror = function (error) {
     console.log('Error: ', error);
