@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AllEventSets } from 'src/app/DataModels/AllEventSets';
 import { AllEvents } from 'src/app/DataModels/AllEvents';
+import { DR_URL } from 'src/environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,8 @@ export class EventsService {
 
   selectedEventSetName: string;
   eventsForSelectedEventSet: AllEvents[] = [];
+
+  uploadEventSetUrl = DR_URL + 'uploadEventSet/Hyd';
 
   events: AllEvents[] = [{
     eventId: 1,
@@ -156,7 +160,7 @@ export class EventsService {
     events: null,
   }];
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getEventsForUpcomingEventSet(eventSetId: number): AllEvents[] {
     this.upcomingEventSets.forEach(eventSet => {
@@ -193,5 +197,17 @@ export class EventsService {
       });
     }
     return {events: this.eventsForSelectedEventSet, eventSetName: this.selectedEventSetName};
+  }
+
+  uploadEventSet(userId: any, payload: any) {
+    console.log('User Id : ' , userId);
+    var options = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    };
+    return this.httpClient.post(this.uploadEventSetUrl + '/' + userId
+      , payload
+      , options
+    );
   }
 }
