@@ -20,8 +20,9 @@ export class CreateEventDetailsComponent implements OnInit {
   curWeekEventSets: AllEventSets[];
   curMonthEventSets: AllEventSets[];
 
-  events: AllEvents[] = [];
+  selectedEvents: any[];
 
+  events: AllEvents[] = [];
   eventDetails: any;
 
   innerHeight: any = 0;
@@ -43,9 +44,14 @@ export class CreateEventDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.innerHeight = Number(window.innerHeight) - 240;
-    this.upcomingEventSets = this.eventsService.upcomingEventSets;
-    this.curWeekEventSets = this.eventsService.curWeekEventSets;
-    this.curMonthEventSets = this.eventsService.curMonthEventSets;
+    // this.upcomingEventSets = this.eventsService.upcomingEventSets;
+    // this.curWeekEventSets = this.eventsService.curWeekEventSets;
+    // this.curMonthEventSets = this.eventsService.curMonthEventSets;
+
+    this.upcomingEventSets = this.eventsService.upcomingEvents;
+    this.curWeekEventSets = this.eventsService.lastWeek;
+    this.curMonthEventSets = this.eventsService.lastMonth;
+
     this.route.queryParams.subscribe(params => {
       this.eventSetId = params['eventSetId'];
       this.eventType = params['eventType'];
@@ -93,8 +99,8 @@ export class CreateEventDetailsComponent implements OnInit {
   calculateEventDetails() {
     this.events.forEach(event => {
       this.totalPlannedQuantity+=event.plannedPower;
-      this.totalCommitments+=event.commitedPower;
-      this.totalShortfall+=(event.plannedPower-event.commitedPower);
+      this.totalCommitments+=event.committedPower;
+      this.totalShortfall+=(event.plannedPower-event.committedPower);
       this.totalActualQuantity+=event.actualPower;
     });
   }
@@ -104,9 +110,24 @@ export class CreateEventDetailsComponent implements OnInit {
     modalRef.componentInstance.name = 'World';
   }
   
-  openEventDetails() {
+  openEventDetails(event: any) {
     console.log("Edit customers");
-    this.router.navigateByUrl('/main/selecteventcustomers');
+    this.router.navigate(['/main/selecteventcustomers'], {
+      queryParams: {
+        eventId: event.eventId,
+        eventName: event.eventName,
+        eventSetId: event.eventSetId,
+        startTime: event.startTime,
+        endTime: event.endTime,
+        plannedPower: event.plannedPower,
+        committedPower: event.committedPower,
+        actualPower: event.actualPower,
+        shortfall: event.shortfall,
+        price: event.price,
+        numberOfCustomers: event.numberOfCustomers,
+        status: event.status
+      }
+    });
   }
 
   editCustomers() {
@@ -115,9 +136,11 @@ export class CreateEventDetailsComponent implements OnInit {
   }
 
   publishEvents() {
+    this.getSelectedEvents();
     const modalRef = this.modalService.open(PublishEventModalComponent ,{centered: true });
     modalRef.componentInstance.eventSetId = this.eventSetId;
     modalRef.componentInstance.eventType = this.eventType;
+    modalRef.componentInstance.eventsToPublish = this.selectedEvents;
   }
 
   getShortfall(plannedPower: number, committedPower: number) {
@@ -145,8 +168,15 @@ export class CreateEventDetailsComponent implements OnInit {
         }
     });
   }
-}
 
+  getSelectedEvents() {
+    this.events.forEach(event => {
+      if (event.isSelected) {
+        this.selectedEvents.push(event.eventId);
+      }
+    });
+  }
+}
 
 @Component({
   selector: 'app-event-overview',

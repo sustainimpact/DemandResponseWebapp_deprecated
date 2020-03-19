@@ -1,7 +1,7 @@
 <div class=" pl-4 pr-4 ">
         <div class ="inline-content">
             <div class = "year mr-auto">
-                2019102608HYS
+                {{eventName}}
             </div>
             <div class = "button-margin">
                 <button type="button" class="back-btn publish-event-button">Cancel Event </button>
@@ -18,26 +18,26 @@
                 .
             </div>
             <div class="south">
-                26 Oct, 2019
+                {{formatTime(startTime,'d')}}
             </div>
         </div>
         <div class="inline-content" >
             <div class = "pr-5" style="height: 10px !important;">
                 <div class = "clock-row">
                     <img  style = "padding-bottom: 4px; " class = "pr-1" src="assets/img/time-icon.svg" alt="time-icon">
-                    09:00 AM   -   09:15 AM
+                    {{formatTime(startTime,'t')}}  -   {{formatTime(endTime,'t')}}
                 </div>
             </div>
             <div  class = " pr-5" style="height: 40px !important;">
                 <div class = "clock-row">
                     <img class = "pr-1" src="assets/img/flash-icon.svg" alt="time-icon">
-                    250 kWh
+                    {{plannedPower}} kWh
                 </div>
             </div>
             <div style="height: 40px !important;">
                 <div class = "clock-row">
                     <img class = "pr-1" src="assets/img/rupee-icon.svg" alt="time-icon" style="padding-bottom: 3px;">
-                    1025 paise
+                    {{price}} paise
                 </div>
             </div>
         </div>
@@ -130,10 +130,17 @@
                     </div>
                 </div>
                     <div class="table-row-scroll">
-                       <div class="row row-top">
+                       <div class="row row-top" *ngFor="let customer of customerList">
+                            <div class=" row-border">
+                                    <div class=" custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" 
+                                        (click)="selectCustomer(customer.customerId)" id="customer.customerId">
+                                        <label class="custom-control-label" for="customer.customerId"></label>
+                                    </div>
+                                </div>
                             <div class="col row-border">
                                 <div class="column-one">
-                                    STC Developers
+                                    {{customer.customerName}}
                                 </div>
                             </div>
                             <div class="col row-border end-content">
@@ -164,274 +171,6 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class="col row-border">
-                            <div class="column-one">
-                                STC Developers
-                            </div>
-                        </div>
-                        <div class="col row-border end-content">
-                            <div class="dropdown">
-                                <button type="button" class="drop-participate" data-toggle="dropdown">
-                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="#">Link 1</a>
-                                  <a class="dropdown-item" href="#">Link 2</a>
-                                  <a class="dropdown-item" href="#">Link 3</a>
-                                </div>
-                              </div> 
-                        </div>
-                        <div class="col commitement-header">
-                            <div class="end-content  total-pad quantity-start len-row ten-five">
-                            1025
-                            </div>
-                        </div>
-                        <div class="col  quantity-end commitement-header">
-                            <div class="end-content content-module">
-                            --
-                            </div>
-                        </div>
-                        <div class="col  quantity-end commitement-header">
-                            <div class="end-content content-module">
-                            --
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class="col row-border">
-                            <div class="column-one">
-                                STC Developers
-                            </div>
-                        </div>
-                        <div class="col row-border end-content">
-                            <div class="dropdown">
-                                <button type="button" class="drop-participate" data-toggle="dropdown">
-                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="#">Link 1</a>
-                                  <a class="dropdown-item" href="#">Link 2</a>
-                                  <a class="dropdown-item" href="#">Link 3</a>
-                                </div>
-                              </div> 
-                        </div>
-                        <div class="col  commitement-header">
-                            <div class="end-content  total-pad quantity-start len-row ten-five">
-                            1025
-                            </div>
-                        </div>
-                        <div class="col  quantity-end commitement-header">
-                            <div class="end-content content-module">
-                            --
-                            </div>
-                        </div>
-                        <div class="col  quantity-end commitement-header">
-                            <div class="end-content content-module">
-                            --
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class="col row-border">
-                            <div class="column-one">
-                                Videocon
-                            </div>
-                        </div>
-                        <div class="col row-border end-content">
-                            <div class="dropdown">
-                                <button type="button" class="drop-participate" data-toggle="dropdown">
-                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="#">Link 1</a>
-                                  <a class="dropdown-item" href="#">Link 2</a>
-                                  <a class="dropdown-item" href="#">Link 3</a>
-                                </div>
-                              </div> 
-                        </div>
-                        <div class="col const-counter ">
-                            <span class="total-pad">
-                               1125
-                            </span>
-                            <span style="font-size: 10px;border-radius:10px;color:white;padding:2px 6px;background: #417505;">
-                                COUNTER BID - ACCEPTED 
-                            </span>
-                        </div>
-                        <div class="col  quantity-end commitement-header">
-                            <div class="end-content content-module content-module">
-                            --
-                            </div>
-                        </div>
-                        <div class="col  quantity-end commitement-header">
-                            <div class="end-content content-module">
-                            --
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class="col row-border">
-                            <div class="column-one">
-                                STC Developers
-                            </div>
-                        </div>
-                        <div class="col row-border end-content">
-                            <div class="dropdown">
-                                <button type="button" class="drop-participate" data-toggle="dropdown">
-                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="#">Link 1</a>
-                                  <a class="dropdown-item" href="#">Link 2</a>
-                                  <a class="dropdown-item" href="#">Link 3</a>
-                                </div>
-                              </div> 
-                        </div>
-                        <div class="col  commitement-header">
-                            <div class="end-content  total-pad quantity-start len-row ten-five">
-                            1025
-                            </div>
-                        </div>
-                        <div class="col  quantity-end commitement-header">
-                            <div class="end-content content-module">
-                            --
-                            </div>
-                        </div>
-                        <div class="col  quantity-end commitement-header">
-                            <div class="end-content content-module">
-                            --
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class="col row-border">
-                            <div class="column-one">
-                                Delhi Metro Corporation Ltd
-                            </div>
-                        </div>
-                        <div class="col row-border end-content">
-                            <div class="dropdown">
-                                <button type="button" class="drop-participate" data-toggle="dropdown">
-                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="#">Link 1</a>
-                                  <a class="dropdown-item" href="#">Link 2</a>
-                                  <a class="dropdown-item" href="#">Link 3</a>
-                                </div>
-                              </div> 
-                        </div>
-                        <div class="col commitement-header">
-                            <div class="end-content total-pad quantity-start len-row ten-five">
-                            1025
-                            </div>
-                        </div>
-                        <div class="col  quantity-end commitement-header">
-                            <div class="end-content content-module">
-                            --
-                            </div>
-                        </div>
-                        <div class="col  quantity-end commitement-header">
-                            <div class="end-content content-module">
-                            --
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-top " style = "margin:0px;">
-                        <div class="col row-border">
-                            <div class="column-one">
-                                Metro Corporation
-                            </div>
-                        </div>
-                        <div class="col row-border end-content">
-                            <div class="dropdown">
-                                <button type="button" class="drop-participate" data-toggle="dropdown">
-                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="#">Link 1</a>
-                                  <a class="dropdown-item" href="#">Link 2</a>
-                                  <a class="dropdown-item" href="#">Link 3</a>
-                                </div>
-                              </div>
-                        </div>
-                        <div class="col  commitement-header">
-                            <div class="end-content total-pad quantity-start len-row">
-                            1025
-                            </div>
-                        </div>
-                        <div class="col  quantity-end commitement-header">
-                            <div class="end-content content-module">
-                            --
-                            </div>
-                        </div>
-                        <div class="col  quantity-end">
-                            <div class="end-content commitement-header content-module">
-                            --
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class="col row-border">
-                            <div class="column-one">
-                                Metro Corporation
-                            </div>
-                        </div>
-                        <div class="col row-border end-content">
-                            <div class="dropdown">
-                                <button type="button" class="drop-participate" data-toggle="dropdown">
-                                    PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
-                                </button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="#">Link 1</a>
-                                  <a class="dropdown-item" href="#">Link 2</a>
-                                  <a class="dropdown-item" href="#">Link 3</a>
-                                </div>
-                              </div>                           
-                        </div>
-                        <div class="col commitement-header">
-                            <div class="end-content total-pad quantity-start len-row ten-five">
-                            1025
-                            </div>
-                        </div>
-                        <div class="col  quantity-end commitement-header">
-                            <div class="end-content content-module">
-                            --
-                            </div>
-                        </div>
-                        <div class="col  quantity-end commitement-header">
-                            <div class="end-content content-module">
-                            --
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class="col row-border">
-                            <div class="column-one">
-                                Metro Corporation
-                            </div>
-                        </div>
-                        <div class="col row-border response-show end-content">
-                            <div class = "no-response">
-                                NO RESPONSE 
-                            </div>
-                        </div>
-                        <div class="col  commitement-header">
-                            <div class="end-content  total-pad quantity-start len-row ten-five">
-                            1025
-                            </div>
-                        </div>
-                        <div class="col  quantity-end ">
-                            <div class="end-content commitement-header content-module">
-                            --
-                            </div>
-                        </div>
-                        <div class="col  quantity-end">
-                            <div class="end-content commitement-header content-module">
-                            --
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>  
                     <div class="row row-top sticky-content">

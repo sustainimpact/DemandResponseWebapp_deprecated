@@ -34,7 +34,6 @@ export class AllEventSetsComponent implements OnInit {
   }
 
   scheduleDrEvent() {
-    console.log("Start DR event schedule");
     this.router.navigateByUrl('/main/uploadspreadsheet');
   }
 

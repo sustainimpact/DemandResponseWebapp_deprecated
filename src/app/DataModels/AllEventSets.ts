@@ -3,10 +3,10 @@ import { AllEvents }  from 'src/app/DataModels/AllEvents';
 export class AllEventSets {
     eventSetId?: number;
     name?: string;
-    date?: string;
-    statusId?: number;
+    dateOfOccurrence?: string;
+    status?: number;
     plannedPower?: number;
-    commitedPower?: number;
+    committedPower?: number;
     actualPower?: number;
     totalPrice?: number;
     publishedEvents?: number;

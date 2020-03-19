@@ -2,6 +2,7 @@ import { Component, OnInit,ViewEncapsulation, Input  } from '@angular/core';
 import { NgbModal,NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AllEvents } from 'src/app/DataModels/AllEvents';
 import { EventsService } from 'src/app/services/events.service';
+import { CustomerService } from 'src/app/services/customer.service';
 
 
 @Component({
@@ -80,6 +81,9 @@ export class PublishEventModalComponent implements OnInit {
   @Input() public eventType;
   events: AllEvents[]=[];
   eventDetails: any;
+  numberOfEvents: number;
+  selectedEvents: any[];
+  resFromServer: any;
 
   constructor(public activeModal: NgbActiveModal
     , private eventsService: EventsService) {}
@@ -89,7 +93,24 @@ export class PublishEventModalComponent implements OnInit {
     if(this.eventDetails != null) {
       this.events = this.eventDetails.events;
       this.events = this.events.filter(event => event.isSelected);
+      this.numberOfEvents = this.events.length;
+      this.events.forEach(event => {
+        if (event.isSelected) {
+          this.selectedEvents.push(event.eventId);
+        }
+      });
     }
+  }
+
+  publishEvents() {
+    this.eventsService.publishEvents(this.selectedEvents, this.eventSetId).subscribe((res) => {
+      this.resFromServer = res;
+      if(this.resFromServer != null) {
+        if(this.resFromServer.responseStatus==1) {
+          console.log('Events Published');
+        }
+      }
+    });
   }
 }
 
@@ -100,10 +121,83 @@ export class PublishEventModalComponent implements OnInit {
 })
 export class EventSetCustomersComponent implements OnInit {
 
-  constructor(public activeModal: NgbActiveModal) { }
+  @Input() public eventSetId;
+  @Input() public eventType;
+  events: AllEvents[]=[];
+  eventDetails: any;
+  numberOfEvents: number;
+  selectedEvents: any[];
+  selectedCustomers: any[];
+  customerList: any[];
+  resFromServer: any;
+  response: any;
 
-  ngOnInit() {}
 
+  constructor(public activeModal: NgbActiveModal
+    , private eventsService: EventsService
+    , private customerService: CustomerService) { }
+
+  ngOnInit() {
+    this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
+    if(this.eventDetails != null) {
+      this.events = this.eventDetails.events;
+      this.events = this.events.filter(event => event.isSelected);
+      this.numberOfEvents = this.events.length;
+      this.events.forEach(event => {
+        if (event.isSelected) {
+          this.selectedEvents.push(event.eventId);
+        }
+      });
+    }
+    this.getCustomers();
+  }
+
+  getCustomers() {
+    this.customerService.getCustomers(this.selectedEvents).subscribe((res) => {
+      this.resFromServer = res;
+      if(this.resFromServer != null) {
+        if(this.resFromServer.responseStatus == 1) {
+          this.customerList = this.resFromServer.response;
+          this.customerList.forEach(customer => {
+            customer.isSelected=false;
+          })
+        }
+      }
+    });
+  }
+
+  selectCustomer(customerId) {
+    this.customerList.forEach(customer => {
+        if(customer.customerId==customerId) {
+          if(customer.isSelected) {
+            customer.isSelected=false;
+          }
+          else {
+            customer.isSelected=true;
+          }
+        }
+    });
+  }
+
+  getSelectedCustomers() {
+    this.customerList.forEach(customer => {
+      if (customer.isSelected) {
+        this.selectedCustomers.push(customer.customerId);
+      }
+    });
+  }
+
+  updateCustomers() {
+    this.getSelectedCustomers();
+    this.customerService.updateCustomers(this.selectedEvents, this.selectedCustomers).subscribe((res) => {
+      this.resFromServer = res;
+      if(this.resFromServer != null) {
+        if(this.resFromServer.responseStatus == 1) {
+          console.log('Customers Updated');
+        }
+      }
+    });
+  }
 }
 @Component({
   selector: 'app-version-history',

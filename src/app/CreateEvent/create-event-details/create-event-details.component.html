@@ -243,13 +243,13 @@
                     </div>
                 </div>
                 <div class="col row-border">
-                    <div class="column-one">
+                    <div class="column-one" (click)="openEventDetails(event)">
                         {{event.eventName}}
                     </div>
                 </div>
                 <div class="col row-border">
                     <div class="column-one">
-                        {{formatTime(event.eventStartTime, 't')}}-{{formatTime(event.eventEndTime, 't')}}
+                        {{formatTime(event.startTime, 't')}}-{{formatTime(event.endTime, 't')}}
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end flex-grow">
@@ -259,22 +259,22 @@
                 </div>
                 <div class="col row-border plan-quantity-end">
                     <div class="column-one">
-                        {{event.expectedPrice}}
+                        {{event.price}}
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end">
                     <div class="column-one">
-                        {{event.noOfCustomers}}
+                        {{event.numberOfCustomers}}
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                        {{event.commitedPower}}
+                        {{event.committedPower}}
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="column-one">
-                        {{getShortfall(event.plannedPower, event.commitedPower)}}
+                        {{getShortfall(event.plannedPower, event.committedPower)}}
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">

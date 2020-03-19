@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IngressService } from '../services/ingress.service';
+import { EventsService } from '../services/events.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -13,16 +14,19 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private ingressService: IngressService,
+    private eventsService: EventsService,
     private toastr: ToastrService
   ) { }
 
   public email: any;
   public password: any;
+  resFromServer: any;
+  response: any;
 
   ngOnInit() {
   }
 
-  login() {
+  loginAdmin() {
     console.log("Login called");
     if (this.email == "admin" && this.password == "admin") {
       this.ingressService.currentUser = {
@@ -45,6 +49,26 @@ export class LoginComponent implements OnInit {
     else {
       this.showError();
     }
+  }
+
+  login() {
+    this.ingressService.login(this.email, this.password).subscribe((res) => {
+      this.resFromServer = res;
+      if(this.resFromServer != null) {
+        if(this.resFromServer.responseStatus==1) {
+          this.response = this.resFromServer.response;
+          if(this.response != null) {
+            this.ingressService.currentUser.userId = this.response.userId;
+            if(this.response.eventSets != null) {
+              this.eventsService.upcomingEvents = this.response.eventSets.upcomingEvents;
+              this.eventsService.lastWeek = this.response.eventSets.lastWeek;
+              this.eventsService.lastMonth = this.response.eventSets.lastMonth;
+            }
+          }
+          this.router.navigateByUrl('/main');
+        }
+      }
+    });
   }
 
   showError() {

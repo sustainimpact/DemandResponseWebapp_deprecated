@@ -9,23 +9,29 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class EventsService {
 
+  upcomingEvents: any[];
+  lastWeek: any[];
+  lastMonth: any[];
+
+  selectedEventSetId: number;
   selectedEventSetName: string;
   eventsForSelectedEventSet: AllEvents[] = [];
 
   uploadEventSetUrl = DR_URL + 'uploadEventSet/Hyd';
+  publishEventsUrl = DR_URL + 'updateEvent';
 
   events: AllEvents[] = [{
     eventId: 1,
     eventSetId: 1,
     eventName: '20191026HYS01',
-    eventStartTime: '2020-02-27T07:00',
-    eventEndTime: '2020-02-27T08:00',
+    startTime: '2020-02-27T07:00',
+    endTime: '2020-02-27T08:00',
     plannedPower: 70,
-    commitedPower: 50,
+    committedPower: 50,
     actualPower: 40,
-    expectedPrice: 700,
-    noOfCustomers: 25,
-    evenStatusId: 1,
+    price: 700,
+    numberOfCustomers: 25,
+    status: 1,
     isSelected: false,
     activeStatus: true,
   }
@@ -34,14 +40,14 @@ export class EventsService {
     eventId: 2,
     eventSetId: 1,
     eventName: '20191026HYS02',
-    eventStartTime: '2020-02-27T08:00',
-    eventEndTime: '2020-02-27T09:00',
+    startTime: '2020-02-27T08:00',
+    endTime: '2020-02-27T09:00',
     plannedPower: 30,
-    commitedPower: 20,
+    committedPower: 20,
     actualPower: 10,
-    expectedPrice: 300,
-    noOfCustomers: 20,
-    evenStatusId: 1,
+    price: 300,
+    numberOfCustomers: 20,
+    status: 1,
     isSelected: false,
     activeStatus: true,
   }];
@@ -49,10 +55,10 @@ export class EventsService {
   upcomingEventSets: AllEventSets[] = [{
     eventSetId: 1,
     name: '20191026HYS',
-    date: '2020-02-27T07:00',
-    statusId: 1,
+    dateOfOccurrence: '2020-02-27T07:00',
+    status: 1,
     plannedPower: 100,
-    commitedPower: 70,
+    committedPower: 70,
     actualPower: 50,
     totalPrice: 1000,
     publishedEvents: 7,
@@ -68,10 +74,10 @@ export class EventsService {
   {
     eventSetId: 2,
     name: '20191026HYS',
-    date: '2020-02-28T07:00',
-    statusId: 2,
+    dateOfOccurrence: '2020-02-28T07:00',
+    status: 2,
     plannedPower: 70,
-    commitedPower: 50,
+    committedPower: 50,
     actualPower: 40,
     totalPrice: 700,
     publishedEvents: 9,
@@ -87,10 +93,10 @@ export class EventsService {
   curWeekEventSets: AllEventSets[] = [{
     eventSetId: 3,
     name: '20191026HYS',
-    date: '2020-10-15T11:00',
-    statusId: 1,
+    dateOfOccurrence: '2020-10-15T11:00',
+    status: 1,
     plannedPower: 50,
-    commitedPower: 30,
+    committedPower: 30,
     actualPower: 20,
     totalPrice: 500,
     publishedEvents: 3,
@@ -106,10 +112,10 @@ export class EventsService {
   {
     eventSetId: 4,
     name: '20191026HYS',
-    date: '2020-10-14T11:00',
-    statusId: 1,
+    dateOfOccurrence: '2020-10-14T11:00',
+    status: 1,
     plannedPower: 60,
-    commitedPower: 70,
+    committedPower: 70,
     actualPower: 60,
     totalPrice: 600,
     publishedEvents: 3,
@@ -125,10 +131,10 @@ export class EventsService {
   curMonthEventSets: AllEventSets[] = [{
     eventSetId: 5,
     name: '20191026HYS',
-    date: '2020-10-13T11:00',
-    statusId: 1,
+    dateOfOccurrence: '2020-10-13T11:00',
+    status: 1,
     plannedPower: 40,
-    commitedPower: 30,
+    committedPower: 30,
     actualPower: 30,
     totalPrice: 400,
     publishedEvents: 7,
@@ -144,10 +150,10 @@ export class EventsService {
   {
     eventSetId: 6,
     name: '20191026HYS',
-    date: '2020-10-12T11:00',
-    statusId: 1,
+    dateOfOccurrence: '2020-10-12T11:00',
+    status: 1,
     plannedPower: 100,
-    commitedPower: 100,
+    committedPower: 100,
     actualPower: 100,
     totalPrice: 1000,
     publishedEvents: 10,
@@ -173,7 +179,7 @@ export class EventsService {
 
   getEvents(eventType,eventSetId) {
     if(eventType=='upcoming') {
-      this.upcomingEventSets.forEach(eventSet => {
+      this.upcomingEvents.forEach(eventSet => {
         if(eventSet.eventSetId==eventSetId) {
           this.selectedEventSetName=eventSet.name;
           this.eventsForSelectedEventSet=eventSet.events;
@@ -181,7 +187,7 @@ export class EventsService {
       });
     }
     if(eventType=='curWeek') {
-      this.curWeekEventSets.forEach(eventSet => {
+      this.lastWeek.forEach(eventSet => {
         if(eventSet.eventSetId==eventSetId) {
           this.selectedEventSetName=eventSet.name;
           this.eventsForSelectedEventSet=eventSet.events;
@@ -189,7 +195,7 @@ export class EventsService {
       });
     }
     if(eventType=='curMonth') {
-      this.curMonthEventSets.forEach(eventSet => {
+      this.lastMonth.forEach(eventSet => {
         if(eventSet.eventSetId==eventSetId) {
           this.selectedEventSetName=eventSet.name;
           this.eventsForSelectedEventSet=eventSet.events;
@@ -199,14 +205,28 @@ export class EventsService {
     return {events: this.eventsForSelectedEventSet, eventSetName: this.selectedEventSetName};
   }
 
-  uploadEventSet(userId: any, payload: any) {
+  uploadEventSet(userId: any, payload: string) {
     console.log('User Id : ' , userId);
+    console.log('Payload : ' , payload);
     var options = {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
     };
     return this.httpClient.post(this.uploadEventSetUrl + '/' + userId
-      , payload
+      , {"eventSet":payload}
+      , options
+    );
+  }
+
+  publishEvents(events: any[], eventSetId: any) {
+    console.log('Events : ' , events);
+    console.log('Event Set Id : ' , eventSetId);
+    var options = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    };
+    return this.httpClient.post(this.publishEventsUrl
+      , {"eventIdList":events,"status":"PUBLISH","eventSetId":eventSetId}  // payload to be changed [remove status]
       , options
     );
   }

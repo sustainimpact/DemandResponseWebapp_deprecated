@@ -2,14 +2,15 @@ export class AllEvents {
     eventId?: number;
     eventName?: string;
     eventSetId?: number;
-    eventStartTime?: string;
-    eventEndTime?: string;
+    startTime?: string;
+    endTime?: string;
     plannedPower?: number;
-    commitedPower?: number;
+    committedPower?: number;
     actualPower?: number;
-    expectedPrice?: number;
-    noOfCustomers?: number;
-    evenStatusId?:  number;
+    shortfall?: number;
+    price?: number;
+    numberOfCustomers?: number;
+    status?:  number;
     isSelected?: boolean;
     activeStatus?: boolean;
 }

@@ -28,7 +28,7 @@
     <div class=" row margin-common header-bottom outer-division common-border"
         *ngFor="let upcomingEventSet of upcomingEventSets">
         <div class="col-2 main-content-inner">
-            <div class=" date-col ">{{formatTime(upcomingEventSet.date,'d')}}</div>
+            <div class=" date-col ">{{formatTime(upcomingEventSet.dateOfOccurrence,'d')}}</div>
         </div>
         <div class="col-2  main-content-inner">
             <div class="event-col" (click) = "openEventSetDetails(upcomingEventSet, 'upcoming')">{{upcomingEventSet.name}}
@@ -49,10 +49,10 @@
                 / {{upcomingEventSet.completedEvents}} / {{upcomingEventSet.cancelledEvents}}</div>
         </div>       
         <div class = "col-1 publish-col-int">
-            <div class=" publish-end-col " *ngIf='upcomingEventSet.statusId == 1'>
-                {{getStatus(upcomingEventSet.statusId)}}</div>
-            <div class=" publish-end-change " *ngIf='upcomingEventSet.statusId == 2'>
-                {{getStatus(upcomingEventSet.statusId)}}</div>
+            <div class=" publish-end-col " *ngIf='upcomingEventSet.status == 1'>
+                {{getStatus(upcomingEventSet.status)}}</div>
+            <div class=" publish-end-change " *ngIf='upcomingEventSet.status == 2'>
+                {{getStatus(upcomingEventSet.status)}}</div>
             <!-- <div class=" publish-end-change ">Published</div> -->
         </div>
     </div>
@@ -63,7 +63,7 @@
         <div class=" row margin-common header-bottom outer-division bottom-down "
             *ngFor="let curWeekEventSet of curWeekEventSets">
             <div class="col-2 main-content-inner">
-                <div class=" date-col ">{{formatTime(curWeekEventSet.date,'d')}}</div>
+                <div class=" date-col ">{{formatTime(curWeekEventSet.dateOfOccurrence,'d')}}</div>
             </div>
             <div class="col-2  main-content-inner">
                 <div class="event-col" (click) = "openEventSetDetails(curWeekEventSet, 'curWeek')">{{curWeekEventSet.name}}</div>
@@ -80,10 +80,10 @@
                         / {{curWeekEventSet.completedEvents}} / {{curWeekEventSet.cancelledEvents}}</div>
             </div>
             <div class = "col-1 publish-col-int">
-                    <div class=" publish-end-col " *ngIf='curWeekEventSet.statusId == 1'>
-                            {{getStatus(curWeekEventSet.statusId)}}</div>
-                        <div class=" publish-end-change " *ngIf='curWeekEventSet.statusId == 2'>
-                            {{getStatus(curWeekEventSet.statusId)}}</div>
+                    <div class=" publish-end-col " *ngIf='curWeekEventSet.status == 1'>
+                            {{getStatus(curWeekEventSet.status)}}</div>
+                        <div class=" publish-end-change " *ngIf='curWeekEventSet.status == 2'>
+                            {{getStatus(curWeekEventSet.status)}}</div>
             </div>
         </div>
     </div>
@@ -94,7 +94,7 @@
         <div class=" row margin-common header-bottom outer-division bottom-down "
             *ngFor="let curMonthEventSet of curMonthEventSets">
             <div class="col-2 main-content-inner">
-                <div class=" date-col ">{{formatTime(curMonthEventSet.date,'d')}}</div>
+                <div class=" date-col ">{{formatTime(curMonthEventSet.dateOfOccurrence,'d')}}</div>
             </div>
             <div class="col-2  main-content-inner">
                 <div class="event-col" (click) = "openEventSetDetails(curMonthEventSet, 'curMonth')">{{curMonthEventSet.name}}</div>
@@ -111,10 +111,10 @@
                         / {{curMonthEventSet.completedEvents}} / {{curMonthEventSet.cancelledEvents}}</div>
             </div>
             <div class = "col-1 publish-col-int">
-                    <div class=" publish-end-col " *ngIf='curMonthEventSet.statusId == 1'>
-                            {{getStatus(curMonthEventSet.statusId)}}</div>
-                        <div class=" publish-end-change " *ngIf='curMonthEventSet.statusId == 2'>
-                            {{getStatus(curMonthEventSet.statusId)}}</div>
+                    <div class=" publish-end-col " *ngIf='curMonthEventSet.status == 1'>
+                            {{getStatus(curMonthEventSet.status)}}</div>
+                        <div class=" publish-end-change " *ngIf='curMonthEventSet.status == 2'>
+                            {{getStatus(curMonthEventSet.status)}}</div>
             </div>
         </div>
     </div>

@@ -15,6 +15,8 @@ export class CreateEventHomeComponent implements OnInit {
   constructor(private router: Router
     , private eventsService: EventsService) { }
 
+  resFromServer: any;
+  response: any;
   payload: any;
 
   ngOnInit() {
@@ -32,20 +34,23 @@ export class CreateEventHomeComponent implements OnInit {
     reader.readAsDataURL(file);
     reader.onload = function () {
       let result = reader.result.toString().split("base64,")
-      console.log("base64" + result[1]);
-      thisRef.eventsService.uploadEventSet(2, result[1]).subscribe(() => {
-
+      thisRef.eventsService.uploadEventSet(2, result[1]).subscribe((res) => {
+        thisRef.resFromServer = res;
+        if(thisRef.resFromServer != null) {
+          if(thisRef.resFromServer.responseStatus==1) {
+            thisRef.response = thisRef.resFromServer.response;
+            if(thisRef.response != null) {
+              thisRef.eventsService.selectedEventSetId = thisRef.response.eventSetId;
+              thisRef.eventsService.selectedEventSetName = thisRef.response.name;
+              thisRef.eventsService.events = thisRef.response.events;
+              thisRef.router.navigateByUrl('/main/createEvent');
+            }
+          }
+        }
       });
     };
-    //reader.onload = this.onloadEvent(reader.result);
     reader.onerror = function (error) {
       console.log('Error: ', error);
     };
-  }
-
-  onloadEvent(result){
-    this.payload = result.toString().split("base64,");
-    console.log("base64" + this.payload);
-    return this.payload;
   }
 }

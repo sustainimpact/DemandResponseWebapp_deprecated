@@ -56,135 +56,18 @@
                 </div>
                         
                 <div class="table-row-scroll">    
-                    <div class="row row-top" style = "margin:0px;">
+                    <div class="row row-top" style = "margin:0px;"
+                        *ngFor="let customer of customerList">
                         <div class=" row-border">
                             <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="2">
-                                <label class="custom-control-label" for="2"></label>
+                                <input type="checkbox" class="custom-control-input" 
+                                (click)="selectCustomer(customer.customerId)" id="customer.customerId">
+                                <label class="custom-control-label" for="customer.customerId"></label>
                             </div>
                         </div>
                         <div class="col row-border">
                             <div class="column-one">
-                            SUPTD
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class=" row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="3">
-                                <label class="custom-control-label" for="3"></label>
-                            </div>
-                        </div>
-                        <div class="col row-border">
-                            <div class="column-one">
-                                Aman Hospitality Private Ltd
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class=" row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="4">
-                                <label class="custom-control-label" for="4"></label>
-                            </div>
-                        </div>
-                        <div class="col row-border">
-                            <div class="column-one">
-                                DY. Inspector
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class=" row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="5">
-                                <label class="custom-control-label" for="5"></label>
-                            </div>
-                        </div>
-                        <div class="col row-border">
-                            <div class="column-one">
-                                Ganga Ram Trust Society
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class="row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="6">
-                                <label class="custom-control-label" for="6"></label>
-                            </div>
-                        </div>
-                        <div class="col row-border">
-                            <div class="column-one">
-                                Videocon
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class=" row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="7">
-                                <label class="custom-control-label" for="7"></label>
-                            </div>
-                        </div>
-                        <div class="col row-border">
-                            <div class="column-one">
-                                STC Developers
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class=" row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="8">
-                                <label class="custom-control-label" for="8"></label>
-                            </div>
-                        </div>
-                        <div class="col row-border">
-                            <div class="column-one">
-                                Delhi Metro Corporation Ltd
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class=" row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="9">
-                                <label class="custom-control-label" for="9"></label>
-                            </div>
-                        </div>
-                        <div class="col row-border">
-                            <div class="column-one">
-                                Metro Corporation
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class=" row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="10">
-                                <label class="custom-control-label" for="10"></label>
-                            </div>
-                        </div>
-                        <div class="col row-border">
-                            <div class="column-one">
-                                Metro Corporation
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row row-top" style = "margin:0px;">
-                        <div class=" row-border">
-                            <div class=" custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="11">
-                                <label class="custom-control-label" for="11 "></label>
-                            </div>
-                        </div>
-                        <div class="col row-border">
-                            <div class="column-one">
-                                Metro Corporation
+                            {{customer.customerName}}
                             </div>
                         </div>
                     </div>
@@ -208,7 +91,8 @@
                 <button type="button" class="back-btn publish-event-button" (click)="activeModal.close('Close click')">Cancel</button>
             </div> 
             <div class = "button-margin">
-                <button type="button" class="btn publish-event-button publish-inner-button" style="opacity: 0.5;">Update all Events</button>
+                <button type="button" class="btn publish-event-button publish-inner-button" 
+                (click)="updateCustomers()" style="opacity: 0.5;">Update all Events</button>
             </div> 
         </div>
     </div>
