@@ -19,6 +19,7 @@ export class EventsService {
 
   uploadEventSetUrl = DR_URL + 'uploadEventSet/Hyd';
   publishEventsUrl = DR_URL + 'updateEvent';
+  getEventOverviewUrl = DR_URL + 'getEventOverview';
 
   events: AllEvents[] = [{
     eventId: 1,
@@ -227,6 +228,19 @@ export class EventsService {
     };
     return this.httpClient.post(this.publishEventsUrl
       , {"eventIdList":events,"status":"PUBLISH","eventSetId":eventSetId}  // payload to be changed [remove status]
+      , options
+    );
+  }
+
+  getEventOverview(events: any[], eventSetId: any) {
+    console.log('Events : ' , events);
+    console.log('Event Set Id : ' , eventSetId);
+    var options = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    };
+    return this.httpClient.post(this.getEventOverviewUrl
+      , {"eventId":events}
       , options
     );
   }

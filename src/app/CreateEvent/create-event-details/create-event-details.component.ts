@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit, EventEmitter } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, EventEmitter, Input } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EventSetCustomersComponent, PublishEventModalComponent } from 'src/app/pop-up-pages/pop-up-pages.component';
@@ -133,6 +133,8 @@ export class CreateEventDetailsComponent implements OnInit {
   editCustomers() {
     const modalRef = this.modalService.open(EventSetCustomersComponent, { centered: true });
     modalRef.componentInstance.name = 'World';
+    modalRef.componentInstance.eventSetId = this.eventSetId;
+    modalRef.componentInstance.eventType = this.eventType;
   }
 
   publishEvents() {
@@ -186,8 +188,55 @@ export class CreateEventDetailsComponent implements OnInit {
 export class EventOverviewComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal
     , private router: Router
-    , private route: ActivatedRoute) { }
+    , private route: ActivatedRoute
+    , private eventsService: EventsService) { }
+
+  @Input() public eventSetId;
+  @Input() public eventType;
+  eventOverviewList: any[];
+  events: AllEvents[]=[];
+  eventDetails: any;
+  numberOfEvents: number;
+  selectedEvents: any[];
+  selectedCustomers: any[];
+  customerList: any[];
+  resFromServer: any;
+  response: any;
 
   ngOnInit() {
+    this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
+    if(this.eventDetails != null) {
+      this.events = this.eventDetails.events;
+      this.events = this.events.filter(event => event.isSelected);
+      this.numberOfEvents = this.events.length;
+      this.events.forEach(event => {
+        if (event.isSelected) {
+          this.selectedEvents.push(event.eventId);
+        }
+      });
+    }
+  }
+
+  getEventOverview() {
+    this.eventsService.getEventOverview(this.selectedEvents, this.eventSetId).subscribe((res) => {
+      this.resFromServer = res;
+      if(this.resFromServer != null) {
+        if(this.resFromServer.responseStatus==1) {
+          this.response = this.resFromServer.response;
+          if(this.response!=null) {
+            this.eventOverviewList=this.response;
+          }
+        }
+      }
+    });
+  }
+
+  formatTime(ts, type) {
+    ts=ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
+    //console.log('date : ', ts);
+    if (type == 't')
+      return moment(ts).format("hh:mm");
+    else if (type == 'd')
+      return moment(ts).format("Do MMM, YYYY");
   }
 }
