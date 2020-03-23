@@ -11,17 +11,20 @@ import * as moment from 'moment';
 })
 export class AllEventSetsComponent implements OnInit {
 
-  upcomingEventSets: AllEventSets[];
-  curWeekEventSets: AllEventSets[];
-  curMonthEventSets: AllEventSets[];
+  upcomingEventSets: any[];
+  curWeekEventSets: any[];
+  curMonthEventSets: any[];
 
   constructor(private router: Router
     , private eventsService: EventsService) { }
 
   ngOnInit() {
-    this.upcomingEventSets = this.eventsService.upcomingEventSets;
-    this.curWeekEventSets = this.eventsService.curWeekEventSets;
-    this.curMonthEventSets = this.eventsService.curMonthEventSets;
+    this.upcomingEventSets = this.eventsService.upcomingEvents;
+    this.curWeekEventSets = this.eventsService.lastWeek;
+    this.curMonthEventSets = this.eventsService.lastMonth;
+    console.log('Upcoming Event Sets : ' , this.upcomingEventSets);
+    console.log('Last Week Event Sets : ' , this.curWeekEventSets);
+    console.log('Last Month Event Sets : ' , this.curMonthEventSets);
   }
 
   openEventSetDetails(eventSet, eventType) {
@@ -38,20 +41,22 @@ export class AllEventSetsComponent implements OnInit {
   }
 
   formatTime(ts, type) {
-    ts=ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
-    console.log('date : ', ts);
-    if (type == 't')
-      return moment(ts).format("hh:mm A");
-    else if (type == 'd')
-      return moment(ts).format("Do MMM, YYYY");
+    if(ts!=null) {
+      ts=ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
+      console.log('date : ', ts);
+      if (type == 't')
+        return moment(ts).format("hh:mm A");
+      else if (type == 'd')
+        return moment(ts).format("Do MMM, YYYY");
+    }
   }
 
   getStatus(statusId) {
-    if(statusId == 1) {
-      return 'Published';
+    if(statusId == 'Un-Publish') {
+      return 'Un-Publish';
     }
-    if(statusId == 2) {
-      return 'Partially Published';
+    if(statusId == 'Partial') {
+      return 'Partial';
     }
   }
 }

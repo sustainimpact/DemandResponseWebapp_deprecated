@@ -20,7 +20,7 @@ export class CreateEventDetailsComponent implements OnInit {
   curWeekEventSets: AllEventSets[];
   curMonthEventSets: AllEventSets[];
 
-  selectedEvents: any[];
+  selectedEvents: any[] = [];
 
   events: AllEvents[] = [];
   eventDetails: any;
@@ -88,7 +88,10 @@ export class CreateEventDetailsComponent implements OnInit {
   // }
 
   getEvents() {
+    console.log('Event Type : ' , this.eventType);
+    console.log('Event Set Id : ' , this.eventSetId);
     this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
+    console.log('Event Details : ' , this.eventDetails);
     if(this.eventDetails != null) {
       this.eventSetName = this.eventDetails.eventSetName;
       this.events = this.eventDetails.events;
@@ -150,12 +153,14 @@ export class CreateEventDetailsComponent implements OnInit {
   }
 
   formatTime(ts, type) {
-    ts=ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
-    //console.log('date : ', ts);
-    if (type == 't')
-      return moment(ts).format("hh:mm");
-    else if (type == 'd')
-      return moment(ts).format("Do MMM, YYYY");
+    if(ts != null) {
+      ts=ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
+      //console.log('date : ', ts);
+      if (type == 't')
+        return moment(ts).format("hh:mm");
+      else if (type == 'd')
+        return moment(ts).format("Do MMM, YYYY");
+    }
   }
 
   selectEvent(eventId) {

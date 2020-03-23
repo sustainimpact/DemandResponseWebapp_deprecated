@@ -54,16 +54,14 @@ export class LoginComponent implements OnInit {
   login() {
     this.ingressService.login(this.email, this.password).subscribe((res) => {
       this.resFromServer = res;
-      if(this.resFromServer != null) {
-        if(this.resFromServer.responseStatus==1) {
-          this.response = this.resFromServer.response;
+      if(this.resFromServer != null && this.resFromServer.response != null) {
+        if(this.resFromServer.response.responseStatus==1) {
+          this.response = this.resFromServer.response.response;
           if(this.response != null) {
             this.ingressService.currentUser.userId = this.response.userId;
-            if(this.response.eventSets != null) {
-              this.eventsService.upcomingEvents = this.response.eventSets.upcomingEvents;
-              this.eventsService.lastWeek = this.response.eventSets.lastWeek;
-              this.eventsService.lastMonth = this.response.eventSets.lastMonth;
-            }
+            this.eventsService.upcomingEvents = this.response.upcomingEvents;
+            this.eventsService.lastWeek = this.response.weeklyEvents;
+            this.eventsService.lastMonth = this.response.monthlyEvents;
           }
           this.router.navigateByUrl('/main');
         }

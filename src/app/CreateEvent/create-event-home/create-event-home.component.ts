@@ -37,13 +37,30 @@ export class CreateEventHomeComponent implements OnInit {
       thisRef.eventsService.uploadEventSet(2, result[1]).subscribe((res) => {
         thisRef.resFromServer = res;
         if(thisRef.resFromServer != null) {
+          console.log('resFromServer : ' , thisRef.resFromServer);
           if(thisRef.resFromServer.responseStatus==1) {
+            console.log('responseStatus : ' , thisRef.resFromServer.responseStatus);
             thisRef.response = thisRef.resFromServer.response;
             if(thisRef.response != null) {
-              thisRef.eventsService.selectedEventSetId = thisRef.response.eventSetId;
-              thisRef.eventsService.selectedEventSetName = thisRef.response.name;
-              thisRef.eventsService.events = thisRef.response.events;
-              thisRef.router.navigateByUrl('/main/createEvent');
+              console.log('response : ' , thisRef.response);
+              if(thisRef.response.eventSet != null) {
+                console.log('eventSet : ' , thisRef.response.eventSet);
+                thisRef.eventsService.selectedEventSet = thisRef.response.eventSet;
+                thisRef.eventsService.selectedEventSetId = thisRef.response.eventSet.eventSetId;
+                thisRef.eventsService.selectedEventSetName = thisRef.response.eventSet.eventSetName;
+                thisRef.eventsService.selectedEventSet.events = thisRef.response.eventSet.allEvents;;
+                thisRef.eventsService.events = thisRef.response.events;
+                console.log('upcoming event sets before : ' , thisRef.eventsService.upcomingEvents);
+                thisRef.eventsService.upcomingEvents.push(thisRef.eventsService.selectedEventSet);
+                console.log('upcoming event sets after : ' , thisRef.eventsService.upcomingEvents);
+                console.log('events : ' , thisRef.eventsService.events);
+                thisRef.router.navigate(['/main/createEvent'], {
+                  queryParams: {
+                    eventType: 'upcoming',
+                    eventSetId: thisRef.eventsService.selectedEventSetId,
+                  }
+                });
+              }
             }
           }
         }

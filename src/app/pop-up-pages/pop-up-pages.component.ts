@@ -82,7 +82,7 @@ export class PublishEventModalComponent implements OnInit {
   events: AllEvents[]=[];
   eventDetails: any;
   numberOfEvents: number;
-  selectedEvents: any[];
+  selectedEvents: any[] = [];
   resFromServer: any;
 
   constructor(public activeModal: NgbActiveModal
@@ -126,8 +126,8 @@ export class EventSetCustomersComponent implements OnInit {
   events: AllEvents[]=[];
   eventDetails: any;
   numberOfEvents: number;
-  selectedEvents: any[];
-  selectedCustomers: any[];
+  selectedEvents: any[] = [];
+  selectedCustomers: any[] = [];
   customerList: any[];
   resFromServer: any;
   response: any;
@@ -155,20 +155,25 @@ export class EventSetCustomersComponent implements OnInit {
   getCustomers() {
     this.customerService.getCustomers(this.selectedEvents).subscribe((res) => {
       this.resFromServer = res;
-      if(this.resFromServer != null) {
-        if(this.resFromServer.responseStatus == 1) {
-          this.customerList = this.resFromServer.response;
-          this.customerList.forEach(customer => {
-            customer.isSelected=false;
-          })
+      if (this.resFromServer != null) {
+        if (this.resFromServer.response != null) {
+          if (this.resFromServer.response.responseStatus == 1) {
+            if (this.resFromServer.response.response != null) {
+              this.customerList = this.resFromServer.response.response.customers;
+              console.log('Customer List : ', this.customerList);
+              this.customerList.forEach(customer => {
+                customer.isSelected = false;
+              })
+            }
+          }
         }
       }
     });
   }
 
-  selectCustomer(customerId) {
+  selectCustomer(userId) {
     this.customerList.forEach(customer => {
-        if(customer.customerId==customerId) {
+        if(customer.userId==userId) {
           if(customer.isSelected) {
             customer.isSelected=false;
           }
@@ -182,7 +187,7 @@ export class EventSetCustomersComponent implements OnInit {
   getSelectedCustomers() {
     this.customerList.forEach(customer => {
       if (customer.isSelected) {
-        this.selectedCustomers.push(customer.customerId);
+        this.selectedCustomers.push(customer.userId);
       }
     });
   }

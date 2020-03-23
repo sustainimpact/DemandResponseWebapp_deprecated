@@ -34,7 +34,7 @@ export class SelectEventCustomersComponent implements OnInit {
   eventDetails: any;
   numberOfEvents: number;
   selectedEvents: any[];
-  selectedCustomers: any[];
+  selectedCustomers: any[] = [];
   customerList: any[];
   resFromServer: any;
   response: any;

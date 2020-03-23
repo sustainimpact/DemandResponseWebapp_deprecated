@@ -11,7 +11,7 @@ export class CustomerService {
 
   customerList: any[];
 
-  getCustomersUrl = DR_URL + 'getCustomersForEvents';
+  getCustomersUrl = DR_URL + 'getCustomerForEvents';
   updateCustomersUrl = DR_URL + 'updateCustomersForEvent';
 
   constructor(private httpClient: HttpClient) { }
@@ -23,7 +23,7 @@ export class CustomerService {
         .set('Content-Type', 'application/json')
     };
     return this.httpClient.post(this.getCustomersUrl
-      , { "eventId": events }  // payload to be changed [remove status]
+      , { "events": events }  // payload to be changed [remove status]
       , options
     );
   }

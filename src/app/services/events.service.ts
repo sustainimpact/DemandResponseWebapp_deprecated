@@ -13,12 +13,13 @@ export class EventsService {
   lastWeek: any[];
   lastMonth: any[];
 
+  selectedEventSet: any;
   selectedEventSetId: number;
   selectedEventSetName: string;
   eventsForSelectedEventSet: AllEvents[] = [];
 
   uploadEventSetUrl = DR_URL + 'uploadEventSet/Hyd';
-  publishEventsUrl = DR_URL + 'updateEvent';
+  publishEventsUrl = DR_URL + 'publishEvent';
   getEventOverviewUrl = DR_URL + 'getEventOverview';
 
   events: AllEvents[] = [{
@@ -182,24 +183,24 @@ export class EventsService {
     if(eventType=='upcoming') {
       this.upcomingEvents.forEach(eventSet => {
         if(eventSet.eventSetId==eventSetId) {
-          this.selectedEventSetName=eventSet.name;
-          this.eventsForSelectedEventSet=eventSet.events;
+          this.selectedEventSetName=eventSet.eventSetName;
+          this.eventsForSelectedEventSet=eventSet.allEvents;
         }
       });
     }
     if(eventType=='curWeek') {
       this.lastWeek.forEach(eventSet => {
         if(eventSet.eventSetId==eventSetId) {
-          this.selectedEventSetName=eventSet.name;
-          this.eventsForSelectedEventSet=eventSet.events;
+          this.selectedEventSetName=eventSet.eventSetName;
+          this.eventsForSelectedEventSet=eventSet.allEvents;
         }
       });
     }
     if(eventType=='curMonth') {
       this.lastMonth.forEach(eventSet => {
         if(eventSet.eventSetId==eventSetId) {
-          this.selectedEventSetName=eventSet.name;
-          this.eventsForSelectedEventSet=eventSet.events;
+          this.selectedEventSetName=eventSet.eventSetName;
+          this.eventsForSelectedEventSet=eventSet.allEvents;
         }
       });
     }
@@ -227,7 +228,7 @@ export class EventsService {
         .set('Content-Type', 'application/json')
     };
     return this.httpClient.post(this.publishEventsUrl
-      , {"eventIdList":events,"status":"PUBLISH","eventSetId":eventSetId}  // payload to be changed [remove status]
+      , {"eventIdList":events,"status":"PUBLISH","eventSetId":+eventSetId}  // payload to be changed [remove status]
       , options
     );
   }
