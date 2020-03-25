@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="col-2 power-inner ">
-            <div class="power-col  kiloweight ">{{upcomingEventSet.plannedPower}}kW
+            <div class="power-col  kiloweight ">{{upcomingEventSet.plannedPower}} kW
                 /{{upcomingEventSet.actualPower}}kW
             </div>
         </div>
@@ -49,9 +49,9 @@
                 / {{upcomingEventSet.completedEvents}} / {{upcomingEventSet.cancelledEvents}}</div>
         </div>       
         <div class = "col-1 publish-col-int">
-            <div class=" publish-end-col " *ngIf='upcomingEventSet.eventSetStatus == "Un-Publish"'>
+            <div class=" publish-end-col " *ngIf='upcomingEventSet.eventSetStatus == "Created"'>
                 {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
-            <div class=" publish-end-change " *ngIf='upcomingEventSet.eventSetStatus == "Partial"'>
+            <div class=" publish-end-change " *ngIf='upcomingEventSet.eventSetStatus == "Partially Published"'>
                 {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
             <!-- <div class=" publish-end-change ">Published</div> -->
         </div>
@@ -80,9 +80,9 @@
                         / {{curWeekEventSet.completedEvents}} / {{curWeekEventSet.cancelledEvents}}</div>
             </div>
             <div class = "col-1 publish-col-int">
-                    <div class=" publish-end-col " *ngIf='curWeekEventSet.eventSetStatus == "Un-Publish"'>
+                    <div class=" publish-end-col " *ngIf='curWeekEventSet.eventSetStatus == "Created"'>
                             {{getStatus(curWeekEventSet.eventSetStatus)}}</div>
-                        <div class=" publish-end-change " *ngIf='curWeekEventSet.eventSetStatus == "Partial"'>
+                        <div class=" publish-end-change " *ngIf='curWeekEventSet.eventSetStatus == "Partially Published"'>
                             {{getStatus(curWeekEventSet.eventSetStatus)}}</div>
             </div>
         </div>
@@ -111,9 +111,9 @@
                         / {{curMonthEventSet.completedEvents}} / {{curMonthEventSet.cancelledEvents}}</div>
             </div>
             <div class = "col-1 publish-col-int">
-                    <div class=" publish-end-col " *ngIf='curMonthEventSet.eventSetStatus == "Un-Publish"'>
+                    <div class=" publish-end-col " *ngIf='curMonthEventSet.eventSetStatus == "Created"'>
                             {{getStatus(curMonthEventSet.eventSetStatus)}}</div>
-                        <div class=" publish-end-change " *ngIf='curMonthEventSet.eventSetStatus == "Partial"'>
+                        <div class=" publish-end-change " *ngIf='curMonthEventSet.eventSetStatus == "Partially Published"'>
                             {{getStatus(curMonthEventSet.eventSetStatus)}}</div>
             </div>
         </div>

@@ -140,13 +140,13 @@
                                 </div>
                             <div class="col row-border">
                                 <div class="column-one">
-                                    {{customer.customerName}}
+                                    {{customer.userName}}
                                 </div>
                             </div>
                             <div class="col row-border end-content">
                                 <div class="dropdown">
                                     <button type="button" class="drop-participate" data-toggle="dropdown">
-                                        PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
+                                        Participated <i class="angle-participant fas fa-chevron-down"></i>  
                                     </button>
                                     <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">Link 1</a>
@@ -157,17 +157,17 @@
                             </div>
                             <div class="col  commitement-header">
                                 <div class="end-content  total-pad quantity-start len-row ten-five">
-                                1025
+                                    {{customer.price}}
                                 </div>
                             </div>
                             <div class="col  quantity-end commitement-header">
                                 <div class="end-content content-module">
-                                --
+                                    {{customer.commitments}}
                                 </div>
                             </div>
                             <div class="col  quantity-end commitement-header content-module">
                                 <div class="end-content content-module">
-                                --
+                                    {{customer.actualPower}}
                                 </div>
                             </div>
                         </div>
@@ -193,12 +193,12 @@
                         </div>
                         <div class="col row-border footer-color end-last">
                             <div class="row-footer commitement-header content-module color-footer-bottom">
-                            220
+                            {{totalCommittedPower}}
                             </div>
                         </div>
                         <div class="col row-border footer-color end-last" style="margin-right: 6px;">
                             <div class="row-footer commitement-header content-module color-footer-bottom">
-                            118 
+                            {{totalActualPower}} 
                             </div>
                         </div>
                     </div>

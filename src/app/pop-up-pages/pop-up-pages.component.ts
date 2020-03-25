@@ -111,6 +111,7 @@ export class PublishEventModalComponent implements OnInit {
         }
       }
     });
+    this.activeModal.close();
   }
 }
 
@@ -202,6 +203,7 @@ export class EventSetCustomersComponent implements OnInit {
         }
       }
     });
+    this.activeModal.close();
   }
 }
 @Component({

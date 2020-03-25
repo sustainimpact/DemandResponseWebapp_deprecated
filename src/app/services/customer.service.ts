@@ -16,7 +16,7 @@ export class CustomerService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCustomers(events: any[]) {
+  getCustomers(events: any) {
     console.log('Events : ' , events);
     var options = {
       headers: new HttpHeaders()

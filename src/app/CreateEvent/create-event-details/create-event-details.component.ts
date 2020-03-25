@@ -34,6 +34,8 @@ export class CreateEventDetailsComponent implements OnInit {
   totalCommitments: number=0;
   totalShortfall: number=0;
   totalActualQuantity: number=0;
+  totalPrice: number=0;
+  totalCustomers: number=0;
 
   isRowSelected: boolean=false;
 
@@ -101,22 +103,27 @@ export class CreateEventDetailsComponent implements OnInit {
 
   calculateEventDetails() {
     this.events.forEach(event => {
-      this.totalPlannedQuantity+=event.plannedPower;
-      this.totalCommitments+=event.committedPower;
-      this.totalShortfall+=(event.plannedPower-event.committedPower);
-      this.totalActualQuantity+=event.actualPower;
+      this.totalPlannedQuantity+=+event.plannedPower;
+      this.totalCommitments+=+event.committedPower;
+      this.totalShortfall+=((+event.plannedPower)-(+event.committedPower));
+      this.totalActualQuantity+=+event.actualPower;
+      this.totalPrice=+event.price;
+      this.totalCustomers=+event.numberOfCustomers;
     });
   }
 
   openEventsOverview() {
     const modalRef = this.modalService.open(EventOverviewComponent, { size: 'xl', centered: true });
     modalRef.componentInstance.name = 'World';
+    modalRef.componentInstance.eventSetId = this.eventSetId;
+    modalRef.componentInstance.eventType = this.eventType;
   }
   
   openEventDetails(event: any) {
-    console.log("Edit customers");
+    console.log("Edit customers : " , event);
     this.router.navigate(['/main/selecteventcustomers'], {
       queryParams: {
+        event: event,
         eventId: event.eventId,
         eventName: event.eventName,
         eventSetId: event.eventSetId,
@@ -202,7 +209,7 @@ export class EventOverviewComponent implements OnInit {
   events: AllEvents[]=[];
   eventDetails: any;
   numberOfEvents: number;
-  selectedEvents: any[];
+  selectedEvents: any[] = [];
   selectedCustomers: any[];
   customerList: any[];
   resFromServer: any;
@@ -220,6 +227,7 @@ export class EventOverviewComponent implements OnInit {
         }
       });
     }
+    this.getEventOverview();
   }
 
   getEventOverview() {

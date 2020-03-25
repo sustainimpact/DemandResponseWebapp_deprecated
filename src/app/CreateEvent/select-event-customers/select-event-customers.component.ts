@@ -15,7 +15,8 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class SelectEventCustomersComponent implements OnInit {
 
-  eventId;
+  event: any;
+  eventId : any[] = [];
   eventName;
   eventSetId;
   startTime;
@@ -33,11 +34,14 @@ export class SelectEventCustomersComponent implements OnInit {
   events: AllEvents[]=[];
   eventDetails: any;
   numberOfEvents: number;
-  selectedEvents: any[];
+  selectedEvents: any[] = [];
   selectedCustomers: any[] = [];
   customerList: any[];
   resFromServer: any;
   response: any;
+
+  totalCommittedPower: number;
+  totalActualPower: number;
 
   constructor(private modalService: NgbModal
     , private router: Router
@@ -48,6 +52,7 @@ export class SelectEventCustomersComponent implements OnInit {
   ngOnInit() {
     this.innerHeight = Number(window.innerHeight) - 210;
     this.route.queryParams.subscribe(params => {
+      this.event = params['event'];
       this.eventSetId = params['eventSetId'];
       this.eventId = params['eventId'];
       this.eventName = params['eventName'];
@@ -60,22 +65,35 @@ export class SelectEventCustomersComponent implements OnInit {
       this.price = params['price'];
       this.numberOfCustomers = params['numberOfCustomers'];
       this.status = params['status'];
+
+      this.selectedEvents.push(+this.eventId);
+      this.getCustomers();    
     });
-    this.selectedEvents = [this.eventId];
-    this.getCustomers();    
   }
 
   getCustomers() {
-    this.customerService.getCustomers([this.eventId]).subscribe((res) => {
+    console.log('Get Customers');
+    this.customerService.getCustomers(this.selectedEvents).subscribe((res) => {
       this.resFromServer = res;
-      if(this.resFromServer != null) {
-        if(this.resFromServer.responseStatus == 1) {
-          this.customerList = this.resFromServer.response;
-          this.customerList.forEach(customer => {
-            customer.isSelected=false;
-          })
+      if (this.resFromServer != null) {
+        if (this.resFromServer.response != null) {
+          if (this.resFromServer.response.responseStatus == 1) {
+            if (this.resFromServer.response.response != null) {
+              this.customerList = this.resFromServer.response.response.customers;
+              this.customerList.forEach(customer => {
+                customer.isSelected = false;
+              })
+            }
+          }
         }
       }
+    });
+  }
+
+  calculateEventDetails() {
+    this.customerList.forEach(customer => {
+      this.totalCommittedPower+=customer.commitments;
+      this.totalActualPower+=customer.totalActualPower;
     });
   }
 

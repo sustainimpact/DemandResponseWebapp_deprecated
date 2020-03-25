@@ -52,11 +52,12 @@ export class AllEventSetsComponent implements OnInit {
   }
 
   getStatus(statusId) {
-    if(statusId == 'Un-Publish') {
-      return 'Un-Publish';
+    console.log('status : ' , statusId);
+    if(statusId == 'Created') {
+      return 'Published';
     }
-    if(statusId == 'Partial') {
-      return 'Partial';
+    if(statusId == 'Partially Published') {
+      return 'Partially Published';
     }
   }
 }
