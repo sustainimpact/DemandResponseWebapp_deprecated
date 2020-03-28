@@ -15,6 +15,9 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class SelectEventCustomersComponent implements OnInit {
 
+  eventOverviewList: any[];
+  eventOverview ={};
+
   event: any;
   eventId : any[] = [];
   eventName;
@@ -67,7 +70,26 @@ export class SelectEventCustomersComponent implements OnInit {
       this.status = params['status'];
 
       this.selectedEvents.push(+this.eventId);
+      this.getEventOverview();
       this.getCustomers();    
+    });
+  }
+
+  getEventOverview() {
+    this.eventsService.getEventOverview(this.selectedEvents, this.eventSetId).subscribe((res) => {
+      this.resFromServer = res;
+      console.log('Overview Response : ' , this.resFromServer);
+      if (this.resFromServer != null) {
+        if (this.resFromServer.response != null) {
+          if (this.resFromServer.response.responseStatus == 1) {
+            this.eventOverviewList = this.resFromServer.response.response;
+            if(this.eventOverviewList != null) {
+              this.eventOverview = this.eventOverviewList[0];
+            }
+            console.log('Event Overview : ' , this.eventOverviewList);
+          }
+        }
+      }
     });
   }
 

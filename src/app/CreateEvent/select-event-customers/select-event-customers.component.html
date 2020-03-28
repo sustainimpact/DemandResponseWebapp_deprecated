@@ -48,19 +48,19 @@
         <div class = " mt-2 pb-3  inline-content actively" style = "width: 80%;">
             <div>
                 <div class = "invites">Invitees</div>
-                <div class = "invite-down">25</div>
+                <div class = "invite-down">{{eventOverview?.invitedCustomers}}</div>
             </div>
             <div class = "participant-next">
                 <div class="invites"> Participated</div>
-                <div class = "invite-down">18</div>
+                <div class = "invite-down">{{eventOverview?.participatedCustomers}}</div>
             </div>
             <div class = "participant-next">
                 <div class="invites">Counter bid</div>
-                <div class = "invite-down">00</div>
+                <div class = "invite-down">{{eventOverview?.counterBidCustomers}}</div>
             </div>
             <div class = "participant-next">
                 <div class="invites">No Response</div>
-                <div class = "invite-down seven-line">07</div>
+                <div class = "invite-down seven-line">{{eventOverview?.noResponseCustomers}}</div>
             </div>
             <div class = "participant-next">
                 <div class="invites">Actively Participating</div>

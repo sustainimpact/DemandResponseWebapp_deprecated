@@ -233,11 +233,11 @@ export class EventOverviewComponent implements OnInit {
   getEventOverview() {
     this.eventsService.getEventOverview(this.selectedEvents, this.eventSetId).subscribe((res) => {
       this.resFromServer = res;
-      if(this.resFromServer != null) {
-        if(this.resFromServer.responseStatus==1) {
-          this.response = this.resFromServer.response;
-          if(this.response!=null) {
-            this.eventOverviewList=this.response;
+      if (this.resFromServer != null) {
+        if (this.resFromServer.response != null) {
+          if (this.resFromServer.response.responseStatus == 1) {
+            this.eventOverviewList = this.resFromServer.response.response;
+            console.log('Event Overview : ' , this.eventOverviewList);
           }
         }
       }
