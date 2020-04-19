@@ -21,6 +21,7 @@ import { AddCustomerModalTIComponent } from '../pop-up-pages/pop-up-pages.compon
 import { AddCustomerModalGIComponent } from '../pop-up-pages/pop-up-pages.component';
 import { AddCustomerModalERComponent } from '../pop-up-pages/pop-up-pages.component';
 import { AddCustomerBulkComponent } from '../pop-up-pages/pop-up-pages.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -31,8 +32,8 @@ import { AddCustomerBulkComponent } from '../pop-up-pages/pop-up-pages.component
     AppMainRoutingModule,
     BreadcrumbModule,
     NgbModule,
-    NgbModalModule
-
+    NgbModalModule,
+    FormsModule
   ],
   exports: [ 
     AppMainComponent,
