@@ -9,9 +9,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class EventsService {
 
-  upcomingEvents: any[];
-  lastWeek: any[];
-  lastMonth: any[];
+  upcomingEvents: any[] = [];
+  lastWeek: any[] = [];
+  lastMonth: any[] = [];
 
   selectedEventSet: any;
   selectedEventSetId: number;
@@ -21,6 +21,7 @@ export class EventsService {
   uploadEventSetUrl = DR_URL + 'uploadEventSet/Hyd';
   publishEventsUrl = DR_URL + 'publishEvent';
   getEventOverviewUrl = DR_URL + 'getEventOverview';
+  cancelEventUrl = DR_URL + 'cancelEvent';
 
   events: AllEvents[] = [{
     eventId: 1,
@@ -168,7 +169,8 @@ export class EventsService {
     events: null,
   }];
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { 
+  }
 
   getEventsForUpcomingEventSet(eventSetId: number): AllEvents[] {
     this.upcomingEventSets.forEach(eventSet => {
@@ -242,6 +244,17 @@ export class EventsService {
     };
     return this.httpClient.post(this.getEventOverviewUrl
       , {"eventId":events}
+      , options
+    );
+  }
+
+  cancelEvent(eventId: any, eventSetId: any) {
+    var options = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    };
+    return this.httpClient.post(this.cancelEventUrl
+      , {"eventId": +eventId,"eventSetId": +eventSetId}
       , options
     );
   }

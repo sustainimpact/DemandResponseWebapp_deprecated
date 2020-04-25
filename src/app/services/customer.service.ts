@@ -13,6 +13,8 @@ export class CustomerService {
 
   getCustomersUrl = DR_URL + 'getCustomerForEvents';
   updateCustomersUrl = DR_URL + 'updateCustomersForEvent';
+  rejectCustomersUrl = DR_URL + 'rejectCustomer';
+  acceptCounterBidUrl = DR_URL + 'acceptCounterBid';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -37,6 +39,28 @@ export class CustomerService {
     };
     return this.httpClient.post(this.updateCustomersUrl
       , { "eventId": events, "customers": customers }
+      , options
+    );
+  }
+
+  rejectCustomer(eventId: any, eventSetId: any, eventCustomerId: any) {
+    var options = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    };
+    return this.httpClient.post(this.rejectCustomersUrl
+      , { "eventId": +eventId, "eventSetId": +eventSetId, "eventCustomerId":  eventCustomerId}
+      , options
+    );
+  }
+
+  acceptCounterBid(eventId: any, eventSetId: any, eventCustomerId: any) {
+    var options = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    };
+    return this.httpClient.post(this.acceptCounterBidUrl
+      , { "eventId": +eventId, "eventSetId": +eventSetId, "eventCustomerId":  eventCustomerId}
       , options
     );
   }

@@ -4,7 +4,7 @@
                 {{eventName}}
             </div>
             <div class = "button-margin">
-                <button type="button" class="back-btn publish-event-button">Cancel Event </button>
+                <button type="button" class="back-btn publish-event-button" (click)="cancelEvent()">Cancel Event</button>
             </div>
             <div class = " pt-1 button-margin">
                 <i class="fas fa-ellipsis-h vertical-dot-icon"></i>
@@ -145,20 +145,57 @@
                             </div>
                             <div class="col row-border end-content">
                                 <div class="dropdown">
-                                    <button type="button" class="drop-participate" data-toggle="dropdown">
-                                        Participated <i class="angle-participant fas fa-chevron-down"></i>  
+                                    <button type="button" class="drop-participate" data-toggle="dropdown" 
+                                    *ngIf="customer.status==3">
+                                        PARTICIPATED <i class="angle-participant fas fa-chevron-down"></i>  
+                                    </button>
+                                    <button type="button" class="drop-rejected" data-toggle="dropdown"
+                                    *ngIf="customer.status==6">
+                                        REJECTED <i class="angle-participant fas fa-chevron-down"></i>  
+                                    </button>
+                                    <button type="button" class="drop-noresponse" data-toggle="dropdown"
+                                    *ngIf="customer.status==2">
+                                        NO RESPONSE <i class="angle-participant fas fa-chevron-down"></i>  
+                                    </button>
+                                    <button type="button" class="drop-noresponse" data-toggle="dropdown"
+                                    *ngIf="customer.status==1">
+                                        TO BE NOTIFIED <i class="angle-participant fas fa-chevron-down"></i>
+                                    </button>
+                                    <button type="button" class="drop-counterbid" data-toggle="dropdown"
+                                    *ngIf="customer.status==4">
+                                        COUNTER BID <i class="angle-participant fas fa-chevron-down"></i>  
                                     </button>
                                     <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Link 1</a>
-                                    <a class="dropdown-item" href="#">Link 2</a>
-                                    <a class="dropdown-item" href="#">Link 3</a>
+                                    <a class="dropdown-item" (click)="acceptCounterBid(customer.userId)"
+                                    *ngIf="customer.status==3 || customer.status==4">
+                                        Accept
+                                    </a>
+                                    <a class="dropdown-item" (click)="rejectCustomer(customer.userId)"
+                                    *ngIf="customer.status==3 || customer.status==4">
+                                        Reject
+                                    </a>
+                                    <!-- <a class="dropdown-item" href="#">Link 3</a> -->
                                     </div>
                                 </div> 
                             </div>
                             <div class="col  commitement-header">
-                                <div class="end-content  total-pad quantity-start len-row ten-five">
+                                <div class="end-content  total-pad quantity-start len-row ten-five"
+                                *ngIf="customer.counterBidFlag=='N'">
                                     {{customer.price}}
                                 </div>
+                                <div class="end-content  total-pad quantity-start len-row ten-five"
+                                *ngIf="customer.counterBidFlag=='Y'">
+                                    {{customer.couterBidAmount}}
+                                </div>
+                                <!--TBD-->
+                                <!-- <button type="button" class="drop-participate" data-toggle="dropdown"
+                                    *ngIf="customer.status==3 || customer.counterBidFlag=='Y'">
+                                        COUNTER BID - ACCEPTED
+                                </button>
+                                <button type="button" class="drop-rejected" data-toggle="dropdown"
+                                    *ngIf="customer.status==6 || customer.counterBidFlag=='Y'">
+                                        COUNTER BID - REJECTED
+                                </button> -->
                             </div>
                             <div class="col  quantity-end commitement-header">
                                 <div class="end-content content-module">

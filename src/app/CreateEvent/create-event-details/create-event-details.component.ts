@@ -5,6 +5,7 @@ import { EventSetCustomersComponent, PublishEventModalComponent } from 'src/app/
 import { AllEventSets } from 'src/app/DataModels/AllEventSets';
 import { AllEvents } from 'src/app/DataModels/AllEvents';
 import { EventsService } from 'src/app/services/events.service';
+import { CustomerService } from 'src/app/services/customer.service';
 import * as moment from 'moment';
 
 
@@ -22,7 +23,8 @@ export class CreateEventDetailsComponent implements OnInit {
 
   selectedEvents: any[] = [];
 
-  events: AllEvents[] = [];
+  //events: AllEvents[] = [];
+  events: any[] = [];
   eventDetails: any;
 
   innerHeight: any = 0;
@@ -42,7 +44,8 @@ export class CreateEventDetailsComponent implements OnInit {
   constructor(private modalService: NgbModal
     , private router: Router
     , private route: ActivatedRoute
-    , private eventsService: EventsService) { }
+    , private eventsService: EventsService
+    , private customerService: CustomerService) { }
 
   ngOnInit() {
     this.innerHeight = Number(window.innerHeight) - 240;
@@ -126,7 +129,7 @@ export class CreateEventDetailsComponent implements OnInit {
         event: event,
         eventId: event.eventId,
         eventName: event.eventName,
-        eventSetId: event.eventSetId,
+        eventSetId: this.eventSetId,
         startTime: event.startTime,
         endTime: event.endTime,
         plannedPower: event.plannedPower,

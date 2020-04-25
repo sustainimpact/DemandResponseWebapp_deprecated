@@ -173,4 +173,39 @@ export class SelectEventCustomersComponent implements OnInit {
     else if (type == 'd')
       return moment(ts).format("Do MMM, YYYY");
   }
+
+  cancelEvent() {
+    this.eventsService.cancelEvent(this.eventId, this.eventSetId).subscribe((res) => {
+      this.resFromServer = res;
+      if (this.resFromServer != null) {
+        if (this.resFromServer.responseStatus == 1) {
+          console.log('Event Cancelled');
+        }
+      }
+    });
+  }
+
+  rejectCustomer(customerId) {
+    this.customerService.rejectCustomer(this.eventId, this.eventSetId, customerId).subscribe((res) => {
+      this.resFromServer = res;
+      if (this.resFromServer != null) {
+        if (this.resFromServer.responseStatus == 1) {
+          console.log('Customer Rejected');
+        }
+      }
+    });
+  }
+
+  /* below function is just for testing - to be removed once counter bid buttons are available */
+
+  acceptCounterBid(customerId) {
+    this.customerService.acceptCounterBid(this.eventId, this.eventSetId, customerId).subscribe((res) => {
+      this.resFromServer = res;
+      if (this.resFromServer != null) {
+        if (this.resFromServer.responseStatus == 1) {
+          console.log('Counter Bid Accepted');
+        }
+      }
+    });
+  }
 }

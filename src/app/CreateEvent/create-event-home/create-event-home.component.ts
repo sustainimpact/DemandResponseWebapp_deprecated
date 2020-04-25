@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { EventsService } from 'src/app/services/events.service';
 import * as moment from 'moment';
 import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
+import { IngressService } from 'src/app/services/ingress.service';
 
 @Component({
   selector: 'app-create-event-home',
@@ -13,6 +14,7 @@ export class CreateEventHomeComponent implements OnInit {
 
   @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
   constructor(private router: Router
+    , private ingressService: IngressService
     , private eventsService: EventsService) { }
 
   resFromServer: any;
@@ -34,7 +36,7 @@ export class CreateEventHomeComponent implements OnInit {
     reader.readAsDataURL(file);
     reader.onload = function () {
       let result = reader.result.toString().split("base64,")
-      thisRef.eventsService.uploadEventSet(2, result[1]).subscribe((res) => {
+      thisRef.eventsService.uploadEventSet(thisRef.ingressService.currentUser.userId, result[1]).subscribe((res) => {
         thisRef.resFromServer = res;
         if(thisRef.resFromServer != null) {
           console.log('resFromServer : ' , thisRef.resFromServer);
