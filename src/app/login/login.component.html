@@ -16,70 +16,57 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6 col-md-7  col-sm-6 col-xs-11 sustain-main" style=" padding: 0;">
-                <div class="sustain">
-                    <div>
-                        SUSTAIN
-                    </div>
-                    <div class="impact">
-                        IMPACT
-                    </div>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-lg-6 col-md-7 col-sm-6 col-xs-11 p-0 sustain-main">
+                <div class="sustain-logo">
+                    <img src="assets/img/logo.svg" alt="">
                 </div>
-                <div class="commitment">
-                    <div>
-                        ...commitment to
-                    </div>
-                    <div>
-                        Sustainability!
-                    </div>
+                <div class="quote">
+                    ...commitment to <br> Sustainability!
                 </div>
                 <div class="footer-copyrights">
-                    <footer>&copy; 2019 copyrights reservedsustain-impact.com</footer>
+                    &copy; 2019 copyrights reservedsustain-impact.com
                 </div>
             </div>
-            <div class="col-lg-6 col-md-5 col-sm-6 col-xs-11">
-                <div style="display: flex;justify-content: center;align-items: center;height: 100%;">
-                    <form class="form-imp p-5 mt-1 ml-2 ">
-                        <div>
-                            <div class="welcome">
-                                Welcome!
-                            </div>
-                            <div class="log-in">
-                                Login to your account Using Your credentials
-                            </div>
+            <div class="col-lg-6 col-md-5 col-sm-6 col-xs-11 p-0 d-flex justify-content-center align-items-center">
+                <form class="p-5 form-login">
+                    <div class="text-center">
+                        <div class="welcome-label">
+                            Welcome!
                         </div>
-                        <div class="pt-5">
-                            <div class="email-address">
-                                Email address
-                            </div>
-                            <div class="mt-1">
-                                <input type="text" class="form-control" placeholder="arunkumar@gmail.com"
-                                    [(ngModel)]="email" name="email">
-                            </div>
+                        <div class="login-label">
+                            Login to your account Using Your credentials
                         </div>
-                        <div class="pt-2">
-                            <div class="email-address">
-                                Password
-                            </div>
-                            <div class="mt-1" style="position: relative;">
-                                <input type="password" placeholder="" class="form-control" [(ngModel)]="password" name="password">
-                                <span class="fa fa-fw fa-eye field-icon"></span>
-                            </div>
+                    </div>
+                    <div class="pt-5">
+                        <div class="input-label">
+                            Email address
                         </div>
-                        <div class="pt-4">
-                            <div class="forgot-password">
-                                Forgot Password?
-                            </div>
+                        <div class="mt-1">
+                            <input type="text" class="form-control" placeholder="arunkumar@gmail.com"
+                                [(ngModel)]="email" name="email">
                         </div>
-                        <div class="pt-3 pb-3">
-                            <button type="button" class="btn login btn-lg btn-block"
-                                style="font-weight: 600;background-color: #2121bd;color: white;font-size: 13px;"
-                                (click)="login()">Login </button>
+                    </div>
+                    <div class="pt-2">
+                        <div class="input-label">
+                            Password
                         </div>
-                    </form>
-                </div>
+                        <div class="mt-1" style="position: relative;">
+                            <input type="password" placeholder="" class="form-control" [(ngModel)]="password"
+                                name="password">
+                            <span class="fa fa-fw fa-eye field-icon"></span>
+                        </div>
+                    </div>
+                    <div class="pt-4">
+                        <div class="forgot-password">
+                            Forgot Password?
+                        </div>
+                    </div>
+                    <div class="pt-3 pb-3">
+                        <button type="button" class="btn btn-lg btn-block login" (click)="login()">Login </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
