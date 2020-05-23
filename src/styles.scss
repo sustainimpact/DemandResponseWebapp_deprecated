@@ -1,21 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 
-@font-face{
-    font-family: SourceSansPro-Bold;
-    src:url('assets/fonts/SourceSansPro-Bold.otf')
+@font-face {
+  font-family: SourceSansPro-Bold;
+  src: url('assets/fonts/SourceSansPro-Bold.otf')
 }
 
 
-@font-face{
-    font-family: SourceSansPro-Semibold;
-    src:url('assets/fonts/SourceSansPro-Semibold.otf')
+@font-face {
+  font-family: SourceSansPro-Semibold;
+  src: url('assets/fonts/SourceSansPro-Semibold.otf')
 }
 
-@font-face{
-    font-family: SourceSansPro-Regular;
-    src:url('assets/fonts/SourceSansPro-Regular.otf')
+@font-face {
+  font-family: SourceSansPro-Light;
+  src: url('assets/fonts/SourceSansPro-Light.otf')
 }
-@font-face{
-    font-family:SourceSansPro-Italic;
-    src:url('assets/fonts/SourceSansPro-Italic.ttf')
+
+@font-face {
+  font-family: SourceSansPro-Regular;
+  src: url('assets/fonts/SourceSansPro-Regular.otf')
+}
+
+@font-face {
+  font-family: SourceSansPro-Italic;
+  src: url('assets/fonts/SourceSansPro-Italic.ttf')
+}
+
+html,
+body {
+  height: 100%;
 }

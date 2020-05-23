@@ -10,132 +10,165 @@
                 <i class="fas fa-ellipsis-h vertical-dot-icon"></i>
             </div>
         </div>
-        <div class="inline-content" >
-            <div class = "south pr-2" style="height: 30px !important;">
-                South Hyderabad
-            </div>
-            <div class = "south pr-2">
-                .
-            </div>
-            <div class="south">
-                {{formatTime(startTime,'d')}}
+        <div class="button-margin">
+            <button type="button" class="back-btn publish-event-button">Cancel Event </button>
+        </div>
+        <div class=" pt-1 button-margin">
+            <i class="fas fa-ellipsis-h vertical-dot-icon"></i>
+        </div>
+    </div>
+    <div class="inline-content">
+        <div class="south pr-2" style="height: 30px !important;">
+            South Hyderabad
+        </div>
+        <div class="south pr-2">
+            .
+        </div>
+        <div class="south">
+            {{formatTime(startTime,'d')}}
+        </div>
+    </div>
+    <div class="inline-content">
+        <div class="pr-5" style="height: 10px !important;">
+            <div class="clock-row">
+                <img style="padding-bottom: 4px; " class="pr-1" src="assets/img/time-icon.svg" alt="time-icon">
+                {{formatTime(startTime,'t')}} - {{formatTime(endTime,'t')}}
             </div>
         </div>
-        <div class="inline-content" >
-            <div class = "pr-5" style="height: 10px !important;">
-                <div class = "clock-row">
-                    <img  style = "padding-bottom: 4px; " class = "pr-1" src="assets/img/time-icon.svg" alt="time-icon">
-                    {{formatTime(startTime,'t')}}  -   {{formatTime(endTime,'t')}}
-                </div>
-            </div>
-            <div  class = " pr-5" style="height: 40px !important;">
-                <div class = "clock-row">
-                    <img class = "pr-1" src="assets/img/flash-icon.svg" alt="time-icon">
-                    {{plannedPower}} kWh
-                </div>
-            </div>
-            <div style="height: 40px !important;">
-                <div class = "clock-row">
-                    <img class = "pr-1" src="assets/img/rupee-icon.svg" alt="time-icon" style="padding-bottom: 3px;">
-                    {{price}} paise
-                </div>
+        <div class=" pr-5" style="height: 40px !important;">
+            <div class="clock-row">
+                <img class="pr-1" src="assets/img/flash-icon.svg" alt="time-icon">
+                {{plannedPower}} kWh
             </div>
         </div>
-        <div class = "clock-row ">
-            <img class = "pr-1 pb-1" src="assets/img/customers-icon.svg" alt="customer-icon">
-            Customers
+        <div style="height: 40px !important;">
+            <div class="clock-row">
+                <img class="pr-1" src="assets/img/rupee-icon.svg" alt="time-icon" style="padding-bottom: 3px;">
+                {{price}} paise/kWh
+            </div>
         </div>
-        <div class = " mt-2 pb-3  inline-content actively" style = "width: 80%;">
-            <div>
-                <div class = "invites">Invitees</div>
-                <div class = "invite-down">{{eventOverview?.invitedCustomers}}</div>
-            </div>
-            <div class = "participant-next">
-                <div class="invites"> Participated</div>
-                <div class = "invite-down">{{eventOverview?.participatedCustomers}}</div>
-            </div>
-            <div class = "participant-next">
-                <div class="invites">Counter bid</div>
-                <div class = "invite-down">{{eventOverview?.counterBidCustomers}}</div>
-            </div>
-            <div class = "participant-next">
-                <div class="invites">No Response</div>
-                <div class = "invite-down seven-line">{{eventOverview?.noResponseCustomers}}</div>
-            </div>
-            <div class = "participant-next">
-                <div class="invites">Actively Participating</div>
-                <div class = "invite-down">03</div>
-            </div>
-            <div class = "participant-next">
-                <div class="invites">Non-Complaint User(has penalty)</div>
-                <div class = "invite-down">01</div>
-            </div>
-                <div class = "ml-auto">
-                    <div class="live-ending">Live  Ending in</div>
-                    <div class = "timer">00:10:23</div> 
+    </div>
+    <div class="clock-row ">
+        <img class="pr-1 pb-1" src="assets/img/customers-icon.svg" alt="customer-icon">
+        Customers
+    </div>
+    <div class=" mt-2 pb-3  inline-content actively" style="width: 80%;">
+        <div>
+            <div class="invites">Invitees</div>
+            <div class="invite-down">{{eventOverview?.invitedCustomers}}</div>
+        </div>
+        <div class="participant-next">
+            <div class="invites"> Participated</div>
+            <div class="invite-down">{{eventOverview?.participatedCustomers}}</div>
+        </div>
+        <div class="participant-next">
+            <div class="invites">Counter bid</div>
+            <div class="invite-down">{{eventOverview?.counterBidCustomers}}</div>
+        </div>
+        <div class="participant-next">
+            <div class="invites">No Response</div>
+            <div class="invite-down seven-line">{{eventOverview?.noResponseCustomers}}</div>
+        </div>
+        <div class="participant-next">
+            <div class="invites">Actively Participating</div>
+            <div class="invite-down">03</div>
+        </div>
+        <div class="participant-next">
+            <div class="invites">Non-Complaint User(has penalty)</div>
+            <div class="invite-down">01</div>
+        </div>
+        <div class="ml-auto">
+            <div class="live-ending">Live Ending in</div>
+            <div class="timer">00:10:23</div>
+        </div>
+    </div>
+    <div style="width:80%;padding-left:20px;padding-bottom: 26px;">
+        <div class="table-border" [ngStyle]="{'height.px': innerHeight}">
+            <div class="row pl-2 pr-4">
+                <div class="col select-customer">
+                    <div class="row-customer" style="padding-left: 25px;">
+                        Selected Customers - 06/25
+                    </div>
                 </div>
-        </div>
-        <div style ="width:80%;padding-left:20px;padding-bottom: 26px;">
-            <div class = "table-border" [ngStyle]="{'height.px': innerHeight}">
-                <div class="row pl-2 pr-4">
-                    <div class="col select-customer">
-                        <div class="row-customer" style="padding-left: 25px;">
-                            Selected Customers - 06/25
+                <form class="form-inline all-search ">
+                    <div class="input-group">
+                        <div class="input-group-prepend all-col-color">
+                            <div class="dropdown">
+                                <button type="button" class="drop-button" data-toggle="dropdown">
+                                    All<i class="angle-icon fas fa-chevron-down"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Link 1</a>
+                                    <a class="dropdown-item" href="#">Link 2</a>
+                                    <a class="dropdown-item" href="#">Link 3</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md-form active">
+                            <input class="form-control row-search search-event-up" type="text"
+                                placeholder="Search for customer" aria-label="Search">
+                            <i class="fa fa-search search-icon-position" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <form class="form-inline all-search ">
-                        <div class="input-group">
-                            <div class="input-group-prepend all-col-color">
-                                <div class="dropdown">
-                                    <button type="button" class="drop-button" data-toggle="dropdown">
-                                      All<i class="angle-icon fas fa-chevron-down"></i> 
-                                    </button>
-                                    <div class="dropdown-menu">
-                                      <a class="dropdown-item" href="#">Link 1</a>
-                                      <a class="dropdown-item" href="#">Link 2</a>
-                                      <a class="dropdown-item" href="#">Link 3</a>
-                                    </div>
-                                  </div> 
-                            </div>
-                            <div class="md-form active">
-                                <input class="form-control row-search search-event-up" type="text" placeholder="Search for customer" aria-label="Search">
-                                <i class="fa fa-search search-icon-position" aria-hidden="true"></i>
-                            </div>
-                        </div>   
-                    </form>
+                </form>
+            </div>
+            <div class="row row-top" style="padding-right: 7px;border-bottom: 1px solid#E4E8EC;">
+                <div class=" row-border">
+                    <div class=" custom-control custom-checkbox">
+
+                    </div>
                 </div>
-                <div class="row row-top" style="padding-right: 7px;border-bottom: 1px solid#E4E8EC;">
+                <div class="col row-border">
+                    <div class="column-one new-top-col">
+                        Customers
+                    </div>
+                </div>
+                <div class="col row-border end-content new-top-col">
+                    Status
+                </div>
+                <div class="col">
+                    <div class="end-content  total-pad quantity-start len-row"
+                        style="font-family: SourceSansPro-SemiBold;font-size: 12px;color: #2E2E2E;letter-spacing: 0;justify-content: center;">
+                        PRICE (PAISE/KWH)
+                    </div>
+                </div>
+                <div class="col  quantity-end commitement-header" style="justify-content: center;">
+                    <div class="end-content new-top-col">
+                        COMMITMENTS (KW)
+                    </div>
+                </div>
+                <div class="col  quantity-end commitement-header" style="justify-content: center;">
+                    <div class="end-content new-top-col">
+                        TRANSFERRED (KW)
+                    </div>
+                </div>
+            </div>
+            <div class="table-row-scroll">
+                <div class="row row-top" *ngFor="let customer of customerList;let i=index;">
+                    <div class=" row-border">
+                        <div class=" custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input"
+                                (click)="selectCustomer(customer.customerId)" id="customer.customerId">
+                            <label class="custom-control-label" for="customer.customerId"></label>
+                        </div>
+                    </div>
                     <div class="col row-border">
-                        <div class="column-one new-top-col">
-                            Customers
+                        <div class="column-one">
+                            {{customer.userName}}
                         </div>
                     </div>
-                    <div class="col row-border end-content new-top-col">
-                        Status
-                    </div>
-                    <div class="col">
-                        <div class="end-content  total-pad quantity-start len-row" style = "font-family: SourceSansPro-SemiBold;font-size: 12px;color: #2E2E2E;letter-spacing: 0;justify-content: center;">
-                            PRICE (PAISE/KW)
-                        </div>
-                    </div>
-                    <div class="col  quantity-end commitement-header" style="justify-content: center;">
-                        <div class="end-content new-top-col">
-                            COMMITMENTS (KW)
-                        </div>
-                    </div>
-                    <div class="col  quantity-end commitement-header" style="justify-content: center;">
-                        <div class="end-content new-top-col">
-                            TRANSFERRED (KW)     
-                        </div>
-                    </div>
-                </div>
-                    <div class="table-row-scroll">
-                       <div class="row row-top" *ngFor="let customer of customerList">
-                            <div class=" row-border">
-                                    <div class=" custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" 
-                                        (click)="selectCustomer(customer.customerId)" id="customer.customerId">
-                                        <label class="custom-control-label" for="customer.customerId"></label>
+                    <div class="col row-border  end-content">
+                        <div class="dropdown dropdown-col">
+                            <button type="button" class="dropdown-button participeted" data-toggle="dropdown"
+                                (click)="btnToggle(i,false)">
+                                Participated <i class="fas fa-chevron-down dropdown-arrow"></i>
+                            </button>
+                            <div class="dropdown-menu" id="dd{{i}}">
+                                <div class="dropdown-option">
+                                    <div class="md-radio">
+                                        <input id="dd{{i}}-option1" type="radio" name="participeted{{i}}" [value]="'1'"
+                                            [(ngModel)]="customer.participationStatus">
+                                        <label for="dd{{i}}-option1" class="green">Participated</label>
                                     </div>
                                 </div>
                             <div class="col row-border">
@@ -200,44 +233,75 @@
                             <div class="col  quantity-end commitement-header">
                                 <div class="end-content content-module">
                                     {{customer.commitments}}
+                                <div class="dropdown-option">
+                                    <div class="md-radio">
+                                        <input id="dd{{i}}-option2" type="radio" name="participeted{{i}}" [value]="'0'"
+                                            [(ngModel)]="customer.participationStatus">
+                                        <label for="dd{{i}}-option2" class="red">Rejected</label>
+                                    </div>
+                                </div>
+                                <div class="confirm-btn">
+                                    <button type="button" class="btn"
+                                        (click)="onConfirm(i,customer.participationStatus)">
+                                        Confirm
+                                    </button>
                                 </div>
                             </div>
-                            <div class="col  quantity-end commitement-header content-module">
-                                <div class="end-content content-module">
-                                    {{customer.actualPower}}
-                                </div>
-                            </div>
                         </div>
-                </div>
-            </div>  
-                    <div class="row row-top sticky-content">
-                        <div style = "background-color: white;">
-                        </div>
-                        <div class="col row-border footer-color seven-line">
-                            <div class="row-footer total-pad color-footer-bottom" style = "padding-left: 14px;"> 
-                            TOTALS
-                            </div>
-                        </div>
-                        <div class="col row-border footer-color end-content">
-                            <div class="row-footer commitement-header" style="color: #2E2E2E;">
-                            --
-                            </div>
-                        </div>
-                        <div class="col row-border footer-color end-last" style = "justify-content: flex-start;">
-                            <div class="row-footer commitement-header len-row color-footer-bottom" style  = "padding-left: 10px;">
-                            --
-                            </div>
-                        </div>
-                        <div class="col row-border footer-color end-last">
-                            <div class="row-footer commitement-header content-module color-footer-bottom">
-                            {{totalCommittedPower}}
-                            </div>
-                        </div>
-                        <div class="col row-border footer-color end-last" style="margin-right: 6px;">
-                            <div class="row-footer commitement-header content-module color-footer-bottom">
-                            {{totalActualPower}} 
+
+                    </div>
+                    <div class="col  commitement-header">
+                        <div
+                            class="end-content total-pad quantity-start len-row ten-five d-flex justify-content-between">
+                            {{customer.price}}
+                            <div>
+                                <span class="link"> Accept</span>
+                                <span class="link"> | </span>
+                                <span class="link"> Reject</span>
                             </div>
                         </div>
                     </div>
-        </div> 
+                    <div class="col  quantity-end commitement-header">
+                        <div class="end-content content-module">
+                            {{customer.commitments}}
+                        </div>
+                    </div>
+                    <div class="col  quantity-end commitement-header content-module">
+                        <div class="end-content content-module">
+                            {{customer.actualPower}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-top sticky-content">
+            <div style="background-color: white;">
+            </div>
+            <div class="col row-border footer-color seven-line">
+                <div class="row-footer total-pad color-footer-bottom" style="padding-left: 14px;">
+                    TOTALS
+                </div>
+            </div>
+            <div class="col row-border footer-color end-content">
+                <div class="row-footer commitement-header" style="color: #2E2E2E;">
+                    --
+                </div>
+            </div>
+            <div class="col row-border footer-color end-last" style="justify-content: flex-start;">
+                <div class="row-footer commitement-header len-row color-footer-bottom" style="padding-left: 10px;">
+                    --
+                </div>
+            </div>
+            <div class="col row-border footer-color end-last">
+                <div class="row-footer commitement-header content-module color-footer-bottom">
+                    {{totalCommittedPower}}
+                </div>
+            </div>
+            <div class="col row-border footer-color end-last" style="margin-right: 6px;">
+                <div class="row-footer commitement-header content-module color-footer-bottom">
+                    {{totalActualPower}}
+                </div>
+            </div>
+        </div>
     </div>
+</div>

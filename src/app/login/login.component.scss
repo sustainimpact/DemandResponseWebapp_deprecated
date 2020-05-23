@@ -1,43 +1,67 @@
-.sustain-main{
-    position: relative;
-    background-image: url(../../assets/img/loginBG.png);
-    height: 570px;
+.sustain-main {
+  position: relative;
+  background-image: url(../../assets/img/login-bg.png);
+  background-size: cover;
+  font-family: SourceSansPro-Light;
+
+  .sustain-logo {
+    position: absolute;
+    top: 10rem;
+    left: 10rem;
+
+    img {
+      height: 4rem;
+    }
   }
-  .sustain{
-      position: absolute;
-      color: white;
-      font-size: 36px;
-      top: 145px;
-      font-family: fantasy;
-      left: 143px;
+
+  .quote {
+    position: absolute;
+    top: 20rem;
+    left: 10rem;
+    font-size: 3rem;
+    line-height: 1;
+    color: #FFFFFF;
   }
-  .impact{
-      color: rgb(115, 206, 115);
-      font-size: 34px;
-      font-family: fantasy;
+
+  .footer-copyrights {
+    position: absolute;
+    bottom: 21px;
+    left: 166px;
+    font-size: 16px;
+    color: #FFFFFF;
+    opacity: 0.7;
   }
-  .background-image{
-      height: 771px;
-      width: 100%;
+}
+
+.form-login {
+  width: 79%;
+  box-shadow: 0 2px 5px #00000060;
+  background: #FFFFFF;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.20);
+  border-radius: 8px;
+  color: #00349A;
+  letter-spacing: 0;
+  font-family: SourceSansPro-Regular;
+
+  .welcome-label {
+    font-size: 32px;
   }
-  .commitment{
-      position: absolute;
-      color: white;
-      font-size: 38px;
-      top: 284px;
-      font-family: Georgia, 'Times New Roman', Times, serif;
-      left: 143px;
+
+  .login-label {
+    font-size: 14px;
+    color: #2E2E2E;
   }
-  .footer-copyrights{
-      color: #e8e0e0;
-      position: absolute;
-      bottom: 21px;
-      left: 166px;
-      font-size: 14px;
+
+  .input-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #727479;
   }
-  .welcome{
-      font-size: 27px;
-      color: #2121bd;
+
+  input {
+    background-color: transparent;
+    border: 1px solid #DFE2E5;
+    border-radius: 4px;
   }
   .form-imp{
       border: 1px solid #ece4e4;
@@ -63,21 +87,37 @@
   input{
       border:1px solid #DFE2E5;
       background-color: transparent;
+
+  .form-control:focus {
+    box-shadow: none;
+    -webkit-box-shadow: none;
   }
+
+  // .form-control::-webkit-input-placeholder {
+  //   color: #00349A !important;
+  //   font-weight: 700 !important;
+  // }
+
   .field-icon {
-      position: absolute;
-      display: inline-block;
-      cursor: pointer;
-      right: 0.5rem;
-      top: 9px;
-      z-index: 2;
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+    right: 0.5rem;
+    top: 9px;
+    z-index: 2;
   }
-  .login{
-        background-color: #2121bd;
+
+  .forgot-password {
+    text-align: right;
+    font-weight: bold;
+    font-size: 14px;
   }
-  .form-control::-webkit-input-placeholder {
-      color: blue!important;
-      font-weight: 700!important;
+
+  .login {
+    font-weight: bold;
+    background-color: #00349A;
+    font-size: 16px;
+    color: #FFFFFF;
   }
-  
-  
+  }
+}

@@ -19,7 +19,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     LoginComponent,
     AllEventSetsComponent,
     AllCustomersComponent,
-    CreateEventDetailsComponent
+    CreateEventDetailsComponent,
   ],
   imports: [
     HttpClientModule,

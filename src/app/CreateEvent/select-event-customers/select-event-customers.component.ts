@@ -208,4 +208,14 @@ export class SelectEventCustomersComponent implements OnInit {
       }
     });
   }
+  btnToggle(i, flag) {
+    if (!flag)
+      document.getElementById("dd" + i).classList.toggle("show");
+  }
+
+  onConfirm(i, status) {
+    document.getElementById("dd" + i).classList.remove("show");
+    console.log(i, status);
+
+  }
 }
