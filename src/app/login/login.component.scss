@@ -63,34 +63,40 @@
     border: 1px solid #DFE2E5;
     border-radius: 4px;
   }
-  .form-imp{
-      border: 1px solid #ece4e4;
-      width: 79%;
-      border-radius: 9px;
-  }
-  .log-in{
-      font-size: 13px;
-      font-weight: 600;
-      color: #383434eb;
-  }
-  .email-address{
-      color: #7b7878;
-      font-weight: 600;
-      font-size: 12px;
-  }  
-  .forgot-password{
-      text-align: right;
-      font-size: 13px;
-      color: #2121bd;
-      font-weight: 700;
-  }
-  input{
-      border:1px solid #DFE2E5;
-      background-color: transparent;
 
-  .form-control:focus {
-    box-shadow: none;
-    -webkit-box-shadow: none;
+  .form-imp {
+    border: 1px solid #ece4e4;
+    width: 79%;
+    border-radius: 9px;
+  }
+
+  .log-in {
+    font-size: 13px;
+    font-weight: 600;
+    color: #383434eb;
+  }
+
+  .email-address {
+    color: #7b7878;
+    font-weight: 600;
+    font-size: 12px;
+  }
+
+  .forgot-password {
+    text-align: right;
+    font-size: 13px;
+    color: #2121bd;
+    font-weight: 700;
+  }
+
+  input {
+    border: 1px solid #DFE2E5;
+    background-color: transparent;
+
+    .form-control:focus {
+      box-shadow: none;
+      -webkit-box-shadow: none;
+    }
   }
 
   // .form-control::-webkit-input-placeholder {
@@ -102,8 +108,8 @@
     position: absolute;
     display: inline-block;
     cursor: pointer;
-    right: 0.5rem;
-    top: 9px;
+    right: 0.7rem;
+    top: 0.7rem;
     z-index: 2;
   }
 
@@ -118,6 +124,5 @@
     background-color: #00349A;
     font-size: 16px;
     color: #FFFFFF;
-  }
   }
 }
