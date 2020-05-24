@@ -15,8 +15,19 @@ export class CustomerService {
   updateCustomersUrl = DR_URL + 'updateCustomersForEvent';
   rejectCustomersUrl = DR_URL + 'rejectCustomer';
   acceptCounterBidUrl = DR_URL + 'acceptCounterBid';
+  getAllCustomersUrl = DR_URL + 'getAllCustomers';
 
   constructor(private httpClient: HttpClient) { }
+
+  getAllCustomers() {
+    var options = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    };
+    return this.httpClient.get(this.getAllCustomersUrl
+      , options
+    );
+  }
 
   getCustomers(events: any) {
     console.log('Events : ' , events);

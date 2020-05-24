@@ -1,8 +1,7 @@
-  
 <div class=" pl-4 pr-4 ">
-    <div class ="inline-content customer-down-indent ">
-        <div class = "year mr-auto" >Customers (25)</div>
-        <div class = "button-margin">
+    <div class="inline-content customer-down-indent ">
+        <div class="year mr-auto">Customers (25)</div>
+        <div class="button-margin">
             <button type="button" class="btn publish-event-button active" style="width:197px;"> Add Customer</button>
         </div>
         <div style="margin-right: 3px;">
@@ -10,502 +9,581 @@
         </div>
     </div>
     <div [ngStyle]="{'height.px': innerHeight}">
-        <div class="table-row-scroll" #pRef >
-            <div class="row row-width-imp relative-position mb-2 mt-2" >
-                <div class=" align-row-equal custom-control  custom-checkbox label-division" style = " margin-left: 31px;">
+        <div class="table-row-scroll" #pRef>
+            <div class="row row-width-imp relative-position mb-2 mt-2">
+                <div class=" align-row-equal custom-control  custom-checkbox label-division"
+                    style=" margin-left: 31px;">
                     <input type="checkbox" class="custom-control-input" id="drevent-1">
                     <label class="custom-control-label" for="drevent-1"></label>
                 </div>
-                <div class = "division-head flex outer-division ">
+                <div class="division-head flex outer-division ">
                     <div>Division</div>
                 </div>
-                <div class = "division-head flex outer-contract-division">
+                <div class="division-head flex outer-contract-division">
                     <div>Contract Account</div>
                 </div>
-                <div class = "division-head flex meter-division ">
-                    <div> Meter  Number</div>
+                <div class="division-head flex meter-division ">
+                    <div> Meter Number</div>
                 </div>
-                <div class = "division-head flex sl-division " >
+                <div class="division-head flex sl-division ">
                     <div class="textalign-right">SL (kW)</div>
                 </div>
-                <div class = "division-head flex billed-division">
+                <div class="division-head flex billed-division">
                     <div>Billed MUs FY 17-18</div>
                 </div>
-                <div class = "division-head flex company-division ">
+                <div class="division-head flex company-division ">
                     <div>Company Name</div>
                 </div>
-                <div class = "division-head flex address-division">
+                <div class="division-head flex address-division">
                     <div>Address</div>
                 </div>
-                <div class = "division-head flex type-division">
+                <div class="division-head flex type-division">
                     <div>Type/Activity</div>
-                </div>  
-                <div class = "division-head flex customer-division ">
-                    <div >Customer Name</div>
                 </div>
-                <div class = "division-head flex mobile-division">
+                <div class="division-head flex customer-division ">
+                    <div>Customer Name</div>
+                </div>
+                <div class="division-head flex mobile-division">
                     <div>Contact… </div>
-                </div> 
-                <div class = "division-head flex mobile-division">
+                </div>
+                <div class="division-head flex mobile-division">
                     <div>Contact… </div>
-                </div> 
-                <div class = "division-head flex mobile-division">
+                </div>
+                <div class="division-head flex mobile-division">
                     <div>Contact… </div>
-                </div> 
+                </div>
             </div>
             <div>
                 <div class="table-border">
-                    <div class="row table-space esl table-end-line relative-position col-background header-style">                        
-                        <div class="align-row-equal  custom-control  custom-checkbox label-division" style = " margin-left: 31px;margin-top: 0px;">
+                    <!--TBD-->
+                    <div class="row table-space esl table-end-line relative-position col-background header-style"
+                    *ngFor="let test of testList">
+                        <div class="align-row-equal  custom-control  custom-checkbox label-division"
+                            style=" margin-left: 31px;margin-top: 0px;">
                             <input type="checkbox" class="custom-control-input" id="drevent-2">
                             <label class="custom-control-label" for="drevent-2"></label>
                         </div>
-                        <div class = "division-body flex outer-division ">
+                        <div class="division-body flex outer-division ">
                             <div>ESLNR</div>
                         </div>
-                        <div class = "division-body flex outer-contract-division">
+                        <div class="division-body flex outer-contract-division">
                             <div>100013478</div>
                         </div>
-                        <div class = "division-body flex meter-division ">
+                        <div class="division-body flex meter-division ">
                             <div>19901091:19901095</div>
                         </div>
-                        <div class = "division-body flex sl-division " >
+                        <div class="division-body flex sl-division ">
                             <div class=" textalign-right">7300</div>
                         </div>
-                        <div class = "division-body flex billed-division">
+                        <div class="division-body flex billed-division">
                             <div class="textalign-right">14.57</div>
                         </div>
-                        <div class = "division-body flex company-division ">
+                        <div class="division-body flex company-division ">
                             <div>Manager</div>
-                        </div>              
-                        <div class = "division-body flex address-division">
+                        </div>
+                        <div class="division-body flex address-division">
                             <div>Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092</div>
                         </div>
-                        <div class = "division-body flex type-division">
+                        <div class="division-body flex type-division">
                             <div>Govt. Office</div>
-                        </div>  
-                        <div class = "division-body flex customer-division ">
+                        </div>
+                        <div class="division-body flex customer-division ">
                             <div> Mr. Mahesh</div>
                         </div>
-                        <div class = "division-body flex mobile-division">
+                        <div class="division-body flex mobile-division">
                             <div>995916136 </div>
-                            <div>9999658175</div>               
+                            <div>9999658175</div>
                         </div>
-                        <div class = "division-body flex mobile-division">
+                        <div class="division-body flex mobile-division">
                             <div>995916136 </div>
-                            <div>9999658175</div>               
+                            <div>9999658175</div>
                         </div>
-                        <div class = "division-body flex mobile-division">
+                        <div class="division-body flex mobile-division">
                             <div>995916136 </div>
-                            <div>9999658175</div>               
+                            <div>9999658175</div>
                         </div>
-                        <div class = "division-body flex  dot-icon-header static-content" style="top:166px;z-index: 1;">
+                        <div class="division-body flex  dot-icon-header static-content" style="top:166px;z-index: 1;">
                             <img src="assets/img/Combined Shape.svg" alt="">
-                        </div> 
+                        </div>
                     </div>
-                    <div class="row table-space esl table-end-line relative-position" >
-                        <div class=" custom-control  custom-checkbox label-division" style = " margin-left: 31px; ">
-                            <input type="checkbox" class="custom-control-input" id="drevent-3">
-                            <label class="custom-control-label" for="drevent-3"></label>
+                    <!-- <div class="row table-space esl table-end-line relative-position col-background header-style">
+                        <div class="align-row-equal  custom-control  custom-checkbox label-division"
+                            style=" margin-left: 31px;margin-top: 0px;">
+                            <input type="checkbox" class="custom-control-input" id="drevent-2">
+                            <label class="custom-control-label" for="drevent-2"></label>
                         </div>
-                        <div class = "division-body flex outer-division ">
-                            <div> ESLNR</div>
-                        </div>
-                        <div class = "division-body flex outer-contract-division">
-                            <div>100013478</div>
-                        </div>
-                        <div class = "division-body flex meter-division ">
-                            <div>19901091:19901095</div>
-                        </div>
-                        <div class = "division-body flex sl-division " >
-                            <div class=" textalign-right"> 7300</div>
-                        </div>
-                        <div class = "division-body flex billed-division">
-                            <div class="textalign-right">14.57</div>
-                        </div>
-                        <div class = "division-body flex company-division ">
-                            <div>Manager</div>
-                        </div>
-                        <div class = "division-body flex address-division">
-                            <div> Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092 </div>
-                        </div>
-                        <div class = "division-body flex type-division">
-                            <div>Govt. Office</div>
-                        </div>  
-                        <div class = "division-body flex customer-division ">
-                            <div>Mr. Mahesh</div>
-                        </div>
-                        <div class = "division-body flex mobile-division">
-                            <div>995916136 </div>
-                            <div>9999658175</div>               
-                        </div>
-                        <div class = "division-body flex mobile-division">
-                            <div>995916136 </div>
-                            <div>9999658175</div>               
-                        </div>
-                        <div class = "division-body flex mobile-division">
-                            <div>995916136 </div>
-                            <div>9999658175</div>               
-                        </div>
-                        <div class = " division-body flex  dot-icon-first static-content" style = "top:230px;z-index: 1;">
-                            <img src="assets/img/Combined Shape.svg" alt="">
-                        </div> 
-                    </div>
-                    <div class=" row table-space esl table-end-line relative-position " >
-                        <div class=" custom-control  custom-checkbox label-division" style = " margin-left: 31px; ">
-                            <input type="checkbox" class="custom-control-input" id="drevent-4">
-                            <label class="custom-control-label" for="drevent-4"></label>
-                        </div>
-                        <div class = "division-body flex outer-division ">
+                        <div class="division-body flex outer-division ">
                             <div>ESLNR</div>
                         </div>
-                        <div class = "division-body flex outer-contract-division">
+                        <div class="division-body flex outer-contract-division">
                             <div>100013478</div>
                         </div>
-                        <div class = "division-body flex meter-division ">
+                        <div class="division-body flex meter-division ">
                             <div>19901091:19901095</div>
                         </div>
-                        <div class = "division-body flex sl-division " >
-                            <div class="textalign-right">7300</div>
-                        </div>
-                        <div class = "division-body flex billed-division">
-                            <div class="textalign-right">14.57</div>
-                        </div>
-                        <div class = "division-body flex company-division ">
-                            <div> Manager</div>
-                        </div>
-                        <div class = "division-body flex address-division">
-                            <div>Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092</div>
-                        </div>
-                        <div class = "division-body flex type-division">
-                            <div>Govt. Office</div>
-                        </div>  
-                        <div class = "division-body flex customer-division ">
-                            <div>Mr. Mahesh</div>
-                        </div>
-                        <div class = "division-body flex mobile-division">
-                            <div>995916136 </div>
-                            <div>9999658175</div>               
-                        </div>
-                        <div class = "division-body flex mobile-division">
-                            <div>995916136 </div>
-                            <div>9999658175</div>               
-                        </div>
-                        <div class = "division-body flex mobile-division">
-                            <div>995916136 </div>
-                            <div>9999658175</div>               
-                        </div>
-                        <div class = "division-body flex  dot-icon static-content" style = "top:301px;z-index: 1;">
-                            <img src="assets/img/Combined Shape.svg" alt="">
-                        </div> 
-                    </div>
-                    <div class="row table-space esl table-end-line relative-position" >
-                        <div class=" custom-control  custom-checkbox label-division" style = " margin-left: 31px; ">
-                            <input type="checkbox" class="custom-control-input" id="drevent-5">
-                            <label class="custom-control-label" for="drevent-5"></label>
-                        </div>
-                        <div class = "division-body flex outer-division ">
-                            <div> ESLNR</div>
-                        </div>
-                        <div class = "division-body flex outer-contract-division">
-                            <div>100013478</div>
-                        </div>
-                        <div class = "division-body flex meter-division ">
-                            <div>19901091:19901095</div>
-                        </div>
-                        <div class = " division-body flex sl-division " >
+                        <div class="division-body flex sl-division ">
                             <div class=" textalign-right">7300</div>
                         </div>
-                        <div class = "division-body flex billed-division">
+                        <div class="division-body flex billed-division">
                             <div class="textalign-right">14.57</div>
                         </div>
-                        <div class = "division-body flex company-division ">
+                        <div class="division-body flex company-division ">
                             <div>Manager</div>
                         </div>
-                        <div class = "division-body flex address-division">
+                        <div class="division-body flex address-division">
                             <div>Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092</div>
                         </div>
-                        <div class = "division-body flex type-division">
+                        <div class="division-body flex type-division">
                             <div>Govt. Office</div>
-                        </div>  
-                        <div class = "division-body flex customer-division ">
-                            <div>Mr. Mahesh</div>
                         </div>
-                        <div class = "division-body flex mobile-division">
+                        <div class="division-body flex customer-division ">
+                            <div> Mr. Mahesh</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
                             <div>995916136 </div>
-                            <div>9999658175</div>               
+                            <div>9999658175</div>
                         </div>
-                        <div class = "division-body flex mobile-division">
+                        <div class="division-body flex mobile-division">
                             <div>995916136 </div>
-                            <div>9999658175</div>               
+                            <div>9999658175</div>
                         </div>
-                        <div class = "division-body flex mobile-division">
+                        <div class="division-body flex mobile-division">
                             <div>995916136 </div>
-                            <div>9999658175</div>               
+                            <div>9999658175</div>
                         </div>
-                        <div class = "division-body flex  dot-icon static-content" style = "top:366px;z-index: 1;">
-                            <img src="assets/img/Combined Shape.svg" alt="">
-                        </div> 
-                    </div>
-                    <div class="row table-space esl table-end-line relative-position" >
-                        <div class="custom-control  custom-checkbox label-division" style = " margin-left: 31px; ">
-                            <input type="checkbox" class="custom-control-input" id="drevent-6">
-                            <label class="custom-control-label" for="drevent-6"></label>
-                        </div>
-                        <div class = "division-body flex outer-division ">
-                            <div>ESLNR</div>
-                        </div>
-                        <div class = "division-body flex outer-contract-division">
-                            <div>100013478</div>
-                        </div>
-                        <div class = "division-body flex meter-division ">
-                            <div>19901091:19901095</div>
-                        </div>
-                        <div class = "division-body flex sl-division " >
-                            <div class="textalign-right">7300</div>
-                        </div>
-                        <div class = "division-body flex billed-division">
-                            <div class="textalign-right">14.57</div>
-                        </div>
-                        <div class = "division-body flex company-division ">
-                            <div>Manager</div>
-                        </div>
-                        <div class = "division-body flex address-division">
-                            <div>Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092</div>
-                        </div>
-                        <div class = "division-body flex type-division">
-                            <div>Govt. Office</div>
-                        </div>  
-                        <div class = "division-body flex customer-division ">
-                            <div>Mr. Mahesh</div>
-                        </div>
-                        <div class = "division-body flex mobile-division">
-                            <div>995916136 </div>
-                            <div>9999658175</div>               
-                        </div>
-                        <div class = "division-body flex mobile-division">
-                            <div>995916136 </div>
-                            <div>9999658175</div>               
-                        </div>
-                        <div class = "division-body flex mobile-division">
-                            <div>995916136 </div>
-                            <div>9999658175</div>               
-                        </div>
-                        <div class = "division-body flex  dot-icon static-content" style = "top:430px;z-index: 1;">
-                            <img src="assets/img/Combined Shape.svg" alt="">
-                        </div> 
-                    </div>
-                    <div class=" row table-space esl table-end-line relative-position" >
-                        <div class="custom-control  custom-checkbox label-division" style = " margin-left: 31px; ">
-                            <input type="checkbox" class="custom-control-input" id="drevent-7">
-                            <label class="custom-control-label" for="drevent-7"></label>
-                        </div>
-                        <div class = "division-body flex outer-division ">
-                            <div>ESLNR</div>
-                        </div>
-                        <div class = "division-body flex outer-contract-division">
-                            <div>100013478</div>
-                        </div>
-                        <div class = "division-body flex meter-division ">
-                            <div>19901091:19901095</div>
-                        </div>
-                        <div class = "division-body flex sl-division " >
-                            <div class="textalign-right"> 7300</div>
-                        </div>
-                        <div class = "division-body flex billed-division">
-                            <div class="textalign-right">14.57</div>
-                        </div>
-                        <div class = "division-body flex company-division ">
-                            <div>Manager</div>
-                        </div>
-                        <div class = "division-body flex address-division">
-                            <div>Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092</div>
-                        </div>
-                        <div class = "division-body flex type-division">
-                            <div>Govt. Office</div>
-                        </div>  
-                        <div class = "division-body flex customer-division ">
-                            <div>Mr. Mahesh</div>
-                        </div>
-                        <div class = "division-body flex mobile-division">
-                            <div>995916136 </div>
-                            <div>9999658175</div>               
-                        </div>
-                        <div class = "division-body flex mobile-division">
-                            <div>995916136 </div>
-                            <div>9999658175</div>               
-                        </div>
-                        <div class = "division-body flex mobile-division">
-                            <div>995916136 </div>
-                            <div>9999658175</div>               
-                        </div>
-                        <div class = "division-body flex  dot-icon static-content" style = "top:495px;z-index: 1;">
+                        <div class="division-body flex  dot-icon-header static-content" style="top:166px;z-index: 1;">
                             <img src="assets/img/Combined Shape.svg" alt="">
                         </div>
                     </div>
-                    <div class=" row table-space esl table-end-line relative-position" >
-                        <div class=" custom-control  custom-checkbox label-division" style = " margin-left: 31px; ">
-                            <input type="checkbox" class="custom-control-input" id="drevent-8">
-                            <label class="custom-control-label" for="drevent-8"></label>
+                    <div class="row table-space esl table-end-line relative-position col-background header-style">
+                        <div class="align-row-equal  custom-control  custom-checkbox label-division"
+                            style=" margin-left: 31px;margin-top: 0px;">
+                            <input type="checkbox" class="custom-control-input" id="drevent-2">
+                            <label class="custom-control-label" for="drevent-2"></label>
                         </div>
-                        <div class = "division-body flex outer-division ">
+                        <div class="division-body flex outer-division ">
                             <div>ESLNR</div>
                         </div>
-                        <div class = "division-body flex outer-contract-division">
+                        <div class="division-body flex outer-contract-division">
                             <div>100013478</div>
                         </div>
-                        <div class = "division-body flex meter-division">
+                        <div class="division-body flex meter-division ">
                             <div>19901091:19901095</div>
                         </div>
-                        <div class = "division-body flex sl-division">
+                        <div class="division-body flex sl-division ">
                             <div class=" textalign-right">7300</div>
                         </div>
-                        <div class = "division-body flex billed-division">
+                        <div class="division-body flex billed-division">
                             <div class="textalign-right">14.57</div>
                         </div>
-                        <div class = "division-body flex company-division ">
-                            <div> Manager </div>
+                        <div class="division-body flex company-division ">
+                            <div>Manager</div>
                         </div>
-                        <div class = "division-body flex address-division">
+                        <div class="division-body flex address-division">
                             <div>Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092</div>
                         </div>
-                        <div class = "division-body flex type-division">
+                        <div class="division-body flex type-division">
                             <div>Govt. Office</div>
-                        </div>  
-                        <div class = "division-body flex customer-division ">
-                            <div class="">Mr. Mahesh</div>
                         </div>
-                        <div class = "division-body flex mobile-division">
-                            <div>995916136 </div>
-                            <div>9999658175</div>               
+                        <div class="division-body flex customer-division ">
+                            <div> Mr. Mahesh</div>
                         </div>
-                        <div class = "division-body flex mobile-division">
+                        <div class="division-body flex mobile-division">
                             <div>995916136 </div>
-                            <div>9999658175</div>               
+                            <div>9999658175</div>
                         </div>
-                        <div class = "division-body flex mobile-division">
+                        <div class="division-body flex mobile-division">
                             <div>995916136 </div>
-                            <div>9999658175</div>               
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex  dot-icon-header static-content" style="top:166px;z-index: 1;">
+                            <img src="assets/img/Combined Shape.svg" alt="">
                         </div>
                     </div>
                     <div class="row table-space esl table-end-line relative-position">
-                        <div class="custom-control  custom-checkbox label-division" style = " margin-left: 31px; ">
+                        <div class=" custom-control  custom-checkbox label-division" style=" margin-left: 31px; ">
+                            <input type="checkbox" class="custom-control-input" id="drevent-3">
+                            <label class="custom-control-label" for="drevent-3"></label>
+                        </div>
+                        <div class="division-body flex outer-division ">
+                            <div> ESLNR</div>
+                        </div>
+                        <div class="division-body flex outer-contract-division">
+                            <div>100013478</div>
+                        </div>
+                        <div class="division-body flex meter-division ">
+                            <div>19901091:19901095</div>
+                        </div>
+                        <div class="division-body flex sl-division ">
+                            <div class=" textalign-right"> 7300</div>
+                        </div>
+                        <div class="division-body flex billed-division">
+                            <div class="textalign-right">14.57</div>
+                        </div>
+                        <div class="division-body flex company-division ">
+                            <div>Manager</div>
+                        </div>
+                        <div class="division-body flex address-division">
+                            <div> Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092 </div>
+                        </div>
+                        <div class="division-body flex type-division">
+                            <div>Govt. Office</div>
+                        </div>
+                        <div class="division-body flex customer-division ">
+                            <div>Mr. Mahesh</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class=" division-body flex  dot-icon-first static-content" style="top:230px;z-index: 1;">
+                            <img src="assets/img/Combined Shape.svg" alt="">
+                        </div>
+                    </div>
+                    <div class=" row table-space esl table-end-line relative-position ">
+                        <div class=" custom-control  custom-checkbox label-division" style=" margin-left: 31px; ">
+                            <input type="checkbox" class="custom-control-input" id="drevent-4">
+                            <label class="custom-control-label" for="drevent-4"></label>
+                        </div>
+                        <div class="division-body flex outer-division ">
+                            <div>ESLNR</div>
+                        </div>
+                        <div class="division-body flex outer-contract-division">
+                            <div>100013478</div>
+                        </div>
+                        <div class="division-body flex meter-division ">
+                            <div>19901091:19901095</div>
+                        </div>
+                        <div class="division-body flex sl-division ">
+                            <div class="textalign-right">7300</div>
+                        </div>
+                        <div class="division-body flex billed-division">
+                            <div class="textalign-right">14.57</div>
+                        </div>
+                        <div class="division-body flex company-division ">
+                            <div> Manager</div>
+                        </div>
+                        <div class="division-body flex address-division">
+                            <div>Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092</div>
+                        </div>
+                        <div class="division-body flex type-division">
+                            <div>Govt. Office</div>
+                        </div>
+                        <div class="division-body flex customer-division ">
+                            <div>Mr. Mahesh</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex  dot-icon static-content" style="top:301px;z-index: 1;">
+                            <img src="assets/img/Combined Shape.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="row table-space esl table-end-line relative-position">
+                        <div class=" custom-control  custom-checkbox label-division" style=" margin-left: 31px; ">
+                            <input type="checkbox" class="custom-control-input" id="drevent-5">
+                            <label class="custom-control-label" for="drevent-5"></label>
+                        </div>
+                        <div class="division-body flex outer-division ">
+                            <div> ESLNR</div>
+                        </div>
+                        <div class="division-body flex outer-contract-division">
+                            <div>100013478</div>
+                        </div>
+                        <div class="division-body flex meter-division ">
+                            <div>19901091:19901095</div>
+                        </div>
+                        <div class=" division-body flex sl-division ">
+                            <div class=" textalign-right">7300</div>
+                        </div>
+                        <div class="division-body flex billed-division">
+                            <div class="textalign-right">14.57</div>
+                        </div>
+                        <div class="division-body flex company-division ">
+                            <div>Manager</div>
+                        </div>
+                        <div class="division-body flex address-division">
+                            <div>Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092</div>
+                        </div>
+                        <div class="division-body flex type-division">
+                            <div>Govt. Office</div>
+                        </div>
+                        <div class="division-body flex customer-division ">
+                            <div>Mr. Mahesh</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex  dot-icon static-content" style="top:366px;z-index: 1;">
+                            <img src="assets/img/Combined Shape.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="row table-space esl table-end-line relative-position">
+                        <div class="custom-control  custom-checkbox label-division" style=" margin-left: 31px; ">
+                            <input type="checkbox" class="custom-control-input" id="drevent-6">
+                            <label class="custom-control-label" for="drevent-6"></label>
+                        </div>
+                        <div class="division-body flex outer-division ">
+                            <div>ESLNR</div>
+                        </div>
+                        <div class="division-body flex outer-contract-division">
+                            <div>100013478</div>
+                        </div>
+                        <div class="division-body flex meter-division ">
+                            <div>19901091:19901095</div>
+                        </div>
+                        <div class="division-body flex sl-division ">
+                            <div class="textalign-right">7300</div>
+                        </div>
+                        <div class="division-body flex billed-division">
+                            <div class="textalign-right">14.57</div>
+                        </div>
+                        <div class="division-body flex company-division ">
+                            <div>Manager</div>
+                        </div>
+                        <div class="division-body flex address-division">
+                            <div>Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092</div>
+                        </div>
+                        <div class="division-body flex type-division">
+                            <div>Govt. Office</div>
+                        </div>
+                        <div class="division-body flex customer-division ">
+                            <div>Mr. Mahesh</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex  dot-icon static-content" style="top:430px;z-index: 1;">
+                            <img src="assets/img/Combined Shape.svg" alt="">
+                        </div>
+                    </div>
+                    <div class=" row table-space esl table-end-line relative-position">
+                        <div class="custom-control  custom-checkbox label-division" style=" margin-left: 31px; ">
+                            <input type="checkbox" class="custom-control-input" id="drevent-7">
+                            <label class="custom-control-label" for="drevent-7"></label>
+                        </div>
+                        <div class="division-body flex outer-division ">
+                            <div>ESLNR</div>
+                        </div>
+                        <div class="division-body flex outer-contract-division">
+                            <div>100013478</div>
+                        </div>
+                        <div class="division-body flex meter-division ">
+                            <div>19901091:19901095</div>
+                        </div>
+                        <div class="division-body flex sl-division ">
+                            <div class="textalign-right"> 7300</div>
+                        </div>
+                        <div class="division-body flex billed-division">
+                            <div class="textalign-right">14.57</div>
+                        </div>
+                        <div class="division-body flex company-division ">
+                            <div>Manager</div>
+                        </div>
+                        <div class="division-body flex address-division">
+                            <div>Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092</div>
+                        </div>
+                        <div class="division-body flex type-division">
+                            <div>Govt. Office</div>
+                        </div>
+                        <div class="division-body flex customer-division ">
+                            <div>Mr. Mahesh</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex  dot-icon static-content" style="top:495px;z-index: 1;">
+                            <img src="assets/img/Combined Shape.svg" alt="">
+                        </div>
+                    </div>
+                    <div class=" row table-space esl table-end-line relative-position">
+                        <div class=" custom-control  custom-checkbox label-division" style=" margin-left: 31px; ">
+                            <input type="checkbox" class="custom-control-input" id="drevent-8">
+                            <label class="custom-control-label" for="drevent-8"></label>
+                        </div>
+                        <div class="division-body flex outer-division ">
+                            <div>ESLNR</div>
+                        </div>
+                        <div class="division-body flex outer-contract-division">
+                            <div>100013478</div>
+                        </div>
+                        <div class="division-body flex meter-division">
+                            <div>19901091:19901095</div>
+                        </div>
+                        <div class="division-body flex sl-division">
+                            <div class=" textalign-right">7300</div>
+                        </div>
+                        <div class="division-body flex billed-division">
+                            <div class="textalign-right">14.57</div>
+                        </div>
+                        <div class="division-body flex company-division ">
+                            <div> Manager </div>
+                        </div>
+                        <div class="division-body flex address-division">
+                            <div>Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092</div>
+                        </div>
+                        <div class="division-body flex type-division">
+                            <div>Govt. Office</div>
+                        </div>
+                        <div class="division-body flex customer-division ">
+                            <div class="">Mr. Mahesh</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                        <div class="division-body flex mobile-division">
+                            <div>995916136 </div>
+                            <div>9999658175</div>
+                        </div>
+                    </div>
+                    <div class="row table-space esl table-end-line relative-position">
+                        <div class="custom-control  custom-checkbox label-division" style=" margin-left: 31px; ">
                             <input type="checkbox" class="custom-control-input" id="drevent-9">
                             <label class="custom-control-label" for="drevent-9"></label>
                         </div>
-                        <div class = "division-body flex outer-division ">
+                        <div class="division-body flex outer-division ">
                             <div>ESLNR</div>
                         </div>
-                        <div class = "division-body flex outer-contract-division">
+                        <div class="division-body flex outer-contract-division">
                             <div>100013478</div>
                         </div>
-                        <div class = "division-body flex meter-division ">
+                        <div class="division-body flex meter-division ">
                             <div>19901091:19901095</div>
                         </div>
-                        <div class = "division-body flex sl-division " >
+                        <div class="division-body flex sl-division ">
                             <div class="textalign-right">7300</div>
                         </div>
-                        <div class = "division-body flex billed-division">
+                        <div class="division-body flex billed-division">
                             <div class="textalign-right">14.57</div>
                         </div>
-                        <div class = "division-body flex company-division ">
+                        <div class="division-body flex company-division ">
                             <div>Manager</div>
                         </div>
-                        <div class = "division-body flex address-division">
+                        <div class="division-body flex address-division">
                             <div>Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092</div>
                         </div>
-                        <div class = "division-body flex type-division">
+                        <div class="division-body flex type-division">
                             <div>Govt. Office</div>
-                        </div>  
-                        <div class = "division-body flex customer-division ">
+                        </div>
+                        <div class="division-body flex customer-division ">
                             <div class="">Mr. Mahesh</div>
                         </div>
-                        <div class = "division-body flex mobile-division">
+                        <div class="division-body flex mobile-division">
                             <div>995916136 </div>
-                            <div>9999658175</div>               
+                            <div>9999658175</div>
                         </div>
-                        <div class = "division-body flex mobile-division">
+                        <div class="division-body flex mobile-division">
                             <div>995916136 </div>
-                            <div>9999658175</div>               
+                            <div>9999658175</div>
                         </div>
-                        <div class = "division-body flex mobile-division">
+                        <div class="division-body flex mobile-division">
                             <div>995916136 </div>
-                            <div>9999658175</div>               
+                            <div>9999658175</div>
                         </div>
                     </div>
-                    <div class="row table-space esl table-end-line relative-position" >
-                        <div class="custom-control  custom-checkbox label-division" style = " margin-left: 31px; ">
+                    <div class="row table-space esl table-end-line relative-position">
+                        <div class="custom-control  custom-checkbox label-division" style=" margin-left: 31px; ">
                             <input type="checkbox" class="custom-control-input" id="drevent-10">
                             <label class="custom-control-label" for="drevent-10"></label>
                         </div>
-                        <div class = "division-body flex outer-division ">
+                        <div class="division-body flex outer-division ">
                             <div>ESLNR</div>
                         </div>
-                        <div class = "division-body flex outer-contract-division">
+                        <div class="division-body flex outer-contract-division">
                             <div>100013478</div>
                         </div>
-                        <div class = "division-body flex meter-division ">
+                        <div class="division-body flex meter-division ">
                             <div>19901091:19901095</div>
                         </div>
-                        <div class = "division-body flex sl-division " >
+                        <div class="division-body flex sl-division ">
                             <div class="textalign-right"> 7300</div>
                         </div>
-                        <div class = "division-body flex billed-division">
+                        <div class="division-body flex billed-division">
                             <div class=" textalign-right">14.57</div>
                         </div>
-                        <div class = "division-body flex company-division ">
+                        <div class="division-body flex company-division ">
                             <div>Manager </div>
                         </div>
-                        <div class = "division-body flex address-division">
+                        <div class="division-body flex address-division">
                             <div>Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092</div>
                         </div>
-                        <div class = "division-body flex type-division">
+                        <div class="division-body flex type-division">
                             <div> Govt. Office</div>
-                        </div>  
-                        <div class = "division-body flex customer-division ">
+                        </div>
+                        <div class="division-body flex customer-division ">
                             <div>Mr. Mahesh</div>
                         </div>
-                        <div class = "division-body flex mobile-division">
+                        <div class="division-body flex mobile-division">
                             <div>995916136 </div>
-                            <div>9999658175</div>               
+                            <div>9999658175</div>
                         </div>
-                        <div class = " division-body flex mobile-division">
+                        <div class=" division-body flex mobile-division">
                             <div>995916136 </div>
-                            <div>9999658175</div>               
+                            <div>9999658175</div>
                         </div>
-                        <div class = "division-body flex mobile-division">
+                        <div class="division-body flex mobile-division">
                             <div>995916136 </div>
-                            <div>9999658175</div>               
+                            <div>9999658175</div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
-                
-            </div>
 
             </div>
+
         </div>
-   
-    </div>   
-   
+    </div>
 
-
-       
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-           
-           
-   
+</div>

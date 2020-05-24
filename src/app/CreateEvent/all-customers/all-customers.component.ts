@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService }  from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-all-customers',
@@ -6,12 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-customers.component.scss']
 })
 export class AllCustomersComponent implements OnInit {
+  resFromServer: any;
+  customerList: any;
+
+  testList: number[] = [1,2,3];
+
   innerHeight : any = 0;  
-  constructor() { }
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
     this.innerHeight = Number(window.innerHeight) - 150;
+    this.customerService.getAllCustomers().subscribe((res) => {
+      this.resFromServer = res;
+      this.customerList = this.resFromServer;
+    });
   }
-
 }
 
