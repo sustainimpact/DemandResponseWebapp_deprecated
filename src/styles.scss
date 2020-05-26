@@ -30,3 +30,17 @@ html,
 body {
   height: 100%;
 }
+
+.modal-backdrop {
+  opacity: 0.7 !important;
+}
+
+.modal-window {
+  max-width: fit-content !important;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: fit-content !important;
+  }
+}

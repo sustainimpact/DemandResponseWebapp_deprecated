@@ -4,6 +4,7 @@ import { EventsService } from 'src/app/services/events.service';
 import * as moment from 'moment';
 import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
 import { IngressService } from 'src/app/services/ingress.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-create-event-home',
@@ -14,6 +15,7 @@ export class CreateEventHomeComponent implements OnInit {
 
   @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
   constructor(private router: Router
+    , public activeModal: NgbActiveModal
     , private ingressService: IngressService
     , private eventsService: EventsService) { }
 
@@ -38,24 +40,24 @@ export class CreateEventHomeComponent implements OnInit {
       let result = reader.result.toString().split("base64,")
       thisRef.eventsService.uploadEventSet(thisRef.ingressService.currentUser.userId, result[1]).subscribe((res) => {
         thisRef.resFromServer = res;
-        if(thisRef.resFromServer != null) {
-          console.log('resFromServer : ' , thisRef.resFromServer);
-          if(thisRef.resFromServer.responseStatus==1) {
-            console.log('responseStatus : ' , thisRef.resFromServer.responseStatus);
+        if (thisRef.resFromServer != null) {
+          console.log('resFromServer : ', thisRef.resFromServer);
+          if (thisRef.resFromServer.responseStatus == 1) {
+            console.log('responseStatus : ', thisRef.resFromServer.responseStatus);
             thisRef.response = thisRef.resFromServer.response;
-            if(thisRef.response != null) {
-              console.log('response : ' , thisRef.response);
-              if(thisRef.response.eventSet != null) {
-                console.log('eventSet : ' , thisRef.response.eventSet);
+            if (thisRef.response != null) {
+              console.log('response : ', thisRef.response);
+              if (thisRef.response.eventSet != null) {
+                console.log('eventSet : ', thisRef.response.eventSet);
                 thisRef.eventsService.selectedEventSet = thisRef.response.eventSet;
                 thisRef.eventsService.selectedEventSetId = thisRef.response.eventSet.eventSetId;
                 thisRef.eventsService.selectedEventSetName = thisRef.response.eventSet.eventSetName;
                 thisRef.eventsService.selectedEventSet.events = thisRef.response.eventSet.allEvents;;
                 thisRef.eventsService.events = thisRef.response.events;
-                console.log('upcoming event sets before : ' , thisRef.eventsService.upcomingEvents);
+                console.log('upcoming event sets before : ', thisRef.eventsService.upcomingEvents);
                 thisRef.eventsService.upcomingEvents.push(thisRef.eventsService.selectedEventSet);
-                console.log('upcoming event sets after : ' , thisRef.eventsService.upcomingEvents);
-                console.log('events : ' , thisRef.eventsService.events);
+                console.log('upcoming event sets after : ', thisRef.eventsService.upcomingEvents);
+                console.log('events : ', thisRef.eventsService.events);
                 thisRef.router.navigate(['/main/createEvent'], {
                   queryParams: {
                     eventType: 'upcoming',

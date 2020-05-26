@@ -1,14 +1,44 @@
-<div class="pl-4 header-name">
-    Untitled Event Name
-</div>
-<div class="mt-2 event-outline file-upload content-align">
-    <div class="upload-middle ">
-        <div><img src="../../../assets/img/cloud-upload.svg" alt="upload">
-            <input #fileInput id="file-input" type="file" (change)="getBase64($event)"/></div>
-        Drag & drop the sheet or
-        <a class=" drag-sector browse-text  row-space" (click)="selectFile()">
-            browse
-        </a>
-        files to upload
+<div class="main">
+    <div class="header-row" (click)="activeModal.close('Close click')">
+        <img src="assets/img/close.svg" alt="close">
+    </div>
+    <div class="content-row">
+        <div class="row m-0">
+            <div class="col-12 title">
+                Schedule DR Event
+            </div>
+            <div class="col-6">
+                <div class="form-label">Date(YYYYMMDD) <span class="req">*</span></div>
+                <div><input type="date" class="form-control" placeholder="" name="email"></div>
+            </div>
+            <div class="col-6">
+                <div class="form-label">Location Code <span class="req">*</span></div>
+                <div>
+                    <select class="form-control" name="location" id="location">
+                        <option value="Hydrabad">Hydrabad</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row m-0 mt-2">
+            <div class="col-12 form-label ">
+                Upload
+            </div>
+            <div class="col-12 pt-2">
+                <div class="file-upload">
+                    <div>
+                        <img src="../../../assets/img/cloud-upload.svg" alt="upload">
+                        <input #fileInput id="file-input" type="file" (change)="getBase64($event)" />
+                    </div>
+                    <div> Drag & drop the sheet or <span class="browse-text" (click)="selectFile()"> browse </span>
+                        files
+                        to upload.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-row">
+        <button type="button" class="btn button-cancel" (click)="activeModal.close('Close click')">Cancel</button>
+        <button type="button" class="btn button-color">Done</button>
     </div>
 </div>

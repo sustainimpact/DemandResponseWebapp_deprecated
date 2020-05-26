@@ -1,44 +1,178 @@
-.event-outline{
-    border: 1px dashed #00349A;
-    border-radius: 4px;
-}
-.file-upload{
-    font-family: SourceSansPro-Regular;
-    font-size: 16px;
-    color: #2E2E2E;
-    letter-spacing: 0;
-    height: 300px;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
+.main {
+  border: 1px solid;
+  background: #FFFFFF;
+  border-radius: 4px;
+  height: 500px;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+
+  .header-row {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    padding-right: 24px;
+    padding-top: 24px;
+  }
+
+  .content-row {
+    padding-left: 50px;
+    padding-right: 50px;
+
+    .title {
+      font-family: SourceSansPro-Bold;
+      font-size: 24px;
+      color: #2E2E2E;
+      letter-spacing: 0;
+    }
+
+    .form-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #787878;
+    }
+     
+    .form-control {
+      font-size: 18px;
+      font-weight: 600;
+      color: #00349A;
+    }
+
+    .req {
+      color: red;
+    }
+
+    .file-upload {
+      font-family: SourceSansPro-Regular;
+      font-size: 16px;
+      color: #2E2E2E;
+      letter-spacing: 0;
+      height: 250px;
+      border: 1px dashed #00349A;
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .browse-text {
+        text-decoration: none !important;
+        color: #0056b3;
+        cursor: pointer;
+        font-family: SourceSansPro-Regular;
+        font-size: 16px;
+        letter-spacing: 0;
+      }
+    }
+
+    #file-input {
+      display: none;
+    }
+  }
+
+  .footer-row {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+    padding-right: 24px;
+    padding-top: 10px;
+    margin-top: auto;
+    border-top: 1px solid #EEEEEE;
+    font-family: SourceSansPro-SemiBold;
+    font-size: 14px;
+
+    .btn {
+      width: 100px;
+      text-align: center;
+      border-radius: 4px;
+    }
+
+    .btn:focus {
+      box-shadow: 0 0 0 0 rgba(0, 123, 255, .25) !important;
+    }
+
+    .button-color {
+      color: #FFFFFF;
+      background: #00349A;
+      margin-left: 12px;
+    }
+
+    .button-cancel {
+      color: #00349A;
+      background: #FFFFFF;
+      border: 1px solid #DFE2E5;
+    }
+  }
+
+
 }
 
-#file-input {
-    display: none;
-}
-.content-align{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.browse-text{
-    text-decoration: none!important;
-    color:#0056b3;
-    cursor: pointer;
-}
-.header-name{
-    font-family: SourceSansPro-Bold;
-    font-size: 24px;
-    color: #00349A;
-    letter-spacing: 0;
-}
-.drag-sector{
-    font-family: SourceSansPro-Regular;
-    font-size: 16px;
-    letter-spacing: 0;
-}
-.row-space{
-    padding-left: 4px;
-}
-.upload-middle{
-    text-align: center;
-}
+
+// .header-name {
+//   font-family: SourceSansPro-Bold;
+//   font-size: 24px;
+//   color: #00349A;
+//   letter-spacing: 0;
+// }
+
+// .launch {
+//   padding-top: 16px;
+// }
+
+// .title { s
+//   font-family: SourceSansPro-Bold;
+//   font-size: 24px;
+//   color: #2E2E2E;
+//   letter-spacing: 0;
+//   padding-top: 16px;
+// }
+
+// .body-content {
+//   font-family: SourceSansPro-Regular;
+//   font-size: 14px;
+//   color: #2E2E2E;
+//   letter-spacing: 0;
+//   padding-top: 4px;
+// }
+
+// .btn:focus {
+//   box-shadow: 0 0 0 0 rgba(0, 123, 255, .25) !important;
+// }
+
+// .cancel-btn {
+//   font-family: SourceSansPro-SemiBold;
+//   font-size: 14px;
+//   color: #417505;
+//   text-align: center;
+//   width: 87px;
+//   height: 37px;
+// }
+
+
+// .button-inner {
+//   background: #FFFFFF;
+//   border-radius: 4px;
+// }
+
+// .color-btn-inner {
+//   color: #FFFFFF;
+//   letter-spacing: 0;
+//   text-align: center;
+//   width: 197px;
+// }
+
+// .footer-divider {
+//   height: 1px;
+//   background-color: #B8C1CB;
+//   padding: 0px;
+//   opacity: 0.5;
+// }
+
+// .content-bottom {
+//   font-family: SourceSansPro-Regular;
+//   font-size: 14px;
+//   color: #000000;
+//   letter-spacing: 0;
+//   line-height: 24px;
+//   padding-top: 22px;
+// }
