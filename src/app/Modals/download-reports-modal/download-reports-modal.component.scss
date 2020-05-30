@@ -1,114 +1,135 @@
-.main-download{
-    border-radius: 5px;
-    height: 500px;
-    width:636px;
-    background-color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
+.main-download {
+  border: 1px solid;
+  border-radius: 5px;
+  height: 500px;
+  width: 636px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
 }
+
 .color-btn-inner:hover {
-    color: #FFFFFF;
+  color: #FFFFFF;
 }
+
 .cancel-btn:hover {
-    color: #00349A;;
-}
-.even-row{
-    display: flex;
-    cursor: pointer;
-    justify-content: flex-end;
-    padding-right: 26px;
-    padding-top: 21px;
-}
-.launch-main{
-    padding-left: 60px;
-}
-.launch{
-    padding-top: 16px;
-}
-.title{
-    font-family: SourceSansPro-Bold;
-    font-size: 24px;
-    color: #2E2E2E;
-    letter-spacing: 0;
-    padding-top: 16px;
-}
-.body-content{
-    font-family: SourceSansPro-Regular;
-    font-size: 14px;
-    color: #2E2E2E;
-    letter-spacing: 0;
-    padding-top: 8px;
+  color: #00349A;
+  ;
 }
 
-.common{
-    font-family: SourceSansPro-Regular;
-    font-size: 14px;
-    color: #2E2E2E;
-    letter-spacing: 0;
-    line-height: 24px;
+.even-row {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  padding-right: 24px;
+  padding-top: 24px;
 }
+
+.launch-main {
+  padding-left: 60px;
+}
+
+.launch {
+  padding-top: 16px;
+}
+
+.title {
+  font-family: SourceSansPro-Bold;
+  font-size: 24px;
+  color: #2E2E2E;
+  letter-spacing: 0;
+  padding-top: 16px;
+}
+
+.body-content {
+  font-family: SourceSansPro-Regular;
+  font-size: 14px;
+  color: #2E2E2E;
+  letter-spacing: 0;
+  padding-top: 8px;
+}
+
+.common {
+  font-family: SourceSansPro-Regular;
+  font-size: 14px;
+  color: #2E2E2E;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
 .btn:focus {
-    box-shadow: 0 0 0 0 rgba(0,123,255,.25)!important;
-}
-.cancel-btn{
-    font-family: SourceSansPro-SemiBold;
-    font-size: 14px;
-    color: #00349A;
-    text-align: center;
-    width: 87px;
-    height: 37px;
-}
-.button-main{
-display: flex;
-justify-content: flex-end;
-padding-right: 26px;
-padding-bottom: 10px;
-}
-.button-inner{
-    background: #FFFFFF;
-    border: 1px solid #DFE2E5;
-    border-radius: 4px;
-}
-.button-color{
-    background: #00349A;
-    border-radius: 4px;
-    border-radius: 4px;
-    margin-left: 12px;
-}
-.color-btn-inner{
-    font-family: SourceSansPro-SemiBold;
-    font-size: 14px;
-    color: #FFFFFF;
-    letter-spacing: 0;
-    text-align: center;
-    width: 197px;
-}
-.img-main{
-    display: flex;
-    margin-top: 24px;
-}
-.png-img{
-    width: 200px;
-    height: 120px;
-    border: 2px solid #2D8EFF;
-    border-radius: 2px;
-    display: flex;
-    justify-content: center;
+  box-shadow: 0 0 0 0 rgba(0, 123, 255, .25) !important;
 }
 
-.pdf-img{
-    width: 200px;
-    height: 120px;
-    background: #FFFFFF;
-    border: 1px solid #e3e9ef;
-    border-radius: 2px;
-    margin-left: 27px;
-    display: flex;
-    justify-content: center;
+.cancel-btn {
+  font-family: SourceSansPro-SemiBold;
+  font-size: 14px;
+  color: #00349A;
+  text-align: center;
+  width: 87px;
+  height: 37px;
 }
-.footer-divider{
-    height: 1px;
-    background-color:  #B8C1CB;
-    padding: 0px;
-    opacity:0.5;
+
+.button-main {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+  padding-right: 24px;
+  padding-top: 10px;
+  margin-top: auto;
+  border-top: 1px solid #B8C1CB;
+}
+
+.button-inner {
+  background: #FFFFFF;
+  border: 1px solid #DFE2E5;
+  border-radius: 4px;
+}
+
+.button-color {
+  background: #00349A;
+  border-radius: 4px;
+  border-radius: 4px;
+  margin-left: 12px;
+}
+
+.color-btn-inner {
+  font-family: SourceSansPro-SemiBold;
+  font-size: 14px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  text-align: center;
+  width: 197px;
+}
+
+.img-main {
+  display: flex;
+  margin-top: 24px;
+}
+
+.png-img {
+  width: 200px;
+  height: 120px;
+  border: 2px solid #2D8EFF;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+}
+
+.pdf-img {
+  width: 200px;
+  height: 120px;
+  background: #FFFFFF;
+  border: 1px solid #e3e9ef;
+  border-radius: 2px;
+  margin-left: 27px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-divider {
+  height: 1px;
+  background-color: #B8C1CB;
+  padding: 0px;
+  opacity: 0.5;
 }
