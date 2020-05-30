@@ -42,9 +42,10 @@ export class SelectEventCustomersComponent implements OnInit {
   selectedCustomers: any[] = [];
   selectedCustomer: any;
   customerList: any[];
+  customerListBkp: any[];
   resFromServer: any;
   response: any;
-
+  searchCustomer: any;
   totalCommittedPower: number=0;
   totalActualPower: number=0;
 
@@ -111,6 +112,7 @@ export class SelectEventCustomersComponent implements OnInit {
                 customer.isSelected = false;
               })
               console.log('Get Customers : ' , this.customerList);
+              this.customerListBkp = this.customerList;
             }
           }
         }
@@ -232,6 +234,25 @@ export class SelectEventCustomersComponent implements OnInit {
     }
     if(status == '1') {
       //No acion needed since customer is already in Participated state
+    }
+  }
+
+  searchCustomers() {
+    if(this.searchCustomer == '') {
+      this.customerList = this.customerListBkp;
+    }
+    else {
+      this.customerList = this.customerList.filter(customer => 
+        this.searchMatchesWithCustomerName(customer.userName, this.searchCustomer));
+    }
+  }
+
+  searchMatchesWithCustomerName(customerName: string, expression: string) {
+    if(customerName.includes(expression)) {
+      return true;
+    }
+    else {
+      return false;
     }
   }
 }
