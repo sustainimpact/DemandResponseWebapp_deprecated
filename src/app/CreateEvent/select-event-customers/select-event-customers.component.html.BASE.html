@@ -60,15 +60,13 @@
         </div>
         <div class="participant-next">
             <div class="invites">No Response</div>
-            <div class="invite-down">{{eventOverview?.noResponseCustomers}}</div>
-            <!-- Enable this when below two divisions have to be shown-->
-            <!--<div class="invite-down seven-line">{{eventOverview?.noResponseCustomers}}</div>-->
+            <div class="invite-down seven-line">{{eventOverview?.noResponseCustomers}}</div>
         </div>
-        <div class="participant-next" hidden=true>
+        <div class="participant-next">
             <div class="invites">Actively Participating</div>
             <div class="invite-down">03</div>
         </div>
-        <div class="participant-next" hidden=true>
+        <div class="participant-next">
             <div class="invites">Non-Complaint User(has penalty)</div>
             <div class="invite-down">01</div>
         </div>
@@ -157,18 +155,17 @@
                             <button type="button" class="dropdown-button drop-participate" *ngIf="customer.status==3">
                                 PARTICIPATED <i class="dropdown-arrow fas fa-chevron-down"></i>
                             </button>
-                            <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==6">
-                                REJECTED <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                            <button type="button" class="drop-rejected" *ngIf="customer.status==6">
+                                REJECTED <i class="dropdown-arrow fas fa-chevron-down"></i>
                             </button>
-                            <button type="button" class="dropdown-button drop-noresponse"
-                                *ngIf="customer.status==2">
-                                NO RESPONSE <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                            <button type="button" class="dropdown-button drop-noresponse" *ngIf="customer.status==2">
+                                NO RESPONSE <i class="dropdown-arrow fas fa-chevron-down"></i>
                             </button>
-                            <button type="button" class="dropdown-button drop-noresponse" *ngIf="customer.status==1">
-                                TO BE NOTIFIED <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                            <button type="button" class="drop-noresponse" *ngIf="customer.status==1">
+                                TO BE NOTIFIED <i class="dropdown-arrow fas fa-chevron-down"></i>
                             </button>
-                            <button type="button" class="dropdown-button drop-counterbid" *ngIf="customer.status==4">
-                                COUNTER BID <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                            <button type="button" class="drop-counterbid" *ngIf="customer.status==4">
+                                COUNTER BID <i class="dropdown-arrow fas fa-chevron-down"></i>
                             </button>
                             <div class="dropdown-menu" id="dd{{i}}" (click)="$event.stopPropagation();">
                                 <div class="dropdown-option">
@@ -178,7 +175,7 @@
                                         <label for="dd{{i}}-option1" class="green">Participated</label>
                                     </div>
                                 </div>
-                                <div class="dropdown-option" id="dd{{i}}" (click)="$event.stopPropagation();">
+                                <div class="dropdown-option">
                                     <div class="md-radio">
                                         <input id="dd{{i}}-option2" type="radio" name="participeted{{i}}" [value]="'0'"
                                             [(ngModel)]="customer.participationStatus">
@@ -199,11 +196,11 @@
                             class="end-content total-pad quantity-start len-row ten-five d-flex justify-content-between">
                             <span *ngIf="customer.counterBidFlag=='N'"> {{customer.price}}</span>
                             <span *ngIf="customer.counterBidFlag=='Y'"> {{customer.couterBidAmount}}</span>
-                            <div *ngIf="customer.status==4 || eventStatus==''">
+                            <!-- <div *ngIf="customer.status==3 || customer.status==4">
                                 <span class="link" (click)="acceptCounterBid(customer.userId)"> Accept</span>
                                 <span class="link"> | </span>
                                 <span class="link" (click)="rejectCustomer(customer.userId)"> Reject</span>
-                            </div>
+                            </div> -->
                             <!--TBD-->
                             <!-- <button type="button" class="counter-bid-accepted " data-toggle="dropdown"
                                 *ngIf="customer.status==3 || customer.counterBidFlag=='Y'">
@@ -261,17 +258,5 @@
                 </div>
             </div>
         </div>
-    </div>
-
-</div>
-<div class="inline-content border-top p-3">
-    <div class="mr-auto">
-
-    </div>
-    <div class="button-margin">
-        <button type="button" class="back-btn publish-event-button">Back</button>
-    </div>
-    <div class="button-margin">
-        <button type="button" class="btn publish-button">Update & Publish</button>
     </div>
 </div>

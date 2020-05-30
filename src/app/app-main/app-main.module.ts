@@ -14,7 +14,7 @@ import { EventSetCustomersComponent } from '../pop-up-pages/pop-up-pages.compone
 import { VersionHistoryComponent } from '../pop-up-pages/pop-up-pages.component';
 import { RejectBidModalComponent } from '../pop-up-pages/pop-up-pages.component';
 import { PopUpPagesComponent } from '../pop-up-pages/pop-up-pages.component';
-import { NgbModule,NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule,NgbModalModule, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { EventOverviewComponent } from '../CreateEvent/create-event-details/create-event-details.component';
 import { SharedServicesService } from '../services/shared-services.service';
 import { AddCustomerModalTIComponent } from '../pop-up-pages/pop-up-pages.component';
@@ -71,7 +71,7 @@ import { FormsModule } from '@angular/forms';
     AddCustomerBulkComponent,
     RejectBidModalComponent,
     PopUpPagesComponent,
-    EventOverviewComponent 
+    EventOverviewComponent
   ],
   declarations: [
      AppMainComponent,
@@ -93,7 +93,7 @@ import { FormsModule } from '@angular/forms';
     EventOverviewComponent
   ],
   bootstrap: [AppMainComponent],
-  providers:[SharedServicesService]
+  providers:[SharedServicesService, NgbActiveModal]
   // providers: [EventOverviewComponent]
  
   // schemas: [CUSTOM_ELEMENTS_SCHEMA]

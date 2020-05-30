@@ -16,8 +16,8 @@ import { CustomerService } from 'src/app/services/customer.service';
 export class SelectEventCustomersComponent implements OnInit {
 
   eventOverviewList: any[];
-  eventOverview = { invitedCustomers: "", participatedCustomers: "", counterBidCustomers: "", noResponseCustomers: "" };
-
+  //eventOverview = { invitedCustomers: "", participatedCustomers: "", counterBidCustomers: "", noResponseCustomers: "" };
+  eventOverview: any;
   event: any;
   eventId: any[] = [];
   eventName;
@@ -35,16 +35,18 @@ export class SelectEventCustomersComponent implements OnInit {
   innerHeight: any = 0;
 
   events: AllEvents[] = [];
+  eventStatus: any;
   eventDetails: any;
   numberOfEvents: number;
   selectedEvents: any[] = [];
   selectedCustomers: any[] = [];
+  selectedCustomer: any;
   customerList: any[];
   resFromServer: any;
   response: any;
 
-  totalCommittedPower: number;
-  totalActualPower: number;
+  totalCommittedPower: number=0;
+  totalActualPower: number=0;
 
   constructor(private modalService: NgbModal
     , private router: Router
@@ -85,6 +87,9 @@ export class SelectEventCustomersComponent implements OnInit {
             this.eventOverviewList = this.resFromServer.response.response;
             if (this.eventOverviewList != null) {
               this.eventOverview = this.eventOverviewList[0];
+              if(this.eventOverview != null) {
+                this.eventStatus = this.eventOverview.eventStatus;
+              }
             }
             console.log('Event Overview : ', this.eventOverviewList);
           }
@@ -94,7 +99,6 @@ export class SelectEventCustomersComponent implements OnInit {
   }
 
   getCustomers() {
-    console.log('Get Customers');
     this.customerService.getCustomers(this.selectedEvents).subscribe((res) => {
       this.resFromServer = res;
       if (this.resFromServer != null) {
@@ -105,17 +109,19 @@ export class SelectEventCustomersComponent implements OnInit {
               this.customerList.forEach(customer => {
                 customer.isSelected = false;
               })
+              console.log('Get Customers : ' , this.customerList);
             }
           }
         }
       }
+      this.calculateEventDetails();
     });
   }
 
   calculateEventDetails() {
     this.customerList.forEach(customer => {
-      this.totalCommittedPower += customer.commitments;
-      this.totalActualPower += customer.totalActualPower;
+      this.totalCommittedPower += +customer.commitments;
+      this.totalActualPower += +customer.actualPower;
     });
   }
 
@@ -208,6 +214,7 @@ export class SelectEventCustomersComponent implements OnInit {
       }
     });
   }
+
   btnToggle(i, flag) {
     if (!flag)
       document.getElementById("dd" + i).classList.toggle("show");
@@ -215,7 +222,15 @@ export class SelectEventCustomersComponent implements OnInit {
 
   onConfirm(i, status) {
     document.getElementById("dd" + i).classList.remove("show");
+    this.selectedCustomer = this.customerList[i];
     console.log(i, status);
-
+    if(status == '0') {
+      if(this.selectedCustomer != null) {
+        this.rejectCustomer(this.selectedCustomer.userId);
+      }
+    }
+    if(status == '1') {
+      //No acion needed since customer is already in Participated state
+    }
   }
 }
