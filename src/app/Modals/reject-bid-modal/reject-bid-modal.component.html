@@ -1,34 +1,32 @@
+<div class="main">
+    <div class="even-row" (click)="activeModal.close('Close click')">
+        <img src="assets/img/close.svg" alt="close">
+    </div>
+    <div class="launch-main">
+        <div class="launch">
+            <img src="assets/img/cancel-event.svg" alt="close">
+        </div>
+        <div class="title">
+            Permanently Cancel 2019102606HYS Event?
+        </div>
+        <div class="body-content">
+            Are you sure you want to cancel the event permanently?
+        </div>
+        <div class="content-red">
+            Cancelling the event, cannot be undone.
 
-    <div class="main">
-        <div class = "even-row" (click)="activeModal.close('Close click')">
-            <img  src="assets/img/close.svg" alt="close">
         </div>
-        <div class = "launch-main">
-            <div class="launch">
-                <img   src="assets/img/cancel-event.svg" alt="close">
-            </div>
-            <div class="title">
-                Permanently Cancel 2019102606HYS Event?
-            </div>
-            <div class="body-content">
-                Are you sure you want to cancel the event permanently? 
-            </div>
-            <div class="content-red">
-                Cancelling the event, cannot be undone. 
-               
-            </div>
-            <div class="content-black">
-                Customers will be notified regarding the cancellation of the event.
-               
-            </div>
-        </div>
-        <div class="button-main" style="padding-right: 26px;padding-top: 10px;margin-top: auto;border-top: 1px solid #D3D3D3;">
-            <div class = "button-inner">
-                <button type="button" class="btn cancel-btn" (click)="activeModal.close('Close click')">Cancel</button>
-            </div>
-            <div class = "button-color">
-                <button type="button" class="btn color-btn-inner" style="padding-top: 8px;">Yes, Cancel Event</button>
-            </div>
+        <div class="content-black">
+            Customers will be notified regarding the cancellation of the event.
+
         </div>
     </div>
-
+    <div class="button-main">
+        <div class="button-inner">
+            <button type="button" class="btn cancel-btn" (click)="activeModal.close('Close click')">Cancel</button>
+        </div>
+        <div class="button-color">
+            <button type="button" class="btn color-btn-inner" style="padding-top: 8px;">Yes, Cancel Event</button>
+        </div>
+    </div>
+</div>

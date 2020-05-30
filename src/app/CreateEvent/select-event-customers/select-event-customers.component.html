@@ -155,16 +155,16 @@
                             <button type="button" class="dropdown-button drop-participate" *ngIf="customer.status==3">
                                 PARTICIPATED <i class="dropdown-arrow fas fa-chevron-down"></i>
                             </button>
-                            <button type="button" class="drop-rejected" *ngIf="customer.status==6">
+                            <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==6">
                                 REJECTED <i class="dropdown-arrow fas fa-chevron-down"></i>
                             </button>
                             <button type="button" class="dropdown-button drop-noresponse" *ngIf="customer.status==2">
                                 NO RESPONSE <i class="dropdown-arrow fas fa-chevron-down"></i>
                             </button>
-                            <button type="button" class="drop-noresponse" *ngIf="customer.status==1">
+                            <button type="button" class="dropdown-button drop-noresponse" *ngIf="customer.status==1">
                                 TO BE NOTIFIED <i class="dropdown-arrow fas fa-chevron-down"></i>
                             </button>
-                            <button type="button" class="drop-counterbid" *ngIf="customer.status==4">
+                            <button type="button" class="dropdown-button drop-counterbid" *ngIf="customer.status==4">
                                 COUNTER BID <i class="dropdown-arrow fas fa-chevron-down"></i>
                             </button>
                             <div class="dropdown-menu" id="dd{{i}}" (click)="$event.stopPropagation();">
@@ -258,5 +258,17 @@
                 </div>
             </div>
         </div>
+    </div>
+
+</div>
+<div class="inline-content border-top p-3">
+    <div class="mr-auto">
+
+    </div>
+    <div class="button-margin">
+        <button type="button" class="back-btn publish-event-button">Back</button>
+    </div>
+    <div class="button-margin">
+        <button type="button" class="btn publish-button">Update & Publish</button>
     </div>
 </div>

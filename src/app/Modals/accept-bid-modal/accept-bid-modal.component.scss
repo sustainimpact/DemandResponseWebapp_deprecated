@@ -1,93 +1,112 @@
-.main{
-    border: 1px solid;
-    background: #FFFFFF;
-    border-radius: 4px;
-    height: 404px;
-    width: 636px;
-    display: flex;
-    flex-direction: column;
+.main {
+  border: 1px solid;
+  background: #FFFFFF;
+  border-radius: 4px;
+  height: 404px;
+  width: 636px;
+  display: flex;
+  flex-direction: column;
 }
+
 .color-btn-inner:hover {
-    color: #FFFFFF;
+  color: #FFFFFF;
 }
+
 .cancel-btn:hover {
-    color: #417505;;
+  color: #417505;
+  ;
 }
-.even-row{
-    display: flex;
-    cursor: pointer;
-    justify-content: flex-end;
-    padding-right: 26px;
-    padding-top: 26px;
+
+.even-row {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  padding-right: 24px;
+  padding-top: 24px;
 }
-.launch-main{
-    padding-left: 60px;
-    padding-right: 57px;
+
+.launch-main {
+  padding-left: 60px;
+  padding-right: 57px;
 }
-.launch{
-    padding-top: 16px;
+
+.launch {
+  padding-top: 16px;
 }
-.title{
-    font-family: SourceSansPro-Bold;
-    font-size: 24px;
-    color: #2E2E2E;
-    letter-spacing: 0;
-    padding-top: 16px;
+
+.title {
+  font-family: SourceSansPro-Bold;
+  font-size: 24px;
+  color: #2E2E2E;
+  letter-spacing: 0;
+  padding-top: 16px;
 }
-.body-content{
-    font-family: SourceSansPro-Regular;
-    font-size: 14px;
-    color: #2E2E2E;
-    letter-spacing: 0;
-    padding-top: 4px;
+
+.body-content {
+  font-family: SourceSansPro-Regular;
+  font-size: 14px;
+  color: #2E2E2E;
+  letter-spacing: 0;
+  padding-top: 4px;
 }
 
 .btn:focus {
-    box-shadow: 0 0 0 0 rgba(0,123,255,.25)!important;
+  box-shadow: 0 0 0 0 rgba(0, 123, 255, .25) !important;
 }
-.cancel-btn{
-    font-family: SourceSansPro-SemiBold;
-    font-size: 14px;
-    color: #417505;
-    text-align: center;
-    width: 87px;
-    height: 37px;
+
+.cancel-btn {
+  font-family: SourceSansPro-SemiBold;
+  font-size: 14px;
+  color: #417505;
+  text-align: center;
+  width: 87px;
+  height: 37px;
 }
-.button-main{
-display: flex;
-justify-content: flex-end;
-padding-bottom: 10px;
+
+.button-main {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+  padding-right: 24px;
+  padding-top: 10px;
+  margin-top: auto;
+  border-top: 1px solid #B8C1CB;
 }
-.button-inner{
-    background: #FFFFFF;
-    border: 1px solid #DFE2E5;
-    border-radius: 4px;
+
+.button-inner {
+  background: #FFFFFF;
+  border: 1px solid #DFE2E5;
+  border-radius: 4px;
 }
-.button-color{
-    background: #417505 ;
-    border-radius: 4px;
-    border-radius: 4px;
-    margin-left: 12px;
+
+.button-color {
+  background: #417505;
+  border-radius: 4px;
+  border-radius: 4px;
+  margin-left: 12px;
 }
-.color-btn-inner{
-    font-family: SourceSansPro-SemiBold;
-    font-size: 14px;
-    color: #FFFFFF;
-    letter-spacing: 0;
-    text-align: center;
-    width: 197px;
+
+.color-btn-inner {
+  font-family: SourceSansPro-SemiBold;
+  font-size: 14px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  text-align: center;
+  width: 197px;
 }
-.footer-divider{
-    height: 1px;
-    background-color:  #B8C1CB;
-    padding: 0px;
-    opacity:0.5;
+
+.footer-divider {
+  height: 1px;
+  background-color: #B8C1CB;
+  padding: 0px;
+  opacity: 0.5;
 }
-.content-bottom{
-    font-family: SourceSansPro-Regular;
-    font-size: 14px;
-    color: #000000;
-    letter-spacing: 0;
-    line-height: 24px;
-    padding-top: 22px;
+
+.content-bottom {
+  font-family: SourceSansPro-Regular;
+  font-size: 14px;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 24px;
+  padding-top: 22px;
 }

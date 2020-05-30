@@ -296,7 +296,7 @@
 .drop-counterbid {
   width: 108px;
   font-family: SourceSansPro-Regular;
-  background: #b18017;
+  background: #DB7B2E;
   border-radius: 10px;
   font-size: 10px;
   color: #FFFFFF;
@@ -318,7 +318,7 @@
 .drop-noresponse {
   width: 108px;
   font-family: SourceSansPro-Regular;
-  background: #5f5e5e;
+  background: #9B9B9B;
   border-radius: 10px;
   font-size: 10px;
   color: #FFFFFF;
@@ -489,7 +489,7 @@
 
   .dropdown-button {
     width: 80%;
-    height: 25px;
+    height: 20px;
     padding: 0 15px;
     border-radius: 50px;
     border: 0px;
@@ -617,7 +617,15 @@
   border: 0px;
   padding: 5px;
 }
-
+  
 .custom-checkbox {
   padding-left: 2rem;
+}
+
+.publish-button {
+  font-family: SourceSansPro-SemiBold !important;
+  font-size: 14px !important;
+  color: white !important;
+  line-height: 19px !important;
+  padding: 7px 30px !important;
 }

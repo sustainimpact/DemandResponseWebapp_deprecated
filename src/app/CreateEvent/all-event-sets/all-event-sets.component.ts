@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AllEventSets } from 'src/app/DataModels/AllEventSets';
 import { EventsService } from 'src/app/services/events.service';
 import * as moment from 'moment';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CreateEventHomeComponent } from '../create-event-home/create-event-home.component';
 
 @Component({
   selector: 'app-all-event-sets',
@@ -16,15 +18,16 @@ export class AllEventSetsComponent implements OnInit {
   curMonthEventSets: any[];
 
   constructor(private router: Router
+    , private modalService: NgbModal
     , private eventsService: EventsService) { }
 
   ngOnInit() {
     this.upcomingEventSets = this.eventsService.upcomingEvents;
     this.curWeekEventSets = this.eventsService.lastWeek;
     this.curMonthEventSets = this.eventsService.lastMonth;
-    console.log('Upcoming Event Sets : ' , this.upcomingEventSets);
-    console.log('Last Week Event Sets : ' , this.curWeekEventSets);
-    console.log('Last Month Event Sets : ' , this.curMonthEventSets);
+    console.log('Upcoming Event Sets : ', this.upcomingEventSets);
+    console.log('Last Week Event Sets : ', this.curWeekEventSets);
+    console.log('Last Month Event Sets : ', this.curMonthEventSets);
   }
 
   openEventSetDetails(eventSet, eventType) {
@@ -37,12 +40,13 @@ export class AllEventSetsComponent implements OnInit {
   }
 
   scheduleDrEvent() {
-    this.router.navigateByUrl('/main/uploadspreadsheet');
+    const modalRef = this.modalService.open(CreateEventHomeComponent, { centered: true, windowClass: 'create-event-modal' });
+    modalRef.componentInstance.name = 'World';
   }
 
   formatTime(ts, type) {
-    if(ts!=null) {
-      ts=ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
+    if (ts != null) {
+      ts = ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
       console.log('date : ', ts);
       if (type == 't')
         return moment(ts).format("hh:mm A");
@@ -52,11 +56,11 @@ export class AllEventSetsComponent implements OnInit {
   }
 
   getStatus(statusId) {
-    console.log('status : ' , statusId);
-    if(statusId == 'Created') {
+    console.log('status : ', statusId);
+    if (statusId == 'Created') {
       return 'Published';
     }
-    if(statusId == 'Partially Published') {
+    if (statusId == 'Partially Published') {
       return 'Partially Published';
     }
   }
