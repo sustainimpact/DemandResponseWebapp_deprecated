@@ -199,7 +199,7 @@
                             class="end-content total-pad quantity-start len-row ten-five d-flex justify-content-between">
                             <span *ngIf="customer.counterBidFlag=='N'"> {{customer.price}}</span>
                             <span *ngIf="customer.counterBidFlag=='Y'"> {{customer.couterBidAmount}}</span>
-                            <div *ngIf="customer.status==4 || eventStatus==''">
+                            <div *ngIf="customer.status==4 && eventStatus=='Gate Closed'">
                                 <span class="link" (click)="acceptCounterBid(customer.userId)"> Accept</span>
                                 <span class="link"> | </span>
                                 <span class="link" (click)="rejectCustomer(customer.userId)"> Reject</span>

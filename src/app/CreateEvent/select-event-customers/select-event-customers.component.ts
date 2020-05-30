@@ -89,6 +89,7 @@ export class SelectEventCustomersComponent implements OnInit {
               this.eventOverview = this.eventOverviewList[0];
               if(this.eventOverview != null) {
                 this.eventStatus = this.eventOverview.eventStatus;
+                console.log("Event Status : " , this.eventStatus);
               }
             }
             console.log('Event Overview : ', this.eventOverviewList);
