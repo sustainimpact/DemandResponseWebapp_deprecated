@@ -21,7 +21,8 @@
     </div>
     <div class="pt-2">
         <div class="custom-control custom-checkbox box">
-            <input type="checkbox" class="custom-control-input checkbox" id="defaultUnchecked">
+            <input type="checkbox" class="custom-control-input checkbox" 
+            id="defaultUnchecked" [(ngModel)]="isExcludedZeroSelected" (change)="excludeXero()">
             <label class="custom-control-label exclude-time" for="defaultUnchecked">Exclude times with '0' quantity &
                 price </label>
         </div>

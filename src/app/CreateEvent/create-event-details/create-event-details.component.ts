@@ -25,6 +25,7 @@ export class CreateEventDetailsComponent implements OnInit {
 
   //events: AllEvents[] = [];
   events: any[] = [];
+  eventsBkp: any[] =[];
   eventDetails: any;
 
   innerHeight: any = 0;
@@ -40,6 +41,7 @@ export class CreateEventDetailsComponent implements OnInit {
   totalCustomers: number=0;
 
   isRowSelected: boolean=false;
+  isExcludedZeroSelected: boolean=false;
 
   constructor(private modalService: NgbModal
     , private router: Router
@@ -105,6 +107,12 @@ export class CreateEventDetailsComponent implements OnInit {
   }
 
   calculateEventDetails() {
+    this.totalPlannedQuantity=0;
+    this.totalCommitments=0;
+    this.totalShortfall=0;
+    this.totalActualQuantity=0;
+    this.totalPrice=0;
+    this.totalCustomers=0;
     this.events.forEach(event => {
       this.totalPlannedQuantity+=+event.plannedPower;
       this.totalCommitments+=+event.committedPower;
@@ -192,6 +200,18 @@ export class CreateEventDetailsComponent implements OnInit {
         this.selectedEvents.push(event.eventId);
       }
     });
+  }
+
+  excludeXero() {
+    if(this.isExcludedZeroSelected) {
+      this.eventsBkp = this.events;
+      this.events = this.events.filter(event => event.plannedPower == "10.0");
+    }
+    else {
+      this.events = this.eventsBkp;
+      this.eventsBkp = [];
+    }
+    this.calculateEventDetails();
   }
 }
 
