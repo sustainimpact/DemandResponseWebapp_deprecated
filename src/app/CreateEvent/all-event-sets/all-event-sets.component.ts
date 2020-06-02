@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { Router } from '@angular/router';
 import { AllEventSets } from 'src/app/DataModels/AllEventSets';
 import { EventsService } from 'src/app/services/events.service';
 import * as moment from 'moment';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CreateEventHomeComponent } from '../create-event-home/create-event-home.component';
+import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 
 @Component({
   selector: 'app-all-event-sets',
@@ -17,17 +18,55 @@ export class AllEventSetsComponent implements OnInit {
   curWeekEventSets: any[];
   curMonthEventSets: any[];
 
+  userId: any;
+
+  resFromServer: any;
+  response: any;
+  eventSets: any;
+
   constructor(private router: Router
     , private modalService: NgbModal
-    , private eventsService: EventsService) { }
+    , private eventsService: EventsService
+    , @Inject(LOCAL_STORAGE) private storage: WebStorageService) { }
 
   ngOnInit() {
-    this.upcomingEventSets = this.eventsService.upcomingEvents;
-    this.curWeekEventSets = this.eventsService.lastWeek;
-    this.curMonthEventSets = this.eventsService.lastMonth;
-    console.log('Upcoming Event Sets : ', this.upcomingEventSets);
-    console.log('Last Week Event Sets : ', this.curWeekEventSets);
-    console.log('Last Month Event Sets : ', this.curMonthEventSets);
+    this.userId = this.storage.get('UserId');
+    this.eventsService.getEventSets(this.userId).subscribe((res) => {
+      this.resFromServer = res;
+      if(this.resFromServer != null) {
+        this.response = this.resFromServer.response;
+        if(this.response != null) {
+          this.eventSets = this.response.eventSets;
+          if(this.eventSets != null) {
+            if(this.eventSets.upcoming != null) {
+              this.upcomingEventSets = this.eventSets.upcoming;
+            }  
+            else {
+              this.upcomingEventSets = [];
+            }
+            if(this.eventSets.currWeek != null) {
+              this.curWeekEventSets = this.eventSets.currWeek;
+            }  
+            else {
+              this.curWeekEventSets = [];
+            }
+            if(this.eventSets.currMonth != null) {
+              this.curMonthEventSets = this.eventSets.currMonth;
+            }  
+            else {
+              this.curMonthEventSets = [];
+            }
+          }
+        }
+      }
+    });
+
+    // this.upcomingEventSets = this.eventsService.upcomingEvents;
+    // this.curWeekEventSets = this.eventsService.lastWeek;
+    // this.curMonthEventSets = this.eventsService.lastMonth;
+    // console.log('Upcoming Event Sets : ', this.upcomingEventSets);
+    // console.log('Last Week Event Sets : ', this.curWeekEventSets);
+    // console.log('Last Month Event Sets : ', this.curMonthEventSets);
   }
 
   openEventSetDetails(eventSet, eventType) {
@@ -35,6 +74,7 @@ export class AllEventSetsComponent implements OnInit {
       queryParams: {
         eventType: eventType,
         eventSetId: eventSet.eventSetId,
+        eventSetName: eventSet.eventSetName
       }
     });
   }

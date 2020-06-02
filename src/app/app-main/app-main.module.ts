@@ -22,7 +22,8 @@ import { AddCustomerModalGIComponent } from '../pop-up-pages/pop-up-pages.compon
 import { AddCustomerModalERComponent } from '../pop-up-pages/pop-up-pages.component';
 import { AddCustomerBulkComponent } from '../pop-up-pages/pop-up-pages.component';
 import { FormsModule } from '@angular/forms';
-
+import { NgHttpLoaderModule } from 'ng-http-loader';
+import { StorageServiceModule } from 'angular-webstorage-service';
 
 
 @NgModule({
@@ -33,7 +34,9 @@ import { FormsModule } from '@angular/forms';
     BreadcrumbModule,
     NgbModule,
     NgbModalModule,
-    FormsModule
+    FormsModule,
+    NgHttpLoaderModule.forRoot(),
+    StorageServiceModule
   ],
   exports: [ 
     AppMainComponent,

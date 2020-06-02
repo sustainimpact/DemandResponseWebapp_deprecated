@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { IngressService } from '../services/ingress.service';
 import { EventsService } from '../services/events.service';
 import { ToastrService } from 'ngx-toastr';
+import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
 
   constructor(
+    @Inject(LOCAL_STORAGE) private storage: WebStorageService,
     private router: Router,
     private ingressService: IngressService,
     private eventsService: EventsService,
@@ -62,6 +64,7 @@ export class LoginComponent implements OnInit {
             this.eventsService.upcomingEvents = this.response.upcomingEvents;
             this.eventsService.lastWeek = this.response.weeklyEvents;
             this.eventsService.lastMonth = this.response.monthlyEvents;
+            this.storage.set('UserId' , this.ingressService.currentUser.userId);
           }
           this.router.navigateByUrl('/main');
         }

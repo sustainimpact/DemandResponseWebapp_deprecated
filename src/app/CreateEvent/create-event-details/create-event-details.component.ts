@@ -43,6 +43,9 @@ export class CreateEventDetailsComponent implements OnInit {
   isRowSelected: boolean=false;
   isExcludedZeroSelected: boolean=false;
 
+  resFromServer: any;
+  response: any;
+
   constructor(private modalService: NgbModal
     , private router: Router
     , private route: ActivatedRoute
@@ -62,6 +65,7 @@ export class CreateEventDetailsComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.eventSetId = params['eventSetId'];
       this.eventType = params['eventType'];
+      this.eventSetName = params['eventSetName'];
     });
     this.getEvents();
   }
@@ -97,13 +101,29 @@ export class CreateEventDetailsComponent implements OnInit {
   getEvents() {
     console.log('Event Type : ' , this.eventType);
     console.log('Event Set Id : ' , this.eventSetId);
-    this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
-    console.log('Event Details : ' , this.eventDetails);
-    if(this.eventDetails != null) {
-      this.eventSetName = this.eventDetails.eventSetName;
-      this.events = this.eventDetails.events;
-    }
-    this.calculateEventDetails();
+
+    this.eventsService.getEvents(+this.eventSetId).subscribe((res) => {
+      this.resFromServer = res;
+      if(this.resFromServer != null) {
+        this.response = this.resFromServer.response;
+        if(this.response != null) {
+          this.eventDetails = this.response.response;
+          if(this.eventDetails != null) {
+            this.events = this.eventDetails.events;
+            this.eventsService.events = this.events;
+            console.log('events : ', this.events);
+            this.calculateEventDetails();
+          }
+        }
+      }
+    });
+
+    // this.eventDetails = this.eventsService.getEventsFromLocal(this.eventType, this.eventSetId);
+    // console.log('Event Details : ' , this.eventDetails);
+    // if(this.eventDetails != null) {
+    //   this.eventSetName = this.eventDetails.eventSetName;
+    //   this.events = this.eventDetails.events;
+    // }
   }
 
   calculateEventDetails() {
@@ -116,7 +136,8 @@ export class CreateEventDetailsComponent implements OnInit {
     this.events.forEach(event => {
       this.totalPlannedQuantity+=+event.plannedPower;
       this.totalCommitments+=+event.committedPower;
-      this.totalShortfall+=((+event.plannedPower)-(+event.committedPower));
+      //this.totalShortfall+=((+event.plannedPower)-(+event.committedPower));
+      this.totalShortfall+=+event.shortfall;
       this.totalActualQuantity+=+event.actualPower;
       this.totalPrice=+event.price;
       this.totalCustomers=+event.numberOfCustomers;
@@ -124,10 +145,11 @@ export class CreateEventDetailsComponent implements OnInit {
   }
 
   openEventsOverview() {
+    this.getSelectedEvents();
     const modalRef = this.modalService.open(EventOverviewComponent, { size: 'xl', centered: true });
-    modalRef.componentInstance.name = 'World';
     modalRef.componentInstance.eventSetId = this.eventSetId;
     modalRef.componentInstance.eventType = this.eventType;
+    modalRef.componentInstance.selectedEvents = this.selectedEvents;
   }
   
   openEventDetails(event: any) {
@@ -152,10 +174,12 @@ export class CreateEventDetailsComponent implements OnInit {
   }
 
   editCustomers() {
+    this.getSelectedEvents();
     const modalRef = this.modalService.open(EventSetCustomersComponent, { centered: true });
     modalRef.componentInstance.name = 'World';
     modalRef.componentInstance.eventSetId = this.eventSetId;
     modalRef.componentInstance.eventType = this.eventType;
+    modalRef.componentInstance.selectedEvents = this.selectedEvents;
   }
 
   publishEvents() {
@@ -163,7 +187,7 @@ export class CreateEventDetailsComponent implements OnInit {
     const modalRef = this.modalService.open(PublishEventModalComponent ,{centered: true });
     modalRef.componentInstance.eventSetId = this.eventSetId;
     modalRef.componentInstance.eventType = this.eventType;
-    modalRef.componentInstance.eventsToPublish = this.selectedEvents;
+    modalRef.componentInstance.selectedEvents = this.selectedEvents;
   }
 
   getShortfall(plannedPower: number, committedPower: number) {
@@ -192,9 +216,11 @@ export class CreateEventDetailsComponent implements OnInit {
           }
         }
     });
+    this.eventsService.events = this.events;
   }
 
   getSelectedEvents() {
+    this.selectedEvents = [];
     this.events.forEach(event => {
       if (event.isSelected) {
         this.selectedEvents.push(event.eventId);
@@ -228,28 +254,29 @@ export class EventOverviewComponent implements OnInit {
 
   @Input() public eventSetId;
   @Input() public eventType;
+  @Input() public selectedEvents;
   eventOverviewList: any[];
   events: AllEvents[]=[];
   eventDetails: any;
   numberOfEvents: number;
-  selectedEvents: any[] = [];
+  //selectedEvents: any[] = [];
   selectedCustomers: any[];
   customerList: any[];
   resFromServer: any;
   response: any;
 
   ngOnInit() {
-    this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
-    if(this.eventDetails != null) {
-      this.events = this.eventDetails.events;
-      this.events = this.events.filter(event => event.isSelected);
-      this.numberOfEvents = this.events.length;
-      this.events.forEach(event => {
-        if (event.isSelected) {
-          this.selectedEvents.push(event.eventId);
-        }
-      });
-    }
+    // this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
+    // if(this.eventDetails != null) {
+    //   this.events = this.eventDetails.events;
+    //   this.events = this.events.filter(event => event.isSelected);
+    //   this.numberOfEvents = this.events.length;
+    //   this.events.forEach(event => {
+    //     if (event.isSelected) {
+    //       this.selectedEvents.push(event.eventId);
+    //     }
+    //   });
+    // }
     this.getEventOverview();
   }
 
