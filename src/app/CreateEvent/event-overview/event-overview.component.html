@@ -1,13 +1,13 @@
-
-    <div class=" pl-4 pr-4 full-body">
-        <div class="close-icon" style=" padding-top: 10px;margin-right: -10px !important;" (click)="activeModal.close('Close click')">
-            <img src="../../../assets/img/close.svg" alt="logo">
-        </div>
+<div class="main">
+    <div class="header-main" (click)="activeModal.close('Close click')">
+        <img src="assets/img/close.svg" alt="close">
+    </div>
+    <div class="content-main">
         <div class="header-top-content">
             Events Overview
         </div>
-        <div class = "mt-2 table-border">
-            <div class="row row-top" style = "margin:0px;border-bottom: 1px solid #E4E8EC;padding-right: 7px;">
+        <div class="mt-2 table-border">
+            <div class="row row-top" style="margin:0px;border-bottom: 1px solid #E4E8EC;padding-right: 7px;">
                 <div class="col-2 row-border-header">
                     <div class="dr-event">
                         DR EVENTS
@@ -20,11 +20,12 @@
                 </div>
                 <div class="col-3 row-border-header">
                     <div class="dr-event">
-                       STAGE
+                        STAGE
                     </div>
                 </div>
                 <div class="col-5 row-border-header" style="display: block !important;padding: 0px;">
-                    <div class="dr-event" style="height: 30px; text-align: center; padding: 6px; border-bottom: 1px solid #E4E8EC;">
+                    <div class="dr-event"
+                        style="height: 30px; text-align: center; padding: 6px; border-bottom: 1px solid #E4E8EC;">
                         CUSTOMERS
                     </div>
                     <div class="col" style="display: flex;padding-right: 0px;">
@@ -35,75 +36,71 @@
                         </div>
                         <div class="col row-border" style="height:30px;">
                             <div class="sub-divided-branch">
-                            PARTICIPATED
+                                PARTICIPATED
                             </div>
                         </div>
                         <div class="col row-border" style="height:30px;">
                             <div class="sub-divided-branch">
-                            COUNTER BID
+                                COUNTER BID
                             </div>
                         </div>
                         <div class="col row-border" style="height:30px;    border-right: 0;">
                             <div class="sub-divided-branch">
-                            NO RESPONSE
+                                NO RESPONSE
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="final-column">
+                </div>
+            </div>
+            <div class="table-row-scroll">
+                <div class="row row-top" *ngFor="let event of eventOverviewList">
+                    <div class="col-2 row-border">
+                        <div class="column-one">
+                            {{event.eventName}}
+                        </div>
+                    </div>
+                    <div class="col-2 row-border">
+                        <div class="column-one">
+                            {{formatTime(event.startTime, 't')}}-{{formatTime(event.endTime, 't')}}
+                        </div>
+                    </div>
+                    <div class="col-3 plan-quantity-start">
+                        <div class="column-one">
+                            {{event.eventStatus}}
+                        </div>
+                        <div class="blue-color-font">
+                            00:01
+                        </div>
+                    </div>
+                    <div class="col-5" style="display: flex;padding-right: 0px;">
+                        <div class="col row-border plan-quantity-end">
+                            <div class="column-one">
+                                {{event.invitedCustomers}}
+                            </div>
+                        </div>
+                        <div class="col row-border plan-quantity-end">
+                            <div class="column-one">
+                                {{event.participatedCustomers}}
+                            </div>
+                        </div>
+                        <div class="col row-border plan-quantity-end">
+                            <div class="column-one">
+                                {{event.counterBidCustomers}}
+                            </div>
+                        </div>
+                        <div class="col row-border plan-quantity-end">
+                            <div class="column-one">
+                                {{event.noResponseCustomers}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="table-row-scroll" >
-            <div class="row row-top" *ngFor="let event of eventOverviewList">
-                <div class="col-2 row-border">
-                    <div class="column-one">
-                        {{event.eventName}}
-                    </div>
-                </div>
-                <div class="col-2 row-border">
-                    <div class="column-one">
-                        {{formatTime(event.startTime, 't')}}-{{formatTime(event.endTime, 't')}}
-                    </div>
-                </div>
-                <div class="col-3 plan-quantity-start">
-                    <div class="column-one">
-                        {{event.eventStatus}}
-                    </div>
-                    <div class="blue-color-font">
-                        00:01
-                    </div>
-                </div>
-                <div class="col-5" style="display: flex;padding-right: 0px;">
-                    <div class="col row-border plan-quantity-end">
-                        <div class="column-one">
-                            {{event.invitedCustomers}}
-                        </div>
-                    </div>
-                    <div class="col row-border plan-quantity-end">
-                        <div class="column-one">
-                            {{event.participatedCustomers}}
-                        </div>
-                    </div>
-                    <div class="col row-border plan-quantity-end">
-                        <div class="column-one">
-                            {{event.counterBidCustomers}}
-                        </div>
-                    </div>
-                    <div class="col row-border plan-quantity-end">
-                        <div class="column-one">
-                            {{event.noResponseCustomers}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> 
-        <div style="position: absolute; bottom: 0px; width: 100%;">
-            <div class="footer-divider"></div>
-            <div class="footer-back">
-                <div class = "button-margin">
-                    <button type="button" style="opacity: 1 !important;" class="btn publish-event-button publish-inner-button" (click)="activeModal.close('Close click')">Close</button>
-                </div> 
-            </div>
-        </div> 
-    </div>  
+    </div>
+    <div class="footer-main border-top">
+        <button type="button" class="btn cancel-btn" (click)="activeModal.close('Close click')">Close</button>
+    </div>
 </div>
