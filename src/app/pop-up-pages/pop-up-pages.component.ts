@@ -76,30 +76,31 @@ export class PopUpPagesComponent implements OnInit {
   styleUrls: ['../Modals/publish-event-modal/publish-event-modal.component.scss']
 })
 export class PublishEventModalComponent implements OnInit {
-
+  @Input() public selectedEvents;
   @Input() public eventSetId;
   @Input() public eventType;
   events: AllEvents[]=[];
   eventDetails: any;
   numberOfEvents: number;
-  selectedEvents: any[] = [];
+  //selectedEvents: any[] = [];
   resFromServer: any;
 
   constructor(public activeModal: NgbActiveModal
     , private eventsService: EventsService) {}
 
   ngOnInit() {
-    this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
-    if(this.eventDetails != null) {
-      this.events = this.eventDetails.events;
-      this.events = this.events.filter(event => event.isSelected);
-      this.numberOfEvents = this.events.length;
-      this.events.forEach(event => {
-        if (event.isSelected) {
-          this.selectedEvents.push(event.eventId);
-        }
-      });
-    }
+    // this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
+    // if(this.eventDetails != null) {
+    //   this.events = this.eventDetails.events;
+    //   this.events = this.events.filter(event => event.isSelected);
+    //   this.numberOfEvents = this.events.length;
+    //   this.events.forEach(event => {
+    //     if (event.isSelected) {
+    //       this.selectedEvents.push(event.eventId);
+    //     }
+    //   });
+    // }
+    console.log('Events To Publish : ' , this.selectedEvents);
   }
 
   publishEvents() {
@@ -121,13 +122,13 @@ export class PublishEventModalComponent implements OnInit {
   styleUrls: ['../CreateEvent/event-set-customers/event-set-customers.component.scss']
 })
 export class EventSetCustomersComponent implements OnInit {
-
+  @Input() public selectedEvents;
   @Input() public eventSetId;
   @Input() public eventType;
   events: AllEvents[]=[];
   eventDetails: any;
   numberOfEvents: number;
-  selectedEvents: any[] = [];
+  //selectedEvents: any[] = [];
   selectedCustomers: any[] = [];
   customerList: any[];
   resFromServer: any;
@@ -139,17 +140,17 @@ export class EventSetCustomersComponent implements OnInit {
     , private customerService: CustomerService) { }
 
   ngOnInit() {
-    this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
-    if(this.eventDetails != null) {
-      this.events = this.eventDetails.events;
-      this.events = this.events.filter(event => event.isSelected);
-      this.numberOfEvents = this.events.length;
-      this.events.forEach(event => {
-        if (event.isSelected) {
-          this.selectedEvents.push(event.eventId);
-        }
-      });
-    }
+    // this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
+    // if(this.eventDetails != null) {
+    //   this.events = this.eventDetails.events;
+    //   this.events = this.events.filter(event => event.isSelected);
+    //   this.numberOfEvents = this.events.length;
+    //   this.events.forEach(event => {
+    //     if (event.isSelected) {
+    //       this.selectedEvents.push(event.eventId);
+    //     }
+    //   });
+    // }
     this.getCustomers();
   }
 
