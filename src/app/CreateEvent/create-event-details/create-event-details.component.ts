@@ -99,16 +99,16 @@ export class CreateEventDetailsComponent implements OnInit {
   // }
 
   getEvents() {
-    console.log('Event Type : ' , this.eventType);
-    console.log('Event Set Id : ' , this.eventSetId);
+    console.log('Event Type : ', this.eventType);
+    console.log('Event Set Id : ', this.eventSetId);
 
     this.eventsService.getEvents(+this.eventSetId).subscribe((res) => {
       this.resFromServer = res;
-      if(this.resFromServer != null) {
+      if (this.resFromServer != null) {
         this.response = this.resFromServer.response;
-        if(this.response != null) {
+        if (this.response != null) {
           this.eventDetails = this.response.response;
-          if(this.eventDetails != null) {
+          if (this.eventDetails != null) {
             this.events = this.eventDetails.events;
             this.eventsService.events = this.events;
             console.log('events : ', this.events);
@@ -134,13 +134,13 @@ export class CreateEventDetailsComponent implements OnInit {
     this.totalPrice = 0;
     this.totalCustomers = 0;
     this.events.forEach(event => {
-      this.totalPlannedQuantity+=+event.plannedPower;
-      this.totalCommitments+=+event.committedPower;
+      this.totalPlannedQuantity += +event.plannedPower;
+      this.totalCommitments += +event.committedPower;
       //this.totalShortfall+=((+event.plannedPower)-(+event.committedPower));
-      this.totalShortfall+=+event.shortfall;
-      this.totalActualQuantity+=+event.actualPower;
-      this.totalPrice=+event.price;
-      this.totalCustomers=+event.numberOfCustomers;
+      this.totalShortfall += +event.shortfall;
+      this.totalActualQuantity += +event.actualPower;
+      this.totalPrice = +event.price;
+      this.totalCustomers = +event.numberOfCustomers;
     });
   }
 
@@ -220,14 +220,11 @@ export class CreateEventDetailsComponent implements OnInit {
   selectEvent(eventId) {
     this.events.forEach(event => {
       if (event.eventId == eventId) {
-        if (event.isSelected) {
-          event.isSelected = false;
-        }
-        else {
-          event.isSelected = true;
-        }
+        event.isSelected = (event.isSelected) ? false : true;
       }
     });
+    const selectedEvent = this.events.find((e) => e.isSelected === true);
+    this.isRowSelected = (selectedEvent) ? true : false;
     this.eventsService.events = this.events;
   }
 

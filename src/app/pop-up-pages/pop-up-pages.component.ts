@@ -1,5 +1,5 @@
-import { Component, OnInit,ViewEncapsulation, Input  } from '@angular/core';
-import { NgbModal,NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AllEvents } from 'src/app/DataModels/AllEvents';
 import { EventsService } from 'src/app/services/events.service';
 import { CustomerService } from 'src/app/services/customer.service';
@@ -19,50 +19,49 @@ export class PopUpPagesComponent implements OnInit {
   }
 
   openPublishEvent() {
-    const modalRef = this.modalService.open(PublishEventModalComponent ,{centered: true });
+    const modalRef = this.modalService.open(PublishEventModalComponent, { centered: true });
     modalRef.componentInstance.name = 'World';
   }
 
   openEventSetCustomer() {
-    const modalRef = this.modalService.open(EventSetCustomersComponent ,{centered: true });
+    const modalRef = this.modalService.open(EventSetCustomersComponent, { centered: true });
     modalRef.componentInstance.name = 'World';
   }
 
   openVersionHistory() {
-    const modalRef = this.modalService.open(VersionHistoryComponent ,{centered: true });
+    const modalRef = this.modalService.open(VersionHistoryComponent, { centered: true });
     modalRef.componentInstance.name = 'World';
   }
 
   openDownloadReports() {
-    const modalRef = this.modalService.open(DownloadReportsModalComponent ,{centered: true });
+    const modalRef = this.modalService.open(DownloadReportsModalComponent, { centered: true });
     modalRef.componentInstance.name = 'World';
   }
 
   openAcceptBid() {
-    const modalRef = this.modalService.open(AcceptBidModalComponent ,{centered: true });
+    const modalRef = this.modalService.open(AcceptBidModalComponent, { centered: true });
     modalRef.componentInstance.name = 'World';
   }
 
   openRejectBidModal() {
-    const modalRef = this.modalService.open(RejectBidModalComponent ,{centered: true });
+    const modalRef = this.modalService.open(RejectBidModalComponent, { centered: true });
     modalRef.componentInstance.name = 'World';
   }
 
-  addCustomerModalTI()
-  {
-    const modalRef = this.modalService.open(AddCustomerModalTIComponent ,{ size: 'lg',centered: true }  );
+  addCustomerModalTI() {
+    const modalRef = this.modalService.open(AddCustomerModalTIComponent, { size: 'lg', centered: true });
     modalRef.componentInstance.name = 'World';
-  } 
+  }
   addCustomerModalGI() {
-    const modalRef = this.modalService.open(AddCustomerModalGIComponent ,{ size: 'lg',centered: true });
+    const modalRef = this.modalService.open(AddCustomerModalGIComponent, { size: 'lg', centered: true });
     modalRef.componentInstance.name = 'World';
   }
   addCustomerModalER() {
-    const modalRef = this.modalService.open(AddCustomerModalERComponent ,{ size: 'lg',centered: true });
+    const modalRef = this.modalService.open(AddCustomerModalERComponent, { size: 'lg', centered: true });
     modalRef.componentInstance.name = 'World';
   }
   AddCustomerBulk() {
-    const modalRef = this.modalService.open(AddCustomerBulkComponent ,{ size: 'lg',centered: true });
+    const modalRef = this.modalService.open(AddCustomerBulkComponent, { size: 'lg', centered: true });
     modalRef.componentInstance.name = 'World';
   }
 }
@@ -79,14 +78,14 @@ export class PublishEventModalComponent implements OnInit {
   @Input() public selectedEvents;
   @Input() public eventSetId;
   @Input() public eventType;
-  events: AllEvents[]=[];
+  events: AllEvents[] = [];
   eventDetails: any;
   numberOfEvents: number;
   //selectedEvents: any[] = [];
   resFromServer: any;
 
   constructor(public activeModal: NgbActiveModal
-    , private eventsService: EventsService) {}
+    , private eventsService: EventsService) { }
 
   ngOnInit() {
     // this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
@@ -100,14 +99,14 @@ export class PublishEventModalComponent implements OnInit {
     //     }
     //   });
     // }
-    console.log('Events To Publish : ' , this.selectedEvents);
+    console.log('Events To Publish : ', this.selectedEvents);
   }
 
   publishEvents() {
     this.eventsService.publishEvents(this.selectedEvents, this.eventSetId).subscribe((res) => {
       this.resFromServer = res;
-      if(this.resFromServer != null) {
-        if(this.resFromServer.responseStatus==1) {
+      if (this.resFromServer != null) {
+        if (this.resFromServer.responseStatus == 1) {
           console.log('Events Published');
         }
       }
@@ -125,7 +124,7 @@ export class EventSetCustomersComponent implements OnInit {
   @Input() public selectedEvents;
   @Input() public eventSetId;
   @Input() public eventType;
-  events: AllEvents[]=[];
+  events: AllEvents[] = [];
   eventDetails: any;
   numberOfEvents: number;
   //selectedEvents: any[] = [];
@@ -134,6 +133,7 @@ export class EventSetCustomersComponent implements OnInit {
   resFromServer: any;
   response: any;
 
+  isRowSelected: boolean = false;
 
   constructor(public activeModal: NgbActiveModal
     , private eventsService: EventsService
@@ -173,17 +173,26 @@ export class EventSetCustomersComponent implements OnInit {
     });
   }
 
+  changeAllCustomerSelection(value) {
+    if (this.customerList && this.customerList.length > 0) {
+      if (value) {
+        this.customerList.map((e) => e.isSelected = true);
+        this.isRowSelected = true;
+      } else {
+        this.customerList.map((e) => e.isSelected = false);
+        this.isRowSelected = false;
+      }
+    } 
+  }
+  
   selectCustomer(userId) {
     this.customerList.forEach(customer => {
-        if(customer.userId==userId) {
-          if(customer.isSelected) {
-            customer.isSelected=false;
-          }
-          else {
-            customer.isSelected=true;
-          }
-        }
+      if (customer.userId == userId) {
+        customer.isSelected = (customer.isSelected) ? false : true;
+      }
     });
+    const selectedEvent = this.customerList.find((e) => e.isSelected === true);
+    this.isRowSelected = (selectedEvent) ? true : false;
   }
 
   getSelectedCustomers() {
@@ -198,8 +207,8 @@ export class EventSetCustomersComponent implements OnInit {
     this.getSelectedCustomers();
     this.customerService.updateCustomers(this.selectedEvents, this.selectedCustomers).subscribe((res) => {
       this.resFromServer = res;
-      if(this.resFromServer != null) {
-        if(this.resFromServer.responseStatus == 1) {
+      if (this.resFromServer != null) {
+        if (this.resFromServer.responseStatus == 1) {
           console.log('Customers Updated');
         }
       }
