@@ -27,14 +27,14 @@
         <div class="col menu-font-align display-property">
             <nav>
                 <ul style="padding-inline-start: 0px !important;display: flex;">
-                    <li class="item">
+                    <!-- <li class="item">
                         <a  class="bar">
                             <div class="display-property">
                                 <div class="header-icon"><img src="../../../assets/img/dashboard.svg" alt="logo"></div>
                                 <div class="topbar-font-fix" (click)="navigateToMenuItem('dashboard')">Dashboard</div>
                             </div>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="item">
                         <a href="/main" class="bar">
                             <div class="display-property">
@@ -54,8 +54,8 @@
                             </div>
                         </a>
                     </li>
-                    <li class="item">
-                        <a href="/main" class="report">
+                    <li class="item" (click) = "upcomingFunctionality()">
+                        <a class="report">
                             <div class="display-property">
                                 <div class="header-icon"><img src="../../../assets/img/reports.svg" alt="logo"></div>
                                 <div class="topbar-font-fix">Reports</div>

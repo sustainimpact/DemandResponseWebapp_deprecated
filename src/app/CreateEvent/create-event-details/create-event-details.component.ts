@@ -7,6 +7,7 @@ import { AllEvents } from 'src/app/DataModels/AllEvents';
 import { EventsService } from 'src/app/services/events.service';
 import { CustomerService } from 'src/app/services/customer.service';
 import * as moment from 'moment';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -259,7 +260,8 @@ export class EventOverviewComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal
     , private router: Router
     , private route: ActivatedRoute
-    , private eventsService: EventsService) { }
+    , private eventsService: EventsService
+    , private toastr: ToastrService) { }
 
   @Input() public eventSetId;
   @Input() public eventType;
@@ -310,5 +312,20 @@ export class EventOverviewComponent implements OnInit {
       return moment(ts).format("hh:mm");
     else if (type == 'd')
       return moment(ts).format("Do MMM, YYYY");
+  }
+
+
+  upcomingFunctionality() {
+    this.toastr.info(
+      '<span data-notify="icon" class="nc-icon nc-bell-55"></span><span data-notify="message">This is an upcoming functionality</span>',
+      "",
+      {
+        timeOut: 4000,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: "alert alert-info alert-with-icon",
+        positionClass: "toast-bottom-right"
+      }
+    );
   }
 }
