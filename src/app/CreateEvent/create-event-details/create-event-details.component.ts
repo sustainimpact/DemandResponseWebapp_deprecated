@@ -25,7 +25,7 @@ export class CreateEventDetailsComponent implements OnInit {
 
   //events: AllEvents[] = [];
   events: any[] = [];
-  eventsBkp: any[] =[];
+  eventsBkp: any[] = [];
   eventDetails: any;
 
   innerHeight: any = 0;
@@ -33,15 +33,15 @@ export class CreateEventDetailsComponent implements OnInit {
   eventSetId: number;
   eventType: string;
 
-  totalPlannedQuantity: number=0;
-  totalCommitments: number=0;
-  totalShortfall: number=0;
-  totalActualQuantity: number=0;
-  totalPrice: number=0;
-  totalCustomers: number=0;
+  totalPlannedQuantity: number = 0;
+  totalCommitments: number = 0;
+  totalShortfall: number = 0;
+  totalActualQuantity: number = 0;
+  totalPrice: number = 0;
+  totalCustomers: number = 0;
 
-  isRowSelected: boolean=false;
-  isExcludedZeroSelected: boolean=false;
+  isRowSelected: boolean = false;
+  isExcludedZeroSelected: boolean = false;
 
   resFromServer: any;
   response: any;
@@ -99,16 +99,16 @@ export class CreateEventDetailsComponent implements OnInit {
   // }
 
   getEvents() {
-    console.log('Event Type : ' , this.eventType);
-    console.log('Event Set Id : ' , this.eventSetId);
+    console.log('Event Type : ', this.eventType);
+    console.log('Event Set Id : ', this.eventSetId);
 
     this.eventsService.getEvents(+this.eventSetId).subscribe((res) => {
       this.resFromServer = res;
-      if(this.resFromServer != null) {
+      if (this.resFromServer != null) {
         this.response = this.resFromServer.response;
-        if(this.response != null) {
+        if (this.response != null) {
           this.eventDetails = this.response.response;
-          if(this.eventDetails != null) {
+          if (this.eventDetails != null) {
             this.events = this.eventDetails.events;
             this.eventsService.events = this.events;
             console.log('events : ', this.events);
@@ -127,20 +127,20 @@ export class CreateEventDetailsComponent implements OnInit {
   }
 
   calculateEventDetails() {
-    this.totalPlannedQuantity=0;
-    this.totalCommitments=0;
-    this.totalShortfall=0;
-    this.totalActualQuantity=0;
-    this.totalPrice=0;
-    this.totalCustomers=0;
+    this.totalPlannedQuantity = 0;
+    this.totalCommitments = 0;
+    this.totalShortfall = 0;
+    this.totalActualQuantity = 0;
+    this.totalPrice = 0;
+    this.totalCustomers = 0;
     this.events.forEach(event => {
-      this.totalPlannedQuantity+=+event.plannedPower;
-      this.totalCommitments+=+event.committedPower;
+      this.totalPlannedQuantity += +event.plannedPower;
+      this.totalCommitments += +event.committedPower;
       //this.totalShortfall+=((+event.plannedPower)-(+event.committedPower));
-      this.totalShortfall+=+event.shortfall;
-      this.totalActualQuantity+=+event.actualPower;
-      this.totalPrice=+event.price;
-      this.totalCustomers=+event.numberOfCustomers;
+      this.totalShortfall += +event.shortfall;
+      this.totalActualQuantity += +event.actualPower;
+      this.totalPrice = +event.price;
+      this.totalCustomers = +event.numberOfCustomers;
     });
   }
 
@@ -151,9 +151,9 @@ export class CreateEventDetailsComponent implements OnInit {
     modalRef.componentInstance.eventType = this.eventType;
     modalRef.componentInstance.selectedEvents = this.selectedEvents;
   }
-  
+
   openEventDetails(event: any) {
-    console.log("Edit customers : " , event);
+    console.log("Edit customers : ", event);
     this.router.navigate(['/main/selecteventcustomers'], {
       queryParams: {
         event: event,
@@ -184,19 +184,19 @@ export class CreateEventDetailsComponent implements OnInit {
 
   publishEvents() {
     this.getSelectedEvents();
-    const modalRef = this.modalService.open(PublishEventModalComponent ,{centered: true });
+    const modalRef = this.modalService.open(PublishEventModalComponent, { centered: true });
     modalRef.componentInstance.eventSetId = this.eventSetId;
     modalRef.componentInstance.eventType = this.eventType;
     modalRef.componentInstance.selectedEvents = this.selectedEvents;
   }
 
   getShortfall(plannedPower: number, committedPower: number) {
-    return plannedPower-committedPower;
+    return plannedPower - committedPower;
   }
 
   formatTime(ts, type) {
-    if(ts != null) {
-      ts=ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
+    if (ts != null) {
+      ts = ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
       //console.log('date : ', ts);
       if (type == 't')
         return moment(ts).format("hh:mm");
@@ -205,17 +205,26 @@ export class CreateEventDetailsComponent implements OnInit {
     }
   }
 
+  changeAllEventSelection(value) {
+    if (this.events && this.events.length > 0) {
+      if (value) {
+        this.events.map((e) => e.isSelected = true);
+        this.isRowSelected = true;
+      } else {
+        this.events.map((e) => e.isSelected = false);
+        this.isRowSelected = false;
+      }
+    }
+  }
+
   selectEvent(eventId) {
     this.events.forEach(event => {
-        if(event.eventId==eventId) {
-          if(event.isSelected) {
-            event.isSelected=false;
-          }
-          else {
-            event.isSelected=true;
-          }
-        }
+      if (event.eventId == eventId) {
+        event.isSelected = (event.isSelected) ? false : true;
+      }
     });
+    const selectedEvent = this.events.find((e) => e.isSelected === true);
+    this.isRowSelected = (selectedEvent) ? true : false;
     this.eventsService.events = this.events;
   }
 
@@ -229,7 +238,7 @@ export class CreateEventDetailsComponent implements OnInit {
   }
 
   excludeXero() {
-    if(this.isExcludedZeroSelected) {
+    if (this.isExcludedZeroSelected) {
       this.eventsBkp = this.events;
       this.events = this.events.filter(event => event.plannedPower == "10.0");
     }
@@ -256,7 +265,7 @@ export class EventOverviewComponent implements OnInit {
   @Input() public eventType;
   @Input() public selectedEvents;
   eventOverviewList: any[];
-  events: AllEvents[]=[];
+  events: AllEvents[] = [];
   eventDetails: any;
   numberOfEvents: number;
   //selectedEvents: any[] = [];
@@ -287,7 +296,7 @@ export class EventOverviewComponent implements OnInit {
         if (this.resFromServer.response != null) {
           if (this.resFromServer.response.responseStatus == 1) {
             this.eventOverviewList = this.resFromServer.response.response;
-            console.log('Event Overview : ' , this.eventOverviewList);
+            console.log('Event Overview : ', this.eventOverviewList);
           }
         }
       }
@@ -295,7 +304,7 @@ export class EventOverviewComponent implements OnInit {
   }
 
   formatTime(ts, type) {
-    ts=ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
+    ts = ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
     //console.log('date : ', ts);
     if (type == 't')
       return moment(ts).format("hh:mm");

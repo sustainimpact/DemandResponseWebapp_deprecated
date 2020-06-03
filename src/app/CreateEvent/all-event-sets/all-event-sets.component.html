@@ -23,15 +23,15 @@
         </div>
     </div>
     <div class=" row margin-common displayflex justify-evenly  inner-division  upcoming-row">
-        <div>Upcoming Demand Response Events ({{upcomingEventSets.length}})</div>
+        <div>Upcoming Demand Response Events ({{upcomingEventSets?.length}})</div>
     </div>
     <div class=" row margin-common header-bottom outer-division common-border"
         *ngFor="let upcomingEventSet of upcomingEventSets">
         <div class="col-2 main-content-inner">
             <div class=" date-col ">{{formatTime(upcomingEventSet.dateOfOccurence,'d')}}</div>
         </div>
-        <div class="col-2  main-content-inner">
-            <div class="event-col" (click) = "openEventSetDetails(upcomingEventSet, 'upcoming')">{{upcomingEventSet.eventSetName}}
+        <div class="col-2 main-content-inner">
+            <div class="event-col pointer" (click) = "openEventSetDetails(upcomingEventSet, 'upcoming')">{{upcomingEventSet.eventSetName}}
             </div>
         </div>
         <div class="col-2 power-inner ">
@@ -57,7 +57,7 @@
         </div>
     </div>
     <div class=" row margin-common displayflex justify-evenly  inner-division  upcoming-row">
-        <div> This Week ({{curWeekEventSets.length}})</div>
+        <div> This Week ({{curWeekEventSets?.length}})</div>
     </div>
     <div class="common-border">
         <div class=" row margin-common header-bottom outer-division bottom-down "
@@ -66,7 +66,7 @@
                 <div class=" date-col ">{{formatTime(curWeekEventSet.dateOfOccurence,'d')}}</div>
             </div>
             <div class="col-2  main-content-inner">
-                <div class="event-col" (click) = "openEventSetDetails(curWeekEventSet, 'curWeek')">{{curWeekEventSet.eventSetName}}</div>
+                <div class="event-col pointer" (click) = "openEventSetDetails(curWeekEventSet, 'curWeek')">{{curWeekEventSet.eventSetName}}</div>
             </div>
             <div class="col-2 power-inner">
                 <div class="power-col  kiloweight ">{{curWeekEventSet.plannedPower}}kW
@@ -88,7 +88,7 @@
         </div>
     </div>
     <div class=" row margin-common displayflex justify-evenly  inner-division  upcoming-row">
-        <div>This Month ({{curMonthEventSets.length}})</div>
+        <div>This Month ({{curMonthEventSets?.length}})</div>
     </div>
     <div class="common-border mb-5">
         <div class=" row margin-common header-bottom outer-division bottom-down "
@@ -97,7 +97,7 @@
                 <div class=" date-col ">{{formatTime(curMonthEventSet.dateOfOccurence,'d')}}</div>
             </div>
             <div class="col-2  main-content-inner">
-                <div class="event-col" (click) = "openEventSetDetails(curMonthEventSet, 'curMonth')">{{curMonthEventSet.eventSetName}}</div>
+                <div class="event-col pointer" (click) = "openEventSetDetails(curMonthEventSet, 'curMonth')">{{curMonthEventSet.eventSetName}}</div>
             </div>
             <div class="col-2 power-inner ">
                 <div class="power-col  kiloweight ">{{curMonthEventSet.plannedPower}}kW
