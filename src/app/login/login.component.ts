@@ -59,14 +59,18 @@ export class LoginComponent implements OnInit {
       if (this.resFromServer != null && this.resFromServer.response != null) {
         if (this.resFromServer.response.responseStatus == 1) {
           this.response = this.resFromServer.response.response;
-          if (this.response != null) {
+          if (this.response != null && this.response.userId) {
             this.ingressService.currentUser.userId = this.response.userId;
             this.eventsService.upcomingEvents = this.response.upcomingEvents;
             this.eventsService.lastWeek = this.response.weeklyEvents;
             this.eventsService.lastMonth = this.response.monthlyEvents;
-            this.storage.set('UserId' , this.ingressService.currentUser.userId);
+            this.storage.set('UserId', this.ingressService.currentUser.userId);
+            this.router.navigateByUrl('/main');
           }
-          this.router.navigateByUrl('/main');
+          else {
+            this.showError();
+          }
+
         }
       }
     });
@@ -86,5 +90,5 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  
+
 }
