@@ -90,5 +90,12 @@ export class LoginComponent implements OnInit {
     );
   }
 
-
+  showHidePassword() {
+    let x = document.getElementById("pass") as HTMLInputElement;
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
 }

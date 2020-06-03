@@ -48,8 +48,7 @@
                                 Email address
                             </div>
                             <div class="mt-1">
-                                <input type="text" class="form-control" placeholder=""
-                                    [(ngModel)]="email" name="email">
+                                <input type="text" class="form-control" placeholder="" [(ngModel)]="email" name="email">
                             </div>
                         </div>
                         <div class="pt-2">
@@ -57,8 +56,9 @@
                                 Password
                             </div>
                             <div class="mt-1" style="position: relative;">
-                                <input type="password" placeholder="" class="form-control" [(ngModel)]="password" name="password">
-                                <span class="fa fa-fw fa-eye field-icon" ></span>
+                                <input type="password" placeholder="" class="form-control" id="pass"
+                                    [(ngModel)]="password" name="password">
+                                <span class="fa fa-fw fa-eye field-icon" (click)="showHidePassword()"></span>
                             </div>
                         </div>
                         <!-- <div class="mt-1" style="position: relative;">
