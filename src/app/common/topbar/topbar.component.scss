@@ -107,9 +107,8 @@ a:focus::before {
 
 .bell-icon {
   font-size: 20px;
-  margin-top: 14px;
-  padding-left: 15px !important;
-  padding-right: 0px !important;
+  color: white;
+  opacity: 0.7;
 }
 
 .header-icon {
@@ -129,4 +128,8 @@ a:focus::before {
 
 .display-property {
   display: flex;
+}
+
+.fs-14 {
+  font-size: 14px;
 }

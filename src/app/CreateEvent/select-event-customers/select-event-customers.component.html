@@ -6,8 +6,15 @@
         <div class="button-margin">
             <button type="button" class="back-btn publish-event-button" (click)="cancelEvent()">Cancel Event</button>
         </div>
-        <div class="pt-1 button-margin disabled">
-            <i class="fa fas fa-ellipsis-h vertical-dot-icon"></i>
+        <div class="button-margin">
+            <button class="back-btn" type="button" id="eventDropdown" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fas fa-ellipsis-h px-1"></i>
+            </button>
+            <div class="dropdown-menu fs-14" aria-labelledby="eventDropdown">
+                <button class="dropdown-item" type="button">Download</button>
+            </div>
+            <!-- <i class="fa fas fa-ellipsis-h vertical-dot-icon"></i> -->
         </div>
     </div>
     <div class="inline-content">
@@ -45,7 +52,7 @@
         <img class="pr-1 pb-1" src="assets/img/customers-icon.svg" alt="customer-icon">
         Customers
     </div>
-    <div class=" mt-2 pb-3  inline-content actively" style="width: 80%;">
+    <div class=" mt-2 pb-3 inline-content actively" style="width: 75%;">
         <div>
             <div class="invites">Invitees</div>
             <div class="invite-down">{{eventOverview?.invitedCustomers}}</div>
@@ -77,7 +84,7 @@
             <div class="timer">00:10:23</div>
         </div>
     </div>
-    <div style="width:80%;padding-left:20px;padding-bottom: 26px;">
+    <div style="width:75%;padding-left:20px;padding-bottom: 26px;">
         <div class="table-border" [ngStyle]="{'height.px': innerHeight}">
             <div class="row pl-2 pr-4">
                 <div class="col select-customer">
@@ -99,6 +106,12 @@
                                 </div>
                             </div>
                         </div> -->
+                        <div class="input-group-prepend">
+                            <button type="button" class="refresh-button">
+                                <i class="fas fa-sync"></i>
+                            </button>
+
+                        </div>
                         <div class="md-form active">
                             <input class="form-control row-search search-event-up" type="text"
                                 placeholder="Search for customer" aria-label="Search" name="search"
@@ -114,26 +127,26 @@
 
                     </div>
                 </div>
-                <div class="col col-4 row-border">
+                <div class="col mw-300 row-border">
                     <div class="column-one new-top-col">
                         Customers
                     </div>
                 </div>
-                <div class="col col-2 row-border end-content new-top-col">
+                <div class="col mw-160 row-border end-content new-top-col">
                     Status
                 </div>
-                <div class="col">
+                <div class="col mw-230">
                     <div class="end-content  total-pad quantity-start len-row"
                         style="font-family: SourceSansPro-SemiBold;font-size: 12px;color: #2E2E2E;letter-spacing: 0;justify-content: center;">
                         PRICE (PAISE/KWH)
                     </div>
                 </div>
-                <div class="col  quantity-end commitement-header" style="justify-content: center;">
+                <div class="col col-2 quantity-end commitement-header" style="justify-content: center;">
                     <div class="end-content new-top-col">
                         COMMITMENTS (KW)
                     </div>
                 </div>
-                <div class="col  quantity-end commitement-header" style="justify-content: center;">
+                <div class="col col-2 quantity-end commitement-header" style="justify-content: center;">
                     <div class="end-content new-top-col">
                         TRANSFERRED (KW)
                     </div>
@@ -148,30 +161,33 @@
                             <label class="custom-control-label" for="customer.customerId"></label>
                         </div>
                     </div>
-                    <div class="col col-4 row-border">
-                        <div class="column-one">
+                    <div class="col mw-300 row-border text-left">
+                        <div class="column-one ">
                             {{customer.userName}}
                         </div>
                     </div>
-                    <div class="col col-2 row-border end-content">
+                    <div class="col mw-160 row-border end-content">
                         <div class="dropdown dropdown-col" data-toggle="dropdown">
                             <button type="button" class="dropdown-button drop-participate" *ngIf="customer.status==3">
                                 PARTICIPATED <i class="dropdown-arrow fas fa-chevron-down"></i>
                             </button>
                             <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==6">
-                                REJECTED <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                                REJECTED
+                                <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
-                            <button type="button" class="dropdown-button drop-noresponse"
-                                *ngIf="customer.status==2">
-                                NO RESPONSE <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                            <button type="button" class="dropdown-button drop-noresponse" *ngIf="customer.status==2">
+                                NO RESPONSE
+                                <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
                             <button type="button" class="dropdown-button drop-noresponse" *ngIf="customer.status==1">
-                                TO BE NOTIFIED <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                                TO BE NOTIFIED
+                                <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
                             <button type="button" class="dropdown-button drop-counterbid" *ngIf="customer.status==4">
-                                COUNTER BID <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                                COUNTER BID
+                                <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
-                            <div class="dropdown-menu" id="dd{{i}}" (click)="$event.stopPropagation();">
+                            <div class="dropdown-menu fs-14" id="dd{{i}}" (click)="$event.stopPropagation();">
                                 <div class="dropdown-option">
                                     <div class="md-radio">
                                         <input id="dd{{i}}-option1" type="radio" name="participeted{{i}}" [value]="'1'"
@@ -186,16 +202,14 @@
                                         <label for="dd{{i}}-option2" class="red">Rejected</label>
                                     </div>
                                 </div>
-                                <div class="confirm-btn">
-                                    <button type="button" class="btn"
-                                        (click)="onConfirm(i,customer.participationStatus)">
-                                        Confirm
-                                    </button>
-                                </div>
+                                <button type="button" class="btn w-100 fs-14"
+                                    (click)="onConfirm(i,customer.participationStatus)">
+                                    Confirm
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div class="col  commitement-header">
+                    <div class="col mw-230 commitement-header">
                         <div
                             class="end-content total-pad quantity-start len-row ten-five d-flex justify-content-between">
                             <span *ngIf="customer.counterBidFlag=='N'"> {{customer.price}}</span>
@@ -206,22 +220,22 @@
                                 <span class="link" (click)="rejectCustomer(customer.userId)"> Reject</span>
                             </div>
                             <!--TBD-->
-                            <!-- <button type="button" class="counter-bid-accepted " data-toggle="dropdown"
+                            <button type="button" class="counter-bid-accepted " data-toggle="dropdown"
                                 *ngIf="customer.status==3 || customer.counterBidFlag=='Y'">
                                 COUNTER BID - ACCEPTED
                             </button>
-                             <button type="button" class="counter-bid-rejected" data-toggle="dropdown"
+                            <button type="button" class="counter-bid-rejected" data-toggle="dropdown"
                                 *ngIf="customer.status==6 || customer.counterBidFlag=='Y'">
                                 COUNTER BID - REJECTED
-                            </button> -->
+                            </button>
                         </div>
                     </div>
-                    <div class="col  quantity-end commitement-header">
+                    <div class="col col-2 quantity-end commitement-header">
                         <div class="end-content content-module">
                             {{customer.commitments}}
                         </div>
                     </div>
-                    <div class="col  quantity-end commitement-header content-module">
+                    <div class="col col-2 quantity-end commitement-header content-module">
                         <div class="end-content content-module">
                             {{customer.actualPower}}
                         </div>
@@ -233,28 +247,29 @@
 
                         </div>
                     </div>
-                    <div class="col col-4 row-border footer-color seven-line">
+                    <div class="col mw-300 row-border footer-color seven-line">
                         <div class="row-footer total-pad color-footer-bottom" style="padding-left: 14px;">
                             TOTALS
                         </div>
                     </div>
-                    <div class="col col-2 row-border footer-color seven-line end-content">
+                    <div class="col mw-160 row-border footer-color seven-line end-content">
                         <div class="row-footer commitement-header" style="color: #2E2E2E;">
                             --
                         </div>
                     </div>
-                    <div class="col row-border footer-color seven-line end-last" style="justify-content: flex-start;">
+                    <div class="col mw-230 row-border footer-color seven-line end-last"
+                        style="justify-content: flex-start;">
                         <div class="row-footer commitement-header len-row color-footer-bottom"
                             style="padding-left: 10px;">
                             --
                         </div>
                     </div>
-                    <div class="col row-border footer-color seven-line end-last">
+                    <div class="col col-2 row-border footer-color seven-line end-last">
                         <div class="row-footer commitement-header content-module color-footer-bottom">
                             {{totalCommittedPower}}
                         </div>
                     </div>
-                    <div class="col row-border footer-color seven-line end-last">
+                    <div class="col col-2 row-border footer-color seven-line end-last">
                         <div class="row-footer commitement-header content-module color-footer-bottom">
                             {{totalActualPower}}
                         </div>

@@ -247,7 +247,8 @@
                 </div>
             </div> -->
 
-            <div class="row row-top light-gray " *ngFor="let event of events" [class.light-blue]="event.isSelected">
+            <div class="row row-top" *ngFor="let event of events" [class.light-blue]="event.isSelected"
+                [class.light-gray]="false" [class.light-yellow]="false">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" (click)="selectEvent(event.eventId)"
@@ -256,7 +257,7 @@
                     </div>
                 </div>
                 <div class="col row-border">
-                    <div class="column-one event-name pointer" (click)="openEventDetails(event)">
+                    <div class="column-one event-name text-uppercase pointer" (click)="openEventDetails(event)">
                         {{event.eventName}}
                     </div>
                 </div>

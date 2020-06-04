@@ -88,7 +88,7 @@
 
 .vertical-dot-icon {
   font-size: 14px;
-  color: #3232b3;
+  color: #00349A;
   padding: 7px 11px;
 }
 
@@ -244,14 +244,14 @@
 
 .btn {
   box-shadow: 0 0 0 0 rgba(0, 123, 255, .25) !important;
-  background-color: #2121bd !important;
+  background-color: #00349A !important;
   color: white !important;
 }
 
 .back-btn {
   box-shadow: 0 0 0 0 rgba(0, 123, 255, .25) !important;
   background-color: white !important;
-  color: #2121bd !important;
+  color: #00349A !important;
   border: 1px solid transparent;
 }
 
@@ -595,29 +595,29 @@
 }
 
 .counter-bid-accepted {
-  width: 120px;
-  height: 25px;
+  width: 150px;
+  height: 20px;
   font-family: SourceSansPro-Regular;
   background: #417505;
   border-radius: 10px;
   font-size: 10px;
   color: #FFFFFF;
   border: 0px;
-  padding: 5px;
+  // padding: 5px;
 }
 
 .counter-bid-rejected {
-  width: 120px;
-  height: 25px;
+  width: 150px;
+  height: 20px;
   font-family: SourceSansPro-Regular;
   background: #b11717;
   border-radius: 10px;
   font-size: 10px;
   color: #FFFFFF;
   border: 0px;
-  padding: 5px;
+  // padding: 5px;
 }
-  
+
 .custom-checkbox {
   padding-left: 2rem;
 }
@@ -626,6 +626,37 @@
   font-family: SourceSansPro-SemiBold !important;
   font-size: 14px !important;
   color: white !important;
+  background-color: #00349A;
   line-height: 19px !important;
   padding: 7px 30px !important;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.mw-300 {
+  max-width: 300px;
+}
+
+.mw-160 {
+  max-width: 160px;
+}
+
+.mw-230 {
+  max-width: 230px;
+}
+
+.mw-160 {
+  max-width: 160px;
+}
+
+.refresh-button {
+  width: 34px;
+  height: 34px;
+  background: #F7F7F7;
+  border: 1px solid #E4E8EC;
+  border-radius: 2px 0 0 2px;
+  font-family: SourceSansPro-Regular;
+  font-size: 12px;
 }
