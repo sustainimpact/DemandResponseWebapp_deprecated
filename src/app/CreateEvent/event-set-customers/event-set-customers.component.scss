@@ -426,3 +426,18 @@ row-customer {
 .disabled {
   opacity: 0.65;
 }
+
+.refresh-button {
+  width: 34px;
+  height: 34px;
+  background: #F7F7F7;
+  border: 1px solid #E4E8EC;
+  border-radius: 2px 0 0 2px;
+  font-family: SourceSansPro-Regular;
+  font-size: 12px;
+}
+
+.refresh-btn:focus {
+  // box-shadow: 0 0 0 0 rgba(0, 123, 255, .25) !important;
+  outline: 0px auto -webkit-focus-ring-color !important;
+}
