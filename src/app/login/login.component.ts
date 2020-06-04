@@ -61,9 +61,9 @@ export class LoginComponent implements OnInit {
           this.response = this.resFromServer.response.response;
           if (this.response != null && this.response.userId) {
             this.ingressService.currentUser.userId = this.response.userId;
-            this.eventsService.upcomingEvents = this.response.upcomingEvents;
-            this.eventsService.lastWeek = this.response.weeklyEvents;
-            this.eventsService.lastMonth = this.response.monthlyEvents;
+            //this.eventsService.upcomingEvents = this.response.upcomingEvents;
+            //this.eventsService.lastWeek = this.response.weeklyEvents;
+            //this.eventsService.lastMonth = this.response.monthlyEvents;
             this.storage.set('UserId', this.ingressService.currentUser.userId);
             this.router.navigateByUrl('/main');
           }
