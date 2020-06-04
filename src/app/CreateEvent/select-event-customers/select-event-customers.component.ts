@@ -101,8 +101,8 @@ export class SelectEventCustomersComponent implements OnInit {
       }
 
 
-      //time code
-      var start = moment(this.eventOverview.startTime);
+      //timer code
+      var start = moment(this.eventOverview.endTime);
       var seconds = start.minutes() * 60;
       this.interval = setInterval(() => {
         this.timerDisplay = start.subtract(1, "second").format("hh:mm:ss");

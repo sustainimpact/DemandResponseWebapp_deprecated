@@ -79,7 +79,7 @@
             <div class="invites">Non-Complaint User(has penalty)</div>
             <div class="invite-down">01</div>
         </div>
-        <div class="ml-auto" *ngIf = "eventOverview?.eventStatus != 'Live'">
+        <div class="ml-auto" *ngIf = "eventOverview?.eventStatus == 'Live'">
             <div class="live-ending">Live Ending in</div>
             <div class="timer">{{timerDisplay}}</div>
         </div>

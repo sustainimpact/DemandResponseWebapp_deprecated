@@ -51,6 +51,7 @@ export class CreateEventDetailsComponent implements OnInit {
   tooltipText = "No Selected Events";
   customerTooltipText = "No Selected Events";
   noEventsSelected = true;
+
   constructor(private modalService: NgbModal
     , private router: Router
     , private route: ActivatedRoute
@@ -322,6 +323,8 @@ export class EventOverviewComponent implements OnInit {
   customerList: any[];
   resFromServer: any;
   response: any;
+  interval;
+  timerDisplay;
 
   ngOnInit() {
     // this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
@@ -351,6 +354,18 @@ export class EventOverviewComponent implements OnInit {
       }
     });
   }
+
+  // getTimer(event) {    //timer code 
+  //   let interval1,timerDisplay1;
+  //   var start = moment(event.endTime);
+  //   var seconds = start.minutes() * 60;
+  //   this.interval = setInterval(() => {
+  //     timerDisplay1 = start.subtract(1, "second").format("mm:ss");
+  //     seconds--;
+  //     if (seconds === 0) clearInterval(this.interval);
+  //   }, 1000);
+  //   return timerDisplay1;
+  // }
 
   formatTime(ts, type) {
     ts = ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
