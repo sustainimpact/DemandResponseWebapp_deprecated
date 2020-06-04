@@ -5,6 +5,7 @@ import * as moment from 'moment';
 import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
 import { IngressService } from 'src/app/services/ingress.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-event-home',
@@ -17,11 +18,21 @@ export class CreateEventHomeComponent implements OnInit {
   constructor(private router: Router
     , public activeModal: NgbActiveModal
     , private ingressService: IngressService
-    , private eventsService: EventsService) { }
+    , private eventsService: EventsService
+    , private toastr: ToastrService) { }
 
   resFromServer: any;
   response: any;
   payload: any;
+
+  location: any = "HYD";
+  selecteddate: any;
+
+  result: any;
+  uploadComplete = false;
+  fileName;
+
+  eventSetDetails: any;
 
   ngOnInit() {
   }
@@ -33,45 +44,54 @@ export class CreateEventHomeComponent implements OnInit {
 
   getBase64(event) {
     let file = event.target.files[0];
+    this.fileName = event.target.files[0].name;
     let reader = new FileReader();
     let thisRef = this;
     reader.readAsDataURL(file);
     reader.onload = function () {
-      let result = reader.result.toString().split("base64,")
-      thisRef.eventsService.uploadEventSet(thisRef.ingressService.currentUser.userId, result[1]).subscribe((res) => {
-        thisRef.resFromServer = res;
-        if (thisRef.resFromServer != null) {
-          console.log('resFromServer : ', thisRef.resFromServer);
-          if (thisRef.resFromServer.responseStatus == 1) {
-            console.log('responseStatus : ', thisRef.resFromServer.responseStatus);
-            thisRef.response = thisRef.resFromServer.response;
-            if (thisRef.response != null) {
-              console.log('response : ', thisRef.response);
-              if (thisRef.response.eventSet != null) {
-                console.log('eventSet : ', thisRef.response.eventSet);
-                thisRef.eventsService.selectedEventSet = thisRef.response.eventSet;
-                thisRef.eventsService.selectedEventSetId = thisRef.response.eventSet.eventSetId;
-                thisRef.eventsService.selectedEventSetName = thisRef.response.eventSet.eventSetName;
-                thisRef.eventsService.selectedEventSet.events = thisRef.response.eventSet.allEvents;;
-                thisRef.eventsService.events = thisRef.response.events;
-                console.log('upcoming event sets before : ', thisRef.eventsService.upcomingEvents);
-                thisRef.eventsService.upcomingEvents.push(thisRef.eventsService.selectedEventSet);
-                console.log('upcoming event sets after : ', thisRef.eventsService.upcomingEvents);
-                console.log('events : ', thisRef.eventsService.events);
-                thisRef.router.navigate(['/main/createEvent'], {
-                  queryParams: {
-                    eventType: 'upcoming',
-                    eventSetId: thisRef.eventsService.selectedEventSetId,
-                  }
-                });
-              }
-            }
-          }
-        }
-      });
+      thisRef.result = reader.result.toString().split("base64,")
     };
     reader.onerror = function (error) {
       console.log('Error: ', error);
     };
+    this.uploadComplete = true;
+  }
+
+  uploadEvent() {
+    if (this.selecteddate != null && this.location != null && this.result != null) {
+      this.eventsService.uploadEventSet(this.ingressService.currentUser.userId, this.selecteddate,
+        this.location, this.result[1]).subscribe((res) => {
+          this.resFromServer = res;
+          if (this.resFromServer != null) {
+            if (this.resFromServer.responseStatus == 1) {
+              this.response = this.resFromServer.response;
+              if (this.response != null) {
+                this.eventSetDetails = this.response.eventSet;
+                if(this.eventSetDetails != null) {
+                  this.activeModal.dismiss({eventSetId: this.eventSetDetails.eventSetId, 
+                    eventSetName: this.eventSetDetails.eventSetName}); 
+                }
+              }
+            }
+          }
+        });
+    }
+    else {
+      this.showError();
+    }
+  }
+
+  showError() {
+    this.toastr.info(
+      '<span data-notify="icon" class="nc-icon nc-bell-55"></span><span data-notify="message">' + "Please select date and location and upload file before clicking on done." + '.</span>',
+      "",
+      {
+        timeOut: 4000,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: "alert alert-info alert-with-icon",
+        positionClass: "toast-bottom-right"
+      }
+    );
   }
 }

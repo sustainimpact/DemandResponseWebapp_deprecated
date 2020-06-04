@@ -16,17 +16,18 @@ import { AllCustomersComponent } from '../CreateEvent/all-customers/all-customer
 // import { VersionHistoryComponent } from '../createevent/version-history/version-history.component';
 // import { RejectBidModalComponent } from '../Modals/reject-bid-modal/reject-bid-modal.component';
 import { PopUpPagesComponent, AddCustomerModalERComponent } from '../pop-up-pages/pop-up-pages.component';
+import { AuthGuard } from '../guards/auth.guard';
 // import { EventOverviewComponent } from '../CreateEvent/event-overview/event-overview.component';
 const routes: Routes = [
   {
     path: '', component: AppMainComponent,
     children: [
       { path: '', component: AllEventSetsComponent },
-      { path: 'createEvent', component: CreateEventDetailsComponent, data: { breadcrumb: 'Create Event Details' } },
-      { path: 'selecteventcustomers', component: SelectEventCustomersComponent, data: { breadcrumb: 'Select Event Customers' } },
-      { path: 'createeventdetails', component: CreateEventDetailsComponent, data: { breadcrumb: 'Create Event Details' } },
-      { path: 'uploadspreadsheet', component: CreateEventHomeComponent, data: { breadcrumb: 'Create Event Home' } },
-      { path: 'allcustomers', component: AllCustomersComponent },
+      { path: 'createEvent', component: CreateEventDetailsComponent, data: { breadcrumb: 'Create Event Details' }, canActivate: [AuthGuard] },
+      { path: 'selecteventcustomers', component: SelectEventCustomersComponent, data: { breadcrumb: 'Select Event Customers' }, canActivate:[AuthGuard]},
+      { path: 'createeventdetails', component: CreateEventDetailsComponent, data: { breadcrumb: 'Create Event Details' }, canActivate:[AuthGuard] },
+      { path: 'uploadspreadsheet', component: CreateEventHomeComponent, data: { breadcrumb: 'Create Event Home' }, canActivate:[AuthGuard] },
+      { path: 'allcustomers', component: AllCustomersComponent, canActivate:[AuthGuard] },
       //{ path: 'addcustomermodaler', component: AddCustomerModalERComponent },
       // { path: 'publisheventmodal', component: PublishEventModalComponent },
       // { path: 'downloadreportsmodal', component: DownloadReportsModalComponent },
@@ -34,7 +35,7 @@ const routes: Routes = [
       // { path: 'eventoverview', component: EventOverviewComponent },
       // { path: 'eventsetcustomers', component: EventSetCustomersComponent },
       // { path: 'versionhistory', component: VersionHistoryComponent },
-      { path: 'popup', component: PopUpPagesComponent },
+      { path: 'popup', component: PopUpPagesComponent, canActivate:[AuthGuard]},
       // { path: 'rejectbidmodal', component: RejectBidModalComponent }
 
     ]

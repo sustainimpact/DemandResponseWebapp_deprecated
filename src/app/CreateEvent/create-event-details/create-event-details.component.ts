@@ -34,9 +34,9 @@ export class CreateEventDetailsComponent implements OnInit {
   eventSetId: number;
   eventType: string;
 
-  totalPlannedQuantity: number = 0;
-  totalCommitments: number = 0;
-  totalShortfall: number = 0;
+  totalPlannedQuantity: number = 0.0;
+  totalCommitments: number = 0.0;
+  totalShortfall: number = 0.0;
   totalActualQuantity: number = 0;
   totalPrice: number = 0;
   totalCustomers: number = 0;
@@ -100,9 +100,6 @@ export class CreateEventDetailsComponent implements OnInit {
   // }
 
   getEvents() {
-    console.log('Event Type : ', this.eventType);
-    console.log('Event Set Id : ', this.eventSetId);
-
     this.eventsService.getEvents(+this.eventSetId).subscribe((res) => {
       this.resFromServer = res;
       if (this.resFromServer != null) {
@@ -128,7 +125,7 @@ export class CreateEventDetailsComponent implements OnInit {
   }
 
   calculateEventDetails() {
-    this.totalPlannedQuantity = 0;
+    this.totalPlannedQuantity = 0.0;
     this.totalCommitments = 0;
     this.totalShortfall = 0;
     this.totalActualQuantity = 0;
@@ -200,7 +197,7 @@ export class CreateEventDetailsComponent implements OnInit {
       ts = ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
       //console.log('date : ', ts);
       if (type == 't')
-        return moment(ts).format("hh:mm");
+        return moment(ts).format("HH:mm");
       else if (type == 'd')
         return moment(ts).format("Do MMM, YYYY");
     }
@@ -241,7 +238,7 @@ export class CreateEventDetailsComponent implements OnInit {
   excludeZero() {
     if (this.isExcludedZeroSelected) {
       this.eventsBkp = this.events;
-      this.events = this.events.filter(event => event.plannedPower != "0.0" || event.plannedPower != "0" || event.plannedPower != 0);
+      this.events = this.events.filter(event => +event.plannedPower != 0);
     }
     else {
       this.events = this.eventsBkp;
