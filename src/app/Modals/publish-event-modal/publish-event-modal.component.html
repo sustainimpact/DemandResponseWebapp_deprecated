@@ -7,24 +7,27 @@
             <img src="assets/img/launch.svg" alt="close">
         </div>
         <div class="title">
-            Ready to publish all events?
+            Ready to publish events?
         </div>
         <div class="body-content">
             Please read the follow and confirm your understanding -
         </div>
         <div class="custom-control custom-checkbox check-row-box common">
-            <input type="checkbox" class="custom-control-input checkbox" id="defaultUnchecked-2">
+            <input type="checkbox" class="custom-control-input checkbox" id="defaultUnchecked-2"
+                [(ngModel)]="numberCheckFlag">
             <label class="common custom-control-label exclude-time" for="defaultUnchecked-2">There are total of
-                {{numberOfEvents}} events.</label>
+                {{selectedEvents?.length}} events.</label>
         </div>
         <div class="custom-control custom-checkbox check-row-two common">
-            <input type="checkbox" class="custom-control-input checkbox" id="defaultUncheck-1">
-            <label class="custom-control-label exclude-time" for="defaultUncheck-1">Notification is sent to all the
+            <input type="checkbox" class="custom-control-input checkbox" id="defaultUncheck-1" [(ngModel)]="notifFlag">
+            <label class="custom-control-label exclude-time" for="defaultUncheck-1">Notification
+                is sent to all the
                 selected customers with the time range of the DR Event</label>
         </div>
     </div>
     <div class="footer-main border-top">
         <button type="button" class="btn cancel-btn" (click)="activeModal.close('Close click')">Cancel</button>
-        <button type="button" class="btn primary-btn" (click)="publishEvents()">Yes, Publish all Events</button>
+        <button type="button" class="btn primary-btn" (click)="publishEvents()"
+            [disabled]="!notifFlag || !numberCheckFlag">Yes, Publish all Events</button>
     </div>
 </div>

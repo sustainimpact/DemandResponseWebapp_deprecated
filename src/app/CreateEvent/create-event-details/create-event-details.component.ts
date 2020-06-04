@@ -34,9 +34,9 @@ export class CreateEventDetailsComponent implements OnInit {
   eventSetId: number;
   eventType: string;
 
-  totalPlannedQuantity: number = 0;
-  totalCommitments: number = 0;
-  totalShortfall: number = 0;
+  totalPlannedQuantity: number = 0.0;
+  totalCommitments: number = 0.0;
+  totalShortfall: number = 0.0;
   totalActualQuantity: number = 0;
   totalPrice: number = 0;
   totalCustomers: number = 0;
@@ -125,7 +125,7 @@ export class CreateEventDetailsComponent implements OnInit {
   }
 
   calculateEventDetails() {
-    this.totalPlannedQuantity = 0;
+    this.totalPlannedQuantity = 0.0;
     this.totalCommitments = 0;
     this.totalShortfall = 0;
     this.totalActualQuantity = 0;

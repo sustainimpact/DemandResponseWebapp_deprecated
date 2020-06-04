@@ -83,6 +83,8 @@ export class PublishEventModalComponent implements OnInit {
   numberOfEvents: number;
   //selectedEvents: any[] = [];
   resFromServer: any;
+  numberCheckFlag = false;
+  notifFlag = false;
 
   constructor(public activeModal: NgbActiveModal
     , private eventsService: EventsService) { }
@@ -182,9 +184,9 @@ export class EventSetCustomersComponent implements OnInit {
         this.customerList.map((e) => e.isSelected = false);
         this.isRowSelected = false;
       }
-    } 
+    }
   }
-  
+
   selectCustomer(userId) {
     this.customerList.forEach(customer => {
       if (customer.userId == userId) {
