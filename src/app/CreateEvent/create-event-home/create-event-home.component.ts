@@ -25,8 +25,8 @@ export class CreateEventHomeComponent implements OnInit {
   response: any;
   payload: any;
 
-  location: any;
-  date: any;
+  location: any = "HYD";
+  selecteddate: any;
 
   result: any;
   uploadComplete = false;
@@ -56,8 +56,8 @@ export class CreateEventHomeComponent implements OnInit {
   }
 
   uploadEvent() {
-    if (this.date != null && this.location != null && this.result != null) {
-      this.eventsService.uploadEventSet(this.ingressService.currentUser.userId, this.date,
+    if (this.selecteddate != null && this.location != null && this.result != null) {
+      this.eventsService.uploadEventSet(this.ingressService.currentUser.userId, this.selecteddate,
         this.location, this.result[1]).subscribe((res) => {
           this.resFromServer = res;
           if (this.resFromServer != null) {
