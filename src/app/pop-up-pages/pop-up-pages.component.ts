@@ -3,6 +3,7 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AllEvents } from 'src/app/DataModels/AllEvents';
 import { EventsService } from 'src/app/services/events.service';
 import { CustomerService } from 'src/app/services/customer.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -265,10 +266,50 @@ export class AcceptBidModalComponent implements OnInit {
   styleUrls: ['../Modals/reject-bid-modal/reject-bid-modal.component.scss']
 })
 export class RejectBidModalComponent implements OnInit {
+  @Input() public eventSetId;
+  @Input() public eventName;
+  @Input() public eventId;
+  resFromServer: any;
 
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal
+    , private eventsService: EventsService
+    , private toastr: ToastrService) { }
 
   ngOnInit() {
+  }
+
+  cancelEvent() {
+    this.eventsService.cancelEvent(this.eventId, this.eventSetId).subscribe((res) => {
+      this.resFromServer = res;
+      console.log('resFromServer : ' , this.resFromServer);
+      if (this.resFromServer != null) {
+        console.log('response : ' , this.resFromServer.response);
+        if (this.resFromServer.response != null) {
+          console.log('responseStatus : ' , this.resFromServer.response.responseStatus);
+          if (this.resFromServer.response.responseStatus == "1") {
+            this.activeModal.dismiss(1);
+          }
+          else {
+            this.showError();
+            this.activeModal.dismiss(0);
+          }
+        }
+      }
+    });
+  }
+
+  showError() {
+    this.toastr.info(
+      '<span data-notify="icon" class="nc-icon nc-bell-55"></span><span data-notify="message">' + "Unable to cancel event. Please try again." + '.</span>',
+      "",
+      {
+        timeOut: 4000,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: "alert alert-info alert-with-icon",
+        positionClass: "toast-bottom-right"
+      }
+    );
   }
 }
 

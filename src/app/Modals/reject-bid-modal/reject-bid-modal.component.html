@@ -7,7 +7,7 @@
             <img src="assets/img/cancel-event.svg" alt="close">
         </div>
         <div class="title">
-            Permanently Cancel 2019102606HYS Event?
+            Permanently Cancel {{eventName}} Event?
         </div>
         <div class="body-content">
             Are you sure you want to cancel the event permanently?
@@ -26,7 +26,8 @@
             <button type="button" class="btn cancel-btn" (click)="activeModal.close('Close click')">Cancel</button>
         </div>
         <div class="button-color">
-            <button type="button" class="btn color-btn-inner" style="padding-top: 8px;">Yes, Cancel Event</button>
+            <button type="button" class="btn color-btn-inner" 
+            (click)="cancelEvent()" style="padding-top: 8px;">Yes, Cancel Event</button>
         </div>
     </div>
 </div>

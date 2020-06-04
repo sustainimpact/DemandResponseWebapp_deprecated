@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
-import { EventSetCustomersComponent, PublishEventModalComponent } from 'src/app/pop-up-pages/pop-up-pages.component';
+import { EventSetCustomersComponent, PublishEventModalComponent, 
+  RejectBidModalComponent } from 'src/app/pop-up-pages/pop-up-pages.component';
 import { AllEventSets } from 'src/app/DataModels/AllEventSets';
 import { AllEvents } from 'src/app/DataModels/AllEvents';
 import { EventsService } from 'src/app/services/events.service';
@@ -184,12 +185,15 @@ export class SelectEventCustomersComponent implements OnInit {
   }
 
   cancelEvent() {
-    this.eventsService.cancelEvent(this.eventId, this.eventSetId).subscribe((res) => {
-      this.resFromServer = res;
-      if (this.resFromServer != null) {
-        if (this.resFromServer.responseStatus == 1) {
-          console.log('Event Cancelled');
-        }
+    const modalRef = this.modalService.open(RejectBidModalComponent, { centered: true });
+    modalRef.componentInstance.eventId = this.eventId;
+    modalRef.componentInstance.eventName = this.eventName;
+    modalRef.componentInstance.eventSetId = this.eventSetId;
+    modalRef.result.then((result) => {},
+    (reason) => {
+      console.log('reason : ' , reason);
+      if(reason==1) {
+        this.eventStatus='Cancelled';
       }
     });
   }
