@@ -47,7 +47,10 @@ export class CreateEventDetailsComponent implements OnInit {
   resFromServer: any;
   response: any;
   isPublishable = false;
+  isCustomerEditable = false;
   tooltipText = "No Selected Events";
+  customerTooltipText = "No Selected Events";
+  noEventsSelected = true;
   constructor(private modalService: NgbModal
     , private router: Router
     , private route: ActivatedRoute
@@ -208,6 +211,31 @@ export class CreateEventDetailsComponent implements OnInit {
     }
   }
 
+  checkCustomerEditable() {
+    let i, count = 0;
+    for (i = 0; i < this.events.length; i++) {
+      if (this.events[i].isSelected) {
+        this.noEventsSelected = false;
+        count++;
+      }
+
+      if (!(this.events[i].eventStatus == "Created" || this.events[i].eventStatus == "Published") && this.events[i].isSelected) {
+        this.isCustomerEditable = false;
+        this.customerTooltipText = "Customers cannot be updated for one or more of selected events";
+        break;
+      }
+    } if (count == 0) {
+      this.noEventsSelected = true;
+      this.isCustomerEditable = false;
+      this.customerTooltipText = "No Selected Events";
+    }
+    else if (i == this.events.length) {
+      this.isCustomerEditable = true;
+      this.customerTooltipText = "";
+    }
+
+  }
+
   getShortfall(plannedPower: number, committedPower: number) {
     return plannedPower - committedPower;
   }
@@ -245,6 +273,7 @@ export class CreateEventDetailsComponent implements OnInit {
     this.isRowSelected = (selectedEvent) ? true : false;
     this.eventsService.events = this.events;
     this.checkForPublished();
+    this.checkCustomerEditable();
   }
 
   getSelectedEvents() {
