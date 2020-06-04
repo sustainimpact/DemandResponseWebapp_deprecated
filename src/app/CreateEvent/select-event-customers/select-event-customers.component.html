@@ -48,7 +48,7 @@
     <div class=" mt-2 pb-3  inline-content actively" style="width: 80%;">
         <div>
             <div class="invites">Invitees</div>
-            <div class="invite-down">{{eventOverview?.invitedCustomers}}</div>
+            <div class="invite-down">{{eventOverview?.numberOfCustomers}}</div>
         </div>
         <div class="participant-next">
             <div class="invites"> Participated</div>
@@ -72,9 +72,9 @@
             <div class="invites">Non-Complaint User(has penalty)</div>
             <div class="invite-down">01</div>
         </div>
-        <div class="ml-auto">
+        <div class="ml-auto" *ngIf = "eventOverview?.eventStatus != 'Live'">
             <div class="live-ending">Live Ending in</div>
-            <div class="timer">00:10:23</div>
+            <div class="timer">{{timerDisplay}}</div>
         </div>
     </div>
     <div style="width:80%;padding-left:20px;padding-bottom: 26px;">
