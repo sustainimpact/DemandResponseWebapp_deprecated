@@ -28,12 +28,15 @@
             <div class="col-12 pt-2">
                 <div class="file-upload">
                     <div>
-                        <img src="../../../assets/img/cloud-upload.svg" alt="upload">
+                        <img src="../../../assets/img/cloud-upload.svg" alt="upload" *ngIf="!uploadComplete">
+                        <img src="../../../assets/img/excel.svg" alt="file" *ngIf="uploadComplete">
                         <input #fileInput id="file-input" type="file" (change)="getBase64($event)" />
                     </div>
-                    <div> Drag & drop the sheet or <span class="browse-text" (click)="selectFile()"> browse </span>
+                    <div *ngIf="!uploadComplete"> Drag & drop the sheet or <span class="browse-text"
+                            (click)="selectFile()"> browse </span>
                         files
                         to upload.</div>
+                    <div *ngIf="uploadComplete">{{fileName}}</div>
                 </div>
             </div>
         </div>

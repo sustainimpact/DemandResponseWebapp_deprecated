@@ -29,6 +29,8 @@ export class CreateEventHomeComponent implements OnInit {
   date: any;
 
   result: any;
+  uploadComplete = false;
+  fileName;
 
   ngOnInit() {
   }
@@ -40,6 +42,7 @@ export class CreateEventHomeComponent implements OnInit {
 
   getBase64(event) {
     let file = event.target.files[0];
+    this.fileName = event.target.files[0].name;
     let reader = new FileReader();
     let thisRef = this;
     reader.readAsDataURL(file);
@@ -49,36 +52,37 @@ export class CreateEventHomeComponent implements OnInit {
     reader.onerror = function (error) {
       console.log('Error: ', error);
     };
+    this.uploadComplete = true;
   }
 
   uploadEvent() {
-    if(this.date != null && this.location != null && this.result != null) {
-      this.eventsService.uploadEventSet(this.ingressService.currentUser.userId, this.date, 
+    if (this.date != null && this.location != null && this.result != null) {
+      this.eventsService.uploadEventSet(this.ingressService.currentUser.userId, this.date,
         this.location, this.result[1]).subscribe((res) => {
-        this.resFromServer = res;
-        if (this.resFromServer != null) {
-          if (this.resFromServer.responseStatus == 1) {
-            this.response = this.resFromServer.response;
-            if (this.response != null) {
-              if (this.response.eventSet != null) {
-                this.eventsService.selectedEventSet = this.response.eventSet;
-                this.eventsService.selectedEventSetId = this.response.eventSet.eventSetId;
-                this.eventsService.selectedEventSetName = this.response.eventSet.eventSetName;
-                //this.eventsService.selectedEventSet.events = this.response.eventSet.allEvents;;
-                //this.eventsService.events = this.response.events;
-                this.eventsService.upcomingEvents.push(this.eventsService.selectedEventSet);
-                this.router.navigate(['/main/createEvent'], {
-                  queryParams: {
-                    eventType: 'upcoming',
-                    eventSetId: this.eventsService.selectedEventSetId,
-                    eventSetName: this.eventsService.selectedEventSetName
-                  }
-                });
+          this.resFromServer = res;
+          if (this.resFromServer != null) {
+            if (this.resFromServer.responseStatus == 1) {
+              this.response = this.resFromServer.response;
+              if (this.response != null) {
+                if (this.response.eventSet != null) {
+                  this.eventsService.selectedEventSet = this.response.eventSet;
+                  this.eventsService.selectedEventSetId = this.response.eventSet.eventSetId;
+                  this.eventsService.selectedEventSetName = this.response.eventSet.eventSetName;
+                  //this.eventsService.selectedEventSet.events = this.response.eventSet.allEvents;;
+                  //this.eventsService.events = this.response.events;
+                  this.eventsService.upcomingEvents.push(this.eventsService.selectedEventSet);
+                  this.router.navigate(['/main/createEvent'], {
+                    queryParams: {
+                      eventType: 'upcoming',
+                      eventSetId: this.eventsService.selectedEventSetId,
+                      eventSetName: this.eventsService.selectedEventSetName
+                    }
+                  });
+                }
               }
             }
           }
-        }
-      });
+        });
     }
     else {
       this.showError();
