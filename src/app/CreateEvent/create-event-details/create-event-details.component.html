@@ -3,16 +3,19 @@
         <div class="year mr-auto">
             {{eventSetName}}
         </div>
+        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" [title]="tooltipText">
+            <div class="button-margin">
+                <button type="button" class="btn publish-event-button active" [class.disabled]="!isPublishable"
+                    (click)="publishEvents()">Publish Events</button>
+            </div>
+        </span>
+
         <div class="button-margin">
-            <button type="button" class="btn publish-event-button active" [class.disabled]="!isRowSelected"
-                (click)="publishEvents()">Publish Events</button>
-        </div>
-        <div class="button-margin">
-            <button type="button" class="btn publish-event-button" [class.disabled]="!isRowSelected"
-                (click)="openEventsOverview()">Events Overview</button>
+            <button type="button" class="btn publish-event-button active" (click)="openEventsOverview()">Events
+                Overview</button>
         </div>
         <div class="button-margin" (click)="editCustomers()">
-            <button type="button" class="btn publish-event-button" [class.disabled]="!isRowSelected">
+            <button type="button" class="btn publish-event-button active" [class.disabled]="!isPublishable">
                 Edit Customers</button>
         </div>
         <div>
@@ -248,7 +251,8 @@
             </div> -->
 
             <div class="row row-top" *ngFor="let event of events" [class.light-blue]="event.isSelected"
-                [class.light-gray]="false" [class.light-yellow]="false">
+                [class.light-gray]="event.eventStatus == 'Published'" [class.light-yellow]="false"
+                [class.light-red]="event.eventStatus == 'Cancelled'">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" (click)="selectEvent(event.eventId)"

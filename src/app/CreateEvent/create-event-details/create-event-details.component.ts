@@ -46,7 +46,8 @@ export class CreateEventDetailsComponent implements OnInit {
 
   resFromServer: any;
   response: any;
-
+  isPublishable = false;
+  tooltipText = "No Selected Events";
   constructor(private modalService: NgbModal
     , private router: Router
     , private route: ActivatedRoute
@@ -187,6 +188,25 @@ export class CreateEventDetailsComponent implements OnInit {
     modalRef.componentInstance.eventType = this.eventType;
     modalRef.componentInstance.selectedEvents = this.selectedEvents;
   }
+  checkForPublished() {
+    let i, count = 0;
+    for (i = 0; i < this.events.length; i++) {
+      if (this.events[i].isSelected)
+        count++;
+      if (this.events[i].eventStatus != "Created" && this.events[i].isSelected) {
+        this.isPublishable = false;
+        this.tooltipText = "Selection contains published events";
+        break;
+      }
+    } if (count == 0) {
+      this.isPublishable = false;
+      this.tooltipText = "No Selected Events";
+    }
+    else if (i == this.events.length) {
+      this.isPublishable = true;
+      this.tooltipText = "";
+    }
+  }
 
   getShortfall(plannedPower: number, committedPower: number) {
     return plannedPower - committedPower;
@@ -224,6 +244,7 @@ export class CreateEventDetailsComponent implements OnInit {
     const selectedEvent = this.events.find((e) => e.isSelected === true);
     this.isRowSelected = (selectedEvent) ? true : false;
     this.eventsService.events = this.events;
+    this.checkForPublished();
   }
 
   getSelectedEvents() {
