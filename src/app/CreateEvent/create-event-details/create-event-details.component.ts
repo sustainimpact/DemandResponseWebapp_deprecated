@@ -197,7 +197,7 @@ export class CreateEventDetailsComponent implements OnInit {
       ts = ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
       //console.log('date : ', ts);
       if (type == 't')
-        return moment(ts).format("hh:mm");
+        return moment(ts).format("HH:mm");
       else if (type == 'd')
         return moment(ts).format("Do MMM, YYYY");
     }
