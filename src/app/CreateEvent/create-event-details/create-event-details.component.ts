@@ -238,7 +238,7 @@ export class CreateEventDetailsComponent implements OnInit {
   excludeZero() {
     if (this.isExcludedZeroSelected) {
       this.eventsBkp = this.events;
-      this.events = this.events.filter(event => event.plannedPower != "0.0" || event.plannedPower != "0" || event.plannedPower != 0);
+      this.events = this.events.filter(event => +event.plannedPower != 0);
     }
     else {
       this.events = this.eventsBkp;
