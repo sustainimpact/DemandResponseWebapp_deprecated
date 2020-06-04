@@ -32,6 +32,8 @@ export class CreateEventHomeComponent implements OnInit {
   uploadComplete = false;
   fileName;
 
+  eventSetDetails: any;
+
   ngOnInit() {
   }
   selectFile() {
@@ -64,20 +66,10 @@ export class CreateEventHomeComponent implements OnInit {
             if (this.resFromServer.responseStatus == 1) {
               this.response = this.resFromServer.response;
               if (this.response != null) {
-                if (this.response.eventSet != null) {
-                  this.eventsService.selectedEventSet = this.response.eventSet;
-                  this.eventsService.selectedEventSetId = this.response.eventSet.eventSetId;
-                  this.eventsService.selectedEventSetName = this.response.eventSet.eventSetName;
-                  //this.eventsService.selectedEventSet.events = this.response.eventSet.allEvents;;
-                  //this.eventsService.events = this.response.events;
-                  this.eventsService.upcomingEvents.push(this.eventsService.selectedEventSet);
-                  this.router.navigate(['/main/createEvent'], {
-                    queryParams: {
-                      eventType: 'upcoming',
-                      eventSetId: this.eventsService.selectedEventSetId,
-                      eventSetName: this.eventsService.selectedEventSetName
-                    }
-                  });
+                this.eventSetDetails = this.response.eventSet;
+                if(this.eventSetDetails != null) {
+                  this.activeModal.dismiss({eventSetId: this.eventSetDetails.eventSetId, 
+                    eventSetName: this.eventSetDetails.eventSetName}); 
                 }
               }
             }

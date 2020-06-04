@@ -60,13 +60,6 @@ export class AllEventSetsComponent implements OnInit {
         }
       }
     });
-
-    // this.upcomingEventSets = this.eventsService.upcomingEvents;
-    // this.curWeekEventSets = this.eventsService.lastWeek;
-    // this.curMonthEventSets = this.eventsService.lastMonth;
-    // console.log('Upcoming Event Sets : ', this.upcomingEventSets);
-    // console.log('Last Week Event Sets : ', this.curWeekEventSets);
-    // console.log('Last Month Event Sets : ', this.curMonthEventSets);
   }
 
   openEventSetDetails(eventSet, eventType) {
@@ -80,8 +73,17 @@ export class AllEventSetsComponent implements OnInit {
   }
 
   scheduleDrEvent() {
-    const modalRef = this.modalService.open(CreateEventHomeComponent, { centered: true, windowClass: 'create-event-modal' });
-    modalRef.componentInstance.name = 'World';
+    this.modalService.open(CreateEventHomeComponent, { centered: true, windowClass: 'create-event-modal' })
+    .result.then((result) => {},
+    (reason) => {
+      this.router.navigate(['/main/createEvent'], {
+          queryParams: {
+            eventType: 'upcoming',
+            eventSetId: reason.eventSetId,
+            eventSetName: reason.eventSetName
+          }
+        });  
+    });
   }
 
   formatTime(ts, type) {
