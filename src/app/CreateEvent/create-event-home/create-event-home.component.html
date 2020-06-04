@@ -9,13 +9,14 @@
             </div>
             <div class="col-6">
                 <div class="form-label">Date(YYYYMMDD) <span class="req">*</span></div>
-                <div><input type="date" class="form-control" tabindex="-1"></div>
+                <div><input type="date" [(ngModel)]="date" class="form-control" tabindex="-1"></div>
             </div>
             <div class="col-6">
                 <div class="form-label">Location Code <span class="req">*</span></div>
                 <div>
-                    <select class="form-control" name="location" id="location" tabindex="-1">
-                        <option value="Hydrabad">Hydrabad</option>
+                    <select class="form-control" [(ngModel)]="location" name="location" id="location" tabindex="-1">
+                        <option value="HYD">Hyderabad</option>
+                        <option value="NDL">New Delhi</option>
                     </select>
                 </div>
             </div>
@@ -39,6 +40,6 @@
     </div>
     <div class="footer-row">
         <button type="button" class="btn button-cancel" (click)="activeModal.close('Close click')">Cancel</button>
-        <button type="button" class="btn button-color">Done</button>
+        <button type="button" class="btn button-color" (click)="uploadEvent()">Done</button>
     </div>
 </div>

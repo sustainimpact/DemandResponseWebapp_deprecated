@@ -100,9 +100,6 @@ export class CreateEventDetailsComponent implements OnInit {
   // }
 
   getEvents() {
-    console.log('Event Type : ', this.eventType);
-    console.log('Event Set Id : ', this.eventSetId);
-
     this.eventsService.getEvents(+this.eventSetId).subscribe((res) => {
       this.resFromServer = res;
       if (this.resFromServer != null) {

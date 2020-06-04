@@ -20,7 +20,7 @@ export class EventsService {
   selectedEventSetName: string;
   eventsForSelectedEventSet: AllEvents[] = [];
 
-  uploadEventSetUrl = DR_URL + 'uploadEventSet/Hyd';
+  uploadEventSetUrl = DR_URL + 'uploadEventSet';
   publishEventsUrl = DR_URL + 'publishEvent';
   getEventOverviewUrl = DR_URL + 'getEventOverview';
   cancelEventUrl = DR_URL + 'cancelEvent';
@@ -81,14 +81,15 @@ export class EventsService {
     );
   }
 
-  uploadEventSet(userId: any, payload: string) {
+  uploadEventSet(userId: any, date: any, location: any, payload: string) {
     console.log('User Id : ' , userId);
     console.log('Payload : ' , payload);
     var options = {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
     };
-    return this.httpClient.post(this.uploadEventSetUrl + '/' + userId
+    return this.httpClient.post(this.uploadEventSetUrl + '/' + location 
+      + '/'+ userId + '/' + date
       , {"eventSet":payload}
       , options
     );
