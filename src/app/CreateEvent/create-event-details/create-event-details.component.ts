@@ -255,7 +255,7 @@ export class CreateEventDetailsComponent implements OnInit {
 
   publishDREvents() {
     this.toastr.info(
-      'You have successfully publshed 8 DR Events for 26th Oct, 2019.',
+      'You have successfully publshed the selected events.',
       "",
       {
         timeOut: 5000,

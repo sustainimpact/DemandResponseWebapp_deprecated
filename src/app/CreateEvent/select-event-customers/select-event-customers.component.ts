@@ -261,7 +261,7 @@ export class SelectEventCustomersComponent implements OnInit {
   }
 
   searchMatchesWithCustomerName(customerName: string, expression: string) {
-    if (customerName.includes(expression)) {
+    if (customerName.toLowerCase().includes(expression.toLowerCase())) {
       return true;
     }
     else {
