@@ -227,3 +227,13 @@ input[type=radio]:checked {
 .event-name {
   color: #00349A;
 }
+
+.toast-container.toast-top-center .ngx-toastr {
+  width: 600px;
+  top: 90px;
+}
+
+.toast-info {
+  background-color: #417505;
+  // background-image:''
+}
