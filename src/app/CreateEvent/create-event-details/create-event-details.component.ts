@@ -55,6 +55,7 @@ export class CreateEventDetailsComponent implements OnInit {
   constructor(private modalService: NgbModal
     , private router: Router
     , private route: ActivatedRoute
+    , private toastr: ToastrService
     , private eventsService: EventsService
     , private customerService: CustomerService) { }
 
@@ -235,6 +236,19 @@ export class CreateEventDetailsComponent implements OnInit {
       this.customerTooltipText = "";
     }
 
+  }
+
+  publishDREvents() {
+    this.toastr.info(
+      'You have successfully  publshed 8 DR Events for 26th Oct, 2019.',
+      "",
+      {
+        timeOut: 5000,
+        closeButton: true,
+        enableHtml: true,
+        positionClass: "toast-top-center"
+      }
+    );
   }
 
   getShortfall(plannedPower: number, committedPower: number) {
