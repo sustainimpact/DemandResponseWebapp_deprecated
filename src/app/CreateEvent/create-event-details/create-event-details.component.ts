@@ -8,6 +8,7 @@ import { EventsService } from 'src/app/services/events.service';
 import { CustomerService } from 'src/app/services/customer.service';
 import * as moment from 'moment';
 import { ToastrService } from 'ngx-toastr';
+import * as XLSX from 'xlsx'
 
 
 
@@ -51,6 +52,7 @@ export class CreateEventDetailsComponent implements OnInit {
   tooltipText = "No Selected Events";
   customerTooltipText = "No Selected Events";
   noEventsSelected = true;
+  exportedfileName = 'DREventSetDetails.xlsx';
 
   constructor(private modalService: NgbModal
     , private router: Router
@@ -58,6 +60,19 @@ export class CreateEventDetailsComponent implements OnInit {
     , private toastr: ToastrService
     , private eventsService: EventsService
     , private customerService: CustomerService) { }
+
+  exportExcel() {
+    /* table id is passed over here */
+    let element = document.getElementById('dr-table');
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Summary of DR event set');
+
+    /* save to file */
+    XLSX.writeFile(wb, this.eventSetName + ".xlsx");
+  }
 
   ngOnInit() {
     this.innerHeight = Number(window.innerHeight) - 240;
@@ -339,6 +354,7 @@ export class EventOverviewComponent implements OnInit {
   response: any;
   interval;
   timerDisplay;
+  exportedfileName = 'DREventSetDetails.xlsx';
 
   ngOnInit() {
     // this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
@@ -403,4 +419,6 @@ export class EventOverviewComponent implements OnInit {
       }
     );
   }
+
+
 }

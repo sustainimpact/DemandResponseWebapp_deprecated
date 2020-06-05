@@ -7,6 +7,7 @@ import { AllEvents } from 'src/app/DataModels/AllEvents';
 import { EventsService } from 'src/app/services/events.service';
 import * as moment from 'moment';
 import { CustomerService } from 'src/app/services/customer.service';
+import * as XLSX from 'xlsx'
 
 @Component({
   selector: 'app-select-event-customers',
@@ -266,5 +267,18 @@ export class SelectEventCustomersComponent implements OnInit {
     else {
       return false;
     }
+  }
+
+  exportExcel() {
+    /* table id is passed over here */
+    let element = document.getElementById('dr-events-table');
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Summary of DR event set');
+
+    /* save to file */
+    XLSX.writeFile(wb, this.eventName + ".xlsx");
   }
 }

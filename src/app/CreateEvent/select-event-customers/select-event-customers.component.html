@@ -12,7 +12,7 @@
                 <i class="fas fa-ellipsis-h px-1"></i>
             </button>
             <div class="dropdown-menu fs-14" aria-labelledby="eventDropdown">
-                <button class="dropdown-item" type="button">Download</button>
+                <button class="dropdown-item" type="button" (click)="exportExcel()">Download</button>
             </div>
             <!-- <i class="fa fas fa-ellipsis-h vertical-dot-icon"></i> -->
         </div>
@@ -79,7 +79,7 @@
             <div class="invites">Non-Complaint User(has penalty)</div>
             <div class="invite-down">01</div>
         </div>
-        <div class="ml-auto" *ngIf = "eventOverview?.eventStatus == 'Live'">
+        <div class="ml-auto" *ngIf="eventOverview?.eventStatus == 'Live'">
             <div class="live-ending">Live Ending in</div>
             <div class="timer">{{timerDisplay}}</div>
         </div>
@@ -291,3 +291,24 @@
         <button type="button" class="btn publish-button">Update & Publish</button>
     </div>
 </div>
+
+<!-- for excel export -->
+<table id="dr-events-table" class="hidden-table">
+    <tr>
+        <th>Customer Name</th>
+        <th>Commitments (KW)</th>
+        <th>Actual Relief (KW)</th>
+        <th>Actual Shortfall (KW)</th>
+        <th>Incentive KWh (Rs)</th>
+        <th>Cost</th>
+
+    </tr>
+    <tr *ngFor="let customer of customerList">
+        <td> {{customer.userName}}</td>
+        <td> {{customer.commitments}} </td>
+        <td> {{customer.actualPower}}</td>
+        <td> {{customer.commitments - customer.actualPower}}</td>
+        <td> {{customer.price}}</td>
+        <td> {{customer.price * customer.actualPower}}</td>
+    </tr>
+</table>
