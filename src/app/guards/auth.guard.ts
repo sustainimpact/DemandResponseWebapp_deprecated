@@ -17,11 +17,12 @@ export class AuthGuard implements CanActivate {
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
-    if (this.ingressService.currentUser) {
+    if (this.ingressService.currentUser.userId && this.ingressService.currentUser.userId != -1) {
       return true;
     }
-    else if(this.storage.get('UserId')){
-      this.ingressService.currentUser = this.storage.get('UserId');
+    else if (this.storage.get('UserId')) {
+      this.ingressService.currentUser.userId = this.storage.get('UserId');
+      return true;
     }
     else {
       this.router.navigateByUrl("/");

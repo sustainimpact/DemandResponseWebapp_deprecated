@@ -63,7 +63,7 @@ export class CreateEventHomeComponent implements OnInit {
         this.location, this.result[1]).subscribe((res) => {
           this.resFromServer = res;
           if (this.resFromServer != null) {
-            if (this.resFromServer.responseStatus == 1) {
+            if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "The request was successfully served.") {
               this.response = this.resFromServer.response;
               if (this.response != null) {
                 this.eventSetDetails = this.response.eventSet;
@@ -75,6 +75,11 @@ export class CreateEventHomeComponent implements OnInit {
                   this.showUploadSuccesToast();
                 }
               }
+            }
+            //if file found
+            else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "File already uploaded with same date and user") {
+              this.response = this.resFromServer.response;
+              this.showUploadErrorToast();
             }
           }
         });
@@ -88,6 +93,19 @@ export class CreateEventHomeComponent implements OnInit {
   showUploadSuccesToast() {
     this.toastr.info(
       'Events successfully uploaded.',
+      "",
+      {
+        timeOut: 5000,
+        closeButton: true,
+        enableHtml: true,
+        positionClass: "toast-top-center"
+      }
+    );
+  }
+
+  showUploadErrorToast() {
+    this.toastr.info(
+      'Events already uploaded for the selected date.',
       "",
       {
         timeOut: 5000,

@@ -16,7 +16,7 @@ export class LoginGuardGuard implements CanActivate {
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
     if (this.storage.get('UserId')) {
-      this.ingressService.currentUser = this.storage.get('UserId');
+      this.ingressService.currentUser.userId = this.storage.get('UserId');
       this.router.navigateByUrl("/main");
     }
     // else {

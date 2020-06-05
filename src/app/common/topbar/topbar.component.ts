@@ -44,5 +44,8 @@ export class TopbarComponent implements OnInit {
     this.ingressService.logout();
     this.router.navigateByUrl("/");
   }
+  logoClickEvent() {
+    this.router.navigateByUrl("/");
+  }
 
 }

@@ -17,7 +17,7 @@ a:active {
 }
 
 a {
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   text-decoration: none;
   transition: color 0.1s, background-color 0.1s;
 }
@@ -38,7 +38,7 @@ a {
 }
 
 a::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   bottom: 3px;
@@ -48,7 +48,6 @@ a::before {
   background-color: white;
   transform-origin: right top;
   transform: scale(0, 1);
-
 }
 
 a:active::before {
@@ -82,11 +81,9 @@ a:focus::before {
   margin: -10px 39px !important;
 }
 
-
-
 .header-bg {
   height: 52px;
-  background-color: #00349A;
+  background-color: #00349a;
   margin: 0px !important;
 }
 
@@ -132,4 +129,8 @@ a:focus::before {
 
 .fs-14 {
   font-size: 14px;
+}
+
+.logo {
+  cursor: pointer;
 }
