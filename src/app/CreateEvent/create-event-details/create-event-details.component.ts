@@ -8,6 +8,7 @@ import { EventsService } from 'src/app/services/events.service';
 import { CustomerService } from 'src/app/services/customer.service';
 import * as moment from 'moment';
 import { ToastrService } from 'ngx-toastr';
+import * as XLSX from 'xlsx'
 
 
 
@@ -51,12 +52,27 @@ export class CreateEventDetailsComponent implements OnInit {
   tooltipText = "No Selected Events";
   customerTooltipText = "No Selected Events";
   noEventsSelected = true;
+  exportedfileName = 'DREventSetDetails.xlsx';
 
   constructor(private modalService: NgbModal
     , private router: Router
     , private route: ActivatedRoute
+    , private toastr: ToastrService
     , private eventsService: EventsService
     , private customerService: CustomerService) { }
+
+  exportExcel() {
+    /* table id is passed over here */
+    let element = document.getElementById('dr-table');
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Summary of DR event set');
+
+    /* save to file */
+    XLSX.writeFile(wb, this.eventSetName + ".xlsx");
+  }
 
   ngOnInit() {
     this.innerHeight = Number(window.innerHeight) - 240;
@@ -222,7 +238,7 @@ export class CreateEventDetailsComponent implements OnInit {
 
       if (!(this.events[i].eventStatus == "Created" || this.events[i].eventStatus == "Published") && this.events[i].isSelected) {
         this.isCustomerEditable = false;
-        this.customerTooltipText = "Customers cannot be updated for one or more of selected events";
+        this.customerTooltipText = "Customers cannot be updated for one or more of the selected events";
         break;
       }
     } if (count == 0) {
@@ -235,6 +251,19 @@ export class CreateEventDetailsComponent implements OnInit {
       this.customerTooltipText = "";
     }
 
+  }
+
+  publishDREvents() {
+    this.toastr.info(
+      'You have successfully publshed 8 DR Events for 26th Oct, 2019.',
+      "",
+      {
+        timeOut: 5000,
+        closeButton: true,
+        enableHtml: true,
+        positionClass: "toast-top-center"
+      }
+    );
   }
 
   getShortfall(plannedPower: number, committedPower: number) {
@@ -325,6 +354,7 @@ export class EventOverviewComponent implements OnInit {
   response: any;
   interval;
   timerDisplay;
+  exportedfileName = 'DREventSetDetails.xlsx';
 
   ngOnInit() {
     // this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
@@ -379,15 +409,16 @@ export class EventOverviewComponent implements OnInit {
 
   upcomingFunctionality() {
     this.toastr.info(
-      '<span data-notify="icon" class="nc-icon nc-bell-55"></span><span data-notify="message">This is an upcoming functionality</span>',
+      'This is an upcoming functionality',
       "",
       {
-        timeOut: 4000,
+        timeOut: 3000,
         closeButton: true,
         enableHtml: true,
-        toastClass: "alert alert-info alert-with-icon",
-        positionClass: "toast-bottom-right"
+        positionClass: "toast-top-center"
       }
     );
   }
+
+
 }

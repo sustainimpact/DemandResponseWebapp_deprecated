@@ -63,35 +63,69 @@ export class CreateEventHomeComponent implements OnInit {
         this.location, this.result[1]).subscribe((res) => {
           this.resFromServer = res;
           if (this.resFromServer != null) {
-            if (this.resFromServer.responseStatus == 1) {
+            if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "The request was successfully served.") {
               this.response = this.resFromServer.response;
               if (this.response != null) {
                 this.eventSetDetails = this.response.eventSet;
-                if(this.eventSetDetails != null) {
-                  this.activeModal.dismiss({eventSetId: this.eventSetDetails.eventSetId, 
-                    eventSetName: this.eventSetDetails.eventSetName}); 
+                if (this.eventSetDetails != null) {
+                  this.activeModal.dismiss({
+                    eventSetId: this.eventSetDetails.eventSetId,
+                    eventSetName: this.eventSetDetails.eventSetName
+                  });
+                  this.showUploadSuccesToast();
                 }
               }
+            }
+            //if file found
+            else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "File already uploaded with same date and user") {
+              this.response = this.resFromServer.response;
+              this.showUploadErrorToast();
             }
           }
         });
     }
     else {
-      this.showError();
+      this.showUploadErrorToast();
     }
   }
 
-  showError() {
+
+  showUploadSuccesToast() {
     this.toastr.info(
-      '<span data-notify="icon" class="nc-icon nc-bell-55"></span><span data-notify="message">' + "Please select date and location and upload file before clicking on done." + '.</span>',
+      'Events successfully uploaded.',
       "",
       {
-        timeOut: 4000,
+        timeOut: 5000,
         closeButton: true,
         enableHtml: true,
-        toastClass: "alert alert-info alert-with-icon",
-        positionClass: "toast-bottom-right"
+        positionClass: "toast-top-center"
       }
     );
   }
+
+  showUploadErrorToast() {
+    this.toastr.info(
+      'Events already uploaded for the selected date.',
+      "",
+      {
+        timeOut: 5000,
+        closeButton: true,
+        enableHtml: true,
+        positionClass: "toast-top-center"
+      }
+    );
+  }
+  // showError() {
+  //   this.toastr.info(
+  //     '<span data-notify="icon" class="nc-icon nc-bell-55"></span><span data-notify="message">' + "Please select date and location and upload file before clicking on done." + '.</span>',
+  //     "",
+  //     {
+  //       timeOut: 4000,
+  //       closeButton: true,
+  //       enableHtml: true,
+  //       toastClass: "alert alert-info alert-with-icon",
+  //       positionClass: "toast-bottom-right"
+  //     }
+  //   );
+  // }
 }

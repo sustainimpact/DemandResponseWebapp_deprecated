@@ -17,7 +17,7 @@
 <body> -->
 <div class=" header-bg display-property">
     <div class="col header-img-align d-flex">
-        <div class="pr-3">
+        <div class="pr-3 logo" (click)="logoClickEvent()">
             <img src="assets/img/logo.svg" alt="logo">
         </div>
         <div class="pl-3 border-left">
@@ -70,7 +70,7 @@
             <img src="../../../assets/img/Oval.svg" alt="logo" data-toggle="dropdown" aria-haspopup="true">
             <div class="dropdown-menu fs-14" aria-labelledby="eventDropdown">
                 <button class="dropdown-item" type="button">User Profile</button>
-                <button class="dropdown-item" type="button">Logout</button>
+                <button class="dropdown-item" type="button" (click) = "logout()">Logout</button>
             </div>
         </div>
     </div>

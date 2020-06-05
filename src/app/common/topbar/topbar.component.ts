@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { IngressService } from 'src/app/services/ingress.service';
 
 @Component({
   selector: 'app-topbar',
@@ -10,7 +11,8 @@ import { ToastrService } from 'ngx-toastr';
 export class TopbarComponent implements OnInit {
 
   constructor(private router: Router
-    , private toastr: ToastrService) { }
+    , private toastr: ToastrService
+    , private ingressService: IngressService) { }
 
   ngOnInit() {
   }
@@ -25,17 +27,26 @@ export class TopbarComponent implements OnInit {
 
 
   upcomingFunctionality() {
+
+
     this.toastr.info(
-      '<span data-notify="icon" class="nc-icon nc-bell-55"></span><span data-notify="message">This is an upcoming functionality</span>',
+      'This is an upcoming functionality',
       "",
       {
-        timeOut: 4000,
+        timeOut: 3000,
         closeButton: true,
         enableHtml: true,
-        toastClass: "alert alert-info alert-with-icon",
-        positionClass: "toast-bottom-right"
+        positionClass: "toast-top-center"
       }
     );
+  }
+
+  logout() {
+    this.ingressService.logout();
+    this.router.navigateByUrl("/");
+  }
+  logoClickEvent() {
+    this.router.navigateByUrl("/");
   }
 
 }
