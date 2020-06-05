@@ -3,18 +3,23 @@
         <div class="year mr-auto">
             {{eventSetName}}
         </div>
+        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" [title]="tooltipText">
+            <div class="button-margin">
+                <button type="button" class="btn publish-event-button active" [class.disabled]="!isPublishable"
+                    (click)="publishEvents()">Publish Events</button>
+            </div>
+        </span>
+
         <div class="button-margin">
-            <button type="button" class="btn publish-event-button active" [class.disabled]="!isRowSelected"
-                (click)="publishEvents()">Publish Events</button>
+            <button type="button" class="btn publish-event-button active" [class.disabled]="noEventsSelected" (click)="openEventsOverview()">Events
+                Overview</button>
         </div>
-        <div class="button-margin">
-            <button type="button" class="btn publish-event-button" [class.disabled]="!isRowSelected"
-                (click)="openEventsOverview()">Events Overview</button>
-        </div>
-        <div class="button-margin" (click)="editCustomers()">
-            <button type="button" class="btn publish-event-button" [class.disabled]="!isRowSelected">
-                Edit Customers</button>
-        </div>
+        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" [title]="customerTooltipText">
+            <div class="button-margin" (click)="editCustomers()">
+                <button type="button" class="btn publish-event-button active" [class.disabled]="!isCustomerEditable">
+                    Edit Customers</button>
+            </div>
+        </span>
         <div>
             <button class="btn" type="button" id="eventDropdown" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
@@ -25,8 +30,8 @@
                     Sheet</button>
                 <button class="dropdown-item disabled" type="button">Version
                     History</button>
-                <div class="dropdown-divider"></div>
-                <button class="dropdown-item" type="button">Cancel Event</button>
+                <!-- <div class="dropdown-divider"></div> -->
+                <!-- <button class="dropdown-item" type="button">Cancel Event</button> -->
             </div>
         </div>
     </div>
@@ -247,7 +252,13 @@
                 </div>
             </div> -->
 
-            <div class="row row-top light-gray " *ngFor="let event of events" [class.light-blue]="event.isSelected">
+            <div class="row row-top" *ngFor="let event of events" [class.light-blue]="event.isSelected"
+                [class.light-gray]="event.eventStatus == 'Published' 
+                || event.eventStatus == 'Gate Closed'
+                || event.eventStatus == 'Locked'
+                || event.eventStatus == 'Live'
+                || event.eventStatus == 'Expired'" [class.light-yellow]="false"
+                [class.light-red]="event.eventStatus == 'Cancelled'">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" (click)="selectEvent(event.eventId)"
@@ -256,7 +267,7 @@
                     </div>
                 </div>
                 <div class="col row-border">
-                    <div class="column-one event-name pointer" (click)="openEventDetails(event)">
+                    <div class="column-one event-name text-uppercase pointer" (click)="openEventDetails(event)">
                         {{event.eventName}}
                     </div>
                 </div>

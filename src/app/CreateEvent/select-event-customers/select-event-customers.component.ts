@@ -47,8 +47,10 @@ export class SelectEventCustomersComponent implements OnInit {
   resFromServer: any;
   response: any;
   searchCustomer: any;
-  totalCommittedPower: number=0;
-  totalActualPower: number=0;
+  totalCommittedPower: number = 0;
+  totalActualPower: number = 0;
+  timerDisplay;
+  interval;
 
   constructor(private modalService: NgbModal
     , private router: Router
@@ -89,15 +91,25 @@ export class SelectEventCustomersComponent implements OnInit {
             this.eventOverviewList = this.resFromServer.response.response;
             if (this.eventOverviewList != null) {
               this.eventOverview = this.eventOverviewList[0];
-              if(this.eventOverview != null) {
+              if (this.eventOverview != null) {
                 this.eventStatus = this.eventOverview.eventStatus;
-                console.log("Event Status : " , this.eventStatus);
+                console.log("Event Status : ", this.eventStatus);
               }
             }
             console.log('Event Overview : ', this.eventOverviewList);
           }
         }
       }
+
+
+      //timer code
+      var start = moment(this.eventOverview.endTime);
+      var seconds = start.minutes() * 60;
+      this.interval = setInterval(() => {
+        this.timerDisplay = start.subtract(1, "second").format("hh:mm:ss");
+        seconds--;
+        if (seconds === 0) clearInterval(this.interval);
+      }, 1000);
     });
   }
 
@@ -112,7 +124,7 @@ export class SelectEventCustomersComponent implements OnInit {
               this.customerList.forEach(customer => {
                 customer.isSelected = false;
               })
-              console.log('Get Customers : ' , this.customerList);
+              console.log('Get Customers : ', this.customerList);
               this.customerListBkp = this.customerList;
             }
           }
@@ -231,28 +243,28 @@ export class SelectEventCustomersComponent implements OnInit {
     document.getElementById("dd" + i).classList.remove("show");
     this.selectedCustomer = this.customerList[i];
     console.log(i, status);
-    if(status == '0') {
-      if(this.selectedCustomer != null) {
+    if (status == '0') {
+      if (this.selectedCustomer != null) {
         this.rejectCustomer(this.selectedCustomer.userId);
       }
     }
-    if(status == '1') {
+    if (status == '1') {
       //No acion needed since customer is already in Participated state
     }
   }
 
-  searchCustomers() {   
-    if(this.searchCustomer == '') {
+  searchCustomers() {
+    if (this.searchCustomer == '') {
       this.customerList = this.customerListBkp;
     }
     else {
-      this.customerList = this.customerList.filter(customer => 
+      this.customerList = this.customerList.filter(customer =>
         this.searchMatchesWithCustomerName(customer.userName, this.searchCustomer));
     }
   }
 
   searchMatchesWithCustomerName(customerName: string, expression: string) {
-    if(customerName.includes(expression)) {
+    if (customerName.includes(expression)) {
       return true;
     }
     else {
