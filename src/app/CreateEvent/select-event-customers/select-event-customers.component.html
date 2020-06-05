@@ -18,13 +18,13 @@
         </div>
     </div>
     <div class="inline-content">
-        <div class="south pr-2" style="height: 30px !important;">
-            South Hyderabad
+        <!-- <div class="south pr-2" style="height: 30px !important;">
+            South Hyderabad 
         </div>
         <div class="south pr-2">
             .
-        </div>
-        <div class="south">
+        </div> -->
+        <div class="south pr-2" style="height: 30px !important;">
             {{formatTime(startTime,'d')}}
         </div>
     </div>
@@ -107,7 +107,7 @@
                             </div>
                         </div> -->
                         <div class="input-group-prepend">
-                            <button type="button" tabindex="-1" class="refresh-button">
+                            <button type="button" tabindex="-1" class="refresh-button" (click)="refreshCustomerDetails()">
                                 <i class="fas fa-sync"></i>
                             </button>
 
@@ -280,7 +280,7 @@
     </div>
 
 </div>
-<div class="inline-content border-top p-3">
+<!-- <div class="inline-content border-top p-3">
     <div class="mr-auto">
 
     </div>
@@ -290,7 +290,7 @@
     <div class="button-margin">
         <button type="button" class="btn publish-button">Update & Publish</button>
     </div>
-</div>
+</div> -->
 
 <!-- for excel export -->
 <table id="dr-events-table" class="hidden-table">

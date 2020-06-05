@@ -1,5 +1,5 @@
 <div class="main">
-    <div class="header-main" (click)="activeModal.close('Close click')">
+    <div class="header-main" (click)="activeModal.dismiss({manualClose: true})">
         <img src="assets/img/close.svg" alt="close">
     </div>
     <div class="content-main">
@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="footer-main border-top">
-        <button type="button" class="btn cancel-btn" (click)="activeModal.close('Close click')">Cancel</button>
+        <button type="button" class="btn cancel-btn" (click)="activeModal.dismiss({manualClose: true})">Cancel</button>
         <button type="button" class="btn primary-btn" (click)="publishEvents()"
             [disabled]="!notifFlag || !numberCheckFlag">Yes, Publish all Events</button>
     </div>

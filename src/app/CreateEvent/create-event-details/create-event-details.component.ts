@@ -204,9 +204,27 @@ export class CreateEventDetailsComponent implements OnInit {
   publishEvents() {
     this.getSelectedEvents();
     const modalRef = this.modalService.open(PublishEventModalComponent, { centered: true });
+
     modalRef.componentInstance.eventSetId = this.eventSetId;
     modalRef.componentInstance.eventType = this.eventType;
     modalRef.componentInstance.selectedEvents = this.selectedEvents;
+
+    modalRef.result.then((result) => {
+      this.events.map((e) => e.isSelected = false);
+      this.isRowSelected = false;
+      this.checkCustomerEditable();
+      this.checkForPublished();
+    },
+      (reason) => {
+        if (reason.manualClose == false) {
+          this.getEvents();
+          // this.events.map((e) => e.isSelected = false);
+          // this.isRowSelected = false;
+          // this.checkCustomerEditable();
+          // this.checkForPublished();
+        }
+
+      });
   }
   checkForPublished() {
     let i, count = 0;
@@ -282,6 +300,8 @@ export class CreateEventDetailsComponent implements OnInit {
   }
 
   changeAllEventSelection(value) {
+
+
     if (this.events && this.events.length > 0) {
       if (value) {
         this.events.map((e) => e.isSelected = true);
@@ -291,6 +311,8 @@ export class CreateEventDetailsComponent implements OnInit {
         this.isRowSelected = false;
       }
     }
+    this.checkCustomerEditable();
+    this.checkForPublished();
   }
 
   selectEvent(eventId) {
