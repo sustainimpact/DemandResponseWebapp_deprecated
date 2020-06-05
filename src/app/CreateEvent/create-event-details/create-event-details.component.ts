@@ -393,14 +393,13 @@ export class EventOverviewComponent implements OnInit {
 
   upcomingFunctionality() {
     this.toastr.info(
-      '<span data-notify="icon" class="nc-icon nc-bell-55"></span><span data-notify="message">This is an upcoming functionality</span>',
+      'This is an upcoming functionality',
       "",
       {
-        timeOut: 4000,
+        timeOut: 3000,
         closeButton: true,
         enableHtml: true,
-        toastClass: "alert alert-info alert-with-icon",
-        positionClass: "toast-bottom-right"
+        positionClass: "toast-top-center"
       }
     );
   }

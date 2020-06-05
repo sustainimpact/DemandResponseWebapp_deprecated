@@ -85,7 +85,7 @@ export class CreateEventHomeComponent implements OnInit {
         });
     }
     else {
-      this.showError();
+      this.showUploadErrorToast();
     }
   }
 
@@ -115,17 +115,17 @@ export class CreateEventHomeComponent implements OnInit {
       }
     );
   }
-  showError() {
-    this.toastr.info(
-      '<span data-notify="icon" class="nc-icon nc-bell-55"></span><span data-notify="message">' + "Please select date and location and upload file before clicking on done." + '.</span>',
-      "",
-      {
-        timeOut: 4000,
-        closeButton: true,
-        enableHtml: true,
-        toastClass: "alert alert-info alert-with-icon",
-        positionClass: "toast-bottom-right"
-      }
-    );
-  }
+  // showError() {
+  //   this.toastr.info(
+  //     '<span data-notify="icon" class="nc-icon nc-bell-55"></span><span data-notify="message">' + "Please select date and location and upload file before clicking on done." + '.</span>',
+  //     "",
+  //     {
+  //       timeOut: 4000,
+  //       closeButton: true,
+  //       enableHtml: true,
+  //       toastClass: "alert alert-info alert-with-icon",
+  //       positionClass: "toast-bottom-right"
+  //     }
+  //   );
+  // }
 }
