@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { IngressService } from 'src/app/services/ingress.service';
 
 @Component({
   selector: 'app-topbar',
@@ -10,7 +11,8 @@ import { ToastrService } from 'ngx-toastr';
 export class TopbarComponent implements OnInit {
 
   constructor(private router: Router
-    , private toastr: ToastrService) { }
+    , private toastr: ToastrService
+    , private ingressService: IngressService) { }
 
   ngOnInit() {
   }
@@ -36,6 +38,11 @@ export class TopbarComponent implements OnInit {
         positionClass: "toast-bottom-right"
       }
     );
+  }
+
+  logout() {
+    this.ingressService.logout();
+    this.router.navigateByUrl("/");
   }
 
 }

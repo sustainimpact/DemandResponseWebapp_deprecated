@@ -67,9 +67,12 @@ export class CreateEventHomeComponent implements OnInit {
               this.response = this.resFromServer.response;
               if (this.response != null) {
                 this.eventSetDetails = this.response.eventSet;
-                if(this.eventSetDetails != null) {
-                  this.activeModal.dismiss({eventSetId: this.eventSetDetails.eventSetId, 
-                    eventSetName: this.eventSetDetails.eventSetName}); 
+                if (this.eventSetDetails != null) {
+                  this.activeModal.dismiss({
+                    eventSetId: this.eventSetDetails.eventSetId,
+                    eventSetName: this.eventSetDetails.eventSetName
+                  });
+                  this.showUploadSuccesToast();
                 }
               }
             }
@@ -81,6 +84,19 @@ export class CreateEventHomeComponent implements OnInit {
     }
   }
 
+
+  showUploadSuccesToast() {
+    this.toastr.info(
+      'Events successfully uploaded.',
+      "",
+      {
+        timeOut: 5000,
+        closeButton: true,
+        enableHtml: true,
+        positionClass: "toast-top-center"
+      }
+    );
+  }
   showError() {
     this.toastr.info(
       '<span data-notify="icon" class="nc-icon nc-bell-55"></span><span data-notify="message">' + "Please select date and location and upload file before clicking on done." + '.</span>',

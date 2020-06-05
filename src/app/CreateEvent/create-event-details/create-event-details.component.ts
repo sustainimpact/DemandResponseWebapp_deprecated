@@ -223,7 +223,7 @@ export class CreateEventDetailsComponent implements OnInit {
 
       if (!(this.events[i].eventStatus == "Created" || this.events[i].eventStatus == "Published") && this.events[i].isSelected) {
         this.isCustomerEditable = false;
-        this.customerTooltipText = "Customers cannot be updated for one or more of selected events";
+        this.customerTooltipText = "Customers cannot be updated for one or more of the selected events";
         break;
       }
     } if (count == 0) {
@@ -240,7 +240,7 @@ export class CreateEventDetailsComponent implements OnInit {
 
   publishDREvents() {
     this.toastr.info(
-      'You have successfully  publshed 8 DR Events for 26th Oct, 2019.',
+      'You have successfully publshed 8 DR Events for 26th Oct, 2019.',
       "",
       {
         timeOut: 5000,
