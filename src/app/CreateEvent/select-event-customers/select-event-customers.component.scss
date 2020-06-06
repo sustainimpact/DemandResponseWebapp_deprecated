@@ -623,6 +623,16 @@
   cursor: default !important;
 }
 
+.light-yellow {
+  background-color: rgba(239, 255, 45, 0.1);
+}
+
+.light-red {
+  background-color: rgba(208, 2, 27, 0.1);
+  // border-color: #B8C1CB;
+  // border-width: 0.5px;
+}
+
 .custom-checkbox {
   padding-left: 2rem;
 }

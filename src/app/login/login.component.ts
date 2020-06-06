@@ -78,14 +78,14 @@ export class LoginComponent implements OnInit {
 
   showError() {
     this.toastr.info(
-      '<span data-notify="icon" class="nc-icon nc-bell-55"></span><span data-notify="message">' + "Incorrect credentials" + '.</span>',
+      'Incorrect credentials',
       "",
       {
-        timeOut: 4000,
+        timeOut: 5000,
         closeButton: true,
         enableHtml: true,
-        toastClass: "alert alert-info alert-with-icon",
-        positionClass: "toast-bottom-right"
+        //toastClass: "alert alert-info alert-with-icon",
+        positionClass: "toast-top-center"
       }
     );
   }

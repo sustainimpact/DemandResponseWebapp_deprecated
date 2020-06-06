@@ -155,7 +155,7 @@
                 </div>
             </div>
             <div class="table-row-scroll">
-                <div class="row row-top" *ngFor="let customer of customerList;let i=index;">
+                <div class="row row-top" [class.light-red]="customer.isFineApplicable=='Y'" *ngFor="let customer of customerList;let i=index;">
                     <div class="row-border">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input"
@@ -328,7 +328,7 @@
         <td> {{totalCommittedPower}} </td>
         <td> {{totalActualPower}}</td>
         <td> {{totalActualPower - totalCommittedPower}}</td>
-        <td> {{customer.price}}</td>
+        <td> </td>
         <td> {{getTotalCost()}} </td>
         <td> {{getTotalPenalty()}} </td>
         <td> {{getTotalEffCost()}} </td>
