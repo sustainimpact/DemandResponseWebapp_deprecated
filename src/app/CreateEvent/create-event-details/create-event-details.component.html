@@ -809,22 +809,45 @@
         <!-- for excel export -->
         <table id="dr-table" class="hidden-table">
             <tr>
-                <th>{{eventSetName}}</th>
+                <th>Event Set Name</th>
                 <th>Planned (KW)</th>
                 <th>Commitments (KW)</th>
                 <th>Actual Relief (KW)</th>
                 <th>Actual Shortfall (KW)</th>
-                <th>Incentive KWh (Rs)</th>
-                <th>Number of customers</th>
-
+                <th>Incentive KWH (Rs)</th>
+                <th>Cost (Rs)</th>
+                <th>Penalty (Rs)</th>
+                <th>Effective DR event cost (Rs)</th>
+                <th>Execution efficiency index</th>
+                <th>Customer commitment index</th>
             </tr>
-            <tr *ngFor="let event of events">
+
+
+            <tr *ngFor="let event of eventReport">
                 <td> {{event.eventName}}</td>
                 <td> {{event.plannedPower}}</td>
                 <td> {{event.committedPower}}</td>
                 <td> {{event.actualPower}}</td>
                 <td> {{event.shortfall}} </td>
                 <td> {{event.price}}</td>
-                <td> {{event.numberOfCustomers}}</td>
+                <td> {{event.totalCostPerEvent}} </td>
+                <td> {{event.totalPenaltyPerEvent}} </td>
+                <td> {{event.effectiveCostPerEvent}}</td>
+                <td> {{event.effExecIndex}}</td>
+                <td> {{event.cusCommitIndex}}</td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>Summary</td>
+                <td> {{totalPlannedQuantity}}</td>
+                <td> {{totalCommitments}}</td>
+                <td> {{totalActualQuantity}}</td>
+                <td> {{totalShortfall}}</td>
+                <td> - </td>
+                <td>{{totalPrice}}</td>
+                <td>{{totalPenalty}}</td>
+                <td>{{totalPrice - totalPenalty}}</td>
+                <td>{{totalEffExecIndex}}</td>
+                <td>{{totalCusCommitIndex}}</td>
             </tr>
         </table>
