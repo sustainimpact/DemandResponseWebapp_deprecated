@@ -175,18 +175,18 @@ export class SelectEventCustomersComponent implements OnInit {
     });
   }
 
-  publishEvents() {
-    this.updateCustomers().then((res) => {
-      this.eventsService.publishEvents(this.selectedEvents, this.eventSetId).subscribe((res) => {
-        this.resFromServer = res;
-        if (this.resFromServer != null) {
-          if (this.resFromServer.responseStatus == 1) {
-            console.log('Events Published');
-          }
-        }
-      });
-    });
-  }
+  // publishEvents() {
+  //   this.updateCustomers().then((res) => {
+  //     this.eventsService.publishEvents(this.selectedEvents, this.eventSetId).subscribe((res) => {
+  //       this.resFromServer = res;
+  //       if (this.resFromServer != null) {
+  //         if (this.resFromServer.responseStatus == 1) {
+  //           console.log('Events Published');
+  //         }
+  //       }
+  //     });
+  //   });
+  // }
 
   formatTime(ts, type) {
     ts = ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
@@ -265,7 +265,7 @@ export class SelectEventCustomersComponent implements OnInit {
   }
 
   searchMatchesWithCustomerName(customerName: string, expression: string) {
-    if (customerName.includes(expression)) {
+    if (customerName.toLowerCase().includes(expression.toLowerCase())) {
       return true;
     }
     else {
@@ -284,5 +284,10 @@ export class SelectEventCustomersComponent implements OnInit {
 
     /* save to file */
     XLSX.writeFile(wb, this.eventName + ".xlsx");
+  }
+
+  refreshCustomerDetails() {
+    this.getEventOverview();
+    this.getCustomers();
   }
 }

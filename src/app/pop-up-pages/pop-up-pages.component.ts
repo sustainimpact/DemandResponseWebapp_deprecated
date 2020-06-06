@@ -88,7 +88,8 @@ export class PublishEventModalComponent implements OnInit {
   notifFlag = false;
 
   constructor(public activeModal: NgbActiveModal
-    , private eventsService: EventsService) { }
+    , private eventsService: EventsService
+    , private toastr: ToastrService) { }
 
   ngOnInit() {
     // this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
@@ -106,15 +107,50 @@ export class PublishEventModalComponent implements OnInit {
   }
 
   publishEvents() {
+    //skr
     this.eventsService.publishEvents(this.selectedEvents, this.eventSetId).subscribe((res) => {
       this.resFromServer = res;
       if (this.resFromServer != null) {
-        if (this.resFromServer.responseStatus == 1) {
+        if (this.resFromServer.response.responseStatus == "1") {
           console.log('Events Published');
+          this.showPublishSuccesToast();
+          this.activeModal.dismiss({ manualClose: false });
+        } else {
+          this.showPublishErrorToast();
+          this.activeModal.dismiss({ manualClose: true });
         }
+      } else {
+        this.activeModal.dismiss({ manualClose: true });
       }
     });
-    this.activeModal.close();
+
+  }
+
+  showPublishSuccesToast() {
+    this.toastr.info(
+      'Selected events successfully published.',
+      "",
+      {
+        timeOut: 3000,
+        closeButton: true,
+        enableHtml: true,
+        positionClass: "toast-top-center"
+      }
+    );
+  }
+
+
+  showPublishErrorToast() {
+    this.toastr.info(
+      'Something went wrong in publishing the events.',
+      "",
+      {
+        timeOut: 3000,
+        closeButton: true,
+        enableHtml: true,
+        positionClass: "toast-top-center"
+      }
+    );
   }
 }
 

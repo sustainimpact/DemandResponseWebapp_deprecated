@@ -19,13 +19,13 @@
         </div>
     </div>
     <div class="inline-content">
-        <div class="south pr-2" style="height: 30px !important;">
-            South Hyderabad
+        <!-- <div class="south pr-2" style="height: 30px !important;">
+            South Hyderabad 
         </div>
         <div class="south pr-2">
             .
-        </div>
-        <div class="south">
+        </div> -->
+        <div class="south pr-2" style="height: 30px !important;">
             {{formatTime(startTime,'d')}}
         </div>
     </div>
@@ -108,7 +108,8 @@
                             </div>
                         </div> -->
                         <div class="input-group-prepend">
-                            <button type="button" tabindex="-1" class="refresh-button">
+                            <button type="button" tabindex="-1" class="refresh-button"
+                                (click)="refreshCustomerDetails()">
                                 <i class="fas fa-sync"></i>
                             </button>
 
@@ -142,12 +143,12 @@
                         PRICE (PAISE/KWH)
                     </div>
                 </div>
-                <div class="col col-2 quantity-end commitement-header" style="justify-content: center;">
+                <div class="col col-2 quantity-end commitement-column" style="justify-content: center;">
                     <div class="end-content new-top-col">
                         COMMITMENTS (KW)
                     </div>
                 </div>
-                <div class="col col-2 quantity-end commitement-header" style="justify-content: center;">
+                <div class="col col-2 quantity-end commitement-column" style="justify-content: center;">
                     <div class="end-content new-top-col">
                         TRANSFERRED (KW)
                     </div>
@@ -162,7 +163,7 @@
                             <label class="custom-control-label" for="customer.customerId"></label>
                         </div>
                     </div>
-                    <div class="col mw-300 row-border text-left">
+                    <div class="col mw-300 row-border justify-content-start">
                         <div class="column-one ">
                             {{customer.userName}}
                         </div>
@@ -210,7 +211,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col mw-230 commitement-header">
+                    <div class="col mw-230 commitement-column">
                         <div
                             class="end-content total-pad quantity-start len-row ten-five d-flex justify-content-between">
                             <span *ngIf="customer.counterBidFlag=='N'"> {{customer.price}}</span>
@@ -231,49 +232,48 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col col-2 quantity-end commitement-header">
+                    <div class="col col-2 quantity-end commitement-column">
                         <div class="end-content content-module">
                             {{customer.commitments}}
                         </div>
                     </div>
-                    <div class="col col-2 quantity-end commitement-header content-module">
+                    <div class="col col-2 quantity-end commitement-column content-module">
                         <div class="end-content content-module">
                             {{customer.actualPower}}
                         </div>
                     </div>
                 </div>
-                <div class="row row-top sticky-content">
-                    <div class="row-border footer-color border-right">
-                        <div class=" custom-control custom-checkbox">
+            </div>
+            <div class="row row-top sticky-content" style="padding-right: 6px;border-bottom: 1px solid#E4E8EC;">
+                <div class="row-border footer-color border-right">
+                    <div class=" custom-control custom-checkbox">
 
-                        </div>
                     </div>
-                    <div class="col mw-300 row-border footer-color seven-line">
-                        <div class="row-footer total-pad color-footer-bottom" style="padding-left: 14px;">
-                            TOTALS
-                        </div>
+                </div>
+                <div class="col mw-300 row-border footer-color seven-line">
+                    <div class="row-footer total-pad color-footer-bottom" style="padding-left: 14px;">
+                        TOTALS
                     </div>
-                    <div class="col mw-160 row-border footer-color seven-line end-content">
-                        <div class="row-footer commitement-header" style="color: #2E2E2E;">
-                            --
-                        </div>
+                </div>
+                <div class="col mw-160 row-border footer-color seven-line end-content">
+                    <div class="row-footer commitement-header" style="color: #2E2E2E;">
+                        --
                     </div>
-                    <div class="col mw-230 row-border footer-color seven-line end-last"
-                        style="justify-content: flex-start;">
-                        <div class="row-footer commitement-header len-row color-footer-bottom"
-                            style="padding-left: 10px;">
-                            --
-                        </div>
+                </div>
+                <div class="col mw-230 row-border footer-color seven-line end-last"
+                    style="justify-content: flex-start;">
+                    <div class="row-footer commitement-header len-row color-footer-bottom" style="padding-left: 10px;">
+                        --
                     </div>
-                    <div class="col col-2 row-border footer-color seven-line end-last">
-                        <div class="row-footer commitement-header content-module color-footer-bottom">
-                            {{totalCommittedPower}}
-                        </div>
+                </div>
+                <div class="col col-2 row-border footer-color seven-line end-last">
+                    <div class="row-footer commitement-header content-module color-footer-bottom">
+                        {{totalCommittedPower}}
                     </div>
-                    <div class="col col-2 row-border footer-color seven-line end-last">
-                        <div class="row-footer commitement-header content-module color-footer-bottom">
-                            {{totalActualPower}}
-                        </div>
+                </div>
+                <div class="col col-2 row-border footer-color seven-line end-last">
+                    <div class="row-footer commitement-header content-module color-footer-bottom">
+                        {{totalActualPower}}
                     </div>
                 </div>
             </div>
@@ -281,7 +281,7 @@
     </div>
 
 </div>
-<div class="inline-content border-top p-3">
+<!-- <div class="inline-content border-top p-3">
     <div class="mr-auto">
 
     </div>
@@ -291,7 +291,7 @@
     <div class="button-margin">
         <button type="button" class="btn publish-button">Update & Publish</button>
     </div>
-</div>
+</div> -->
 
 <!-- for excel export -->
 <table id="dr-events-table" class="hidden-table">

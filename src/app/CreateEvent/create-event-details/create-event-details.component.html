@@ -15,12 +15,12 @@
                 (click)="openEventsOverview()">Events
                 Overview</button>
         </div>
-        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" [title]="customerTooltipText">
+        <!-- <span class="d-inline-block" tabindex="0" data-toggle="tooltip" [title]="customerTooltipText">
             <div class="button-margin" (click)="editCustomers()">
                 <button type="button" class="btn publish-event-button active" [class.disabled]="!isCustomerEditable">
                     Edit Customers</button>
             </div>
-        </span>
+        </span> -->
         <div>
             <button class="btn" type="button" id="eventDropdown" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
@@ -758,51 +758,52 @@
             </div>
         </div>
     </div> -->
-            <div class="row row-top sticky-content">
-                <div style="width:39px;background-color: white;">
-                </div>
-                <div class="col row-border footer-color">
-                    <div class="row-footer">
-                        TOTALS
-                    </div>
-                </div>
-                <div class="col row-border footer-color">
-                    <div class="row-footer plan-quantity-end">
-                        --
-                    </div>
-                </div>
-                <div class="col row-border footer-color plan-quantity-end flex-grow ">
-                    <div class="row-footer">
-                        {{totalPlannedQuantity}}
-                    </div>
-                </div>
-                <div class="col row-border footer-color plan-quantity-end">
-                    <div class="row-footer">
-                        --
-                    </div>
-                </div>
-                <div class="col row-border footer-color plan-quantity-end">
-                    <div class="row-footer">
-                        --
-                    </div>
-                </div>
-                <div class="col row-border footer-color plan-quantity-end">
-                    <div class="row-footer ">
-                        {{totalCommitments}}
-                    </div>
-                </div>
-                <div class="col row-border footer-color plan-quantity-end">
-                    <div class="row-footer ">
-                        {{totalShortfall}}
-                    </div>
-                </div>
-                <div class="col row-border footer-color plan-quantity-end" style="margin-right: 7px;">
-                    <div class="row-footer ">
-                        {{totalActualQuantity}}
-                    </div>
-                </div>
+        </div>
 
+        <div class="row row-top sticky-content">
+            <div style="width:39px;background-color: white;">
             </div>
+            <div class="col row-border footer-color">
+                <div class="row-footer">
+                    TOTALS
+                </div>
+            </div>
+            <div class="col row-border footer-color">
+                <div class="row-footer plan-quantity-end">
+                    --
+                </div>
+            </div>
+            <div class="col row-border footer-color plan-quantity-end flex-grow ">
+                <div class="row-footer">
+                    {{totalPlannedQuantity}}
+                </div>
+            </div>
+            <div class="col row-border footer-color plan-quantity-end">
+                <div class="row-footer">
+                    --
+                </div>
+            </div>
+            <div class="col row-border footer-color plan-quantity-end">
+                <div class="row-footer">
+                    --
+                </div>
+            </div>
+            <div class="col row-border footer-color plan-quantity-end">
+                <div class="row-footer ">
+                    {{totalCommitments}}
+                </div>
+            </div>
+            <div class="col row-border footer-color plan-quantity-end">
+                <div class="row-footer ">
+                    {{totalShortfall}}
+                </div>
+            </div>
+            <div class="col row-border footer-color plan-quantity-end" style="margin-right: 7px;">
+                <div class="row-footer ">
+                    {{totalActualQuantity}}
+                </div>
+            </div>
+
         </div>
 
 
