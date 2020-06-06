@@ -40,7 +40,7 @@
                 <div class="division-head flex type-division">
                     <div>Type/Activity</div>
                 </div>
-                <div class="division-head flex customer-division ">
+                <!-- <div class="division-head flex customer-division ">
                     <div>Customer Name</div>
                 </div>
                 <div class="division-head flex mobile-division">
@@ -51,43 +51,43 @@
                 </div>
                 <div class="division-head flex mobile-division">
                     <div>Contact… </div>
-                </div>
+                </div> -->
             </div>
             <div>
                 <div class="table-border">
                     <!--TBD-->
                     <div class="row table-space esl table-end-line relative-position col-background header-style"
-                    *ngFor="let test of testList">
+                    *ngFor="let customer of customerList">
                         <div class="align-row-equal  custom-control  custom-checkbox label-division"
                             style=" margin-left: 31px;margin-top: 0px;">
                             <input type="checkbox" class="custom-control-input" id="drevent-2">
                             <label class="custom-control-label" for="drevent-2"></label>
                         </div>
                         <div class="division-body flex outer-division ">
-                            <div>ESLNR</div>
+                            <div>customer.division</div>
                         </div>
                         <div class="division-body flex outer-contract-division">
-                            <div>100013478</div>
+                            <div>customer.contractNumber</div>
                         </div>
                         <div class="division-body flex meter-division ">
-                            <div>19901091:19901095</div>
+                            <div>customer.meterNumber</div>
                         </div>
                         <div class="division-body flex sl-division ">
-                            <div class=" textalign-right">7300</div>
+                            <div class=" textalign-right">customer.sL</div>
                         </div>
                         <div class="division-body flex billed-division">
-                            <div class="textalign-right">14.57</div>
+                            <div class="textalign-right">customer.billedMus</div>
                         </div>
                         <div class="division-body flex company-division ">
-                            <div>Manager</div>
+                            <div>customer.companyName</div>
                         </div>
                         <div class="division-body flex address-division">
-                            <div>Manager Scope Minar, Plot no: 2A, Laxmi Nagar Dist, Nagardelhi 110092</div>
+                            <div>customer.companyAddress</div>
                         </div>
                         <div class="division-body flex type-division">
-                            <div>Govt. Office</div>
-                        </div>
-                        <div class="division-body flex customer-division ">
+                            <div>customer.type</div>
+                        </div>    
+                        <!-- <div class="division-body flex customer-division ">
                             <div> Mr. Mahesh</div>
                         </div>
                         <div class="division-body flex mobile-division">
@@ -104,7 +104,7 @@
                         </div>
                         <div class="division-body flex  dot-icon-header static-content" style="top:166px;z-index: 1;">
                             <img src="assets/img/Combined Shape.svg" alt="">
-                        </div>
+                        </div> -->
                     </div>
                     <!-- <div class="row table-space esl table-end-line relative-position col-background header-style">
                         <div class="align-row-equal  custom-control  custom-checkbox label-division"

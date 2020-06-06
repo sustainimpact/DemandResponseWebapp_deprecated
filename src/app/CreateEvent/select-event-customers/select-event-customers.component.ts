@@ -206,7 +206,7 @@ export class SelectEventCustomersComponent implements OnInit {
     (reason) => {
       console.log('reason : ' , reason);
       if(reason==1) {
-        this.eventStatus='Cancelled';
+        this.getEventOverview();
       }
     });
   }
@@ -216,7 +216,7 @@ export class SelectEventCustomersComponent implements OnInit {
       this.resFromServer = res;
       if (this.resFromServer != null) {
         if (this.resFromServer.responseStatus == 1) {
-          console.log('Customer Rejected');
+          this.getCustomers();
         }
       }
     });
@@ -229,7 +229,7 @@ export class SelectEventCustomersComponent implements OnInit {
       this.resFromServer = res;
       if (this.resFromServer != null) {
         if (this.resFromServer.responseStatus == 1) {
-          console.log('Counter Bid Accepted');
+          this.getCustomers();
         }
       }
     });

@@ -131,11 +131,11 @@
                 </div>
                 <div class="col mw-300 row-border">
                     <div class="column-one new-top-col">
-                        Customers
+                        CUSTOMERS
                     </div>
                 </div>
                 <div class="col mw-160 row-border end-content new-top-col">
-                    Status
+                    STATUS
                 </div>
                 <div class="col mw-230">
                     <div class="end-content  total-pad quantity-start len-row"
@@ -189,7 +189,8 @@
                                 COUNTER BID
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
-                            <div class="dropdown-menu fs-14" id="dd{{i}}" (click)="$event.stopPropagation();">
+                            <div class="dropdown-menu fs-14" id="dd{{i}}" (click)="$event.stopPropagation();"
+                            *ngIf="customer.status==3">
                                 <div class="dropdown-option">
                                     <div class="md-radio">
                                         <input id="dd{{i}}-option1" type="radio" name="participeted{{i}}" [value]="'1'"
@@ -214,16 +215,17 @@
                     <div class="col mw-230 commitement-column">
                         <div
                             class="end-content total-pad quantity-start len-row ten-five d-flex justify-content-between">
-                            <span *ngIf="customer.counterBidFlag=='N'"> {{customer.price}}</span>
-                            <span *ngIf="customer.counterBidFlag=='Y'"> {{customer.couterBidAmount}}</span>
+                            <span>{{customer.price}}</span>
+                            <!-- <span *ngIf="customer.counterBidFlag=='N'"> {{customer.price}}</span> -->
+                            <!-- <span *ngIf="customer.counterBidFlag=='Y'"> {{customer.couterBidAmount}}</span> -->
                             <div *ngIf="customer.status==4 && eventStatus=='Gate Closed'">
                                 <span class="link" (click)="acceptCounterBid(customer.userId)"> Accept</span>
                                 <span class="link"> | </span>
                                 <span class="link" (click)="rejectCustomer(customer.userId)"> Reject</span>
                             </div>
                             <!--TBD-->
-                            <button type="button" class="counter-bid-accepted " data-toggle="dropdown"
-                                *ngIf="customer.status==3 || customer.counterBidFlag=='Y'">
+                            <button type="button" class="counter-bid-accepted" data-toggle="dropdown"
+                                *ngIf="customer.status==4 || customer.counterBidFlag=='Y'">
                                 COUNTER BID - ACCEPTED
                             </button>
                             <button type="button" class="counter-bid-rejected" data-toggle="dropdown"

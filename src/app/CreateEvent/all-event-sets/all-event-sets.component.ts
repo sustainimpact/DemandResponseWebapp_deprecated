@@ -97,13 +97,16 @@ export class AllEventSetsComponent implements OnInit {
     }
   }
 
-  getStatus(statusId) {
+  getStatus(status) {
     //console.log('status : ', statusId);
-    if (statusId == 'Created') {
-      return 'Published';
+    if (status == 'Created') {
+      return 'UPLOADED';
     }
-    if (statusId == 'Partially Published') {
-      return 'Partially Published';
+    else if (status == 'Published') {
+      return 'PUBLISHED';
+    }
+    else if (status == 'Partially Published') {
+      return 'PARTIALLY PUBLISHED';
     }
   }
 }

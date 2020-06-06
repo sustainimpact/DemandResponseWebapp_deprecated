@@ -51,7 +51,9 @@
                 / {{upcomingEventSet.completedEvents}} / {{upcomingEventSet.cancelledEvents}}</div>
         </div>
         <div class="col-1 publish-col-int">
-            <div class="status-publish" *ngIf='upcomingEventSet.eventSetStatus == "Created"'>
+            <div class="status-uploaded" *ngIf='upcomingEventSet.eventSetStatus == "Created"'>
+                {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
+            <div class="status-publish" *ngIf='upcomingEventSet.eventSetStatus == "Published"'>
                 {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
             <div class="status-partially-publish" *ngIf='upcomingEventSet.eventSetStatus == "Partially Published"'>
                 {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
@@ -83,7 +85,9 @@
                     / {{curWeekEventSet.completedEvents}} / {{curWeekEventSet.cancelledEvents}}</div>
             </div>
             <div class="col-1 publish-col-int">
-                <div class="status-publish" *ngIf='curWeekEventSet.eventSetStatus == "Created"'>
+                <div class="status-uploaded" *ngIf='curWeekEventSet.eventSetStatus == "Created"'>
+                    {{getStatus(curWeekEventSet.eventSetStatus)}}</div>
+                <div class="status-publish" *ngIf='curWeekEventSet.eventSetStatus == "Published"'>
                     {{getStatus(curWeekEventSet.eventSetStatus)}}</div>
                 <div class="status-partially-publish" *ngIf='curWeekEventSet.eventSetStatus == "Partially Published"'>
                     {{getStatus(curWeekEventSet.eventSetStatus)}}</div>
@@ -115,7 +119,9 @@
                     / {{curMonthEventSet.completedEvents}} / {{curMonthEventSet.cancelledEvents}}</div>
             </div>
             <div class="col-1 publish-col-int">
-                <div class="status-publish" *ngIf='curMonthEventSet.eventSetStatus == "Created"'>
+                <div class="status-uploaded" *ngIf='curMonthEventSet.eventSetStatus == "Created"'>
+                    {{getStatus(curMonthEventSet.eventSetStatus)}}</div>
+                <div class="status-publish" *ngIf='curMonthEventSet.eventSetStatus == "Published"'>
                     {{getStatus(curMonthEventSet.eventSetStatus)}}</div>
                 <div class="status-partially-publish" *ngIf='curMonthEventSet.eventSetStatus == "Partially Published"'>
                     {{getStatus(curMonthEventSet.eventSetStatus)}}</div>
