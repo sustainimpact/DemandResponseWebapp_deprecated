@@ -48,3 +48,10 @@ body {
     max-width: fit-content !important;
   }
 }
+.dropdown-button:focus,
+.dropdown-item:focus,
+.dropdown-item:active {
+  outline: none;
+  background-color: unset;
+  color: #00349a;
+}
