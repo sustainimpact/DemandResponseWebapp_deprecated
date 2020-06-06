@@ -51,6 +51,8 @@ export class SelectEventCustomersComponent implements OnInit {
   totalActualPower: number = 0;
   timerDisplay;
   interval;
+  reportTable = [];
+  totalSuccIndex = 0;
 
   constructor(private modalService: NgbModal
     , private router: Router
@@ -135,10 +137,60 @@ export class SelectEventCustomersComponent implements OnInit {
   }
 
   calculateEventDetails() {
+    this.reportTable = [];
+    let reportTabEl = { sucessIndex: "", effCost: 0, cost: 0, penalty: 0, userName: "", commitments: 0, actualPower: 0, shortfall: 0, incentive: 0 };
     this.customerList.forEach(customer => {
+      let reportTabEl = { sucessIndex: "", effCost: 0, cost: 0, penalty: 0, userName: "", commitments: 0, actualPower: 0, shortfall: 0, incentive: 0 };
+      reportTabEl.userName = customer.userName;
+      reportTabEl.commitments = customer.commitments;
+      reportTabEl.actualPower = customer.actualPower;
+      reportTabEl.shortfall = customer.commitments - customer.actualPower;
+      reportTabEl.incentive = customer.price;
+      reportTabEl.cost = (customer.price * customer.actualPower) / 4;
+      reportTabEl.penalty = (reportTabEl.shortfall * (customer.price) * 1.2) / 4;
+      reportTabEl.effCost = reportTabEl.cost - reportTabEl.penalty;
       this.totalCommittedPower += +customer.commitments;
       this.totalActualPower += +customer.actualPower;
+      if (customer.actualPower >= customer.commitments) {
+        reportTabEl.sucessIndex = "TRUE";
+      } else {
+        reportTabEl.sucessIndex = "FALSE";
+      }
+      this.reportTable.push(reportTabEl);
     });
+    this.totalSuccIndex = this.getTotalSuccessIndex();
+  }
+
+  getTotalCost() {
+    let totCost = 0;
+    this.reportTable.forEach((el) => {
+      totCost += el.cost;
+    })
+  }
+
+  getTotalPenalty() {
+    let totCost = 0;
+    this.reportTable.forEach((el) => {
+      totCost += el.penalty;
+    })
+  }
+
+
+  getTotalEffCost() {
+    let totCost = 0;
+    this.reportTable.forEach((el) => {
+      totCost += el.effCost;
+    })
+  }
+  getTotalSuccessIndex() {
+    let trueCount = 0;
+    let totalCount = 0;
+    this.reportTable.forEach((el) => {
+      if (el.sucessIndex == "TRUE")
+        trueCount++
+      totalCount++;
+    });
+    return trueCount / totalCount;
   }
 
   selectCustomer(customerId) {
