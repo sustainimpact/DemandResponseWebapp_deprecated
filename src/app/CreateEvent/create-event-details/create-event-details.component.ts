@@ -53,6 +53,11 @@ export class CreateEventDetailsComponent implements OnInit {
   customerTooltipText = "No Selected Events";
   noEventsSelected = true;
   exportedfileName = 'DREventSetDetails.xlsx';
+  totalPenalty;
+  eventReport = [];
+
+  totalCusCommitIndex = 0;
+  totalEffExecIndex = 0;
 
   constructor(private modalService: NgbModal
     , private router: Router
@@ -64,6 +69,7 @@ export class CreateEventDetailsComponent implements OnInit {
   exportExcel() {
     /* table id is passed over here */
     let element = document.getElementById('dr-table');
+
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
 
     /* generate workbook and add the worksheet */
@@ -146,21 +152,93 @@ export class CreateEventDetailsComponent implements OnInit {
   }
 
   calculateEventDetails() {
+    this.eventReport = [];
     this.totalPlannedQuantity = 0.0;
     this.totalCommitments = 0;
     this.totalShortfall = 0;
     this.totalActualQuantity = 0;
     this.totalPrice = 0;
+    this.totalPenalty = 0;
     this.totalCustomers = 0;
+    let eventReportElement = { cusCommitIndex: "", effExecIndex: "", effectiveCostPerEvent: 0, totalPenaltyPerEvent: 0, totalCostPerEvent: 0, eventName: "", plannedPower: "", committedPower: "", actualPower: "", shortfall: "", price: "" };
     this.events.forEach(event => {
+      eventReportElement = { cusCommitIndex: "", effExecIndex: "", effectiveCostPerEvent: 0, totalPenaltyPerEvent: 0, totalCostPerEvent: 0, eventName: "", plannedPower: "", committedPower: "", actualPower: "", shortfall: "", price: "" };
+      eventReportElement.eventName = event.eventName;
+      eventReportElement.plannedPower = event.plannedPower;
+      eventReportElement.committedPower = event.committedPower;
+      eventReportElement.actualPower = event.actualPower;
+      eventReportElement.shortfall = event.shortfall;
+      eventReportElement.price = event.price;
+
       this.totalPlannedQuantity += +event.plannedPower;
       this.totalCommitments += +event.committedPower;
       //this.totalShortfall+=((+event.plannedPower)-(+event.committedPower));
       this.totalShortfall += +event.shortfall;
       this.totalActualQuantity += +event.actualPower;
-      this.totalPrice = +event.price;
+      event.listOfCustomers.forEach(eventCustomer => {
+        this.totalPrice += +eventCustomer.price * +eventCustomer.actualPower;
+        this.totalPenalty += +eventCustomer.price * (+eventCustomer.commitments - +eventCustomer.actualPower);
+        eventReportElement.totalCostPerEvent += +eventCustomer.price * +eventCustomer.actualPower;
+        eventReportElement.totalPenaltyPerEvent += +eventCustomer.price * (+eventCustomer.commitments - +eventCustomer.actualPower);
+        eventReportElement.effectiveCostPerEvent += eventReportElement.totalCostPerEvent - +eventReportElement.totalPenaltyPerEvent;
+      });
+      if (event.actualPower >= event.committedPower) {
+        eventReportElement.effExecIndex = "TRUE";
+      } else {
+        eventReportElement.effExecIndex = "FALSE";
+      }
+      if (event.committedPower >= event.plannedPower) {
+        eventReportElement.cusCommitIndex = "TRUE";
+      } else {
+        eventReportElement.cusCommitIndex = "FALSE";
+      }
+      // if (event.eventStatus == 'Completed')
+      this.eventReport.push(eventReportElement);
       this.totalCustomers = +event.numberOfCustomers;
     });
+    this.totalEffExecIndex = +this.getTotalExecEff().toFixed(4);
+    this.totalCusCommitIndex = +this.getTotalCusCommitIndex().toFixed(4);
+  }
+
+  getTotalExecEff() {
+    let trueCount = 0;
+    let falseCount = 0;
+    let totalCount = 0;
+    this.eventReport.forEach(eventReportEl => {
+      if (eventReportEl.effExecIndex == "TRUE") {
+        trueCount++;
+      } else if (eventReportEl.effExecIndex == "FALSE") {
+        falseCount++;
+      }
+      totalCount++
+    });
+    return trueCount / totalCount;
+  }
+
+  getTotalCusCommitIndex() {
+    let trueCount = 0;
+    let falseCount = 0;
+    let totalCount = 0;
+    this.eventReport.forEach(eventReportEl => {
+      if (eventReportEl.cusCommitIndex == "TRUE") {
+        trueCount++;
+      } else if (eventReportEl.cusCommitIndex == "FALSE") {
+        falseCount++;
+      }
+      totalCount++
+    });
+    return trueCount / totalCount;
+  }
+
+
+
+
+  getTotalPenaltyPerEvent(eventCusArr) {
+    let totalCostPerEvent = 0;
+    eventCusArr.forEach(eventCus => {
+      totalCostPerEvent += eventCus.price * (eventCus.commitments - eventCus.actualPower);
+    });
+    return totalCostPerEvent;
   }
 
   openEventsOverview() {

@@ -299,19 +299,39 @@
 <table id="dr-events-table" class="hidden-table">
     <tr>
         <th>Customer Name</th>
+        <th>Planned (KW)</th>
         <th>Commitments (KW)</th>
         <th>Actual Relief (KW)</th>
         <th>Actual Shortfall (KW)</th>
         <th>Incentive KWh (Rs)</th>
-        <th>Cost</th>
-
+        <th>Cost (Rs)</th>
+        <th>Penalty (Rs)</th>
+        <th>Effective Cost</th>
+        <th>Event Success Index</th>
     </tr>
-    <tr *ngFor="let customer of customerList">
+    <tr *ngFor="let customer of reportTable">
         <td> {{customer.userName}}</td>
+        <td></td>
         <td> {{customer.commitments}} </td>
         <td> {{customer.actualPower}}</td>
-        <td> {{customer.commitments - customer.actualPower}}</td>
+        <td> {{customer.shortfall}}</td>
+        <td> {{customer.incentive}}</td>
+        <td> {{customer.cost}}</td>
+        <td> {{customer.penalty}} </td>
+        <td> {{customer.effCost}} </td>
+        <td> {{customer.sucessIndex}} </td>
+    </tr>
+    <tr></tr>
+    <tr>
+        <td> Summary </td>
+        <td> {{plannedPower}}</td>
+        <td> {{totalCommittedPower}} </td>
+        <td> {{totalActualPower}}</td>
+        <td> {{totalActualPower - totalCommittedPower}}</td>
         <td> {{customer.price}}</td>
-        <td> {{customer.price * customer.actualPower}}</td>
+        <td> {{getTotalCost()}} </td>
+        <td> {{getTotalPenalty()}} </td>
+        <td> {{getTotalEffCost()}} </td>
+        <td> {{getTotalSuccessIndex()}} </td>
     </tr>
 </table>
