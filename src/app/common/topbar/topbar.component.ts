@@ -35,7 +35,7 @@ export class TopbarComponent implements OnInit {
       {
         timeOut: 3000,
         closeButton: true,
-        enableHtml: true,
+        enableHtml: true,     
         positionClass: "toast-top-center"
       }
     );
