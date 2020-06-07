@@ -90,7 +90,7 @@
             <div class="row pl-2 pr-4">
                 <div class="col select-customer">
                     <div class="row-customer" style="padding-left: 25px;">
-                        Selected Customers - 06/25
+                        Selected Customers - {{eventOverview?.numberOfCustomers}}/{{eventOverview?.numberOfCustomers}}
                     </div>
                 </div>
                 <form class="form-inline all-search ">
@@ -125,9 +125,9 @@
             </div>
             <div class="row row-top" style="padding-right: 7px;border-bottom: 1px solid#E4E8EC;">
                 <div class="row-border">
-                    <div class=" custom-control custom-checkbox">
+                    <!-- <div class=" custom-control custom-checkbox">
 
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col mw-300 row-border">
                     <div class="column-one new-top-col">
@@ -148,20 +148,21 @@
                         COMMITMENTS (KW)
                     </div>
                 </div>
-                <div class="col col-2 quantity-end commitement-column" style="justify-content: center;">
+                <div class="col col-3 quantity-end commitement-column" style="justify-content: center;">
                     <div class="end-content new-top-col">
                         TRANSFERRED (KW)
                     </div>
                 </div>
             </div>
             <div class="table-row-scroll">
-                <div class="row row-top" [class.light-red]="customer.isFineApplicable=='Y'" *ngFor="let customer of customerList;let i=index;">
+                <div class="row row-top" [class.light-red]="customer.isFineApplicable=='Y'"
+                    *ngFor="let customer of customerList;let i=index;">
                     <div class="row-border">
-                        <div class="custom-control custom-checkbox">
+                        <!-- <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input"
                                 (click)="selectCustomer(customer.customerId)" id="customer.customerId">
                             <label class="custom-control-label" for="customer.customerId"></label>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col mw-300 row-border justify-content-start">
                         <div class="column-one ">
@@ -170,11 +171,23 @@
                     </div>
                     <div class="col mw-160 row-border end-content">
                         <div class="dropdown dropdown-col" data-toggle="dropdown">
-                            <button type="button" class="dropdown-button drop-participate" *ngIf="customer.status==3">
+                            <button type="button" class="dropdown-button drop-participate"
+                                *ngIf="customer.status==3 || customer.status==5">
                                 PARTICIPATED <i class="dropdown-arrow fas fa-chevron-down"></i>
+                            </button>
+                            <button type="button" class="dropdown-button drop-participate" *ngIf="customer.status==8">
+                                COMPLETED
                             </button>
                             <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==6">
                                 REJECTED
+                                <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                            </button>
+                            <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==7">
+                                WITHDRAWN
+                                <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                            </button>
+                            <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==9">
+                                CANCELLED
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
                             <button type="button" class="dropdown-button drop-noresponse" *ngIf="customer.status==2">
@@ -189,8 +202,12 @@
                                 COUNTER BID
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
+                            <button type="button" class="dropdown-button drop-counterbid" *ngIf="customer.status==10">
+                                PENALTY
+                                <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                            </button>
                             <div class="dropdown-menu fs-14" id="dd{{i}}" (click)="$event.stopPropagation();"
-                            *ngIf="customer.status==3">
+                                *ngIf="customer.status==3">
                                 <div class="dropdown-option">
                                     <div class="md-radio">
                                         <input id="dd{{i}}-option1" type="radio" name="participeted{{i}}" [value]="'1'"
@@ -225,7 +242,7 @@
                             </div>
                             <!--TBD-->
                             <button type="button" class="counter-bid-accepted" data-toggle="dropdown"
-                                *ngIf="customer.status==4 && customer.counterBidFlag=='Y'">
+                                *ngIf="customer.status==5 && customer.counterBidFlag=='Y'">
                                 COUNTER BID - ACCEPTED
                             </button>
                             <button type="button" class="counter-bid-rejected" data-toggle="dropdown"
@@ -239,7 +256,7 @@
                             {{customer.commitments}}
                         </div>
                     </div>
-                    <div class="col col-2 quantity-end commitement-column content-module">
+                    <div class="col col-3 quantity-end commitement-column content-module">
                         <div class="end-content content-module">
                             {{customer.actualPower}}
                         </div>
@@ -248,9 +265,9 @@
             </div>
             <div class="row row-top sticky-content" style="padding-right: 6px;border-bottom: 1px solid#E4E8EC;">
                 <div class="row-border footer-color border-right">
-                    <div class=" custom-control custom-checkbox">
+                    <!-- <div class=" custom-control custom-checkbox">
 
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col mw-300 row-border footer-color seven-line">
                     <div class="row-footer total-pad color-footer-bottom" style="padding-left: 14px;">
@@ -273,7 +290,7 @@
                         {{totalCommittedPower}}
                     </div>
                 </div>
-                <div class="col col-2 row-border footer-color seven-line end-last">
+                <div class="col col-3 row-border footer-color seven-line end-last">
                     <div class="row-footer commitement-header content-module color-footer-bottom">
                         {{totalActualPower}}
                     </div>

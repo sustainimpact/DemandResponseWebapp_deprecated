@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject} from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AllEventSets } from 'src/app/DataModels/AllEventSets';
 import { EventsService } from 'src/app/services/events.service';
@@ -33,26 +33,26 @@ export class AllEventSetsComponent implements OnInit {
     this.userId = this.storage.get('UserId');
     this.eventsService.getEventSets(this.userId).subscribe((res) => {
       this.resFromServer = res;
-      if(this.resFromServer != null) {
+      if (this.resFromServer != null) {
         this.response = this.resFromServer.response;
-        if(this.response != null) {
+        if (this.response != null) {
           this.eventSets = this.response.eventSets;
-          if(this.eventSets != null) {
-            if(this.eventSets.upcoming != null) {
+          if (this.eventSets != null) {
+            if (this.eventSets.upcoming != null) {
               this.upcomingEventSets = this.eventSets.upcoming;
-            }  
+            }
             else {
               this.upcomingEventSets = [];
             }
-            if(this.eventSets.currWeek != null) {
+            if (this.eventSets.currWeek != null) {
               this.curWeekEventSets = this.eventSets.currWeek;
-            }  
+            }
             else {
               this.curWeekEventSets = [];
             }
-            if(this.eventSets.currMonth != null) {
+            if (this.eventSets.currMonth != null) {
               this.curMonthEventSets = this.eventSets.currMonth;
-            }  
+            }
             else {
               this.curMonthEventSets = [];
             }
@@ -74,22 +74,22 @@ export class AllEventSetsComponent implements OnInit {
 
   scheduleDrEvent() {
     this.modalService.open(CreateEventHomeComponent, { centered: true, windowClass: 'create-event-modal' })
-    .result.then((result) => {},
-    (reason) => {
-      this.router.navigate(['/main/createEvent'], {
-          queryParams: {
-            eventType: 'upcoming',
-            eventSetId: reason.eventSetId,
-            eventSetName: reason.eventSetName
-          }
-        });  
-    });
+      .result.then((result) => { },
+        (reason) => {
+          this.router.navigate(['/main/createEvent'], {
+            queryParams: {
+              eventType: 'upcoming',
+              eventSetId: reason.eventSetId,
+              eventSetName: reason.eventSetName
+            }
+          });
+        });
   }
 
   formatTime(ts, type) {
     if (ts != null) {
       ts = ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
-     // console.log('date : ', ts);
+      // console.log('date : ', ts);
       if (type == 't')
         return moment(ts).format("hh:mm A");
       else if (type == 'd')
@@ -100,13 +100,13 @@ export class AllEventSetsComponent implements OnInit {
   getStatus(status) {
     //console.log('status : ', statusId);
     if (status == 'Created') {
-      return 'UPLOADED';
+      return 'Un-Published';
     }
     else if (status == 'Published') {
-      return 'PUBLISHED';
+      return 'Published';
     }
     else if (status == 'Partially Published') {
-      return 'PARTIALLY PUBLISHED';
+      return 'Partially Published';
     }
   }
 }

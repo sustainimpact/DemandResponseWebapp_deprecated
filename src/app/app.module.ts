@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgHttpLoaderModule } from 'ng-http-loader';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     AllEventSetsComponent,
     AllCustomersComponent,
     CreateEventDetailsComponent,
+    UserProfileComponent,
   ],
   imports: [
     HttpClientModule,
