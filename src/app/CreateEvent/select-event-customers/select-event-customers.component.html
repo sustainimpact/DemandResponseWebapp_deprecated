@@ -225,11 +225,11 @@
                             </div>
                             <!--TBD-->
                             <button type="button" class="counter-bid-accepted" data-toggle="dropdown"
-                                *ngIf="customer.status==4 || customer.counterBidFlag=='Y'">
+                                *ngIf="customer.status==4 && customer.counterBidFlag=='Y'">
                                 COUNTER BID - ACCEPTED
                             </button>
                             <button type="button" class="counter-bid-rejected" data-toggle="dropdown"
-                                *ngIf="customer.status==6 || customer.counterBidFlag=='Y'">
+                                *ngIf="customer.status==6 && customer.counterBidFlag=='Y'">
                                 COUNTER BID - REJECTED
                             </button>
                         </div>

@@ -258,7 +258,7 @@ export class SelectEventCustomersComponent implements OnInit {
     (reason) => {
       console.log('reason : ' , reason);
       if(reason==1) {
-        this.getEventOverview();
+        this.refreshCustomerDetails();
       }
     });
   }
@@ -268,7 +268,7 @@ export class SelectEventCustomersComponent implements OnInit {
       this.resFromServer = res;
       if (this.resFromServer != null) {
         if (this.resFromServer.responseStatus == 1) {
-          this.getCustomers();
+          this.refreshCustomerDetails();
         }
       }
     });
@@ -281,7 +281,7 @@ export class SelectEventCustomersComponent implements OnInit {
       this.resFromServer = res;
       if (this.resFromServer != null) {
         if (this.resFromServer.responseStatus == 1) {
-          this.getCustomers();
+          this.refreshCustomerDetails();
         }
       }
     });
@@ -298,10 +298,22 @@ export class SelectEventCustomersComponent implements OnInit {
     console.log(i, status);
     if (status == '0') {
       if (this.selectedCustomer != null) {
-        this.rejectCustomer(this.selectedCustomer.userId);
+        //this.rejectCustomer(this.selectedCustomer.userId);
+        this.customerService.rejectCustomer(this.eventId, this.eventSetId, this.selectedCustomer.userId)
+        .subscribe((res) => {
+          this.resFromServer = res;
+          if (this.resFromServer != null) {
+            this.response = this.resFromServer.response;
+            if(this.response != null) {
+              if (this.response.responseStatus == 1) {
+                this.refreshCustomerDetails();
+              }
+            }
+          }
+        });
       }
     }
-    if (status == '1') {
+     else if (status == '1') {
       //No acion needed since customer is already in Participated state
     }
   }
