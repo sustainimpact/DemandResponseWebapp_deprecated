@@ -43,7 +43,7 @@ export class CreateEventDetailsComponent implements OnInit {
   totalCustomers: number = 0;
 
   isRowSelected: boolean = false;
-  isExcludedZeroSelected: boolean = false;
+  isExcludedZeroSelected: boolean = true;
 
   resFromServer: any;
   response: any;
@@ -138,6 +138,7 @@ export class CreateEventDetailsComponent implements OnInit {
             this.eventsService.events = this.events;
             console.log('events : ', this.events);
             this.calculateEventDetails();
+            this.excludeZero();
           }
         }
       }
@@ -519,6 +520,5 @@ export class EventOverviewComponent implements OnInit {
       }
     );
   }
-
 
 }

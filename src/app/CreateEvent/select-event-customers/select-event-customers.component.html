@@ -75,11 +75,11 @@
         <!-- <div class="participant-next" hidden=true>
             <div class="invites">Actively Participating</div>
             <div class="invite-down">03</div>
-        </div>
-        <div class="participant-next" hidden=true>
-            <div class="invites">Non-Complaint User(has penalty)</div>
-            <div class="invite-down">01</div>
         </div> -->
+        <div class="participant-next" *ngIf = "eventOverview?.eventStatus == 'Completed'">
+            <div class="invites">Non-Complaint User(has penalty)</div>
+            <div class="invite-down">{{getPenaltyCusCount()}}</div>
+        </div>
         <div class="ml-auto" *ngIf="eventOverview?.eventStatus == 'Live'">
             <div class="live-ending">Live Ending in</div>
             <div class="timer">{{timerDisplay}}</div>

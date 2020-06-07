@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
-import { EventSetCustomersComponent, PublishEventModalComponent, 
-  RejectBidModalComponent } from 'src/app/pop-up-pages/pop-up-pages.component';
+import {
+  EventSetCustomersComponent, PublishEventModalComponent,
+  RejectBidModalComponent
+} from 'src/app/pop-up-pages/pop-up-pages.component';
 import { AllEventSets } from 'src/app/DataModels/AllEventSets';
 import { AllEvents } from 'src/app/DataModels/AllEvents';
 import { EventsService } from 'src/app/services/events.service';
@@ -254,21 +256,24 @@ export class SelectEventCustomersComponent implements OnInit {
     modalRef.componentInstance.eventId = this.eventId;
     modalRef.componentInstance.eventName = this.eventName;
     modalRef.componentInstance.eventSetId = this.eventSetId;
-    modalRef.result.then((result) => {},
-    (reason) => {
-      console.log('reason : ' , reason);
-      if(reason==1) {
-        this.refreshCustomerDetails();
-      }
-    });
+    modalRef.result.then((result) => { },
+      (reason) => {
+        console.log('reason : ', reason);
+        if (reason == 1) {
+          this.refreshCustomerDetails();
+        }
+      });
   }
 
   rejectCustomer(customerId) {
     this.customerService.rejectCustomer(this.eventId, this.eventSetId, customerId).subscribe((res) => {
       this.resFromServer = res;
       if (this.resFromServer != null) {
-        if (this.resFromServer.responseStatus == 1) {
-          this.refreshCustomerDetails();
+        this.response = this.resFromServer.response;
+        if (this.response != null) {
+          if (this.response.responseStatus == 1) {
+            this.refreshCustomerDetails();
+          }
         }
       }
     });
@@ -280,8 +285,12 @@ export class SelectEventCustomersComponent implements OnInit {
     this.customerService.acceptCounterBid(this.eventId, this.eventSetId, customerId).subscribe((res) => {
       this.resFromServer = res;
       if (this.resFromServer != null) {
-        if (this.resFromServer.responseStatus == 1) {
-          this.refreshCustomerDetails();
+        if (this.response = this.resFromServer.response) {
+          if (this.response != null) {
+            if (this.response.responseStatus == 1) {
+              this.refreshCustomerDetails();
+            }
+          }
         }
       }
     });
@@ -300,20 +309,20 @@ export class SelectEventCustomersComponent implements OnInit {
       if (this.selectedCustomer != null) {
         //this.rejectCustomer(this.selectedCustomer.userId);
         this.customerService.rejectCustomer(this.eventId, this.eventSetId, this.selectedCustomer.userId)
-        .subscribe((res) => {
-          this.resFromServer = res;
-          if (this.resFromServer != null) {
-            this.response = this.resFromServer.response;
-            if(this.response != null) {
-              if (this.response.responseStatus == 1) {
-                this.refreshCustomerDetails();
+          .subscribe((res) => {
+            this.resFromServer = res;
+            if (this.resFromServer != null) {
+              this.response = this.resFromServer.response;
+              if (this.response != null) {
+                if (this.response.responseStatus == 1) {
+                  this.refreshCustomerDetails();
+                }
               }
             }
-          }
-        });
+          });
       }
     }
-     else if (status == '1') {
+    else if (status == '1') {
       //No acion needed since customer is already in Participated state
     }
   }
@@ -353,5 +362,14 @@ export class SelectEventCustomersComponent implements OnInit {
   refreshCustomerDetails() {
     this.getEventOverview();
     this.getCustomers();
+  }
+
+  getPenaltyCusCount() {
+    let count = 0;
+    this.customerList.forEach((cus) => {
+      if (cus.isFineApplicable == 'Y')
+        count++
+    });
+    return count;
   }
 }
