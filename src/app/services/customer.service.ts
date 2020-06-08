@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AllEventSets } from 'src/app/DataModels/AllEventSets';
 import { AllEvents } from 'src/app/DataModels/AllEvents';
-import { DR_URL } from 'src/environments/environment';
+import { DR_URL, CUSTOMER_URL } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -15,7 +15,7 @@ export class CustomerService {
   updateCustomersUrl = DR_URL + 'updateCustomersForEvent';
   rejectCustomersUrl = DR_URL + 'rejectCustomer';
   acceptCounterBidUrl = DR_URL + 'acceptCounterBid';
-  getAllCustomersUrl = DR_URL + 'getAllCustomers';
+  getAllCustomersUrl = CUSTOMER_URL + 'getAllCustomers';
 
   constructor(private httpClient: HttpClient) { }
 
