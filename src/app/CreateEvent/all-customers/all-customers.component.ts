@@ -19,7 +19,10 @@ export class AllCustomersComponent implements OnInit {
     this.innerHeight = Number(window.innerHeight) - 150;
     this.customerService.getAllCustomers().subscribe((res) => {
       this.resFromServer = res;
-      this.customerList = this.resFromServer;
+      if(this.resFromServer != null) {
+        this.customerList = this.resFromServer.response;
+        console.log('Customers : ' , this.customerList);
+      }
     });
   }
 }

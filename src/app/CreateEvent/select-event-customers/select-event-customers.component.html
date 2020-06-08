@@ -172,11 +172,16 @@
                     <div class="col mw-160 row-border end-content">
                         <div class="dropdown dropdown-col" data-toggle="dropdown">
                             <button type="button" class="dropdown-button drop-participate"
-                                *ngIf="customer.status==3 || customer.status==5">
+                                *ngIf="customer.status==3">
                                 PARTICIPATED <i class="dropdown-arrow fas fa-chevron-down"></i>
                             </button>
-                            <button type="button" class="dropdown-button drop-participate" *ngIf="customer.status==8">
-                                COMPLETED
+                            <button type="button" class="dropdown-button drop-accept"
+                                *ngIf="customer.status==5">
+                                PARTICIPATED 
+                                <!-- <i class="dropdown-arrow fas fa-chevron-down"></i> -->
+                            </button>
+                            <button type="button" class="dropdown-button drop-complete" *ngIf="customer.status==8">
+                                PARTICIPATED
                             </button>
                             <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==6">
                                 REJECTED

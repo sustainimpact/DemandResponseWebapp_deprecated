@@ -7,6 +7,7 @@ export const environment = {
 };
 
 export const DR_URL = 'http://139.59.30.90:8080/et_dr/rest/';
+export const CUSTOMER_URL = 'http://139.59.30.90:8080/et_dr/';
 
 /*
  * For easier debugging in development mode, you can import the following file
