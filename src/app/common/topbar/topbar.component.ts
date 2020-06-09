@@ -29,13 +29,14 @@ export class TopbarComponent implements OnInit {
   upcomingFunctionality() {
 
 
-    this.toastr.info(
+    this.toastr.success(
       'This is an upcoming functionality',
       "",
       {
-        timeOut: 3000,
+        timeOut: 30000,
         closeButton: true,
         enableHtml: true,
+        toastClass: 'ngx-toastr toast-success top-90 width-500',
         positionClass: "toast-top-center"
       }
     );

@@ -137,7 +137,7 @@
                 <div class="col mw-160 row-border end-content new-top-col">
                     STATUS
                 </div>
-                <div class="col mw-230">
+                <div class="col mw-250">
                     <div class="end-content  total-pad quantity-start len-row"
                         style="font-family: SourceSansPro-SemiBold;font-size: 12px;color: #2E2E2E;letter-spacing: 0;justify-content: center;">
                         PRICE (PAISE/KWH)
@@ -148,7 +148,7 @@
                         COMMITMENTS (KW)
                     </div>
                 </div>
-                <div class="col col-3 quantity-end commitement-column" style="justify-content: center;">
+                <div class="col col-2 quantity-end commitement-column" style="justify-content: center;">
                     <div class="end-content new-top-col">
                         TRANSFERRED (KW)
                     </div>
@@ -229,7 +229,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col mw-230 commitement-column">
+                    <div class="col mw-250 commitement-column">
                         <div
                             class="end-content total-pad quantity-start len-row ten-five d-flex justify-content-between">
                             <span>{{customer.price}}</span>
@@ -246,7 +246,7 @@
                                 COUNTER BID - ACCEPTED
                             </button>
                             <button type="button" class="counter-bid-rejected" data-toggle="dropdown"
-                                *ngIf="customer.status==6 && customer.counterBidFlag=='Y'">
+                               >
                                 COUNTER BID - REJECTED
                             </button>
                         </div>
@@ -256,7 +256,7 @@
                             {{customer.commitments}}
                         </div>
                     </div>
-                    <div class="col col-3 quantity-end commitement-column content-module">
+                    <div class="col col-2 quantity-end commitement-column content-module">
                         <div class="end-content content-module">
                             {{customer.actualPower}}
                         </div>
@@ -279,7 +279,7 @@
                         --
                     </div>
                 </div>
-                <div class="col mw-230 row-border footer-color seven-line end-last"
+                <div class="col mw-250 row-border footer-color seven-line end-last"
                     style="justify-content: flex-start;">
                     <div class="row-footer commitement-header len-row color-footer-bottom" style="padding-left: 10px;">
                         --
@@ -290,7 +290,7 @@
                         {{totalCommittedPower}}
                     </div>
                 </div>
-                <div class="col col-3 row-border footer-color seven-line end-last">
+                <div class="col col-2 row-border footer-color seven-line end-last">
                     <div class="row-footer commitement-header content-module color-footer-bottom">
                         {{totalActualPower}}
                     </div>
