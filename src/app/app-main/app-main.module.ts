@@ -24,6 +24,7 @@ import { AddCustomerBulkComponent } from '../pop-up-pages/pop-up-pages.component
 import { FormsModule } from '@angular/forms';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { StorageServiceModule } from 'angular-webstorage-service';
+import { CountdownModule } from 'ngx-countdown';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { StorageServiceModule } from 'angular-webstorage-service';
     NgbModalModule,
     FormsModule,
     NgHttpLoaderModule.forRoot(),
-    StorageServiceModule
+    StorageServiceModule,
+    CountdownModule
   ],
   exports: [ 
     AppMainComponent,

@@ -56,6 +56,7 @@ export class SelectEventCustomersComponent implements OnInit {
   interval;
   reportTable = [];
   totalSuccIndex = 0;
+  leftTime = 0;
 
   constructor(private modalService: NgbModal
     , private router: Router
@@ -107,14 +108,9 @@ export class SelectEventCustomersComponent implements OnInit {
       }
 
 
-      //timer code
-      var start = moment(this.eventOverview.endTime);
-      var seconds = start.minutes() * 60;
-      this.interval = setInterval(() => {
-        this.timerDisplay = start.subtract(1, "second").format("hh:mm:ss");
-        seconds--;
-        if (seconds === 0) clearInterval(this.interval);
-      }, 1000);
+      // //timer code
+      this.leftTime = moment(this.eventOverview.endTime).diff(moment(), 'seconds');
+
     });
   }
 
