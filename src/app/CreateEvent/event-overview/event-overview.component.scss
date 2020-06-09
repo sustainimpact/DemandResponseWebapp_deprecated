@@ -1,6 +1,6 @@
 .main {
   width: 1200px;
-  height: 650px; 
+  height: 650px;
   background: white;
   border-radius: 5px;
   display: -webkit-flex;
@@ -29,12 +29,11 @@
     padding-top: 10px;
     margin-top: auto;
 
-
     .cancel-btn {
       font-family: SourceSansPro-SemiBold;
       font-size: 14px;
-      background: #00349A;
-      color: #FFFFFF;
+      background: #00349a;
+      color: #ffffff;
       letter-spacing: 0;
       text-align: center;
       width: 197px;
@@ -46,7 +45,7 @@
 .publish-event-button {
   font-family: SourceSansPro-SemiBold !important;
   font-size: 14px !important;
-  color: #00349A !important;
+  color: #00349a !important;
   line-height: 19px !important;
   padding: 7px 30px !important;
 }
@@ -60,26 +59,26 @@
 .header-top-content {
   font-family: SourceSansPro-Bold;
   font-size: 24px;
-  color: #2E2E2E;
+  color: #2e2e2e;
   letter-spacing: 0;
 }
 
 .active {
-  box-shadow: 0 0 0 0 rgba(0, 123, 255, .25) !important;
-  background-color: #00349A !important;
+  box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.25) !important;
+  background-color: #00349a !important;
   color: white !important;
 }
 
 .year {
   font-family: SourceSansPro-Bold;
   font-size: 24px;
-  color: #00349A;
+  color: #00349a;
   font-weight: 700;
 }
 
 .vertical-dot-icon {
   font-size: 14px;
-  color: #00349A;
+  color: #00349a;
 }
 
 .button-margin {
@@ -91,20 +90,20 @@
 }
 
 .btn:focus {
-  box-shadow: 0 0 0 0 rgba(0, 123, 255, .25) !important;
+  box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.25) !important;
 }
 
 .table-border {
-  border: 1px solid #E4E8EC;
+  border: 1px solid #e4e8ec;
 }
 
 .row-top {
-  border-top: 1px solid #E4E8EC;
+  border-top: 1px solid #e4e8ec;
   margin: 0px !important;
 }
 
 .table-end-line {
-  border-bottom: 1px solid #E4E8EC;
+  border-bottom: 1px solid #e4e8ec;
 }
 
 .sticky-content {
@@ -116,12 +115,12 @@
 .dr-event {
   font-family: SourceSansPro-SemiBold;
   font-size: 12px;
-  color: #2E2E2E;
+  color: #2e2e2e;
   font-weight: 600;
 }
 
 .column-one {
-  background: #FFFFFF;
+  background: #ffffff;
   font-size: 14px;
   font-family: SourceSansPro-Regular;
 }
@@ -129,12 +128,12 @@
 .row-footer {
   font-family: SourceSansPro-SemiBold;
   font-size: 14px;
-  color: #00349A;
+  color: #00349a;
   font-weight: 700;
 }
 
 .row-border {
-  border-right: 1px solid #E4E8EC;
+  border-right: 1px solid #e4e8ec;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,7 +142,7 @@
 }
 
 .row-border-header {
-  border-right: 1px solid #E4E8EC;
+  border-right: 1px solid #e4e8ec;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -152,7 +151,7 @@
 }
 
 .plan-quantity-end {
-  border-right: 1px solid #E4E8EC;
+  border-right: 1px solid #e4e8ec;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -162,7 +161,7 @@
 .red-color-font {
   font-family: SourceSansPro-SemiBold;
   font-size: 14px;
-  color: #D0021B;
+  color: #d0021b;
   letter-spacing: 0;
   text-align: right;
 }
@@ -170,7 +169,7 @@
 .sub-divided-branch {
   font-family: SourceSansPro-SemiBold;
   font-size: 12px;
-  color: #2E2E2E;
+  color: #2e2e2e;
   letter-spacing: 0;
   text-align: center;
 }
@@ -178,13 +177,13 @@
 .blue-color-font {
   font-family: SourceSansPro-SemiBold;
   font-size: 14px;
-  color: #2D8EFF;
+  color: #2d8eff;
   letter-spacing: 0;
   text-align: right;
 }
 
 .plan-quantity-start {
-  border-right: 1px solid #E4E8EC;
+  border-right: 1px solid #e4e8ec;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -194,7 +193,7 @@
 .exclude-time {
   font-family: SourceSansPro-Regular;
   font-size: 14px;
-  color: #2E2E2E;
+  color: #2e2e2e;
   letter-spacing: 0;
   padding-top: 2px;
 }
@@ -208,7 +207,7 @@
 }
 
 .footer-color {
-  background-color: #E5EFFF;
+  background-color: #e5efff;
 }
 
 .commitement-header {
@@ -247,15 +246,15 @@
 }
 
 .btn {
-  box-shadow: 0 0 0 0 rgba(0, 123, 255, .25) !important;
-  background-color: #00349A !important;
+  box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.25) !important;
+  background-color: #00349a !important;
   color: white !important;
 }
 
 .back-btn {
-  box-shadow: 0 0 0 0 rgba(0, 123, 255, .25) !important;
+  box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.25) !important;
   background-color: white !important;
-  color: #00349A !important;
+  color: #00349a !important;
   border: 1px solid transparent;
   font-family: SourceSansPro-SemiBold;
   font-size: 14px;
@@ -263,7 +262,7 @@
 }
 
 .back-btn:focus {
-  box-shadow: 0 0 0 0 rgba(0, 123, 255, .25) !important;
+  box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.25) !important;
   outline: 0px auto -webkit-focus-ring-color !important;
 }
 
@@ -282,4 +281,9 @@
   margin-top: 24px;
   margin-right: -19px !important;
   margin-left: -41px !important;
+}
+
+.event-timer {
+  color: black;
+  font-family: SourceSansPro-Bold;
 }

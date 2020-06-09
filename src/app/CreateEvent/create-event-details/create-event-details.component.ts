@@ -457,6 +457,10 @@ export class EventOverviewComponent implements OnInit {
   timerDisplay;
   exportedfileName = 'DREventSetDetails.xlsx';
 
+  getLeftTime(endtime) {
+   return moment(endtime).diff(moment(), 'seconds');
+  }
+
   ngOnInit() {
     // this.eventDetails = this.eventsService.getEvents(this.eventType, this.eventSetId);
     // if(this.eventDetails != null) {

@@ -73,6 +73,11 @@
                         <!-- <div class="blue-color-font">
                            {{getTimer(event)}}
                         </div> -->
+
+                        <countdown class="event-timer" *ngIf="event.eventStatus == 'Live'"
+                            [config]="{ leftTime: getLeftTime(event.endTime), format: 'mm:ss' }">
+                        </countdown>
+
                     </div>
                     <div class="col-5" style="display: flex;padding-right: 0px;">
                         <div class="col row-border plan-quantity-end">
