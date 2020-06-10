@@ -88,12 +88,14 @@ export class AllEventSetsComponent implements OnInit {
 
   formatTime(ts, type) {
     if (ts != null) {
-      ts = ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
+      //  ts = ts.substring(0, 10) + ' ' + ts.substring(11, 16) + ':00';
       // console.log('date : ', ts);
       if (type == 't')
         return moment(ts).format("hh:mm A");
-      else if (type == 'd')
-        return moment(ts).format("Do MMM, YYYY");
+      else if (type == 'd') {
+        let tempdate = moment(ts, "YYYY-MM-DD")
+        return tempdate.format("Do MMM, YYYY");
+      }
     }
   }
 
