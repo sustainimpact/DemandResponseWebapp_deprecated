@@ -76,13 +76,15 @@ export class AllEventSetsComponent implements OnInit {
     this.modalService.open(CreateEventHomeComponent, { centered: true, windowClass: 'create-event-modal' })
       .result.then((result) => { },
         (reason) => {
-          this.router.navigate(['/main/createEvent'], {
-            queryParams: {
-              eventType: 'upcoming',
-              eventSetId: reason.eventSetId,
-              eventSetName: reason.eventSetName
-            }
-          });
+          if(reason.uploadResult == 'Success') {
+            this.router.navigate(['/main/createEvent'], {
+              queryParams: {
+                eventType: 'upcoming',
+                eventSetId: reason.eventSetId,
+                eventSetName: reason.eventSetName
+              }
+            });
+          }
         });
   }
 
