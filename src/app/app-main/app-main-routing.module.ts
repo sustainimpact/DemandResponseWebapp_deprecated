@@ -17,12 +17,14 @@ import { AllCustomersComponent } from '../CreateEvent/all-customers/all-customer
 // import { RejectBidModalComponent } from '../Modals/reject-bid-modal/reject-bid-modal.component';
 import { PopUpPagesComponent, AddCustomerModalERComponent } from '../pop-up-pages/pop-up-pages.component';
 import { AuthGuard } from '../guards/auth.guard';
+import { UserProfileComponent } from '../user-profile/user-profile.component';
 // import { EventOverviewComponent } from '../CreateEvent/event-overview/event-overview.component';
 const routes: Routes = [
   {
     path: '', component: AppMainComponent,
     children: [
       { path: '', component: AllEventSetsComponent },
+      { path: 'user-profile', component: UserProfileComponent, data: { breadcrumb: 'User Profile' }, canActivate: [AuthGuard] },
       { path: 'createEvent', component: CreateEventDetailsComponent, data: { breadcrumb: 'Create Event Details' }, canActivate: [AuthGuard] },
       { path: 'selecteventcustomers', component: SelectEventCustomersComponent, data: { breadcrumb: 'Select Event Customers' }, canActivate:[AuthGuard]},
       { path: 'createeventdetails', component: CreateEventDetailsComponent, data: { breadcrumb: 'Create Event Details' }, canActivate:[AuthGuard] },
