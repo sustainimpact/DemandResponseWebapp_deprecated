@@ -48,6 +48,7 @@ body {
     max-width: fit-content !important;
   }
 }
+
 .dropdown-button:focus,
 .dropdown-item:focus,
 .dropdown-item:active {
@@ -55,3 +56,31 @@ body {
   background-color: unset;
   color: #00349a;
 }
+
+/*#region Toast CSS */
+
+.top-90 {
+  top: 90px;
+}
+
+.width-500 {
+  width: 500px !important;
+}
+
+.width-600 {
+  width: 600px !important;
+}
+
+.width-625 {
+  width: 625px !important;
+}
+
+.width-650 {
+  width: 650px !important;
+}
+
+.width-700 {
+  width: 700px !important;
+}
+
+/*#endregion */

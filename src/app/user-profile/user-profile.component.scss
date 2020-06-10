@@ -1,0 +1,99 @@
+.user-profile {
+  font-family: SourceSansPro-Bold;
+  letter-spacing: 0;
+
+  .page-title {
+    font-size: 24px;
+    color: #00349A;
+  }
+
+  .form-group {
+
+    .label {
+      color: #727479;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .value {
+      color: #00349A;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+
+  .profile-image {
+    .image {
+      height: 80px;
+      width: 80px;
+    }
+
+    .browse {
+      color: #00349A;
+      font-weight: bold;
+      font-size: 12px;
+    }
+  }
+
+  .company-image {
+    .label {
+      color: #727479;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .upload-btn {
+      width: 130px;
+      padding: 7px 30px;
+      border: 1px dashed #B8C1CB;
+    }
+
+    .image {
+      height: 35px;
+    }
+
+    .desc {
+      color: #727479;
+      font-weight: bold;
+      font-size: 10px;
+    }
+  }
+
+  .serial-key {
+    height: 85px;
+    background-color: rgba(0, 52, 154, 0.08);
+    border-left: 5px solid #00349A;
+  }
+
+  .expiry-label {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  .contact-label {
+    font-size: 16px;
+    color: #262626;
+  }
+
+  .terms {
+    font-size: 14px;
+  }
+}
+
+.btn {
+  font-family: SourceSansPro-Bold;
+  letter-spacing: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #00349A;
+  line-height: 19px;
+  padding: 7px 30px;
+}
+
+.primary {
+  background-color: #00349A;
+  color: white;
+}

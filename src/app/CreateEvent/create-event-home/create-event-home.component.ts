@@ -105,13 +105,14 @@ export class CreateEventHomeComponent implements OnInit {
   }
 
   showUploadErrorToast() {
-    this.toastr.info(
+    this.toastr.error(
       'Events already uploaded for the selected date.',
       "",
       {
         timeOut: 5000,
         closeButton: true,
         enableHtml: true,
+        toastClass: 'ngx-toastr toast-error top-90 width-600',
         positionClass: "toast-top-center"
       }
     );
