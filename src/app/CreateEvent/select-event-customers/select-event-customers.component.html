@@ -250,7 +250,7 @@
                                 COUNTER BID - ACCEPTED
                             </button>
                             <button type="button" class="counter-bid-rejected" data-toggle="dropdown"
-                               >
+                            *ngIf="customer.status==6 && customer.counterBidFlag=='Y'" >
                                 COUNTER BID - REJECTED
                             </button>
                         </div>

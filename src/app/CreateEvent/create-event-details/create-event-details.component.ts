@@ -420,6 +420,7 @@ export class CreateEventDetailsComponent implements OnInit {
     if (this.isExcludedZeroSelected) {
       this.eventsBkp = this.events;
       this.events = this.events.filter(event => +event.plannedPower != 0);
+      this.events = this.events.filter(event => +event.price != 0);
     }
     else {
       this.events = this.eventsBkp;
@@ -458,7 +459,7 @@ export class EventOverviewComponent implements OnInit {
   exportedfileName = 'DREventSetDetails.xlsx';
 
   getLeftTime(endtime) {
-   return moment(endtime).diff(moment(), 'seconds');
+    return moment(endtime).diff(moment(), 'seconds');
   }
 
   ngOnInit() {
