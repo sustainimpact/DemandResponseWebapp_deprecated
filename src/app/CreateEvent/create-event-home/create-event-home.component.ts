@@ -70,7 +70,8 @@ export class CreateEventHomeComponent implements OnInit {
                 if (this.eventSetDetails != null) {
                   this.activeModal.dismiss({
                     eventSetId: this.eventSetDetails.eventSetId,
-                    eventSetName: this.eventSetDetails.eventSetName
+                    eventSetName: this.eventSetDetails.eventSetName,
+                    uploadResult: 'Success'
                   });
                   this.showUploadSuccesToast();
                 }
