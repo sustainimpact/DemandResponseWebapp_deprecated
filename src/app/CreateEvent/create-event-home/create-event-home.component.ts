@@ -80,13 +80,20 @@ export class CreateEventHomeComponent implements OnInit {
             //if file found
             else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "File already uploaded with same date and user") {
               this.response = this.resFromServer.response;
-              this.showUploadErrorToast();
+              let msg = "Events already uploaded for the selected date.";
+              this.showUploadErrorToast(msg);
+            }
+            else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "Uploaded Date is before Current Date") {
+              this.response = this.resFromServer.response;
+              let msg = "Uploaded Date is before Current Date.";
+              this.showUploadErrorToast(msg);
             }
           }
         });
     }
     else {
-      this.showUploadErrorToast();
+      let msg = "Something went wrong in uploading events.Please contact support.";
+      this.showUploadErrorToast(msg);
     }
   }
 
@@ -104,9 +111,9 @@ export class CreateEventHomeComponent implements OnInit {
     );
   }
 
-  showUploadErrorToast() {
+  showUploadErrorToast(msg) {
     this.toastr.error(
-      'Events already uploaded for the selected date.',
+      msg,
       "",
       {
         timeOut: 5000,
