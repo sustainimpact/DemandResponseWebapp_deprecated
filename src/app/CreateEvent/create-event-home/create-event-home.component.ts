@@ -106,20 +106,21 @@ export class CreateEventHomeComponent implements OnInit {
         timeOut: 5000,
         closeButton: true,
         enableHtml: true,
+        toastClass: 'ngx-toastr toast-info toast-bg-success top-90 width-600',
         positionClass: "toast-top-center"
       }
     );
   }
 
   showUploadErrorToast(msg) {
-    this.toastr.error(
+    this.toastr.info(
       msg,
       "",
       {
         timeOut: 5000,
         closeButton: true,
         enableHtml: true,
-        toastClass: 'ngx-toastr toast-error top-90 width-600',
+        toastClass: 'ngx-toastr toast-info toast-bg-error top-90 width-600',
         positionClass: "toast-top-center"
       }
     );
