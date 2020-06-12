@@ -58,6 +58,21 @@ body {
 }
 
 /*#region Toast CSS */
+.toast-bg-success {
+  background-color: #417505 !important;
+}
+
+.toast-bg-error {
+  background-color: #b11717 !important;
+}
+
+.toast-bg-warning {
+  background-color: #DB7B2E !important;
+}
+
+.toast-bg-info {
+  background-color: #2d8eff !important;
+}
 
 .top-90 {
   top: 90px;
