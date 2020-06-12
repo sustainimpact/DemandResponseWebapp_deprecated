@@ -19,7 +19,12 @@ export class CreateEventHomeComponent implements OnInit {
     , public activeModal: NgbActiveModal
     , private ingressService: IngressService
     , private eventsService: EventsService
-    , private toastr: ToastrService) { }
+    , private toastr: ToastrService) {
+    this.todayDate = moment().format("YYYY-MM-DD");
+    this.tommDate = moment().add(1, "day").format("YYYY-MM-DD");
+    this.dayAfterDate = moment().add(2, "days").format("YYYY-MM-DD");
+    this.uploadDate = this.todayDate;
+  }
 
   resFromServer: any;
   response: any;
@@ -33,8 +38,13 @@ export class CreateEventHomeComponent implements OnInit {
   fileName;
 
   eventSetDetails: any;
+  uploadDate;
+  todayDate;
+  tommDate;
+  dayAfterDate
 
   ngOnInit() {
+
   }
   selectFile() {
     this.fileInput.nativeElement.click();
@@ -58,8 +68,9 @@ export class CreateEventHomeComponent implements OnInit {
   }
 
   uploadEvent() {
-    if (this.selecteddate != null && this.location != null && this.result != null) {
-      this.eventsService.uploadEventSet(this.ingressService.currentUser.userId, this.selecteddate,
+    
+    if (this.uploadDate != null && this.location != null && this.result != null) {
+      this.eventsService.uploadEventSet(this.ingressService.currentUser.userId, this.uploadDate,
         this.location, this.result[1]).subscribe((res) => {
           this.resFromServer = res;
           if (this.resFromServer != null) {

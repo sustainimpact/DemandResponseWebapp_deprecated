@@ -9,7 +9,15 @@
             </div>
             <div class="col-6">
                 <div class="form-label">Date(YYYYMMDD) <span class="req">*</span></div>
-                <div><input type="date" [(ngModel)]="selecteddate" class="form-control" tabindex="-1"></div>
+                <!-- <div><input type="date" [(ngModel)]="selecteddate" class="form-control" tabindex="-1"></div> -->
+                <div>
+                    <select class="form-control" [(ngModel)]="uploadDate" name="uploadDate" id="uploadDate"
+                        tabindex="-1">
+                        <option [value]="todayDate" selected="selected">Today ({{todayDate}})</option>
+                        <option [value]="tommDate">Tommorow ({{tommDate}})</option>
+                        <option [value]="dayAfterDate">Day After ({{dayAfterDate}})</option>
+                    </select>
+                </div>
             </div>
             <div class="col-6">
                 <div class="form-label">Location Code <span class="req">*</span></div>
@@ -42,6 +50,6 @@
     <div class="footer-row">
         <button type="button" class="btn button-cancel" (click)="activeModal.close('Close click')">Cancel</button>
         <button type="button" class="btn button-color" (click)="uploadEvent()"
-            [disabled]="!uploadComplete || !selecteddate">Done</button>
+            [disabled]="!uploadComplete">Done</button>
     </div>
 </div>
