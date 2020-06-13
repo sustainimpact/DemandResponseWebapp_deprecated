@@ -10,7 +10,8 @@ import * as moment from 'moment';
 import { ToastrService } from 'ngx-toastr';
 import * as XLSX from 'xlsx'
 import { CreateEventHomeComponent } from '../create-event-home/create-event-home.component';
-
+import { Content } from '@angular/compiler/src/render3/r3_ast';
+import { REUPLOAD } from 'src/environments/environment';
 
 
 @Component({
@@ -56,6 +57,10 @@ export class CreateEventDetailsComponent implements OnInit {
   exportedfileName = 'DREventSetDetails.xlsx';
   totalPenalty;
   eventReport = [];
+  
+  dateOfOccurence: any;
+  location: any;
+  eventSetDetails: any;
 
   totalCusCommitIndex = 0;
   totalEffExecIndex = 0;
@@ -95,6 +100,7 @@ export class CreateEventDetailsComponent implements OnInit {
       this.eventSetId = params['eventSetId'];
       this.eventType = params['eventType'];
       this.eventSetName = params['eventSetName'];
+      this.dateOfOccurence = params['dateOfOccurence'];
     });
     this.getEvents();
   }
@@ -431,8 +437,15 @@ export class CreateEventDetailsComponent implements OnInit {
   }
 
   reUpload() {
-    this.modalService.open(CreateEventHomeComponent, { centered: true, windowClass: 'create-event-modal' })
-      .result.then((result) => { },
+    const activeModal = this.modalService.open(CreateEventHomeComponent, { centered: true, 
+      windowClass: 'create-event-modal'});
+
+      activeModal.componentInstance.action = REUPLOAD;
+      activeModal.componentInstance.eventSetId = this.eventSetId;
+      activeModal.componentInstance.eventSetName = this.eventSetName;
+      activeModal.componentInstance.dateOfOccurence = this.dateOfOccurence;
+
+      activeModal.result.then((result) => { },
         (reason) => {
           if(reason.uploadResult == 'Success') {
             this.router.navigate(['/main/createEvent'], {

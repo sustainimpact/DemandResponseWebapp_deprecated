@@ -9,6 +9,9 @@ export const environment = {
 export const DR_URL = 'http://139.59.30.90:8080/et_dr/rest/';
 export const CUSTOMER_URL = 'http://139.59.30.90:8080/et_dr/';
 
+export const UPLOAD = 'UPLOAD';
+export const REUPLOAD = 'REUPLOAD';
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

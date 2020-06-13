@@ -6,6 +6,8 @@ import * as moment from 'moment';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CreateEventHomeComponent } from '../create-event-home/create-event-home.component';
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import { UPLOAD } from 'src/environments/environment';
+import { REUPLOAD } from 'src/environments/environment';
 
 @Component({
   selector: 'app-all-event-sets',
@@ -63,18 +65,24 @@ export class AllEventSetsComponent implements OnInit {
   }
 
   openEventSetDetails(eventSet, eventType) {
+    console.log('clicked event set : ' , eventSet);
     this.router.navigate(['/main/createeventdetails'], {
       queryParams: {
         eventType: eventType,
         eventSetId: eventSet.eventSetId,
-        eventSetName: eventSet.eventSetName
+        eventSetName: eventSet.eventSetName,
+        dateOfOccurence: eventSet.dateOfOccurence
       }
     });
   }
 
   scheduleDrEvent() {
-    this.modalService.open(CreateEventHomeComponent, { centered: true, windowClass: 'create-event-modal' })
-      .result.then((result) => { },
+    const activeModal = this.modalService.open(CreateEventHomeComponent, 
+      { centered: true, windowClass: 'create-event-modal' });
+
+      activeModal.componentInstance.action = UPLOAD;
+
+      activeModal.result.then((result) => { },
         (reason) => {
           if(reason.uploadResult == 'Success') {
             this.router.navigate(['/main/createEvent'], {

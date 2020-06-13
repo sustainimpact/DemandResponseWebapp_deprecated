@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventsService } from 'src/app/services/events.service';
 import * as moment from 'moment';
@@ -6,6 +6,8 @@ import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrie
 import { IngressService } from 'src/app/services/ingress.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import { UPLOAD } from 'src/environments/environment';
+import { REUPLOAD } from 'src/environments/environment';
 
 @Component({
   selector: 'app-create-event-home',
@@ -13,6 +15,11 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./create-event-home.component.scss']
 })
 export class CreateEventHomeComponent implements OnInit {
+
+  @Input() public action;
+  @Input() public eventSetId;
+  @Input() public eventSetName;
+  @Input() public dateOfOccurence;
 
   @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
   constructor(private router: Router
@@ -44,7 +51,14 @@ export class CreateEventHomeComponent implements OnInit {
   dayAfterDate
 
   ngOnInit() {
-
+    if(this.action == REUPLOAD) {
+      if(this.eventSetName != null) {
+        this.location = this.eventSetName.substr(this.eventSetName.length - 3);
+      }
+      this.uploadDate = this.dateOfOccurence;
+      document.getElementById("uploadDate").setAttribute("disabled","disabled");
+      document.getElementById("location").setAttribute("disabled","disabled");
+    }
   }
   selectFile() {
     this.fileInput.nativeElement.click();
