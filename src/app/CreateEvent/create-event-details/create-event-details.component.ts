@@ -9,6 +9,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 import * as moment from 'moment';
 import { ToastrService } from 'ngx-toastr';
 import * as XLSX from 'xlsx'
+import { CreateEventHomeComponent } from '../create-event-home/create-event-home.component';
 
 
 
@@ -428,6 +429,22 @@ export class CreateEventDetailsComponent implements OnInit {
     }
     this.calculateEventDetails();
   }
+
+  reUpload() {
+    this.modalService.open(CreateEventHomeComponent, { centered: true, windowClass: 'create-event-modal' })
+      .result.then((result) => { },
+        (reason) => {
+          if(reason.uploadResult == 'Success') {
+            this.router.navigate(['/main/createEvent'], {
+              queryParams: {
+                eventType: 'upcoming',
+                eventSetId: reason.eventSetId,
+                eventSetName: reason.eventSetName
+              }
+            });
+          }
+        });
+  }
 }
 
 @Component({
@@ -525,5 +542,4 @@ export class EventOverviewComponent implements OnInit {
       }
     );
   }
-
 }
