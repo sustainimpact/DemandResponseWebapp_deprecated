@@ -53,8 +53,9 @@ export class CreateEventHomeComponent implements OnInit {
   }
 
   getBase64(event) {
-    let file = event.target.files[0];
-    this.fileName = event.target.files[0].name;
+    // let file = event.target.files[0];
+    let file = event[0];
+    this.fileName = event[0].name;
     let reader = new FileReader();
     let thisRef = this;
     reader.readAsDataURL(file);
@@ -68,7 +69,7 @@ export class CreateEventHomeComponent implements OnInit {
   }
 
   uploadEvent() {
-    
+
     if (this.uploadDate != null && this.location != null && this.result != null) {
       this.eventsService.uploadEventSet(this.ingressService.currentUser.userId, this.uploadDate,
         this.location, this.result[1]).subscribe((res) => {
@@ -135,6 +136,8 @@ export class CreateEventHomeComponent implements OnInit {
         positionClass: "toast-top-center"
       }
     );
+
+
   }
   // showError() {
   //   this.toastr.info(
@@ -149,4 +152,14 @@ export class CreateEventHomeComponent implements OnInit {
   //     }
   //   );
   // }
+
+  onFileDropped(event) {
+    console.log("File Dropped");
+  }
+
+  fileDropHandler(event) {
+
+    console.log("filebrowsehandler: ",event);
+    this.getBase64(event);
+  }
 }

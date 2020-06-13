@@ -14,6 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { DndDirective } from './directives/dnd.directive';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AllCustomersComponent,
     CreateEventDetailsComponent,
     UserProfileComponent,
+    DndDirective,
   ],
   imports: [
     HttpClientModule,
