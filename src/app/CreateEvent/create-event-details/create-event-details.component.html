@@ -257,7 +257,7 @@
                 </div>
             </div> -->
 
-            <div class="row row-top" *ngFor="let event of events" [class.light-blue]="event.isSelected"
+            <div class="row m-0 border-bottom" *ngFor="let event of events" [class.light-blue]="event.isSelected"
                 [class.light-gray]="event.eventStatus == 'Published' 
                 || event.eventStatus == 'Gate Closed'
                 || event.eventStatus == 'Locked'
@@ -763,7 +763,7 @@
     </div> -->
         </div>
 
-        <div class="row row-top sticky-content">
+        <div class="row m-0 border-bottom sticky-content">
             <div style="width:39px;background-color: white;">
             </div>
             <div class="col row-border footer-color">

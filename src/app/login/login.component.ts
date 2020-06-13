@@ -77,14 +77,14 @@ export class LoginComponent implements OnInit {
   }
 
   showError() {
-    this.toastr.error(
+    this.toastr.info(
       'Incorrect credentials',
       "",
       {
         timeOut: 5000,
-        closeButton: true, 
+        closeButton: true,
         enableHtml: true,
-        toastClass: 'ngx-toastr toast-error top-90',
+        toastClass: 'ngx-toastr toast-info toast-bg-error top-90 ',
         positionClass: "toast-top-center"
       }
     );

@@ -87,7 +87,7 @@
         </div>
     </div>
     <div style="width:75%;padding-left:20px;padding-bottom: 26px;">
-        <div class="table-border" [ngStyle]="{'height.px': innerHeight}">
+        <div class="table-border" [ngStyle]="{'max-height.px': innerHeight}">
             <div class="row pl-2 pr-4">
                 <div class="col select-customer">
                     <div class="row-customer" style="padding-left: 25px;">
@@ -156,7 +156,7 @@
                 </div>
             </div>
             <div class="table-row-scroll">
-                <div class="row row-top" [class.light-red]="customer.isFineApplicable=='Y'"
+                <div class="row m-0 border-bottom" [class.light-red]="customer.isFineApplicable=='Y'"
                     *ngFor="let customer of customerList;let i=index;">
                     <div class="row-border">
                         <!-- <div class="custom-control custom-checkbox">
@@ -267,7 +267,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row row-top sticky-content" style="padding-right: 6px;border-bottom: 1px solid#E4E8EC;">
+            <div class="row m-0 border-bottom sticky-content" style="padding-right: 6px;border-bottom: 1px solid#E4E8EC;">
                 <div class="row-border footer-color border-right">
                     <!-- <div class=" custom-control custom-checkbox">
 
