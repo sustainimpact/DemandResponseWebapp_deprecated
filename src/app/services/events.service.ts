@@ -21,6 +21,7 @@ export class EventsService {
   eventsForSelectedEventSet: AllEvents[] = [];
 
   uploadEventSetUrl = DR_URL + 'uploadEventSet';
+  reUploadEventSetUrl = DR_URL + 'reUploadEventSet';
   publishEventsUrl = DR_URL + 'publishEvent';
   getEventOverviewUrl = DR_URL + 'getEventOverview';
   cancelEventUrl = DR_URL + 'cancelEvent';
@@ -90,6 +91,17 @@ export class EventsService {
     };
     return this.httpClient.post(this.uploadEventSetUrl + '/' + location 
       + '/'+ userId + '/' + date
+      , {"eventSet":payload}
+      , options
+    );
+  }
+
+  reUploadEventSet(eventSetId, payload: string) {
+    var options = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    };
+    return this.httpClient.post(this.reUploadEventSetUrl + '/' + eventSetId       
       , {"eventSet":payload}
       , options
     );
