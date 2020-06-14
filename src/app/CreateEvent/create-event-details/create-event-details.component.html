@@ -30,7 +30,7 @@
                 <i class="fas fa-ellipsis-h vertical-dot-icon"></i>
             </button>
             <div class="dropdown-menu fs-14" aria-labelledby="eventDropdown">
-                <button class="dropdown-item disabled" type="button"> Re-Upload
+                <button class="dropdown-item" type="button" (click)="reUpload()"> Re-Upload
                     Sheet</button>
                 <button class="dropdown-item disabled" type="button">Version
                     History</button>
@@ -263,7 +263,8 @@
                 || event.eventStatus == 'Locked'
                 || event.eventStatus == 'Live'
                 || event.eventStatus == 'Expired'" [class.light-yellow]="false"
-                [class.light-red]="event.eventStatus == 'Cancelled'">
+                [class.light-red]="event.eventStatus == 'Cancelled'"
+                (click)="openEventDetails(event)">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" (click)="selectEvent(event.eventId)"

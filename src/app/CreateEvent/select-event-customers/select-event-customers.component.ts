@@ -324,6 +324,7 @@ export class SelectEventCustomersComponent implements OnInit {
   }
 
   searchCustomers() {
+    this.customerList = this.customerListBkp;
     if (this.searchCustomer == '') {
       this.customerList = this.customerListBkp;
     }

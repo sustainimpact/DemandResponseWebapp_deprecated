@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventsService } from 'src/app/services/events.service';
 import * as moment from 'moment';
@@ -6,6 +6,9 @@ import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrie
 import { IngressService } from 'src/app/services/ingress.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import { UPLOAD } from 'src/environments/environment';
+import { REUPLOAD } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-create-event-home',
@@ -14,12 +17,22 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CreateEventHomeComponent implements OnInit {
 
+  @Input() public action;
+  @Input() public eventSetId;
+  @Input() public eventSetName;
+  @Input() public dateOfOccurence;
+
   @ViewChild('fileInput', { static: false }) fileInput: ElementRef;
   constructor(private router: Router
     , public activeModal: NgbActiveModal
     , private ingressService: IngressService
     , private eventsService: EventsService
-    , private toastr: ToastrService) { }
+    , private toastr: ToastrService) {
+    this.todayDate = moment().format("YYYY-MM-DD");
+    this.tommDate = moment().add(1, "day").format("YYYY-MM-DD");
+    this.dayAfterDate = moment().add(2, "days").format("YYYY-MM-DD");
+    this.uploadDate = this.todayDate;
+  }
 
   resFromServer: any;
   response: any;
@@ -33,8 +46,20 @@ export class CreateEventHomeComponent implements OnInit {
   fileName;
 
   eventSetDetails: any;
+  uploadDate;
+  todayDate;
+  tommDate;
+  dayAfterDate
 
   ngOnInit() {
+    if(this.action == REUPLOAD) {
+      if(this.eventSetName != null) {
+        this.location = this.eventSetName.substr(this.eventSetName.length - 3);
+      }
+      this.uploadDate = this.dateOfOccurence;
+      document.getElementById("uploadDate").setAttribute("disabled","disabled");
+      document.getElementById("location").setAttribute("disabled","disabled");
+    }
   }
   selectFile() {
     this.fileInput.nativeElement.click();
@@ -43,8 +68,9 @@ export class CreateEventHomeComponent implements OnInit {
   }
 
   getBase64(event) {
-    let file = event.target.files[0];
-    this.fileName = event.target.files[0].name;
+    // let file = event.target.files[0];
+    let file = event[0];
+    this.fileName = event[0].name;
     let reader = new FileReader();
     let thisRef = this;
     reader.readAsDataURL(file);
@@ -58,9 +84,48 @@ export class CreateEventHomeComponent implements OnInit {
   }
 
   uploadEvent() {
-    if (this.selecteddate != null && this.location != null && this.result != null) {
-      this.eventsService.uploadEventSet(this.ingressService.currentUser.userId, this.selecteddate,
-        this.location, this.result[1]).subscribe((res) => {
+    if (this.action == UPLOAD) {
+      if (this.uploadDate != null && this.location != null && this.result != null) {
+        this.eventsService.uploadEventSet(this.ingressService.currentUser.userId, this.uploadDate,
+          this.location, this.result[1]).subscribe((res) => {
+            this.resFromServer = res;
+            if (this.resFromServer != null) {
+              if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "The request was successfully served.") {
+                this.response = this.resFromServer.response;
+                if (this.response != null) {
+                  this.eventSetDetails = this.response.eventSet;
+                  if (this.eventSetDetails != null) {
+                    this.activeModal.dismiss({
+                      eventSetId: this.eventSetDetails.eventSetId,
+                      eventSetName: this.eventSetDetails.eventSetName,
+                      uploadResult: 'Success'
+                    });
+                    this.showUploadSuccesToast();
+                  }
+                }
+              }
+              //if file found
+              else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "File already uploaded with same date and user") {
+                this.response = this.resFromServer.response;
+                let msg = "Events already uploaded for the selected date.";
+                this.showUploadErrorToast(msg);
+              }
+              else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "Uploaded Date is before Current Date") {
+                this.response = this.resFromServer.response;
+                let msg = "Uploaded Date is before Current Date.";
+                this.showUploadErrorToast(msg);
+              }
+            }
+          });
+      }
+      else {
+        let msg = "Something went wrong in uploading events.Please contact support.";
+        this.showUploadErrorToast(msg);
+      }
+    }
+    else if (this.action == REUPLOAD) {
+      if (this.result != null && this.eventSetId != null) {
+        this.eventsService.reUploadEventSet(this.eventSetId, this.result[1]).subscribe((res) => {
           this.resFromServer = res;
           if (this.resFromServer != null) {
             if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "The request was successfully served.") {
@@ -77,23 +142,13 @@ export class CreateEventHomeComponent implements OnInit {
                 }
               }
             }
-            //if file found
-            else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "File already uploaded with same date and user") {
-              this.response = this.resFromServer.response;
-              let msg = "Events already uploaded for the selected date.";
-              this.showUploadErrorToast(msg);
-            }
-            else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "Uploaded Date is before Current Date") {
-              this.response = this.resFromServer.response;
-              let msg = "Uploaded Date is before Current Date.";
-              this.showUploadErrorToast(msg);
-            }
           }
         });
-    }
-    else {
-      let msg = "Something went wrong in uploading events.Please contact support.";
-      this.showUploadErrorToast(msg);
+      }
+      else {
+        let msg = "Something went wrong in uploading events.Please contact support.";
+        this.showUploadErrorToast(msg);
+      }
     }
   }
 
@@ -124,6 +179,8 @@ export class CreateEventHomeComponent implements OnInit {
         positionClass: "toast-top-center"
       }
     );
+
+
   }
   // showError() {
   //   this.toastr.info(
@@ -138,4 +195,14 @@ export class CreateEventHomeComponent implements OnInit {
   //     }
   //   );
   // }
+
+  onFileDropped(event) {
+    console.log("File Dropped");
+  }
+
+  fileDropHandler(event) {
+
+    console.log("filebrowsehandler: ",event);
+    this.getBase64(event);
+  }
 }
