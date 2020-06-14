@@ -8,7 +8,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { UPLOAD } from 'src/environments/environment';
 import { REUPLOAD } from 'src/environments/environment';
-import { ConsoleReporter } from 'jasmine';
+
 
 @Component({
   selector: 'app-create-event-home',
@@ -68,8 +68,9 @@ export class CreateEventHomeComponent implements OnInit {
   }
 
   getBase64(event) {
-    let file = event.target.files[0];
-    this.fileName = event.target.files[0].name;
+    // let file = event.target.files[0];
+    let file = event[0];
+    this.fileName = event[0].name;
     let reader = new FileReader();
     let thisRef = this;
     reader.readAsDataURL(file);
@@ -178,6 +179,8 @@ export class CreateEventHomeComponent implements OnInit {
         positionClass: "toast-top-center"
       }
     );
+
+
   }
   // showError() {
   //   this.toastr.info(
@@ -192,4 +195,14 @@ export class CreateEventHomeComponent implements OnInit {
   //     }
   //   );
   // }
+
+  onFileDropped(event) {
+    console.log("File Dropped");
+  }
+
+  fileDropHandler(event) {
+
+    console.log("filebrowsehandler: ",event);
+    this.getBase64(event);
+  }
 }
