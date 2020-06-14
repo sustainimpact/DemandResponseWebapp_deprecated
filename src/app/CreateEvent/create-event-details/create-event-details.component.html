@@ -264,7 +264,7 @@
                 || event.eventStatus == 'Live'
                 || event.eventStatus == 'Expired'" [class.light-yellow]="false"
                 [class.light-red]="event.eventStatus == 'Cancelled'"
-                (click)="openEventDetails(event)">
+                >
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" (click)="selectEvent(event.eventId)"
