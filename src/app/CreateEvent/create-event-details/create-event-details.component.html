@@ -258,13 +258,9 @@
             </div> -->
 
             <div class="row m-0 border-bottom" *ngFor="let event of events" [class.light-blue]="event.isSelected"
-                [class.light-gray]="event.eventStatus == 'Published' 
-                || event.eventStatus == 'Gate Closed'
-                || event.eventStatus == 'Locked'
-                || event.eventStatus == 'Live'
-                || event.eventStatus == 'Expired'" [class.light-yellow]="false"
-                [class.light-red]="event.eventStatus == 'Cancelled'"
-                (click)="openEventDetails(event)">
+                [class.light-gray]="event.eventStatus == 'Created'" 
+                [class.light-yellow]="false"
+                [class.light-red]="event.eventStatus == 'Cancelled'">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" (click)="selectEvent(event.eventId)"
@@ -272,37 +268,37 @@
                         <label class="custom-control-label" [for]="event.eventId"></label>
                     </div>
                 </div>
-                <div class="col row-border">
-                    <div class="column-one event-name text-uppercase pointer" (click)="openEventDetails(event)">
+                <div class="col row-border" (click)="openEventDetails(event)">
+                    <div class="column-one event-name text-uppercase pointer">
                         {{event.eventName}}
                     </div>
                 </div>
-                <div class="col row-border">
+                <div class="col row-border" (click)="openEventDetails(event)">
                     <div class="column-one">
                         {{formatTime(event.startTime, 't')}}-{{formatTime(event.endTime, 't')}}
                     </div>
                 </div>
-                <div class="col row-border plan-quantity-end flex-grow">
+                <div class="col row-border plan-quantity-end flex-grow" (click)="openEventDetails(event)">
                     <div class="column-one">
                         {{event.plannedPower}}
                     </div>
                 </div>
-                <div class="col row-border plan-quantity-end">
+                <div class="col row-border plan-quantity-end" (click)="openEventDetails(event)">
                     <div class="column-one">
                         {{event.price}}
                     </div>
                 </div>
-                <div class="col row-border plan-quantity-end">
+                <div class="col row-border plan-quantity-end" (click)="openEventDetails(event)">
                     <div class="column-one">
                         {{event.numberOfCustomers}}
                     </div>
                 </div>
-                <div class="col row-border plan-quantity-end commitement-header">
+                <div class="col row-border plan-quantity-end commitement-header" (click)="openEventDetails(event)">
                     <div class="column-one">
                         {{event.committedPower}}
                     </div>
                 </div>
-                <div class="col row-border plan-quantity-end commitement-header">
+                <div class="col row-border plan-quantity-end commitement-header" (click)="openEventDetails(event)">
                     <!-- <div class="column-one">
                         {{getShortfall(event.plannedPower, event.committedPower)}}
                     </div> -->
@@ -310,7 +306,7 @@
                         {{event.shortfall}}
                     </div>
                 </div>
-                <div class="col row-border plan-quantity-end commitement-header">
+                <div class="col row-border plan-quantity-end commitement-header" (click)="openEventDetails(event)">
                     <div class="column-one">
                         {{event.actualPower}}
                     </div>

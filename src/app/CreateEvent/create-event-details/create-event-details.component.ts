@@ -96,6 +96,11 @@ export class CreateEventDetailsComponent implements OnInit {
     this.curWeekEventSets = this.eventsService.lastWeek;
     this.curMonthEventSets = this.eventsService.lastMonth;
 
+    this.events.map((e) => e.isSelected = false);
+    this.isRowSelected = false;
+    this.isPublishable = false;
+    this.noEventsSelected = true;
+
     this.route.queryParams.subscribe(params => {
       this.eventSetId = params['eventSetId'];
       this.eventType = params['eventType'];
