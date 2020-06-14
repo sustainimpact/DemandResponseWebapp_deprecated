@@ -1,10 +1,9 @@
 <div class="main-indent">
-    <div class="displayflex justify-evenly ">
+    <div class="d-flex justify-content-between">
         <div class="list-event">List of Event Sets</div>
-        <div>
-            <button type="button" class=" btn schedule-event-button active" (click)="scheduleDrEvent()"> Schedule a DR
-                Event </button>
-        </div>
+        <button type="button" class=" btn schedule-event-button active" (click)="scheduleDrEvent()">
+            Schedule a DR Event
+        </button>
     </div>
     <div class=" row margin-common  upcoming-row outer-division bottom-down">
         <div class="col-2 main-content-inner">
@@ -27,8 +26,7 @@
         <div>Upcoming Demand Response Events ({{upcomingEventSets?.length}})</div>
     </div>
     <div class=" row margin-common header-bottom outer-division common-border"
-        *ngFor="let upcomingEventSet of upcomingEventSets"
-        (click)="openEventSetDetails(upcomingEventSet, 'upcoming')">
+        *ngFor="let upcomingEventSet of upcomingEventSets" (click)="openEventSetDetails(upcomingEventSet, 'upcoming')">
         <div class="col-2 main-content-inner">
             <div class=" date-col ">{{formatTime(upcomingEventSet.dateOfOccurence,'d')}}</div>
         </div>
@@ -66,15 +64,13 @@
     </div>
     <div class="common-border">
         <div class=" row margin-common header-bottom outer-division bottom-down "
-            *ngFor="let curWeekEventSet of curWeekEventSets"
-            (click)="openEventSetDetails(curWeekEventSet, 'curWeek')">
+            *ngFor="let curWeekEventSet of curWeekEventSets" (click)="openEventSetDetails(curWeekEventSet, 'curWeek')">
             <div class="col-2 main-content-inner">
-                <div class=" date-col "
-                >{{formatTime(curWeekEventSet.dateOfOccurence,'d')}}</div>
+                <div class=" date-col ">{{formatTime(curWeekEventSet.dateOfOccurence,'d')}}</div>
             </div>
             <div class="col-2  main-content-inner">
-                <div class="event-col event-name text-uppercase pointer" 
-                (click)="openEventSetDetails(curWeekEventSet, 'curWeek')">
+                <div class="event-col event-name text-uppercase pointer"
+                    (click)="openEventSetDetails(curWeekEventSet, 'curWeek')">
                     {{curWeekEventSet.eventSetName}}</div>
             </div>
             <div class="col-2 power-inner">
@@ -102,6 +98,10 @@
         <div>This Month ({{curMonthEventSets?.length}})</div>
     </div>
     <div class="common-border mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center empty">
+            <img src="../../../assets/img/no-events.svg" alt="">
+            <div>No Scheduled Demand Response Events</div>
+        </div>
         <div class=" row margin-common header-bottom outer-division bottom-down "
             *ngFor="let curMonthEventSet of curMonthEventSets"
             (click)="openEventSetDetails(curMonthEventSet, 'curMonth')">
@@ -109,8 +109,8 @@
                 <div class=" date-col ">{{formatTime(curMonthEventSet.dateOfOccurence,'d')}}</div>
             </div>
             <div class="col-2  main-content-inner">
-                <div class="event-col event-name text-uppercase pointer" 
-                (click)="openEventSetDetails(curMonthEventSet, 'curMonth')">
+                <div class="event-col event-name text-uppercase pointer"
+                    (click)="openEventSetDetails(curMonthEventSet, 'curMonth')">
                     {{curMonthEventSet.eventSetName}}</div>
             </div>
             <div class="col-2 power-inner ">
@@ -134,4 +134,5 @@
             </div>
         </div>
     </div>
+
 </div>
