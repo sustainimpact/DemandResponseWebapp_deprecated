@@ -58,20 +58,33 @@ body {
 }
 
 /*#region Toast CSS */
+.color-primary {
+  color: #00349A;
+}
+
+.bg-primary {
+  background-color: #00349A;
+
+}
+
+/*#endregion */
+
+
+/*#region Toast CSS */
 .toast-bg-success {
   background-color: #417505 !important;
 }
 
 .toast-bg-error {
-  background-color: #b11717 !important;
+  background-color: #D0021B !important;
 }
 
 .toast-bg-warning {
-  background-color: #DB7B2E !important;
+  background-color: #F5A623 !important;
 }
 
 .toast-bg-info {
-  background-color: #2d8eff !important;
+  background-color: #2D8EFF !important;
 }
 
 .top-90 {
@@ -96,6 +109,42 @@ body {
 
 .width-700 {
   width: 700px !important;
+}
+
+/*#endregion */
+
+/*#region Status CSS */
+
+.status-created {
+  color: #EE990E;
+}
+
+.status-published {
+  color: #469BFF;
+}
+
+.status-completed {
+  color: #009B78;
+}
+
+.status-cancelled {
+  color: #D0021B;
+}
+
+.status-gate-closed {
+  color: #BD10E0;
+}
+
+.status-expired {
+  color: #8B572A;
+}
+
+.status-locked {
+  color: #4A4A4A;
+}
+
+.status-live {
+  color: #2C7800;
 }
 
 /*#endregion */

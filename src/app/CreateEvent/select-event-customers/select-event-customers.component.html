@@ -1,7 +1,10 @@
 <div class=" pl-4 pr-4 ">
     <div class="inline-content">
-        <div class="year mr-auto">
+        <div class="year d-flex mr-auto">
             {{eventName}}
+            <div class="pl-4 d-flex align-items-center status status-live">
+                <i class="fas fa-circle pr-2" style="font-size: 12px;" aria-hidden="true"></i> Live
+            </div>
         </div>
         <div class="button-margin" *ngIf="eventStatus=='Created' || eventStatus=='Published'">
             <button type="button" class="back-btn publish-event-button" (click)="cancelEvent()">
@@ -58,25 +61,25 @@
             <div class="invites">Invitees</div>
             <div class="invite-down">{{eventOverview?.numberOfCustomers}}</div>
         </div>
-        <div class="participant-next">
+        <div class="pl-5">
             <div class="invites"> Participated</div>
             <div class="invite-down">{{eventOverview?.participatedCustomers}}</div>
         </div>
-        <div class="participant-next">
+        <div class="pl-5">
             <div class="invites">Counter bid</div>
             <div class="invite-down">{{eventOverview?.counterBidCustomers}}</div>
         </div>
-        <div class="participant-next">
+        <div class="pl-5">
             <div class="invites">No Response</div>
             <div class="invite-down">{{eventOverview?.noResponseCustomers}}</div>
             <!-- Enable this when below two divisions have to be shown-->
             <!--<div class="invite-down seven-line">{{eventOverview?.noResponseCustomers}}</div>-->
         </div>
-        <!-- <div class="participant-next" hidden=true>
+        <!-- <div class="pl-5">
             <div class="invites">Actively Participating</div>
             <div class="invite-down">03</div>
         </div> -->
-        <div class="participant-next" *ngIf="eventOverview?.eventStatus == 'Completed'">
+        <div class="pl-5" *ngIf="eventOverview?.eventStatus == 'Completed'">
             <div class="invites">Non-Complaint User(has penalty)</div>
             <div class="invite-down">{{getPenaltyCusCount()}}</div>
         </div>
@@ -250,7 +253,7 @@
                                 COUNTER BID - ACCEPTED
                             </button>
                             <button type="button" class="counter-bid-rejected" data-toggle="dropdown"
-                            *ngIf="customer.status==6 && customer.counterBidFlag=='Y'" >
+                                *ngIf="customer.status==6 && customer.counterBidFlag=='Y'">
                                 COUNTER BID - REJECTED
                             </button>
                         </div>
@@ -267,7 +270,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row m-0 border-bottom sticky-content" style="padding-right: 6px;border-bottom: 1px solid#E4E8EC;">
+            <div class="row m-0 border-bottom sticky-content"
+                style="padding-right: 6px;border-bottom: 1px solid#E4E8EC;">
                 <div class="row-border footer-color border-right">
                     <!-- <div class=" custom-control custom-checkbox">
 
