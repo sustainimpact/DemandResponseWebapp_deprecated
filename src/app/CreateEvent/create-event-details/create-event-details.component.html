@@ -30,8 +30,8 @@
                 <i class="fas fa-ellipsis-h vertical-dot-icon"></i>
             </button>
             <div class="dropdown-menu fs-14" aria-labelledby="eventDropdown">
-                <button class="dropdown-item" type="button" (click)="reUpload()"> Re-Upload
-                    Sheet</button>
+                <button class="dropdown-item" type="button" 
+                (click)="reUpload()" [hidden]="isReUploadAllowed()">Re-Upload Sheet</button>
                 <button class="dropdown-item disabled" type="button">Version
                     History</button>
                 <div class="dropdown-divider"></div>

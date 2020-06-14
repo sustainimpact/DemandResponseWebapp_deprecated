@@ -110,6 +110,15 @@ export class CreateEventDetailsComponent implements OnInit {
     this.getEvents();
   }
 
+  isReUploadAllowed() {
+    if(this.eventType == 'upcoming') {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
   // getEvents() {
   //   if(this.eventType=='upcoming') {
   //     this.upcomingEventSets.forEach(eventSet => {
