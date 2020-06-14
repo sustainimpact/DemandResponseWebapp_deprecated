@@ -8,6 +8,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { UPLOAD } from 'src/environments/environment';
 import { REUPLOAD } from 'src/environments/environment';
+import { ConsoleReporter } from 'jasmine';
 
 @Component({
   selector: 'app-create-event-home',
@@ -82,10 +83,48 @@ export class CreateEventHomeComponent implements OnInit {
   }
 
   uploadEvent() {
-    
-    if (this.uploadDate != null && this.location != null && this.result != null) {
-      this.eventsService.uploadEventSet(this.ingressService.currentUser.userId, this.uploadDate,
-        this.location, this.result[1]).subscribe((res) => {
+    if (this.action == UPLOAD) {
+      if (this.uploadDate != null && this.location != null && this.result != null) {
+        this.eventsService.uploadEventSet(this.ingressService.currentUser.userId, this.uploadDate,
+          this.location, this.result[1]).subscribe((res) => {
+            this.resFromServer = res;
+            if (this.resFromServer != null) {
+              if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "The request was successfully served.") {
+                this.response = this.resFromServer.response;
+                if (this.response != null) {
+                  this.eventSetDetails = this.response.eventSet;
+                  if (this.eventSetDetails != null) {
+                    this.activeModal.dismiss({
+                      eventSetId: this.eventSetDetails.eventSetId,
+                      eventSetName: this.eventSetDetails.eventSetName,
+                      uploadResult: 'Success'
+                    });
+                    this.showUploadSuccesToast();
+                  }
+                }
+              }
+              //if file found
+              else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "File already uploaded with same date and user") {
+                this.response = this.resFromServer.response;
+                let msg = "Events already uploaded for the selected date.";
+                this.showUploadErrorToast(msg);
+              }
+              else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "Uploaded Date is before Current Date") {
+                this.response = this.resFromServer.response;
+                let msg = "Uploaded Date is before Current Date.";
+                this.showUploadErrorToast(msg);
+              }
+            }
+          });
+      }
+      else {
+        let msg = "Something went wrong in uploading events.Please contact support.";
+        this.showUploadErrorToast(msg);
+      }
+    }
+    else if (this.action == REUPLOAD) {
+      if (this.result != null && this.eventSetId != null) {
+        this.eventsService.reUploadEventSet(this.eventSetId, this.result[1]).subscribe((res) => {
           this.resFromServer = res;
           if (this.resFromServer != null) {
             if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "The request was successfully served.") {
@@ -102,23 +141,13 @@ export class CreateEventHomeComponent implements OnInit {
                 }
               }
             }
-            //if file found
-            else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "File already uploaded with same date and user") {
-              this.response = this.resFromServer.response;
-              let msg = "Events already uploaded for the selected date.";
-              this.showUploadErrorToast(msg);
-            }
-            else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "Uploaded Date is before Current Date") {
-              this.response = this.resFromServer.response;
-              let msg = "Uploaded Date is before Current Date.";
-              this.showUploadErrorToast(msg);
-            }
           }
         });
-    }
-    else {
-      let msg = "Something went wrong in uploading events.Please contact support.";
-      this.showUploadErrorToast(msg);
+      }
+      else {
+        let msg = "Something went wrong in uploading events.Please contact support.";
+        this.showUploadErrorToast(msg);
+      }
     }
   }
 
