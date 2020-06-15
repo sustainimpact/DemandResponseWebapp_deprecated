@@ -97,3 +97,13 @@
   background-color: #00349A;
   color: white;
 }
+
+.toast-container.toast-top-center .ngx-toastr {
+  width: 1000px;
+  top: 90px;
+}
+
+.toast-info {
+  background-color: #417505;
+  // background-image:''
+}
