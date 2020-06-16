@@ -2,9 +2,9 @@
     <div class="inline-content">
         <div class="year d-flex mr-auto">
             {{eventName}}
-            <div class="pl-4 d-flex align-items-center status status-live">
+            <!-- <div class="pl-4 d-flex align-items-center status status-live">
                 <i class="fas fa-circle pr-2" style="font-size: 12px;" aria-hidden="true"></i> Live
-            </div>
+            </div> -->
         </div>
         <div class="button-margin" *ngIf="eventStatus=='Created' || eventStatus=='Published'">
             <button type="button" class="back-btn publish-event-button" (click)="cancelEvent()">
@@ -193,7 +193,8 @@
                                 WITHDRAWN
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
-                            <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==9">
+                            <button type="button" class="dropdown-button drop-rejected" 
+                            *ngIf="customer.status==9 || customer.status==14">
                                 CANCELLED
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
