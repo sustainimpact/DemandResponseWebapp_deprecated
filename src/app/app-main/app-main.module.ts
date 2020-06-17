@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {BreadcrumbModule} from 'angular-crumbs';
+import { BreadcrumbModule } from 'angular-crumbs';
 import { AppMainComponent } from './app-main.component';
 import { TopbarComponent } from '../common/topbar/topbar.component';
 import { CreateEventHomeComponent } from '../CreateEvent/create-event-home/create-event-home.component';
@@ -14,7 +14,7 @@ import { EventSetCustomersComponent } from '../pop-up-pages/pop-up-pages.compone
 import { VersionHistoryComponent } from '../pop-up-pages/pop-up-pages.component';
 import { RejectBidModalComponent } from '../pop-up-pages/pop-up-pages.component';
 import { PopUpPagesComponent } from '../pop-up-pages/pop-up-pages.component';
-import { NgbModule,NgbModalModule, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbModalModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { EventOverviewComponent } from '../CreateEvent/create-event-details/create-event-details.component';
 import { SharedServicesService } from '../services/shared-services.service';
 import { AddCustomerModalTIComponent } from '../pop-up-pages/pop-up-pages.component';
@@ -25,11 +25,12 @@ import { FormsModule } from '@angular/forms';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { StorageServiceModule } from 'angular-webstorage-service';
 import { CountdownModule } from 'ngx-countdown';
+import { BreadcrumbComponent } from '../common/breadcrumb/breadcrumb.component';
 
 
 @NgModule({
 
-  imports: [ 
+  imports: [
     CommonModule,
     AppMainRoutingModule,
     BreadcrumbModule,
@@ -40,9 +41,10 @@ import { CountdownModule } from 'ngx-countdown';
     StorageServiceModule,
     CountdownModule
   ],
-  exports: [ 
+  exports: [
     AppMainComponent,
     TopbarComponent,
+    BreadcrumbComponent,
     CreateEventHomeComponent,
     //CreateEventDetailsComponent,
     SelectEventCustomersComponent,
@@ -57,11 +59,12 @@ import { CountdownModule } from 'ngx-countdown';
     AddCustomerModalGIComponent,
     AddCustomerModalERComponent,
     AddCustomerBulkComponent,
-    EventOverviewComponent  
+    EventOverviewComponent
   ],
-  entryComponents: [ 
+  entryComponents: [
     AppMainComponent,
     TopbarComponent,
+    BreadcrumbComponent,
     CreateEventHomeComponent,
     //CreateEventDetailsComponent,
     SelectEventCustomersComponent,
@@ -79,8 +82,9 @@ import { CountdownModule } from 'ngx-countdown';
     EventOverviewComponent
   ],
   declarations: [
-     AppMainComponent,
+    AppMainComponent,
     TopbarComponent,
+    BreadcrumbComponent,
     CreateEventHomeComponent,
     //CreateEventDetailsComponent,
     SelectEventCustomersComponent,
@@ -98,10 +102,10 @@ import { CountdownModule } from 'ngx-countdown';
     EventOverviewComponent
   ],
   bootstrap: [AppMainComponent],
-  providers:[SharedServicesService, NgbActiveModal]
+  providers: [SharedServicesService, NgbActiveModal]
   // providers: [EventOverviewComponent]
- 
+
   // schemas: [CUSTOM_ELEMENTS_SCHEMA]
- 
+
 })
 export class AppMainModule { }

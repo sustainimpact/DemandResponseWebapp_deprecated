@@ -11,6 +11,7 @@ import { EventsService } from 'src/app/services/events.service';
 import * as moment from 'moment';
 import { CustomerService } from 'src/app/services/customer.service';
 import * as XLSX from 'xlsx'
+import { BreadcrumbItem } from 'src/app/common/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-select-event-customers',
@@ -18,6 +19,8 @@ import * as XLSX from 'xlsx'
   styleUrls: ['./select-event-customers.component.scss']
 })
 export class SelectEventCustomersComponent implements OnInit {
+
+  breadcrumbItems: BreadcrumbItem[] = [];
 
   eventOverviewList: any[];
   //eventOverview = { invitedCustomers: "", participatedCustomers: "", counterBidCustomers: "", noResponseCustomers: "" };
@@ -82,9 +85,16 @@ export class SelectEventCustomersComponent implements OnInit {
       this.status = params['status'];
 
       this.selectedEvents.push(+this.eventId);
+      this.buildBreadcrumb();
       this.getEventOverview();
       this.getCustomers();
     });
+  }
+
+  buildBreadcrumb() {
+    this.breadcrumbItems.push(new BreadcrumbItem('Event Sets', '../../main'));
+    this.breadcrumbItems.push(new BreadcrumbItem('Events', '../../createeventdetails'));
+    this.breadcrumbItems.push(new BreadcrumbItem('Select Event Customer', ''));
   }
 
   getEventOverview() {
