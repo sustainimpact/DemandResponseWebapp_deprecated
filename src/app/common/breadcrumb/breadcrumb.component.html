@@ -1,0 +1,8 @@
+<div class="row">
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item" [ngClass]="isLast ? 'active' : ''" *ngFor="let breadcrumbItem of breadcrumbItems; last as isLast">
+      {{ isLast ? breadcrumbItem.title : '' }}
+      <a [routerLink]="breadcrumbItem.routerLink" [queryParams]="breadcrumbItem.queryParams" *ngIf="!isLast">{{breadcrumbItem.title}}</a>
+    </li>
+  </ul>
+</div>

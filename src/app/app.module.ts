@@ -15,11 +15,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DndDirective } from './directives/dnd.directive';
+import { BreadcrumbComponent } from './common/breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    // BreadcrumbComponent,
     AllEventSetsComponent,
     AllCustomersComponent,
     CreateEventDetailsComponent,

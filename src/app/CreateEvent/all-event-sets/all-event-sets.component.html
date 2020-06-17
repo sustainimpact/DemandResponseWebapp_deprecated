@@ -25,44 +25,57 @@
     <div class=" row margin-common displayflex justify-evenly  inner-division  upcoming-row">
         <div>Upcoming Demand Response Events ({{upcomingEventSets?.length}})</div>
     </div>
-    <div class=" row margin-common header-bottom outer-division common-border"
-        *ngFor="let upcomingEventSet of upcomingEventSets" (click)="openEventSetDetails(upcomingEventSet, 'upcoming')">
-        <div class="col-2 main-content-inner">
-            <div class=" date-col ">{{formatTime(upcomingEventSet.dateOfOccurence,'d')}}</div>
+    <div class="common-border">
+        <div *ngIf="upcomingEventSets.length==0"
+            class="d-flex flex-column align-items-center justify-content-center empty">
+            <img src="../../../assets/img/no-events.svg" alt="">
+            <div>No Scheduled Demand Response Events</div>
         </div>
-        <div class="col-2 main-content-inner">
-            <div class="event-col event-name text-uppercase pointer"
-                (click)="openEventSetDetails(upcomingEventSet, 'upcoming')">{{upcomingEventSet.eventSetName}}
+        <div class=" row margin-common header-bottom outer-division common-border"
+            *ngFor="let upcomingEventSet of upcomingEventSets"
+            (click)="openEventSetDetails(upcomingEventSet, 'upcoming')">
+            <div class="col-2 main-content-inner">
+                <div class=" date-col ">{{formatTime(upcomingEventSet.dateOfOccurence,'d')}}</div>
             </div>
-        </div>
-        <div class="col-2 power-inner ">
-            <div class="power-col  kiloweight ">{{upcomingEventSet.plannedPower}} KW
-                /{{upcomingEventSet.actualPower}}KW
+            <div class="col-2 main-content-inner">
+                <div class="event-col event-name text-uppercase pointer"
+                    (click)="openEventSetDetails(upcomingEventSet, 'upcoming')">{{upcomingEventSet.eventSetName}}
+                </div>
             </div>
-        </div>
-        <div class="col-2 total-price-inner total-inner-col ">
-            <div class="  total-price align-right middle-section ">
-                ₹ {{upcomingEventSet.totalPrice}}
+            <div class="col-2 power-inner ">
+                <div class="power-col  kiloweight ">{{upcomingEventSet.plannedPower}} KW
+                    /{{upcomingEventSet.actualPower}}KW
+                </div>
             </div>
-        </div>
-        <div class="col-3 eventoverview-inner published-col ">
-            <div class="publish-col align-right complete-col ">{{upcomingEventSet.publishedEvents}}
-                / {{upcomingEventSet.completedEvents}} / {{upcomingEventSet.cancelledEvents}}</div>
-        </div>
-        <div class="col-1 publish-col-int">
-            <div class="status-uploaded" *ngIf='upcomingEventSet.eventSetStatus == "Created"'>
-                {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
-            <div class="status-publish" *ngIf='upcomingEventSet.eventSetStatus == "Published"'>
-                {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
-            <div class="status-partially-publish" *ngIf='upcomingEventSet.eventSetStatus == "Partially Published"'>
-                {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
-            <!-- <div class=" publish-end-change ">Published</div> -->
+            <div class="col-2 total-price-inner total-inner-col ">
+                <div class="  total-price align-right middle-section ">
+                    ₹ {{upcomingEventSet.totalPrice}}
+                </div>
+            </div>
+            <div class="col-3 eventoverview-inner published-col ">
+                <div class="publish-col align-right complete-col ">{{upcomingEventSet.publishedEvents}}
+                    / {{upcomingEventSet.completedEvents}} / {{upcomingEventSet.cancelledEvents}}</div>
+            </div>
+            <div class="col-1 publish-col-int">
+                <div class="status-uploaded" *ngIf='upcomingEventSet.eventSetStatus == "Created"'>
+                    {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
+                <div class="status-publish" *ngIf='upcomingEventSet.eventSetStatus == "Published"'>
+                    {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
+                <div class="status-partially-publish" *ngIf='upcomingEventSet.eventSetStatus == "Partially Published"'>
+                    {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
+                <!-- <div class=" publish-end-change ">Published</div> -->
+            </div>
         </div>
     </div>
     <div class=" row margin-common displayflex justify-evenly  inner-division  upcoming-row">
         <div> This Week ({{curWeekEventSets?.length}})</div>
     </div>
     <div class="common-border">
+        <div *ngIf="curWeekEventSets.length==0"
+            class="d-flex flex-column align-items-center justify-content-center empty">
+            <img src="../../../assets/img/no-events.svg" alt="">
+            <div>No Scheduled Demand Response Events</div>
+        </div>
         <div class=" row margin-common header-bottom outer-division bottom-down "
             *ngFor="let curWeekEventSet of curWeekEventSets" (click)="openEventSetDetails(curWeekEventSet, 'curWeek')">
             <div class="col-2 main-content-inner">
@@ -98,7 +111,8 @@
         <div>This Month ({{curMonthEventSets?.length}})</div>
     </div>
     <div class="common-border mb-5">
-        <div class="d-flex flex-column align-items-center justify-content-center empty">
+        <div *ngIf="curMonthEventSets.length==0"
+            class="d-flex flex-column align-items-center justify-content-center empty">
             <img src="../../../assets/img/no-events.svg" alt="">
             <div>No Scheduled Demand Response Events</div>
         </div>

@@ -12,6 +12,7 @@ import * as XLSX from 'xlsx'
 import { CreateEventHomeComponent } from '../create-event-home/create-event-home.component';
 import { Content } from '@angular/compiler/src/render3/r3_ast';
 import { REUPLOAD } from 'src/environments/environment';
+import { BreadcrumbItem } from 'src/app/common/breadcrumb/breadcrumb.component';
 
 
 @Component({
@@ -21,6 +22,9 @@ import { REUPLOAD } from 'src/environments/environment';
   encapsulation: ViewEncapsulation.None,
 })
 export class CreateEventDetailsComponent implements OnInit {
+
+  breadcrumbItems: BreadcrumbItem[] = [];
+
   upcomingEventSets: AllEventSets[];
   curWeekEventSets: AllEventSets[];
   curMonthEventSets: AllEventSets[];
@@ -57,7 +61,7 @@ export class CreateEventDetailsComponent implements OnInit {
   exportedfileName = 'DREventSetDetails.xlsx';
   totalPenalty;
   eventReport = [];
-  
+
   dateOfOccurence: any;
   location: any;
   eventSetDetails: any;
@@ -107,11 +111,17 @@ export class CreateEventDetailsComponent implements OnInit {
       this.eventSetName = params['eventSetName'];
       this.dateOfOccurence = params['dateOfOccurence'];
     });
+    this.buildBreadcrumb()
     this.getEvents();
   }
 
+  buildBreadcrumb() {
+    this.breadcrumbItems.push(new BreadcrumbItem('Event Sets', '/main'));
+    this.breadcrumbItems.push(new BreadcrumbItem('Create Event Details', ''));
+  }
+  
   isReUploadAllowed() {
-    if(this.eventType == 'upcoming') {
+    if (this.eventType == 'upcoming') {
       return false;
     }
     else {
@@ -452,26 +462,28 @@ export class CreateEventDetailsComponent implements OnInit {
   }
 
   reUpload() {
-    const activeModal = this.modalService.open(CreateEventHomeComponent, { centered: true, 
-      windowClass: 'create-event-modal'});
+    const activeModal = this.modalService.open(CreateEventHomeComponent, {
+      centered: true,
+      windowClass: 'create-event-modal'
+    });
 
-      activeModal.componentInstance.action = REUPLOAD;
-      activeModal.componentInstance.eventSetId = this.eventSetId;
-      activeModal.componentInstance.eventSetName = this.eventSetName;
-      activeModal.componentInstance.dateOfOccurence = this.dateOfOccurence;
+    activeModal.componentInstance.action = REUPLOAD;
+    activeModal.componentInstance.eventSetId = this.eventSetId;
+    activeModal.componentInstance.eventSetName = this.eventSetName;
+    activeModal.componentInstance.dateOfOccurence = this.dateOfOccurence;
 
-      activeModal.result.then((result) => { },
-        (reason) => {
-          if(reason.uploadResult == 'Success') {
-            this.router.navigate(['/main/createEvent'], {
-              queryParams: {
-                eventType: 'upcoming',
-                eventSetId: reason.eventSetId,
-                eventSetName: reason.eventSetName
-              }
-            });
-          }
-        });
+    activeModal.result.then((result) => { },
+      (reason) => {
+        if (reason.uploadResult == 'Success') {
+          this.router.navigate(['/main/createEvent'], {
+            queryParams: {
+              eventType: 'upcoming',
+              eventSetId: reason.eventSetId,
+              eventSetName: reason.eventSetName
+            }
+          });
+        }
+      });
   }
 }
 
