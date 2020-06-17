@@ -160,6 +160,7 @@ export class CreateEventDetailsComponent implements OnInit {
             console.log('events : ', this.events);
             this.calculateEventDetails();
             this.excludeZero();
+
           }
         }
       }
@@ -318,10 +319,10 @@ export class CreateEventDetailsComponent implements OnInit {
       (reason) => {
         if (reason.manualClose == false) {
           this.getEvents();
-          // this.events.map((e) => e.isSelected = false);
-          // this.isRowSelected = false;
-          // this.checkCustomerEditable();
-          // this.checkForPublished();
+          this.events.map((e) => e.isSelected = false);
+          this.isRowSelected = false;
+          this.checkCustomerEditable();
+          this.checkForPublished();
         }
 
       });
