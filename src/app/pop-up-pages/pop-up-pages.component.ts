@@ -107,7 +107,7 @@ export class PublishEventModalComponent implements OnInit {
   }
 
   publishEvents() {
-    //skr
+    
     this.eventsService.publishEvents(this.selectedEvents, this.eventSetId).subscribe((res) => {
       this.resFromServer = res;
       if (this.resFromServer != null) {

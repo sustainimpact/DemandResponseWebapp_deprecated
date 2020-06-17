@@ -119,7 +119,7 @@ export class CreateEventDetailsComponent implements OnInit {
     this.breadcrumbItems.push(new BreadcrumbItem('Event Sets', '/main'));
     this.breadcrumbItems.push(new BreadcrumbItem('Events', ''));
   }
-  
+
   isReUploadAllowed() {
     if (this.eventType == 'upcoming') {
       return false;
@@ -298,7 +298,8 @@ export class CreateEventDetailsComponent implements OnInit {
         shortfall: event.shortfall,
         price: event.price,
         numberOfCustomers: event.numberOfCustomers,
-        status: event.status
+        status: event.status,
+        eventSetName: this.eventSetName
       }
     });
   }

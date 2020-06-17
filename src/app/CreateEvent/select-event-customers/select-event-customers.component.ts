@@ -61,6 +61,8 @@ export class SelectEventCustomersComponent implements OnInit {
   reportTable = [];
   totalSuccIndex = 0;
   leftTime = 0;
+  eventSetName;
+  allParams;
 
   constructor(private modalService: NgbModal
     , private router: Router
@@ -72,6 +74,7 @@ export class SelectEventCustomersComponent implements OnInit {
   ngOnInit() {
     this.innerHeight = Number(window.innerHeight) - 210;
     this.route.queryParams.subscribe(params => {
+      this.allParams = params;
       this.event = params['event'];
       this.eventSetId = params['eventSetId'];
       this.eventId = params['eventId'];
@@ -85,6 +88,7 @@ export class SelectEventCustomersComponent implements OnInit {
       this.price = params['price'];
       this.numberOfCustomers = params['numberOfCustomers'];
       this.status = params['status'];
+      this.eventSetName = params['eventSetName'];
 
       this.selectedEvents.push(+this.eventId);
       this.buildBreadcrumb();
@@ -95,7 +99,7 @@ export class SelectEventCustomersComponent implements OnInit {
 
   buildBreadcrumb() {
     this.breadcrumbItems.push(new BreadcrumbItem('Event Sets', '../../main'));
-    this.breadcrumbItems.push(new BreadcrumbItem('Events', '../../createeventdetails'));
+    this.breadcrumbItems.push(new BreadcrumbItem('Events', '../../createeventdetails', this.allParams));
     this.breadcrumbItems.push(new BreadcrumbItem('Event Details', ''));
   }
 
