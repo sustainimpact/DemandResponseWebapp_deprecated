@@ -117,7 +117,7 @@ export class CreateEventDetailsComponent implements OnInit {
 
   buildBreadcrumb() {
     this.breadcrumbItems.push(new BreadcrumbItem('Event Sets', '/main'));
-    this.breadcrumbItems.push(new BreadcrumbItem('Create Event Details', ''));
+    this.breadcrumbItems.push(new BreadcrumbItem('Events', ''));
   }
   
   isReUploadAllowed() {

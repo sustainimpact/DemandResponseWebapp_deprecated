@@ -96,7 +96,7 @@ export class SelectEventCustomersComponent implements OnInit {
   buildBreadcrumb() {
     this.breadcrumbItems.push(new BreadcrumbItem('Event Sets', '../../main'));
     this.breadcrumbItems.push(new BreadcrumbItem('Events', '../../createeventdetails'));
-    this.breadcrumbItems.push(new BreadcrumbItem('Select Event Customer', ''));
+    this.breadcrumbItems.push(new BreadcrumbItem('Event Details', ''));
   }
 
   getEventOverview() {
