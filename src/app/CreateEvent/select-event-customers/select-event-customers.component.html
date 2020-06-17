@@ -5,9 +5,9 @@
     <div class="inline-content">
         <div class="year d-flex mr-auto">
             {{eventName}}
-            <div class="pl-4 d-flex align-items-center status status-live">
+            <!-- <div class="pl-4 d-flex align-items-center status status-live">
                 <i class="fas fa-circle pr-2" style="font-size: 12px;" aria-hidden="true"></i> Live
-            </div>
+            </div> -->
         </div>
         <div class="button-margin" *ngIf="eventStatus=='Created' || eventStatus=='Published'">
             <button type="button" class="back-btn publish-event-button" (click)="cancelEvent()">
@@ -97,7 +97,7 @@
             <div class="row pl-2 pr-4">
                 <div class="col select-customer">
                     <div class="row-customer" style="padding-left: 25px;">
-                        Selected Customers - {{eventOverview?.numberOfCustomers}}/{{eventOverview?.numberOfCustomers}}
+                        Participation Status - {{eventOverview?.numberOfCustomers}}/{{eventOverview?.numberOfCustomers}}
                     </div>
                 </div>
                 <form class="form-inline all-search ">
@@ -188,15 +188,27 @@
                             <button type="button" class="dropdown-button drop-complete" *ngIf="customer.status==8">
                                 PARTICIPATED
                             </button>
+                            <button type="button" class="dropdown-button drop-complete" *ngIf="customer.status==13">
+                                LIVE
+                            </button>
                             <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==6">
                                 REJECTED
+                                <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                            </button>
+                            <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==9">
+                                CANCELLED
+                                <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                            </button>
+                            <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==14">
+                                EXPIRED
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
                             <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==7">
                                 WITHDRAWN
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
-                            <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==9">
+                            <button type="button" class="dropdown-button drop-rejected"
+                                *ngIf="customer.status==9 || customer.status==14">
                                 CANCELLED
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
@@ -214,6 +226,11 @@
                             </button>
                             <button type="button" class="dropdown-button drop-counterbid" *ngIf="customer.status==10">
                                 PENALTY
+                                <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                            </button>
+                            <button type="button" class="dropdown-button drop-counterbid"
+                                *ngIf="customer.status==11 || customer.status==12">
+                                OFFLINE
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
                             <div class="dropdown-menu fs-14" id="dd{{i}}" (click)="$event.stopPropagation();"

@@ -12,6 +12,7 @@ import * as moment from 'moment';
 import { CustomerService } from 'src/app/services/customer.service';
 import * as XLSX from 'xlsx'
 import { BreadcrumbItem } from 'src/app/common/breadcrumb/breadcrumb.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-select-event-customers',
@@ -65,7 +66,8 @@ export class SelectEventCustomersComponent implements OnInit {
     , private router: Router
     , private route: ActivatedRoute
     , private eventsService: EventsService
-    , private customerService: CustomerService) { }
+    , private customerService: CustomerService
+    , private location: Location) { }
 
   ngOnInit() {
     this.innerHeight = Number(window.innerHeight) - 210;
@@ -266,7 +268,8 @@ export class SelectEventCustomersComponent implements OnInit {
       (reason) => {
         console.log('reason : ', reason);
         if (reason == 1) {
-          this.refreshCustomerDetails();
+          //this.refreshCustomerDetails();
+          this.location.back();
         }
       });
   }

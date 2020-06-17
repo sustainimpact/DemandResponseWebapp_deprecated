@@ -61,7 +61,7 @@ export class CreateEventDetailsComponent implements OnInit {
   exportedfileName = 'DREventSetDetails.xlsx';
   totalPenalty;
   eventReport = [];
-  
+
   dateOfOccurence: any;
   location: any;
   eventSetDetails: any;
@@ -100,6 +100,11 @@ export class CreateEventDetailsComponent implements OnInit {
     this.curWeekEventSets = this.eventsService.lastWeek;
     this.curMonthEventSets = this.eventsService.lastMonth;
 
+    this.events.map((e) => e.isSelected = false);
+    this.isRowSelected = false;
+    this.isPublishable = false;
+    this.noEventsSelected = true;
+
     this.route.queryParams.subscribe(params => {
       this.eventSetId = params['eventSetId'];
       this.eventType = params['eventType'];
@@ -113,6 +118,15 @@ export class CreateEventDetailsComponent implements OnInit {
   buildBreadcrumb() {
     this.breadcrumbItems.push(new BreadcrumbItem('Event Sets', '/main'));
     this.breadcrumbItems.push(new BreadcrumbItem('Create Event Details', ''));
+  }
+  
+  isReUploadAllowed() {
+    if (this.eventType == 'upcoming') {
+      return false;
+    }
+    else {
+      return true;
+    }
   }
 
   // getEvents() {
@@ -156,6 +170,7 @@ export class CreateEventDetailsComponent implements OnInit {
             console.log('events : ', this.events);
             this.calculateEventDetails();
             this.excludeZero();
+
           }
         }
       }
@@ -314,10 +329,10 @@ export class CreateEventDetailsComponent implements OnInit {
       (reason) => {
         if (reason.manualClose == false) {
           this.getEvents();
-          // this.events.map((e) => e.isSelected = false);
-          // this.isRowSelected = false;
-          // this.checkCustomerEditable();
-          // this.checkForPublished();
+          this.events.map((e) => e.isSelected = false);
+          this.isRowSelected = false;
+          this.checkCustomerEditable();
+          this.checkForPublished();
         }
 
       });
@@ -447,26 +462,28 @@ export class CreateEventDetailsComponent implements OnInit {
   }
 
   reUpload() {
-    const activeModal = this.modalService.open(CreateEventHomeComponent, { centered: true, 
-      windowClass: 'create-event-modal'});
+    const activeModal = this.modalService.open(CreateEventHomeComponent, {
+      centered: true,
+      windowClass: 'create-event-modal'
+    });
 
-      activeModal.componentInstance.action = REUPLOAD;
-      activeModal.componentInstance.eventSetId = this.eventSetId;
-      activeModal.componentInstance.eventSetName = this.eventSetName;
-      activeModal.componentInstance.dateOfOccurence = this.dateOfOccurence;
+    activeModal.componentInstance.action = REUPLOAD;
+    activeModal.componentInstance.eventSetId = this.eventSetId;
+    activeModal.componentInstance.eventSetName = this.eventSetName;
+    activeModal.componentInstance.dateOfOccurence = this.dateOfOccurence;
 
-      activeModal.result.then((result) => { },
-        (reason) => {
-          if(reason.uploadResult == 'Success') {
-            this.router.navigate(['/main/createEvent'], {
-              queryParams: {
-                eventType: 'upcoming',
-                eventSetId: reason.eventSetId,
-                eventSetName: reason.eventSetName
-              }
-            });
-          }
-        });
+    activeModal.result.then((result) => { },
+      (reason) => {
+        if (reason.uploadResult == 'Success') {
+          this.router.navigate(['/main/createEvent'], {
+            queryParams: {
+              eventType: 'upcoming',
+              eventSetId: reason.eventSetId,
+              eventSetName: reason.eventSetName
+            }
+          });
+        }
+      });
   }
 }
 

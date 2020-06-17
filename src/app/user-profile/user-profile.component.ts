@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { IngressService } from 'src/app/services/ingress.service';
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-profile',
@@ -14,7 +15,8 @@ export class UserProfileComponent implements OnInit {
   resFromServer: any;
 
   constructor(public ingressService: IngressService
-    , @Inject(LOCAL_STORAGE) private storage: WebStorageService) { }
+    , @Inject(LOCAL_STORAGE) private storage: WebStorageService
+    , private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.userId = this.storage.get('UserId');
@@ -24,5 +26,19 @@ export class UserProfileComponent implements OnInit {
         this.userDetails = this.resFromServer.response;
       }
     });
+  }
+
+  upcomingFunctionality() {
+    this.toastr.info(
+      'This is a premium feature',
+      "",
+      {
+        timeOut: 3000,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: 'ngx-toastr toast-info toast-bg-info top-90 width-500',
+        positionClass: "toast-top-center"
+      }
+    );
   }
 }

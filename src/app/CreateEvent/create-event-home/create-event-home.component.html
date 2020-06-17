@@ -42,7 +42,7 @@
             </div>
             <div class="col-12 pt-2">
 
-                <div class="file-upload container" dnd>
+                <div class="file-upload container" dnd (fileDropped)="onFileDropped($event)">
                     <input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileDropHandler($event.target.files)" />
                     <div>
                         <img src="../../../assets/img/cloud-upload.svg" alt="upload" *ngIf="!uploadComplete">
@@ -50,7 +50,7 @@
                         <!-- <input #fileInput id="file-input" type="file" (change)="getBase64($event)" /> -->
                     </div>
                     <div *ngIf="!uploadComplete"> Drag & drop the sheet or <span class="browse-text"
-                            (click)="selectFile()"> browse </span>file to upload.</div>
+                            > browse </span>file to upload.</div>
                     <div *ngIf="uploadComplete">{{fileName}}</div>
                 </div>
             </div>
