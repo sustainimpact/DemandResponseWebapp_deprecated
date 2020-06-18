@@ -40,6 +40,9 @@ export class SelectEventCustomersComponent implements OnInit {
   numberOfCustomers;
   status;
 
+  statusTagCSS = '';
+  statusTagName = '';
+
   innerHeight: any = 0;
 
   events: AllEvents[] = [];
@@ -115,7 +118,8 @@ export class SelectEventCustomersComponent implements OnInit {
               this.eventOverview = this.eventOverviewList[0];
               if (this.eventOverview != null) {
                 this.eventStatus = this.eventOverview.eventStatus;
-                console.log("Event Status : ", this.eventStatus);
+                this.getEventStatusTagCSS();
+                this.getEventStatusTagName();
               }
             }
             console.log('Event Overview : ', this.eventOverviewList);
@@ -385,5 +389,59 @@ export class SelectEventCustomersComponent implements OnInit {
         count++
     });
     return count;
+  }
+
+  getEventStatusTagName() {
+    if(this.eventStatus=='Created') {
+      this.statusTagName = 'CREATED';
+    }
+    else if(this.eventStatus=='Completed') {
+      this.statusTagName = 'COMPLETED';
+    }
+    else if(this.eventStatus=='Published') {
+      this.statusTagName = 'PUBLISHED';
+    }
+    else if(this.eventStatus=='Cancelled') {
+      this.statusTagName = 'CANCELLED';
+    }
+    else if(this.eventStatus=='Gate Closed') {
+      this.statusTagName = 'GATE CLOSED';
+    }
+    else if(this.eventStatus=='Expired') {
+      this.statusTagName = 'EXPIRED';
+    }
+    else if(this.eventStatus=='Locked') {
+      this.statusTagName = 'LOCKED';
+    }
+    else if(this.eventStatus=='Live') {
+      this.statusTagName = 'LIVE';
+    }
+  }
+
+  getEventStatusTagCSS() {
+    if(this.eventStatus=='Created') {
+      this.statusTagCSS = 'pl-4 d-flex align-items-center status status-created';
+    }
+    else if(this.eventStatus=='Completed') {
+      this.statusTagCSS = 'pl-4 d-flex align-items-center status status-completed';
+    }
+    else if(this.eventStatus=='Published') {
+      this.statusTagCSS = 'pl-4 d-flex align-items-center status status-published';
+    }
+    else if(this.eventStatus=='Cancelled') {
+      this.statusTagCSS = 'pl-4 d-flex align-items-center status status-cancelled';
+    }
+    else if(this.eventStatus=='Gate Closed') {
+      this.statusTagCSS = 'pl-4 d-flex align-items-center status status-gate-closed';
+    }
+    else if(this.eventStatus=='Expired') {
+      this.statusTagCSS = 'pl-4 d-flex align-items-center status status-expired';
+    }
+    else if(this.eventStatus=='Locked') {
+      this.statusTagCSS = 'pl-4 d-flex align-items-center status status-locked';
+    }
+    else if(this.eventStatus=='Live') {
+      this.statusTagCSS = 'pl-4 d-flex align-items-center status status-live';
+    }
   }
 }
