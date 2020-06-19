@@ -5,7 +5,7 @@
             Schedule a DR Event
         </button>
     </div>
-    <div class=" row margin-common  upcoming-row outer-division bottom-down">
+    <div class="row m-0 pt-24 upcoming-row outer-division bottom-down">
         <div class="col-2 main-content-inner">
             <div>Date</div>
         </div>
@@ -43,8 +43,8 @@
                 </div>
             </div>
             <div class="col-2 power-inner ">
-                <div class="power-col  kiloweight ">{{upcomingEventSet.plannedPower}} KW
-                    /{{upcomingEventSet.actualPower}}KW
+                <div class="power-col">
+                    {{upcomingEventSet.plannedPower}} KW / {{upcomingEventSet.actualPower}}KW
                 </div>
             </div>
             <div class="col-2 total-price-inner total-inner-col ">
@@ -57,11 +57,11 @@
                     / {{upcomingEventSet.completedEvents}} / {{upcomingEventSet.cancelledEvents}}</div>
             </div>
             <div class="col-1 publish-col-int">
-                <div class="status-uploaded" *ngIf='upcomingEventSet.eventSetStatus == "Created"'>
+                <div class="status status-uploaded" *ngIf='upcomingEventSet.eventSetStatus == "Created"'>
                     {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
-                <div class="status-publish" *ngIf='upcomingEventSet.eventSetStatus == "Published"'>
+                <div class="status status-publish" *ngIf='upcomingEventSet.eventSetStatus == "Published"'>
                     {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
-                <div class="status-partially-publish" *ngIf='upcomingEventSet.eventSetStatus == "Partially Published"'>
+                <div class="status status-partially-publish" *ngIf='upcomingEventSet.eventSetStatus == "Partially Published"'>
                     {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
                 <!-- <div class=" publish-end-change ">Published</div> -->
             </div>
@@ -87,8 +87,9 @@
                     {{curWeekEventSet.eventSetName}}</div>
             </div>
             <div class="col-2 power-inner">
-                <div class="power-col  kiloweight ">{{curWeekEventSet.plannedPower}}kW
-                    /{{curWeekEventSet.actualPower}}kW</div>
+                <div class="power-col">
+                    {{curWeekEventSet.plannedPower}}kW / {{curWeekEventSet.actualPower}}kW
+                </div>
             </div>
             <div class="col-2 total-price-inner total-inner-col">
                 <div class="  total-price align-right middle-section ">₹ {{curWeekEventSet.totalPrice}}</div>
@@ -98,11 +99,11 @@
                     / {{curWeekEventSet.completedEvents}} / {{curWeekEventSet.cancelledEvents}}</div>
             </div>
             <div class="col-1 publish-col-int">
-                <div class="status-uploaded" *ngIf='curWeekEventSet.eventSetStatus == "Created"'>
+                <div class="status status-uploaded" *ngIf='curWeekEventSet.eventSetStatus == "Created"'>
                     {{getStatus(curWeekEventSet.eventSetStatus)}}</div>
-                <div class="status-publish" *ngIf='curWeekEventSet.eventSetStatus == "Published"'>
+                <div class="status status-publish" *ngIf='curWeekEventSet.eventSetStatus == "Published"'>
                     {{getStatus(curWeekEventSet.eventSetStatus)}}</div>
-                <div class="status-partially-publish" *ngIf='curWeekEventSet.eventSetStatus == "Partially Published"'>
+                <div class="status status-partially-publish" *ngIf='curWeekEventSet.eventSetStatus == "Partially Published"'>
                     {{getStatus(curWeekEventSet.eventSetStatus)}}</div>
             </div>
         </div>
@@ -128,8 +129,9 @@
                     {{curMonthEventSet.eventSetName}}</div>
             </div>
             <div class="col-2 power-inner ">
-                <div class="power-col  kiloweight ">{{curMonthEventSet.plannedPower}}kW
-                    /{{curMonthEventSet.actualPower}}kW </div>
+                <div class="power-col">
+                    {{curMonthEventSet.plannedPower}}kW / {{curMonthEventSet.actualPower}}kW
+                </div>
             </div>
             <div class="col-2 total-price-inner total-inner-col ">
                 <div class=" total-price align-right middle-section "> ₹ {{curMonthEventSet.totalPrice}}</div>
@@ -139,11 +141,11 @@
                     / {{curMonthEventSet.completedEvents}} / {{curMonthEventSet.cancelledEvents}}</div>
             </div>
             <div class="col-1 publish-col-int">
-                <div class="status-uploaded" *ngIf='curMonthEventSet.eventSetStatus == "Created"'>
+                <div class="status status-uploaded" *ngIf='curMonthEventSet.eventSetStatus == "Created"'>
                     {{getStatus(curMonthEventSet.eventSetStatus)}}</div>
-                <div class="status-publish" *ngIf='curMonthEventSet.eventSetStatus == "Published"'>
+                <div class="status status-publish" *ngIf='curMonthEventSet.eventSetStatus == "Published"'>
                     {{getStatus(curMonthEventSet.eventSetStatus)}}</div>
-                <div class="status-partially-publish" *ngIf='curMonthEventSet.eventSetStatus == "Partially Published"'>
+                <div class="status status-partially-publish" *ngIf='curMonthEventSet.eventSetStatus == "Partially Published"'>
                     {{getStatus(curMonthEventSet.eventSetStatus)}}</div>
             </div>
         </div>
