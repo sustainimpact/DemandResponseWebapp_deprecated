@@ -166,11 +166,11 @@
                     <div class="column-one">
                         {{event.actualPower}}
                     </div>
-                    <span class=" live-col-content live-radio-inner " *ngIf="event.eventStatus=='Live'">
-                        LIVE
-                    </span>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header" (click)="openEventDetails(event)">
+                    <span class=" live-col-content live-radio-inner " *ngIf="event.eventStatus=='Live'">
+                        <i class="fas fa-circle pr-2" style="font-size: 12px;" aria-hidden="true"></i> LIVE
+                    </span>
                     <div class="column-one">
                         {{event.shortfall}}
                     </div>
@@ -213,7 +213,7 @@
             </div>
             <div class="col row-border footer-color plan-quantity-end">
                 <div class="row-footer ">
-                    {{totalCommitments - totalPlannedQuantity}}
+                    {{totalPlannedQuantity - totalCommitments}}
                 </div>
             </div>
             <div class="col row-border footer-color plan-quantity-end">
