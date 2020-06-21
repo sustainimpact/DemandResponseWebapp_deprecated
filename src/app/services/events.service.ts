@@ -27,6 +27,9 @@ export class EventsService {
   cancelEventUrl = DR_URL + 'cancelEvent';
   getEventsUrl = DR_URL + 'getEvents';
   getEventSetsUrl = DR_URL + 'getEventSets';
+  getVersionHistoryUrl = DR_URL + 'getVersionHistory';
+  downloadVersionUrl = DR_URL + 'downloadVersion';
+  restoreVersionUrl = DR_URL + 'restoreVersion';
 
   constructor(private httpClient: HttpClient) { 
   }
@@ -140,6 +143,38 @@ export class EventsService {
     };
     return this.httpClient.post(this.cancelEventUrl
       , {"eventId": +eventId,"eventSetId": +eventSetId}
+      , options
+    );
+  }
+
+  getVersionHistory(eventSetId: any) {
+    var options = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    };
+    return this.httpClient.get(this.getVersionHistoryUrl + '/' + eventSetId
+      , options
+    );
+  }
+
+  downloadVersion(eventSetId: any, version: any) {
+    var options = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    };
+    return this.httpClient.get(this.downloadVersionUrl + '/' 
+                              + eventSetId + '/' + version
+      , options
+    );
+  }
+
+  restoreVersion(eventSetId: any, version: any) {
+    var options = {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    };
+    return this.httpClient.post(this.restoreVersionUrl
+      , {"eventSetId": eventSetId, "version": version}
       , options
     );
   }

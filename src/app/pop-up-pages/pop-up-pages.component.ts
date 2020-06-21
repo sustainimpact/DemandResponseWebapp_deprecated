@@ -4,6 +4,7 @@ import { AllEvents } from 'src/app/DataModels/AllEvents';
 import { EventsService } from 'src/app/services/events.service';
 import { CustomerService } from 'src/app/services/customer.service';
 import { ToastrService } from 'ngx-toastr';
+import * as moment from 'moment';
 
 
 @Component({
@@ -107,7 +108,7 @@ export class PublishEventModalComponent implements OnInit {
   }
 
   publishEvents() {
-    
+
     this.eventsService.publishEvents(this.selectedEvents, this.eventSetId).subscribe((res) => {
       this.resFromServer = res;
       if (this.resFromServer != null) {
@@ -261,11 +262,108 @@ export class EventSetCustomersComponent implements OnInit {
   styleUrls: ['../CreateEvent/version-history/version-history.component.scss']
 })
 export class VersionHistoryComponent implements OnInit {
+  @Input() public eventSetId;
+  selectedVersion: any;
+  resFromServer: any;
+  activeVersion: any;
+  response: any;
+  eventSetVersions: any[] = [];
+  enableRestore: boolean = false;
 
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal
+    , private eventsService: EventsService
+    , private toastr: ToastrService) { }
 
   ngOnInit() {
+    this.eventsService.getVersionHistory(this.eventSetId).subscribe((res) => {
+      this.resFromServer = res;
+      if (this.resFromServer != null) {
+        if (this.resFromServer.responseStatus == '1') {
+          this.response = this.resFromServer.eventSets;
+          if (this.response != null) {
+            this.eventSetVersions = this.response.eventSetVersions;
+            this.getActiveVersion();
+          }
+        }
+      }
+    });
   }
+
+  getActiveVersion() {
+    this.eventSetVersions.forEach(eventSetVersion => {
+      if(eventSetVersion.currentVersionFlag=='true') {
+        this.activeVersion = eventSetVersion.version;
+      }
+    });
+  }
+
+  formatTime(ts, type) {
+    if (ts != null) {
+      if (type == 't')
+        return moment(ts).format("HH:mm:ss");
+      else if (type == 'd')
+        return moment(ts).format("Do MMM, YYYY");
+    }
+  }
+
+  downloadEventSheet(version) {
+    let URL = "http://139.59.30.90:8080/et_dr/rest/downloadVersion/"
+      + this.eventSetId + '/' + version;
+    window.open(URL, "_blank")
+  }
+
+  selectVersion(selectedVersion) {
+    this.selectedVersion = selectedVersion;
+    if(this.selectedVersion != this.activeVersion) {
+      this.enableRestore=true;
+    }
+    else {
+      this.enableRestore=false;
+    }
+  }
+
+  restoreVersion() {
+    this.eventsService.restoreVersion(this.eventSetId, this.selectedVersion).subscribe((res) => {
+      this.resFromServer = res;
+      if(this.resFromServer != null) {
+        if(this.resFromServer.responseStatus=='1') {
+          this.showRestoreSuccesToast(this.selectedVersion);
+          this.activeModal.dismiss({ restoreSuccessFlag: true });
+        }
+        else {
+          this.showRestoreErrorToast();
+          this.activeModal.dismiss({ restoreSuccessFlag: true });
+        }
+      }
+    });
+  }
+
+  showRestoreSuccesToast(version) {
+    this.toastr.info(
+      'Events restored to version ' + version + '.',
+      "",
+      {
+        timeOut: 3000,
+        closeButton: true,
+        enableHtml: true,
+        positionClass: "toast-top-center"
+      }
+    );
+  }
+
+  showRestoreErrorToast() {
+    this.toastr.info(
+      'Something went wrong while restoring events.',
+      "",
+      {
+        timeOut: 3000,
+        closeButton: true,
+        enableHtml: true,
+        positionClass: "toast-top-center"
+      }
+    );
+  }
+
 }
 
 @Component({
@@ -317,11 +415,11 @@ export class RejectBidModalComponent implements OnInit {
   cancelEvent() {
     this.eventsService.cancelEvent(this.eventId, this.eventSetId).subscribe((res) => {
       this.resFromServer = res;
-      console.log('resFromServer : ' , this.resFromServer);
+      console.log('resFromServer : ', this.resFromServer);
       if (this.resFromServer != null) {
-        console.log('response : ' , this.resFromServer.response);
+        console.log('response : ', this.resFromServer.response);
         if (this.resFromServer.response != null) {
-          console.log('responseStatus : ' , this.resFromServer.response.responseStatus);
+          console.log('responseStatus : ', this.resFromServer.response.responseStatus);
           if (this.resFromServer.response.responseStatus == "1") {
             this.activeModal.dismiss(1);
           }

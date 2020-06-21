@@ -1,7 +1,8 @@
 import { Component, ViewEncapsulation, OnInit, EventEmitter, Input } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
-import { EventSetCustomersComponent, PublishEventModalComponent } from 'src/app/pop-up-pages/pop-up-pages.component';
+import { EventSetCustomersComponent, PublishEventModalComponent
+, VersionHistoryComponent } from 'src/app/pop-up-pages/pop-up-pages.component';
 import { AllEventSets } from 'src/app/DataModels/AllEventSets';
 import { AllEvents } from 'src/app/DataModels/AllEvents';
 import { EventsService } from 'src/app/services/events.service';
@@ -485,6 +486,18 @@ export class CreateEventDetailsComponent implements OnInit {
           });
         }
       });
+  }
+
+  versionHistory() {
+    const modalRef = this.modalService.open(VersionHistoryComponent, { centered: true });
+    modalRef.componentInstance.eventSetId = this.eventSetId;
+    modalRef.result.then((result) => {
+    },
+    (reason) => {
+      if (reason.restoreSuccessFlag == true) {
+        this.getEvents();
+      }
+    });  
   }
 }
 

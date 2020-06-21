@@ -120,5 +120,8 @@ export class AllEventSetsComponent implements OnInit {
     else if (status == 'Partially Published') {
       return 'Partially Published';
     }
+    else if (status == 'Completed') {
+      return 'Completed';
+    }
   }
 }

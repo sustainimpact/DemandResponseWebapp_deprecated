@@ -230,6 +230,7 @@ row-customer {
   text-align: center;
   line-height: 19px;
   padding-top: 11px;
+  cursor: pointer;
 }
 
 .quantity-end {
@@ -286,7 +287,7 @@ row-customer {
   background-color: white !important;
   color: #00349A !important;
   border: 1px solid transparent;
-  opacity: 0.5;
+  //opacity: 0.5;
   font-family: SourceSansPro-SemiBold;
   font-size: 14px;
   text-align: center;

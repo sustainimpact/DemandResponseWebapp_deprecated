@@ -26,7 +26,7 @@
         <div>Upcoming Demand Response Events ({{upcomingEventSets?.length}})</div>
     </div>
     <div class="common-border">
-        <div *ngIf="upcomingEventSets.length==0"
+        <div *ngIf="upcomingEventSets?.length==0"
             class="d-flex flex-column align-items-center justify-content-center empty">
             <img src="../../../assets/img/no-events.svg" alt="">
             <div>No Scheduled Demand Response Events</div>
@@ -63,6 +63,8 @@
                     {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
                 <div class="status status-partially-publish" *ngIf='upcomingEventSet.eventSetStatus == "Partially Published"'>
                     {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
+                <div class="status status-completed" *ngIf='upcomingEventSet.eventSetStatus == "Completed"'>
+                    {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
                 <!-- <div class=" publish-end-change ">Published</div> -->
             </div>
         </div>
@@ -71,7 +73,7 @@
         <div> This Week ({{curWeekEventSets?.length}})</div>
     </div>
     <div class="common-border">
-        <div *ngIf="curWeekEventSets.length==0"
+        <div *ngIf="curWeekEventSets?.length==0"
             class="d-flex flex-column align-items-center justify-content-center empty">
             <img src="../../../assets/img/no-events.svg" alt="">
             <div>No Scheduled Demand Response Events</div>
@@ -105,6 +107,8 @@
                     {{getStatus(curWeekEventSet.eventSetStatus)}}</div>
                 <div class="status status-partially-publish" *ngIf='curWeekEventSet.eventSetStatus == "Partially Published"'>
                     {{getStatus(curWeekEventSet.eventSetStatus)}}</div>
+                <div class="status status-completed" *ngIf='curWeekEventSet.eventSetStatus == "Completed"'>
+                    {{getStatus(curWeekEventSet.eventSetStatus)}}</div>
             </div>
         </div>
     </div>
@@ -112,7 +116,7 @@
         <div>This Month ({{curMonthEventSets?.length}})</div>
     </div>
     <div class="common-border mb-5">
-        <div *ngIf="curMonthEventSets.length==0"
+        <div *ngIf="curMonthEventSets?.length==0"
             class="d-flex flex-column align-items-center justify-content-center empty">
             <img src="../../../assets/img/no-events.svg" alt="">
             <div>No Scheduled Demand Response Events</div>
@@ -147,6 +151,8 @@
                     {{getStatus(curMonthEventSet.eventSetStatus)}}</div>
                 <div class="status status-partially-publish" *ngIf='curMonthEventSet.eventSetStatus == "Partially Published"'>
                     {{getStatus(curMonthEventSet.eventSetStatus)}}</div>
+                <div class="status status-completed" *ngIf='curMonthEventSet.eventSetStatus == "Completed"'>
+                    {{getStatus(curMonthEventSet.eventSetStatus)}}</div>   
             </div>
         </div>
     </div>
