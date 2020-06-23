@@ -5,22 +5,21 @@
     <div class="header-top-content">
         Version History
     </div>
-    <div style="padding-left:20px">
+    <div>
         <div class="table-border">
             <div class="row row-top" style="position: relative;top: 0px;z-index: 1;
                 background: #ffffff;padding-right: 7px;display: flex;"
                 *ngFor="let eventSetVersion of eventSetVersions">
-                <div class=" pl-2 row-border">
+                <div class="row-border">
                     <div class="radio">
                         <!-- <input type="radio" class="custom-control-input" id="eventSetVersion.id">
                         <label class="custom-control-label" for="eventSetVersion.id"></label> -->
-                        <label *ngIf="eventSetVersion.currentVersionFlag=='false'">
-                            <input type="radio" name="versionCheck" 
-                            (change)="selectVersion(eventSetVersion.version)">
+                        <label *ngIf="eventSetVersion.currentVersionFlag=='false'" class="m-0">
+                            <input type="radio" name="versionCheck" (change)="selectVersion(eventSetVersion.version)">
                         </label>
-                        <label *ngIf="eventSetVersion.currentVersionFlag=='true'">
-                            <input type="radio" name="versionCheck" 
-                            (change)=selectVersion(eventSetVersion.version) checked>
+                        <label *ngIf="eventSetVersion.currentVersionFlag=='true'" class="m-0">
+                            <input type="radio" name="versionCheck" (change)=selectVersion(eventSetVersion.version)
+                                checked>
                         </label>
                     </div>
                 </div>
@@ -54,11 +53,12 @@
         <div class="footer-divider"></div>
         <div class="footer-back">
             <div class="button-cancel-event">
-                <button type="button" class="back-btn publish-event-button"
-                [class.disabled]="!enableRestore" (click)="restoreVersion()">Restore Selected</button>
+                <button type="button" class="back-btn publish-event-button" [class.disabled]="!enableRestore"
+                    (click)="restoreVersion()">Restore Selected</button>
             </div>
             <div class="button-margin">
-                <button type="button" class="btn publish-event-button publish-inner-button" (click)="activeModal.close('Close click')">Close</button>
+                <button type="button" class="btn publish-event-button publish-inner-button"
+                    (click)="activeModal.close('Close click')">Close</button>
             </div>
         </div>
     </div>
