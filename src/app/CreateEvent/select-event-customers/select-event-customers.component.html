@@ -62,7 +62,7 @@
     <div class=" mt-2 pb-3 inline-content actively" style="width: 75%;">
         <div>
             <div class="invites">Invitees</div>
-            <div class="invite-down">{{eventOverview?.numberOfCustomers}}</div>
+            <div class="invite-down">{{eventOverview?.invitedCustomers}}</div>
         </div>
         <div class="pl-5">
             <div class="invites"> Participated</div>
@@ -181,15 +181,11 @@
                             <button type="button" class="dropdown-button drop-participate" *ngIf="customer.status==3">
                                 PARTICIPATED <i class="dropdown-arrow fas fa-chevron-down"></i>
                             </button>
-                            <button type="button" class="dropdown-button drop-accept" *ngIf="customer.status==5">
+                            <button type="button" class="dropdown-button drop-accept" 
+                            *ngIf="customer.status==5 || customer.status==8
+                            || customer.status==13 || customer.status==14">
                                 PARTICIPATED
                                 <!-- <i class="dropdown-arrow fas fa-chevron-down"></i> -->
-                            </button>
-                            <button type="button" class="dropdown-button drop-complete" *ngIf="customer.status==8">
-                                PARTICIPATED
-                            </button>
-                            <button type="button" class="dropdown-button drop-complete" *ngIf="customer.status==13">
-                                LIVE
                             </button>
                             <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==6">
                                 REJECTED
@@ -199,36 +195,33 @@
                                 CANCELLED
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
-                            <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==14">
+                            <!-- <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==14">
                                 EXPIRED
-                                <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
-                            </button>
-                            <button type="button" class="dropdown-button drop-rejected" *ngIf="customer.status==7">
+                                <i class="dropdown-arrow fas fa-chevron-down"></i>
+                            </button> -->
+                            <button type="button" class="dropdown-button drop-withdrawn" *ngIf="customer.status==7">
                                 WITHDRAWN
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
-                            <button type="button" class="dropdown-button drop-rejected"
-                                *ngIf="customer.status==9">
-                                CANCELLED
-                                <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
-                            </button>
-                            <button type="button" class="dropdown-button drop-noresponse" *ngIf="customer.status==2">
+                            <button type="button" class="dropdown-button drop-noresponse" 
+                            *ngIf="customer.status==2 || (customer.status==14 && eventStatus=='Published')">
                                 NO RESPONSE
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
-                            <button type="button" class="dropdown-button drop-noresponse" *ngIf="customer.status==1">
+                            <button type="button" class="dropdown-button drop-noresponse" 
+                            *ngIf="customer.status==1 || (customer.status==14 && eventStatus=='Created')">
                                 TO BE NOTIFIED
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
                             <button type="button" class="dropdown-button drop-counterbid" *ngIf="customer.status==4">
-                                COUNTER BID
+                                COUNTER BID  
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
-                            <button type="button" class="dropdown-button drop-counterbid" *ngIf="customer.status==10">
+                            <button type="button" class="dropdown-button drop-penalty" *ngIf="customer.status==10">
                                 PENALTY
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
-                            <button type="button" class="dropdown-button drop-counterbid"
+                            <button type="button" class="dropdown-button drop-offline"
                                 *ngIf="customer.status==11 || customer.status==12">
                                 OFFLINE
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->

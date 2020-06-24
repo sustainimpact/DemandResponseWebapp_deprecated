@@ -1,8 +1,11 @@
 <div class="user-profile px-4">
-    <div class="d-flex justify-content-between">
-        <div class="page-title">My Profile</div>
-        <!-- <button type="button" class="btn border rounded bg-white"> Edit</button> -->
+    <div>
+        <app-breadcrumb [breadcrumbItems]="breadcrumbItems"></app-breadcrumb>
     </div>
+    <!-- <div class="d-flex justify-content-between">
+        <div class="page-title">My Profile</div>
+        <button type="button" class="btn border rounded bg-white"> Edit</button>
+    </div> -->
     <div class="row m-0 pt-4">
         <div class="col-3 p-0">
             <div class="form-group">
@@ -10,26 +13,26 @@
                 <div class="value">{{userDetails.dsoName}}</div>
             </div>
             <div class="profile-image d-flex align-items-end">
-                <img src="assets/img/login-bg.png" class="image" alt="">
-                <div class="browse pl-2">Change profile photo</div>
+                <img src="../../../assets/img/User.png" class="image" alt="">
+                <!-- <div class="browse pl-2">Change profile photo</div> -->
             </div>
             <div class="company-image py-3">
                 <div class="label">Company Logo</div>
                 <div class="py-1 d-flex align-items-center">
-                    <button type="button" class="rounded bg-white upload-btn" (click)="upcomingFunctionality()">
-                        Upload</button>
-                    <img src="assets/img/Utility Company Icon.svg" class="pl-3 image" alt="logo">
+                    <!-- <button type="button" class="rounded bg-white upload-btn" (click)="upcomingFunctionality()">
+                        Upload</button> -->
+                    <img src="assets/img/BRPL LOGO.jpg" class="pl-0 image" alt="logo">
                 </div>
-                <div class="desc">The size of the PNG/JPEG should be &lt; 25KB</div>
+                <!-- <div class="desc">The size of the PNG/JPEG should be &lt; 25KB</div> -->
             </div>
             <div class="form-group">
                 <div class="label">DSO Email Address</div>
                 <div class="value">{{userDetails.emailId}}</div>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <div class="label">Password</div>
                 <div class="value">BSES Yamuna Power Limited</div>
-            </div>
+            </div> -->
         </div>
         <div class="col-7 p-0">
             <div class="row m-0 pt-4">

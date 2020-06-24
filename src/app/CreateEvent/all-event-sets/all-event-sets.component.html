@@ -63,7 +63,8 @@
                     {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
                 <div class="status status-partially-publish" *ngIf='upcomingEventSet.eventSetStatus == "Partially Published"'>
                     {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
-                <div class="status status-completed" *ngIf='upcomingEventSet.eventSetStatus == "Completed"'>
+                <div class="status status-completed" *ngIf='upcomingEventSet.eventSetStatus == "Completed"
+                                                         || upcomingEventSet.eventSetStatus == "Expired"'>
                     {{getStatus(upcomingEventSet.eventSetStatus)}}</div>
                 <!-- <div class=" publish-end-change ">Published</div> -->
             </div>
@@ -107,7 +108,8 @@
                     {{getStatus(curWeekEventSet.eventSetStatus)}}</div>
                 <div class="status status-partially-publish" *ngIf='curWeekEventSet.eventSetStatus == "Partially Published"'>
                     {{getStatus(curWeekEventSet.eventSetStatus)}}</div>
-                <div class="status status-completed" *ngIf='curWeekEventSet.eventSetStatus == "Completed"'>
+                <div class="status status-completed" *ngIf='curWeekEventSet.eventSetStatus == "Completed"
+                                                         || curWeekEventSet.eventSetStatus == "Expired"'>
                     {{getStatus(curWeekEventSet.eventSetStatus)}}</div>
             </div>
         </div>
@@ -151,7 +153,8 @@
                     {{getStatus(curMonthEventSet.eventSetStatus)}}</div>
                 <div class="status status-partially-publish" *ngIf='curMonthEventSet.eventSetStatus == "Partially Published"'>
                     {{getStatus(curMonthEventSet.eventSetStatus)}}</div>
-                <div class="status status-completed" *ngIf='curMonthEventSet.eventSetStatus == "Completed"'>
+                <div class="status status-completed" *ngIf='curMonthEventSet.eventSetStatus == "Completed"
+                                                         || curMonthEventSet.eventSetStatus == "Expired"'>
                     {{getStatus(curMonthEventSet.eventSetStatus)}}</div>   
             </div>
         </div>

@@ -110,18 +110,17 @@ export class AllEventSetsComponent implements OnInit {
   }
 
   getStatus(status) {
-    //console.log('status : ', statusId);
     if (status == 'Created') {
-      return 'Un-Published';
+      return 'UPLOADED';
     }
     else if (status == 'Published') {
-      return 'Published';
+      return 'PUBLISHED';
     }
     else if (status == 'Partially Published') {
-      return 'Partially Published';
+      return 'PARTIALLY PUBLISHED';
     }
-    else if (status == 'Completed') {
-      return 'Completed';
+    else if (status == 'Completed' || status == 'Expired') {
+      return 'COMPLETED';
     }
   }
 }

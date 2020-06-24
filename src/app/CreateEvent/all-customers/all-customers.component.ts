@@ -24,7 +24,9 @@ export class AllCustomersComponent implements OnInit {
       this.resFromServer = res;
       if (this.resFromServer != null) {
         this.customerList = this.resFromServer.response;
-        console.log('Customers : ', this.customerList);
+        if(this.customerList==null) {
+          this.customerList = [];
+        }
       }
     });
     this.buildBreadcrumb();
@@ -32,7 +34,7 @@ export class AllCustomersComponent implements OnInit {
 
   buildBreadcrumb() {
     this.breadcrumbItems.push(new BreadcrumbItem('Event Sets', '/main'));
-    this.breadcrumbItems.push(new BreadcrumbItem('Customers', ''));
+    this.breadcrumbItems.push(new BreadcrumbItem('Profile', ''));
   }
 
 }

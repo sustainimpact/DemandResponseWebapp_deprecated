@@ -283,7 +283,7 @@ export class SelectEventCustomersComponent implements OnInit {
   }
 
   rejectCustomer(customerId) {
-    this.customerService.rejectCustomer(this.eventId, this.eventSetId, customerId).subscribe((res) => {
+    this.customerService.rejectCounterBid(this.eventId, this.eventSetId, customerId).subscribe((res) => {
       this.resFromServer = res;
       if (this.resFromServer != null) {
         this.response = this.resFromServer.response;
@@ -393,9 +393,11 @@ export class SelectEventCustomersComponent implements OnInit {
 
   getEventStatusTagName() {
     if(this.eventStatus=='Created') {
-      this.statusTagName = 'CREATED';
+      this.statusTagName = 'UPLOADED';
     }
-    else if(this.eventStatus=='Completed') {
+    else if(this.eventStatus=='Completed' 
+    || this.eventStatus=='Expired'
+    || this.eventStatus=='Validated') {
       this.statusTagName = 'COMPLETED';
     }
     else if(this.eventStatus=='Published') {
@@ -407,9 +409,9 @@ export class SelectEventCustomersComponent implements OnInit {
     else if(this.eventStatus=='Gate Closed') {
       this.statusTagName = 'GATE CLOSED';
     }
-    else if(this.eventStatus=='Expired') {
-      this.statusTagName = 'EXPIRED';
-    }
+    // else if(this.eventStatus=='Expired') {
+    //   this.statusTagName = 'EXPIRED';
+    // }
     else if(this.eventStatus=='Locked') {
       this.statusTagName = 'LOCKED';
     }
@@ -422,7 +424,9 @@ export class SelectEventCustomersComponent implements OnInit {
     if(this.eventStatus=='Created') {
       this.statusTagCSS = 'pl-4 d-flex align-items-center status status-created';
     }
-    else if(this.eventStatus=='Completed') {
+    else if(this.eventStatus=='Completed' 
+    || this.eventStatus=='Expired'
+    || this.eventStatus=='Validated') {
       this.statusTagCSS = 'pl-4 d-flex align-items-center status status-completed';
     }
     else if(this.eventStatus=='Published') {
@@ -434,9 +438,9 @@ export class SelectEventCustomersComponent implements OnInit {
     else if(this.eventStatus=='Gate Closed') {
       this.statusTagCSS = 'pl-4 d-flex align-items-center status status-gate-closed';
     }
-    else if(this.eventStatus=='Expired') {
-      this.statusTagCSS = 'pl-4 d-flex align-items-center status status-expired';
-    }
+    // else if(this.eventStatus=='Expired') {
+    //   this.statusTagCSS = 'pl-4 d-flex align-items-center status status-expired';
+    // }
     else if(this.eventStatus=='Locked') {
       this.statusTagCSS = 'pl-4 d-flex align-items-center status status-locked';
     }

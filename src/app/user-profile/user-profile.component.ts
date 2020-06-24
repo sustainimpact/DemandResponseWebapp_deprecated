@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { IngressService } from 'src/app/services/ingress.service';
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import { ToastrService } from 'ngx-toastr';
+import { BreadcrumbItem } from 'src/app/common/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UserProfileComponent implements OnInit {
 
+  breadcrumbItems: BreadcrumbItem[] = [];
   userId: any;
   userDetails: any;
   resFromServer: any;
@@ -26,6 +28,7 @@ export class UserProfileComponent implements OnInit {
         this.userDetails = this.resFromServer.response;
       }
     });
+    this.buildBreadcrumb();
   }
 
   upcomingFunctionality() {
@@ -40,5 +43,10 @@ export class UserProfileComponent implements OnInit {
         positionClass: "toast-top-center"
       }
     );
+  }
+
+  buildBreadcrumb() {
+    this.breadcrumbItems.push(new BreadcrumbItem('Event Sets', '/main'));
+    this.breadcrumbItems.push(new BreadcrumbItem('User Profile', ''));
   }
 }
