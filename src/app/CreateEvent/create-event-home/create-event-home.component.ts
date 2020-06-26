@@ -98,6 +98,7 @@ export class CreateEventHomeComponent implements OnInit {
                     this.activeModal.dismiss({
                       eventSetId: this.eventSetDetails.eventSetId,
                       eventSetName: this.eventSetDetails.eventSetName,
+                      dateOfOccurence: this.eventSetDetails.dateOfOccurence,
                       uploadResult: 'Success'
                     });
                     this.showUploadSuccesToast();
@@ -105,16 +106,20 @@ export class CreateEventHomeComponent implements OnInit {
                 }
               }
               //if file found
-              else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "File already uploaded with same date and user") {
+              else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "File already uploaded with same date, user and location") {
                 this.response = this.resFromServer.response;
                 let msg = "Events already uploaded for the selected date.";
                 this.showUploadErrorToast(msg);
               }
-              else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "Uploaded Date is before Current Date") {
-                this.response = this.resFromServer.response;
-                let msg = "Uploaded Date is before Current Date.";
+              else {
+                let msg = "Something went wrong in uploading events.Please contact support.";
                 this.showUploadErrorToast(msg);
               }
+              // else if (this.resFromServer.responseStatus == 1 && this.resFromServer.responseMessage == "Uploaded Date is before Current Date") {
+              //   this.response = this.resFromServer.response;
+              //   let msg = "Uploaded Date is before Current Date.";
+              //   this.showUploadErrorToast(msg);
+              // }
             }
           });
       }
@@ -136,6 +141,7 @@ export class CreateEventHomeComponent implements OnInit {
                   this.activeModal.dismiss({
                     eventSetId: this.eventSetDetails.eventSetId,
                     eventSetName: this.eventSetDetails.eventSetName,
+                    dateOfOccurence: this.eventSetDetails.dateOfOccurence,
                     uploadResult: 'Success'
                   });
                   this.showUploadSuccesToast();
