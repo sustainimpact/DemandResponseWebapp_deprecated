@@ -6,11 +6,13 @@ export const environment = {
   production: false
 };
 
-//export const DR_URL = 'http://139.59.30.90:8080/et_dr/rest/';
-//export const CUSTOMER_URL = 'http://139.59.30.90:8080/et_dr/';
+const devAddress = "http://139.59.30.90:8080";
+const prodAddress = "http://api.energygrid.io:8080"
 
-export const DR_URL = 'http://api.energygrid.io:8080/et_dr/rest/';
-export const CUSTOMER_URL = 'http://api.energygrid.io:8080/et_dr/';
+const selectedBackend = prodAddress;
+
+export const DR_URL = selectedBackend + '/et_dr/rest/';
+export const CUSTOMER_URL = selectedBackend + '/et_dr/';
 
 export const UPLOAD = 'UPLOAD';
 export const REUPLOAD = 'REUPLOAD';
