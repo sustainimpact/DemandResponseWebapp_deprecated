@@ -156,6 +156,8 @@ export class SelectEventCustomersComponent implements OnInit {
   }
 
   calculateEventDetails() {
+    this.totalCommittedPower=0;
+    this.totalActualPower=0;
     this.reportTable = [];
     let reportTabEl = { sucessIndex: "", effCost: 0, cost: 0, penalty: 0, userName: "", commitments: 0, actualPower: 0, shortfall: 0, incentive: 0 };
     this.customerList.forEach(customer => {
@@ -380,6 +382,7 @@ export class SelectEventCustomersComponent implements OnInit {
   refreshCustomerDetails() {
     this.getEventOverview();
     this.getCustomers();
+    //this.calculateEventDetails();
   }
 
   getPenaltyCusCount() {

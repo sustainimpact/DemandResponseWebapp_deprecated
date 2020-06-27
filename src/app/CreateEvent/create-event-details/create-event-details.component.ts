@@ -70,6 +70,8 @@ export class CreateEventDetailsComponent implements OnInit {
   totalCusCommitIndex = 0;
   totalEffExecIndex = 0;
 
+  selectAll: boolean = false;
+
   constructor(private modalService: NgbModal
     , private router: Router
     , private route: ActivatedRoute
@@ -105,6 +107,9 @@ export class CreateEventDetailsComponent implements OnInit {
     this.isRowSelected = false;
     this.isPublishable = false;
     this.noEventsSelected = true;
+    this.selectAll = false;
+
+    //document.getElementById("drevent-1").checked = false;
 
     this.route.queryParams.subscribe(params => {
       this.eventSetId = params['eventSetId'];
@@ -166,6 +171,9 @@ export class CreateEventDetailsComponent implements OnInit {
         if (this.response != null) {
           this.eventDetails = this.response.response;
           if (this.eventDetails != null) {
+            // if(this.eventDetails.eventSetDetails != null) {
+            //   this.dateOfOccurence = this.eventDetails.eventSetDetails.dateOfOccurence;
+            // }
             this.events = this.eventDetails.events;
             this.eventsService.events = this.events;
             console.log('events : ', this.events);

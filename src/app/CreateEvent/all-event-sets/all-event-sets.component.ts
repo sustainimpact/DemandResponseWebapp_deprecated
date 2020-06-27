@@ -89,7 +89,8 @@ export class AllEventSetsComponent implements OnInit {
               queryParams: {
                 eventType: 'upcoming',
                 eventSetId: reason.eventSetId,
-                eventSetName: reason.eventSetName
+                eventSetName: reason.eventSetName,
+                dateOfOccurence: this.formatDateOffOccurence(reason.dateOfOccurence)
               }
             });
           }
@@ -106,6 +107,12 @@ export class AllEventSetsComponent implements OnInit {
         let tempdate = moment(ts, "YYYY-MM-DD")
         return tempdate.format("Do MMM, YYYY");
       }
+    }
+  }
+
+  formatDateOffOccurence(ts) {
+    if (ts != null) {
+      return moment(ts).format("YYYY-MM-DD");   
     }
   }
 
