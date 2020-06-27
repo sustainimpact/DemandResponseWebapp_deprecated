@@ -5,6 +5,7 @@ import { EventsService } from 'src/app/services/events.service';
 import { CustomerService } from 'src/app/services/customer.service';
 import { ToastrService } from 'ngx-toastr';
 import * as moment from 'moment';
+import { DR_URL } from 'src/environments/environment';
 
 
 @Component({
@@ -307,7 +308,7 @@ export class VersionHistoryComponent implements OnInit {
   }
 
   downloadEventSheet(version) {
-    let URL = "http://139.59.30.90:8080/et_dr/rest/downloadVersion/"
+    let URL = DR_URL + "downloadVersion/"
       + this.eventSetId + '/' + version;
     window.open(URL, "_blank")
   }
