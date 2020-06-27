@@ -231,6 +231,7 @@
 .table-row-scroll {
   overflow: scroll;
   max-height: 71%;
+  min-height: 150px;
   overflow-x: hidden;
   scrollbar-width: thin;
 }
