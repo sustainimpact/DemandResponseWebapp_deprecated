@@ -485,13 +485,14 @@ export class CreateEventDetailsComponent implements OnInit {
     activeModal.result.then((result) => { },
       (reason) => {
         if (reason.uploadResult == 'Success') {
-          this.router.navigate(['/main/createEvent'], {
-            queryParams: {
-              eventType: 'upcoming',
-              eventSetId: reason.eventSetId,
-              eventSetName: reason.eventSetName
-            }
-          });
+          // this.router.navigate(['/main/createEvent'], {
+          //   queryParams: {
+          //     eventType: 'upcoming',
+          //     eventSetId: reason.eventSetId,
+          //     eventSetName: reason.eventSetName
+          //   }
+          // });
+          this.getEvents();
         }
       });
   }
