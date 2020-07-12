@@ -43,6 +43,8 @@ export class SelectEventCustomersComponent implements OnInit {
   statusTagCSS = '';
   statusTagName = '';
 
+  totalPayments: number = 0;
+
   innerHeight: any = 0;
 
   events: AllEvents[] = [];
@@ -450,5 +452,13 @@ export class SelectEventCustomersComponent implements OnInit {
     else if(this.eventStatus=='Live') {
       this.statusTagCSS = 'pl-4 d-flex align-items-center status status-live';
     }
+  }
+
+  getTotalPayments() {
+    this.totalPayments=0;
+    this.customerList.forEach(element => {
+      this.totalPayments += element.earnings-element.customerFine;
+    });
+    return this.totalPayments=0;
   }
 }

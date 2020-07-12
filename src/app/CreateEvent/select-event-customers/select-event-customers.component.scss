@@ -466,7 +466,14 @@
 
 .seven-line {
   border-right: 1px solid #B8C1CB;
-  padding-right: 69px;
+  padding-right: 49px;
+  padding-left: 49px;
+}
+
+.seven-line-more-space {
+  border-right: 1px solid #B8C1CB;
+  padding-right: 100px;
+  padding-left: 100px;
 }
 
 .content-module {

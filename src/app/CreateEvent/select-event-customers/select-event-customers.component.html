@@ -74,17 +74,21 @@
         </div>
         <div class="pl-5">
             <div class="invites">No Response</div>
-            <div class="invite-down">{{eventOverview?.noResponseCustomers}}</div>
+            <!-- <div class="invite-down">{{eventOverview?.noResponseCustomers}}</div> -->
             <!-- Enable this when below two divisions have to be shown-->
-            <!--<div class="invite-down seven-line">{{eventOverview?.noResponseCustomers}}</div>-->
+            <div class="invite-down seven-line">{{eventOverview?.noResponseCustomers}}</div>
         </div>
         <!-- <div class="pl-5">
             <div class="invites">Actively Participating</div>
             <div class="invite-down">03</div>
         </div> -->
-        <div class="pl-5" *ngIf="eventOverview?.eventStatus == 'Completed'">
+        <div class="pl-5" *ngIf="eventOverview?.eventStatus == 'Validated'">
             <div class="invites">Non-Complaint User(has penalty)</div>
-            <div class="invite-down">{{getPenaltyCusCount()}}</div>
+            <div class="invite-down seven-line-more-space">{{getPenaltyCusCount()}}</div>
+        </div>
+        <div class="pl-5" *ngIf="eventOverview?.eventStatus == 'Validated'">
+            <div class="invites">Total Payments</div>
+            <div class="invite-down">{{getTotalPayments()}}</div>
         </div>
         <div class="ml-auto text-right" *ngIf="eventOverview?.eventStatus == 'Live'">
             <div class="live-ending">Live Ending in</div>
@@ -183,7 +187,7 @@
                             </button>
                             <button type="button" class="dropdown-button drop-accept" 
                             *ngIf="customer.status==5 || customer.status==8
-                            || customer.status==13 || customer.status==14">
+                            || customer.status==13 || customer.status==14 || customer.status==15">
                                 PARTICIPATED
                                 <!-- <i class="dropdown-arrow fas fa-chevron-down"></i> -->
                             </button>
