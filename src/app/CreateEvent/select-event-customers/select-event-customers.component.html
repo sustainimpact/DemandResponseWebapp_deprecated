@@ -76,15 +76,21 @@
             <div class="invites">No Response</div>
             <!-- <div class="invite-down">{{eventOverview?.noResponseCustomers}}</div> -->
             <!-- Enable this when below two divisions have to be shown-->
-            <div class="invite-down seven-line">{{eventOverview?.noResponseCustomers}}</div>
+            <div class="invite-down">{{eventOverview?.noResponseCustomers}}</div>
+        </div>
+        <div class="ml-4 pt-3 d-flex" *ngIf="eventOverview?.eventStatus == 'Validated'">
+            <div class="divider"></div>
         </div>
         <!-- <div class="pl-5">
-            <div class="invites">Actively Participating</div>
-            <div class="invite-down">03</div>
+            <div class="invites">Active Participants</div>
+            <div class="invite-down">0</div>
         </div> -->
-        <div class="pl-5" *ngIf="eventOverview?.eventStatus == 'Validated'">
+        <div class="pl-5">
             <div class="invites">Non-Complaint User(has penalty)</div>
-            <div class="invite-down seven-line-more-space">{{getPenaltyCusCount()}}</div>
+            <div class="invite-down">{{getPenaltyCusCount()}}</div>
+        </div>
+        <div class="ml-4 pt-3 d-flex" *ngIf="eventOverview?.eventStatus == 'Validated'">
+            <div class="divider"></div>
         </div>
         <div class="pl-5" *ngIf="eventOverview?.eventStatus == 'Validated'">
             <div class="invites">Total Payments</div>
@@ -185,8 +191,7 @@
                             <button type="button" class="dropdown-button drop-participate" *ngIf="customer.status==3">
                                 PARTICIPATED <i class="dropdown-arrow fas fa-chevron-down"></i>
                             </button>
-                            <button type="button" class="dropdown-button drop-accept" 
-                            *ngIf="customer.status==5 || customer.status==8
+                            <button type="button" class="dropdown-button drop-accept" *ngIf="customer.status==5 || customer.status==8
                             || customer.status==13 || customer.status==14 || customer.status==15">
                                 PARTICIPATED
                                 <!-- <i class="dropdown-arrow fas fa-chevron-down"></i> -->
@@ -207,18 +212,18 @@
                                 WITHDRAWN
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
-                            <button type="button" class="dropdown-button drop-noresponse" 
-                            *ngIf="customer.status==2 || (customer.status==14 && eventStatus=='Published')">
+                            <button type="button" class="dropdown-button drop-noresponse"
+                                *ngIf="customer.status==2 || (customer.status==14 && eventStatus=='Published')">
                                 NO RESPONSE
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
-                            <button type="button" class="dropdown-button drop-noresponse" 
-                            *ngIf="customer.status==1 || (customer.status==14 && eventStatus=='Created')">
+                            <button type="button" class="dropdown-button drop-noresponse"
+                                *ngIf="customer.status==1 || (customer.status==14 && eventStatus=='Created')">
                                 TO BE NOTIFIED
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
                             <button type="button" class="dropdown-button drop-counterbid" *ngIf="customer.status==4">
-                                COUNTER BID  
+                                COUNTER BID
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
                             <button type="button" class="dropdown-button drop-penalty" *ngIf="customer.status==10">
