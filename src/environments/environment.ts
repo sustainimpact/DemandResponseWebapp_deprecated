@@ -9,7 +9,7 @@ export const environment = {
 const devAddress = "http://139.59.30.90:8080";
 const prodAddress = "http://api.energygrid.io:8080"
 
-const selectedBackend = prodAddress;
+const selectedBackend = devAddress;
 
 export const DR_URL = selectedBackend + '/et_dr/rest/';
 export const CUSTOMER_URL = selectedBackend + '/et_dr/';

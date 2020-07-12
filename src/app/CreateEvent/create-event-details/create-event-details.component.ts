@@ -537,6 +537,7 @@ export class EventOverviewComponent implements OnInit {
   interval;
   timerDisplay;
   exportedfileName = 'DREventSetDetails.xlsx';
+  statusTagName = '';
 
   getLeftTime(endtime) {
     return moment(endtime).diff(moment(), 'seconds');
@@ -604,5 +605,35 @@ export class EventOverviewComponent implements OnInit {
         positionClass: "toast-top-center"
       }
     );
+  }
+
+  getEventStatusTagName(eventStatus) {
+    if(eventStatus=='Created') {
+      this.statusTagName = 'Uploaded';
+    }
+    else if(eventStatus=='Completed' 
+    || eventStatus=='Expired'
+    || eventStatus=='Validated') {
+      this.statusTagName = 'Completed';
+    }
+    else if(eventStatus=='Published') {
+      this.statusTagName = 'Published';
+    }
+    else if(eventStatus=='Cancelled') {
+      this.statusTagName = 'Cancelled';
+    }
+    else if(eventStatus=='Gate Closed') {
+      this.statusTagName = 'Gate Closed';
+    }
+    // else if(this.eventStatus=='Expired') {
+    //   this.statusTagName = 'EXPIRED';
+    // }
+    else if(eventStatus=='Locked') {
+      this.statusTagName = 'Locked';
+    }
+    else if(eventStatus=='Live') {
+      this.statusTagName = 'Live';
+    }
+    return this.statusTagName;
   }
 }
