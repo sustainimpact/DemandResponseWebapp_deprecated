@@ -58,8 +58,7 @@
         <div class="row row-top" style="margin:0px;border-bottom: 1px solid #E4E8EC;;">
             <div class="pl-2 row-border">
                 <div class=" custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" 
-                        id="drevent-1" [(ngModel)]="selectAll" 
+                    <input type="checkbox" class="custom-control-input" id="drevent-1" [(ngModel)]="selectAll"
                         (change)="changeAllEventSelection($event.target.checked)">
                     <label class="custom-control-label" for="drevent-1"></label>
                 </div>
@@ -88,7 +87,8 @@
                 <div class="dr-event customer-init ">
                     CUSTOMERS
                 </div>
-                <span class=" time-indication " title="This column represents 'Customers Participated / Total Customers'">
+                <span class=" time-indication "
+                    title="This column represents 'Customers Participated / Total Customers'">
                     <img src="assets/img/time-indicator.svg" alt=""></span>
             </div>
             <div class="col row-border ">
@@ -148,7 +148,7 @@
                 </div>
                 <div class="col row-border plan-quantity-end" (click)="openEventDetails(event)">
                     <div class="column-one">
-                            {{event.participatedCustomers}}/{{event.numberOfCustomers}}
+                        {{event.participatedCustomers}}/{{event.numberOfCustomers}}
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header" (click)="openEventDetails(event)">
@@ -166,7 +166,7 @@
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header" (click)="openEventDetails(event)">
                     <div class="column-one">
-                        {{event.actualPower}}
+                        {{(+event.actualPower).toFixed(2)}}
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header" (click)="openEventDetails(event)">
@@ -174,7 +174,7 @@
                         <i class="fas fa-circle pr-2" style="font-size: 12px;" aria-hidden="true"></i> LIVE
                     </span>
                     <div class="column-one">
-                        {{event.shortfall}}
+                        {{(+event.shortfall).toFixed(2)}}
                     </div>
                 </div>
             </div>
@@ -220,12 +220,12 @@
             </div>
             <div class="col row-border footer-color plan-quantity-end">
                 <div class="row-footer ">
-                    {{totalActualQuantity}}
+                    {{(+totalActualQuantity).toFixed(2)}}
                 </div>
             </div>
             <div class="col row-border footer-color plan-quantity-end" style="margin-right: 7px;">
                 <div class="row-footer ">
-                    {{totalShortfall}}
+                    {{(+totalShortfall).toFixed(2)}}
                 </div>
             </div>
 
