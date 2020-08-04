@@ -191,8 +191,9 @@
                             <button type="button" class="dropdown-button drop-participate" *ngIf="customer.status==3">
                                 PARTICIPATED <i class="dropdown-arrow fas fa-chevron-down"></i>
                             </button>
-                            <button type="button" class="dropdown-button drop-accept" *ngIf="customer.status==5 || customer.status==8
-                            || customer.status==13 || customer.status==14 || customer.status==15">
+                            <button type="button" class="dropdown-button drop-accept" 
+                            *ngIf="customer.status==5 || customer.status==8
+                            || customer.status==13 || customer.status==15">
                                 PARTICIPATED
                                 <!-- <i class="dropdown-arrow fas fa-chevron-down"></i> -->
                             </button>
@@ -212,8 +213,8 @@
                                 WITHDRAWN
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
-                            <button type="button" class="dropdown-button drop-noresponse"
-                                *ngIf="customer.status==2 || (customer.status==14 && eventStatus=='Published')">
+                            <button type="button" class="dropdown-button drop-noresponse" 
+                            *ngIf="customer.status==2 || (customer.status==14 && eventStatus!='Created')">
                                 NO RESPONSE
                                 <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                             </button>
