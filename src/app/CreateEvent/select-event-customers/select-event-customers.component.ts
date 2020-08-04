@@ -459,6 +459,6 @@ export class SelectEventCustomersComponent implements OnInit {
     this.customerList.forEach(element => {
       this.totalPayments += element.earnings-element.customerFine;
     });
-    return this.totalPayments=0;
+    return this.totalPayments;
   }
 }
