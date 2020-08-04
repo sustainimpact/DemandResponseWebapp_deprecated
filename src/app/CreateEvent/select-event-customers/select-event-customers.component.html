@@ -78,21 +78,21 @@
             <!-- Enable this when below two divisions have to be shown-->
             <div class="invite-down">{{eventOverview?.noResponseCustomers}}</div>
         </div>
-        <div class="ml-4 pt-3 d-flex" *ngIf="eventOverview?.eventStatus == 'Validated'">
-            <div class="divider"></div>
+        <div class="ml-4 pt-3 d-flex">
+            <div class="divider" *ngIf="eventOverview?.eventStatus == 'Validated'"></div>
         </div>
         <!-- <div class="pl-5">
             <div class="invites">Active Participants</div>
             <div class="invite-down">0</div>
         </div> -->
-        <div class="pl-5">
+        <div class="pl-4" *ngIf="eventOverview?.eventStatus == 'Validated'">
             <div class="invites">Non-Complaint User(has penalty)</div>
             <div class="invite-down">{{getPenaltyCusCount()}}</div>
         </div>
-        <div class="ml-4 pt-3 d-flex" *ngIf="eventOverview?.eventStatus == 'Validated'">
-            <div class="divider"></div>
+        <div class="ml-4 pt-3 d-flex">
+            <div class="divider" *ngIf="eventOverview?.eventStatus == 'Validated'"></div>
         </div>
-        <div class="pl-5" *ngIf="eventOverview?.eventStatus == 'Validated'">
+        <div class="pl-4" *ngIf="eventOverview?.eventStatus == 'Validated'">
             <div class="invites">Total Payments</div>
             <div class="invite-down">{{getTotalPayments()}}</div>
         </div>
