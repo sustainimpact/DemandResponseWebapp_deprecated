@@ -166,7 +166,7 @@
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header" (click)="openEventDetails(event)">
                     <div class="column-one">
-                        {{(+event.actualPower).toFixed(2)}}
+                        {{(+event.actualPower).toFixed(4)}}
                     </div>
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header" (click)="openEventDetails(event)">
@@ -174,7 +174,7 @@
                         <i class="fas fa-circle pr-2" style="font-size: 12px;" aria-hidden="true"></i> LIVE
                     </span>
                     <div class="column-one">
-                        {{(+event.shortfall).toFixed(2)}}
+                        {{(+event.shortfall).toFixed(4)}}
                     </div>
                 </div>
             </div>
@@ -220,12 +220,12 @@
             </div>
             <div class="col row-border footer-color plan-quantity-end">
                 <div class="row-footer ">
-                    {{(+totalActualQuantity).toFixed(2)}}
+                    {{(+totalActualQuantity).toFixed(4)}}
                 </div>
             </div>
             <div class="col row-border footer-color plan-quantity-end" style="margin-right: 7px;">
                 <div class="row-footer ">
-                    {{(+totalShortfall).toFixed(2)}}
+                    {{(+totalShortfall).toFixed(4)}}
                 </div>
             </div>
 

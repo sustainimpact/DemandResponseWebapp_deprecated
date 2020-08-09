@@ -141,7 +141,7 @@
 }
 
 .column-one {
-  //background: #FFFFFF;
+  // background: #FFFFFF;
   font-size: 14px;
   font-family: SourceSansPro-Regular;
   padding-left: 16px;
@@ -753,4 +753,8 @@
 .status {
   font-size: 14px;
   text-transform: uppercase;
+}
+
+.divider {
+  border-left: 1px solid silver;
 }
