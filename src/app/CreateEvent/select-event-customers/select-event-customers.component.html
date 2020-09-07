@@ -94,7 +94,7 @@
         </div>
         <div class="pl-4" *ngIf="eventOverview?.eventStatus == 'Validated'">
             <div class="invites">Total Payments</div>
-            <div class="invite-down">{{getTotalPayments()}}</div>
+            <div class="invite-down">₹ {{getTotalPayments()}}</div>
         </div>
         <div class="ml-auto text-right" *ngIf="eventOverview?.eventStatus == 'Live'">
             <div class="live-ending">Live Ending in</div>
