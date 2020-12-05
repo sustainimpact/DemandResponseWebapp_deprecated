@@ -179,6 +179,7 @@ export class CreateEventDetailsComponent implements OnInit {
             this.events = this.eventDetails.events;
             this.eventsService.events = this.events;
             console.log('events : ', this.events);
+            this.defaultEventType();
             this.calculateEventDetails();
             //   this.excludeZero();
 
@@ -193,6 +194,13 @@ export class CreateEventDetailsComponent implements OnInit {
     //   this.eventSetName = this.eventDetails.eventSetName;
     //   this.events = this.eventDetails.events;
     // }
+  }
+
+  defaultEventType() {
+    this.events.forEach(event => {
+      event.eventTypeId = '1';
+    });
+    this.eventsService.events = this.events;
   }
 
   calculateEventDetails() {
@@ -534,6 +542,15 @@ export class CreateEventDetailsComponent implements OnInit {
     // }
    
   }
+
+  setEventType(eventId, eventTypeId) {
+    this.events.forEach(event => {
+      if (event.eventId == eventId) {
+        event.eventTypeId = eventTypeId;
+      }
+    });
+  }
+
 }
 
 @Component({
