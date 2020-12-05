@@ -75,7 +75,7 @@
             </div>
             <div class="col row-border flex-grow ">
                 <div class="dr-event  ">
-                    PLANNED QUANTITY (KW)
+                    PLANNED QTY (KW)
                 </div>
             </div>
             <div class="col row-border">
@@ -103,7 +103,7 @@
             </div>
             <div class="col row-border ">
                 <div class="dr-event">
-                    ACTUAL QUANTITY (KW)
+                    ACTUAL QTY (KW)
                 </div>
             </div>
             <div class="col row-border ">
@@ -111,14 +111,19 @@
                     DEVIATATION (KW)
                 </div>
             </div>
+            <div class="col row-border ">
+                <div class="dr-event">
+                    EVENT TYPE
+                </div>
+            </div>
             <div class="final-column">
             </div>
         </div>
         <div class="table-row-scroll" #pRef>
 
-            <div class="row m-0 border-bottom" *ngFor="let event of events" [class.light-blue]="event.isSelected"
-                [class.light-gray]="event.eventStatus == 'Created'" [class.light-yellow]="false"
-                [class.light-red]="event.eventStatus == 'Cancelled'">
+            <div class="row m-0 border-bottom" *ngFor="let event of events;let i=index;"
+                [class.light-blue]="event.isSelected" [class.light-gray]="event.eventStatus == 'Created'"
+                [class.light-yellow]="false" [class.light-red]="event.eventStatus == 'Cancelled'">
                 <div class=" pl-2 row-border">
                     <div class=" custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" (click)="selectEvent(event.eventId)"
@@ -177,6 +182,34 @@
                         {{(+event.shortfall).toFixed(4)}}
                     </div>
                 </div>
+                <div class="col row-border plan-quantity-end commitement-header">
+                    <div class="dropdown dropdown-col" data-toggle="dropdown">
+                        <button type="button" class="dropdown-button event-type">
+                            {{(event.eventTypeId==2)?'Load Shift':'Peak Shave'}}
+                            <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                        </button>
+                        <div class="dropdown-menu fs-14" id="dd{{i}}" (click)="$event.stopPropagation();">
+                            <div class="dropdown-option">
+                                <div class="md-radio">
+                                    <input id="dd{{i}}-option1" type="radio" name="participeted{{i}}" [value]="'1'"
+                                        [(ngModel)]="event.eventTypeId">
+                                    <label for="dd{{i}}-option1" class="green">Peak Shave</label>
+                                </div>
+                            </div>
+                            <div class="dropdown-option" id="dd{{i}}" (click)="$event.stopPropagation();">
+                                <div class="md-radio">
+                                    <input id="dd{{i}}-option2" type="radio" name="participeted{{i}}" [value]="'2'"
+                                        [(ngModel)]="event.eventTypeId">
+                                    <label for="dd{{i}}-option2" class="red">Load Shift</label>
+                                </div>
+                            </div>
+                            <button type="button" class="active btn w-100 fs-14"
+                                (click)="onConfirm(i,event.eventTypeId)">
+                                Confirm
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -223,12 +256,16 @@
                     {{(+totalActualQuantity).toFixed(4)}}
                 </div>
             </div>
-            <div class="col row-border footer-color plan-quantity-end" style="margin-right: 7px;">
+            <div class="col row-border footer-color plan-quantity-end">
                 <div class="row-footer ">
                     {{(+totalShortfall).toFixed(4)}}
                 </div>
             </div>
-
+            <div class="col row-border footer-color plan-quantity-end" style="margin-right: 7px;">
+                <div class="row-footer">
+                    --
+                </div>
+            </div>
         </div>
 
 

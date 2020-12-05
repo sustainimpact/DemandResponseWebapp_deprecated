@@ -1,8 +1,10 @@
 import { Component, ViewEncapsulation, OnInit, EventEmitter, Input } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
-import { EventSetCustomersComponent, PublishEventModalComponent
-, VersionHistoryComponent } from 'src/app/pop-up-pages/pop-up-pages.component';
+import {
+  EventSetCustomersComponent, PublishEventModalComponent
+  , VersionHistoryComponent
+} from 'src/app/pop-up-pages/pop-up-pages.component';
 import { AllEventSets } from 'src/app/DataModels/AllEventSets';
 import { AllEvents } from 'src/app/DataModels/AllEvents';
 import { EventsService } from 'src/app/services/events.service';
@@ -178,7 +180,7 @@ export class CreateEventDetailsComponent implements OnInit {
             this.eventsService.events = this.events;
             console.log('events : ', this.events);
             this.calculateEventDetails();
-         //   this.excludeZero();
+            //   this.excludeZero();
 
           }
         }
@@ -502,11 +504,35 @@ export class CreateEventDetailsComponent implements OnInit {
     modalRef.componentInstance.eventSetId = this.eventSetId;
     modalRef.result.then((result) => {
     },
-    (reason) => {
-      if (reason.restoreSuccessFlag == true) {
-        this.getEvents();
-      }
-    });  
+      (reason) => {
+        if (reason.restoreSuccessFlag == true) {
+          this.getEvents();
+        }
+      });
+  }
+  
+  onConfirm(i, status) {
+    document.getElementById("dd" + i).classList.remove("show");
+    // this.selectedCustomer = this.customerList[i];
+    console.log(i, status);
+    // if (status == '0') {
+    //   if (this.selectedCustomer != null) {
+    //     //this.rejectCustomer(this.selectedCustomer.userId);
+    //     this.customerService.rejectCustomer(this.eventId, this.eventSetId, this.selectedCustomer.userId)
+    //       .subscribe((res) => {
+    //         this.resFromServer = res;
+    //         if (this.resFromServer != null) {
+    //           this.response = this.resFromServer.response;
+    //           if (this.response != null) {
+    //             if (this.response.responseStatus == 1) {
+    //               this.refreshCustomerDetails();
+    //             }
+    //           }
+    //         }
+    //       });
+    //   }
+    // }
+   
   }
 }
 
@@ -608,32 +634,33 @@ export class EventOverviewComponent implements OnInit {
   }
 
   getEventStatusTagName(eventStatus) {
-    if(eventStatus=='Created') {
+    if (eventStatus == 'Created') {
       this.statusTagName = 'Uploaded';
     }
-    else if(eventStatus=='Completed' 
-    || eventStatus=='Expired'
-    || eventStatus=='Validated') {
+    else if (eventStatus == 'Completed'
+      || eventStatus == 'Expired'
+      || eventStatus == 'Validated') {
       this.statusTagName = 'Completed';
     }
-    else if(eventStatus=='Published') {
+    else if (eventStatus == 'Published') {
       this.statusTagName = 'Published';
     }
-    else if(eventStatus=='Cancelled') {
+    else if (eventStatus == 'Cancelled') {
       this.statusTagName = 'Cancelled';
     }
-    else if(eventStatus=='Gate Closed') {
+    else if (eventStatus == 'Gate Closed') {
       this.statusTagName = 'Gate Closed';
     }
     // else if(this.eventStatus=='Expired') {
     //   this.statusTagName = 'EXPIRED';
     // }
-    else if(eventStatus=='Locked') {
+    else if (eventStatus == 'Locked') {
       this.statusTagName = 'Locked';
     }
-    else if(eventStatus=='Live') {
+    else if (eventStatus == 'Live') {
       this.statusTagName = 'Live';
     }
     return this.statusTagName;
   }
+
 }
