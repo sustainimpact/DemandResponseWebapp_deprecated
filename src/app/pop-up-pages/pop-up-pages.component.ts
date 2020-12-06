@@ -77,7 +77,7 @@ export class PopUpPagesComponent implements OnInit {
   templateUrl: '../Modals/publish-event-modal/publish-event-modal.component.html',
   styleUrls: ['../Modals/publish-event-modal/publish-event-modal.component.scss']
 })
-export class PublishEventModalComponent implements OnInit {
+export class  PublishEventModalComponent implements OnInit {
   @Input() public selectedEvents;
   @Input() public eventSetId;
   @Input() public eventType;

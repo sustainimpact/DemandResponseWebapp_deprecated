@@ -463,7 +463,7 @@ export class CreateEventDetailsComponent implements OnInit {
     this.selectedEvents = [];
     this.events.forEach(event => {
       if (event.isSelected) {
-        this.selectedEvents.push(event.eventId);
+        this.selectedEvents.push({"id":event.eventId, "type":+event.eventTypeId});
       }
     });
   }
