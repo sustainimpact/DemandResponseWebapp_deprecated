@@ -188,7 +188,8 @@
                             {{(event.eventTypeId==2)?'Load Shift':'Peak Shave'}}
                             <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                         </button>
-                        <div class="dropdown-menu fs-14" id="dd{{i}}" (click)="$event.stopPropagation();">
+                        <div class="dropdown-menu fs-14" id="dd{{i}}" (click)="$event.stopPropagation();" 
+                        *ngIf="event.eventStatus == 'Created'">
                             <div class="dropdown-option">
                                 <div class="md-radio">
                                     <input id="dd{{i}}-option1" type="radio" name="participeted{{i}}" [value]="1"

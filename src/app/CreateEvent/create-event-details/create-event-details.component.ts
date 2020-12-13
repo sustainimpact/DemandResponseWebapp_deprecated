@@ -33,6 +33,7 @@ export class CreateEventDetailsComponent implements OnInit {
   curMonthEventSets: AllEventSets[];
 
   selectedEvents: any[] = [];
+  selectedEventsWithoutType: any[] =[];
 
   //events: AllEvents[] = [];
   events: any[] = [];
@@ -282,9 +283,6 @@ export class CreateEventDetailsComponent implements OnInit {
     return trueCount / totalCount;
   }
 
-
-
-
   getTotalPenaltyPerEvent(eventCusArr) {
     let totalCostPerEvent = 0;
     eventCusArr.forEach(eventCus => {
@@ -298,7 +296,7 @@ export class CreateEventDetailsComponent implements OnInit {
     const modalRef = this.modalService.open(EventOverviewComponent, { size: 'xl', centered: true });
     modalRef.componentInstance.eventSetId = this.eventSetId;
     modalRef.componentInstance.eventType = this.eventType;
-    modalRef.componentInstance.selectedEvents = this.selectedEvents;
+    modalRef.componentInstance.selectedEvents = this.selectedEventsWithoutType;
   }
 
   openEventDetails(event: any) {
@@ -329,7 +327,7 @@ export class CreateEventDetailsComponent implements OnInit {
     modalRef.componentInstance.name = 'World';
     modalRef.componentInstance.eventSetId = this.eventSetId;
     modalRef.componentInstance.eventType = this.eventType;
-    modalRef.componentInstance.selectedEvents = this.selectedEvents;
+    modalRef.componentInstance.selectedEvents = this.selectedEventsWithoutType;
   }
 
   publishEvents() {
@@ -464,6 +462,7 @@ export class CreateEventDetailsComponent implements OnInit {
     this.events.forEach(event => {
       if (event.isSelected) {
         this.selectedEvents.push({"id":event.eventId, "type":+event.eventTypeId});
+        this.selectedEventsWithoutType.push(event.eventId);
       }
     });
   }
