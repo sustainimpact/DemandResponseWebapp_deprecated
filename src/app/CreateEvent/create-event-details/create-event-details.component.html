@@ -192,17 +192,18 @@
                             LOAD SHIFT
                             <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                         </button>
-                        <div class="dropdown-menu fs-14" id="dd{{i}}" (click)="$event.stopPropagation();">
+                        <div class="dropdown-menu fs-14" id="dd{{i}}" (click)="$event.stopPropagation();" 
+                        *ngIf="event.eventStatus == 'Created'">
                             <div class="dropdown-option">
                                 <div class="md-radio">
-                                    <input id="dd{{i}}-option1" type="radio" name="participeted{{i}}" [value]="'1'"
+                                    <input id="dd{{i}}-option1" type="radio" name="participeted{{i}}" [value]="1"
                                         [(ngModel)]="event.eventTypeId">
                                     <label for="dd{{i}}-option1" class="green">Peak Shave</label>
                                 </div>
                             </div>
                             <div class="dropdown-option" id="dd{{i}}" (click)="$event.stopPropagation();">
                                 <div class="md-radio">
-                                    <input id="dd{{i}}-option2" type="radio" name="participeted{{i}}" [value]="'2'"
+                                    <input id="dd{{i}}-option2" type="radio" name="participeted{{i}}" [value]="2"
                                         [(ngModel)]="event.eventTypeId">
                                     <label for="dd{{i}}-option2" class="red">Load Shift</label>
                                 </div>
