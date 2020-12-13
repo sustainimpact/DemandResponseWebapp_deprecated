@@ -184,8 +184,12 @@
                 </div>
                 <div class="col row-border plan-quantity-end commitement-header">
                     <div class="dropdown dropdown-col" data-toggle="dropdown">
-                        <button type="button" class="dropdown-button event-type">
-                            {{(event.eventTypeId==2)?'Load Shift':'Peak Shave'}}
+                        <button *ngIf="event.eventTypeId==1" type="button" class="dropdown-button peak-shave">
+                            PEAK SHAVE
+                            <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
+                        </button>
+                        <button *ngIf="event.eventTypeId==2" type="button" class="dropdown-button load-shift">
+                            LOAD SHIFT
                             <!--<i class="dropdown-arrow fas fa-chevron-down"></i>-->
                         </button>
                         <div class="dropdown-menu fs-14" id="dd{{i}}" (click)="$event.stopPropagation();">
