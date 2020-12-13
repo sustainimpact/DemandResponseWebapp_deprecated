@@ -179,7 +179,7 @@ export class CreateEventDetailsComponent implements OnInit {
             this.events = this.eventDetails.events;
             this.eventsService.events = this.events;
             console.log('events : ', this.events);
-            this.defaultEventType();
+            //this.defaultEventType();
             this.calculateEventDetails();
             //   this.excludeZero();
 
